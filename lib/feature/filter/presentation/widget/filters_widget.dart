@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:next_gig/desgin_system/atoms/app_space.dart';
 import 'package:next_gig/desgin_system/molecules/button/app_primary_button.dart';
+import 'package:next_gig/desgin_system/molecules/text/app_body.dart';
 import 'package:next_gig/desgin_system/molecules/text/app_title.dart';
 import 'package:next_gig/desgin_system/molecules/widget/app_dialog.dart';
 import 'package:next_gig/feature/cities/domain/use_case/get_cities_use_case.dart';
@@ -36,7 +37,8 @@ class FiltersWidget extends StatelessWidget {
         itemBuilder: (context, index) {
           final city = cities[index];
           return ListTile(
-            title: Text(city.name),
+            contentPadding: EdgeInsets.zero,
+            title: AppBody(text: city.name),
           );
         },
       ),

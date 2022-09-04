@@ -22,10 +22,10 @@ class AppDialog {
         useRootNavigator: false,
         barrierColor: AppColours.transparent,
         builder: (_) => AlertDialog(
-          shape: const StadiumBorder(),
-          backgroundColor: AppColours.onPrimary,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(isLargeScreen ? 40 : 16))),
+          backgroundColor: AppColours.onPrimaryTransparent,
           title: Padding(
-            padding: const EdgeInsets.all(AppSpace.normal),
+            padding: EdgeInsets.all(isLargeScreen ? AppSpace.normal : AppSpace.small),
             child: title,
           ),
           content: isWrapContent
