@@ -13,13 +13,9 @@ class AppGlowingSubtitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        return GlowingText(
-          text: text,
-          fontSize: constraints.maxWidth >= ScreenInfo.largeScreen ? AppTextSize.xLarge : AppTextSize.normal,
-        );
-      },
+    return GlowingText(
+      text: text,
+      fontSize: ScreenInfo.isLargeScreen(context) ? AppTextSize.xLarge : AppTextSize.normal,
     );
   }
 }

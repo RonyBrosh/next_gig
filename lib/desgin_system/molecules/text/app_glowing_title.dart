@@ -13,14 +13,10 @@ class AppGlowingTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        return GlowingText(
-          text: text,
-          fontSize: constraints.maxWidth >= ScreenInfo.largeScreen ? AppTextSize.massive : AppTextSize.large,
-          fontWeight: FontWeight.bold,
-        );
-      },
+    return GlowingText(
+      text: text,
+      fontSize: ScreenInfo.isLargeScreen(context) ? AppTextSize.massive : AppTextSize.large,
+      fontWeight: FontWeight.bold,
     );
   }
 }

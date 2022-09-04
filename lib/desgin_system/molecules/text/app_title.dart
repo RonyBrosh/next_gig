@@ -13,17 +13,13 @@ class AppTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        return Text(
-          text,
-          style: TextStyle(
-            color: AppColours.primary,
-            fontSize: constraints.maxWidth >= ScreenInfo.largeScreen ? AppTextSize.large : AppTextSize.medium,
-            shadows: const [Shadow(color: AppColours.shadow, blurRadius: 10.0)],
-          ),
-        );
-      },
+    return Text(
+      text,
+      style: TextStyle(
+        color: AppColours.primary,
+        fontSize: ScreenInfo.isLargeScreen(context) ? AppTextSize.large : AppTextSize.medium,
+        shadows: const [Shadow(color: AppColours.shadow, blurRadius: 10.0)],
+      ),
     );
   }
 }
