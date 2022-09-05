@@ -30,3 +30,10 @@ Feature: Filter cities
     Then I see {'Bristol'} text
     And I see {'Brighton'} text
     And I see multiple {'London'} texts
+
+  Scenario: City is selected
+    Given I enter {'bri'} into {0} input field
+    And I wait
+    When I tap {'Bristol'} text
+    And I wait
+    Then I see {'Bristol'} text

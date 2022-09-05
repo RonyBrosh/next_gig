@@ -49,5 +49,13 @@ void main() {
       await iSeeText(tester, 'Brighton');
       await iSeeMultipleTexts(tester, 'London');
     });
+    testWidgets('''City is selected''', (tester) async {
+      await bddSetUp(tester);
+      await iEnterIntoInputField(tester, 'bri', 0);
+      await iWait(tester);
+      await iTapText(tester, 'Bristol');
+      await iWait(tester);
+      await iSeeText(tester, 'Bristol');
+    });
   });
 }

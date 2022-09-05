@@ -56,9 +56,11 @@ class FiltersWidget extends StatelessWidget {
         content: FilterableList<City>(
           data: cities,
           buildItem: (city) => ListTile(
-            contentPadding: EdgeInsets.zero,
-            title: AppBody(text: city.name),
-          ),
+              title: AppBody(text: city.name),
+              onTap: () {
+                Navigator.pop(context, false);
+                context.read<FiltersBloc>().add(FiltersEvent.citySelected(city));
+              }),
           filter: filterCities,
         ),
       ),
