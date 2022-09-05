@@ -10,7 +10,7 @@ class AppDialog {
     required BuildContext context,
     required Widget title,
     required Widget content,
-    bool isWrapContent = true,
+    bool isFixedSize = true,
   }) {
     final size = MediaQuery.of(context).size;
     final isLargeScreen = ScreenInfo.isLargeScreen(context);
@@ -28,7 +28,7 @@ class AppDialog {
             padding: EdgeInsets.all(isLargeScreen ? AppSpace.normal : AppSpace.small),
             child: title,
           ),
-          content: isWrapContent
+          content: isFixedSize
               ? SizedBox(
                   width: isLargeScreen ? size.width * 0.4 : double.maxFinite,
                   height: isLargeScreen ? size.height * 0.7 : size.height * 0.5,
