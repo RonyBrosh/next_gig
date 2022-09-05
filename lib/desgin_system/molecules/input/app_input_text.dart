@@ -4,18 +4,20 @@ import 'package:next_gig/desgin_system/atoms/app_space.dart';
 import 'package:next_gig/desgin_system/atoms/app_text_size.dart';
 
 class AppInputText extends StatelessWidget {
-  const AppInputText({Key? key}) : super(key: key);
+  const AppInputText({Key? key, required this.onChanged}) : super(key: key);
 
+  final void Function(String) onChanged;
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.only(bottom: AppSpace.normal),
+    return Padding(
+      padding: const EdgeInsets.only(bottom: AppSpace.normal),
       child: TextField(
-        style: TextStyle(
+        onChanged: onChanged,
+        style: const TextStyle(
           color: AppColours.primary,
           fontSize: AppTextSize.normal,
         ),
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
           prefixIcon: Icon(Icons.search, color: AppColours.primary),
           enabledBorder: UnderlineInputBorder(
             borderSide: BorderSide(color: AppColours.primary),

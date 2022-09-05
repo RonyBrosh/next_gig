@@ -19,7 +19,7 @@ class AppPrimaryButton extends StatelessWidget {
     return OutlinedButton(
       onPressed: onTap,
       style: OutlinedButton.styleFrom(
-        primary: AppColours.accent,
+        foregroundColor: AppColours.accent,
         shape: const StadiumBorder(),
         side: const BorderSide(width: 1, color: AppColours.primary),
         backgroundColor: isInverted() ? AppColours.primaryTransparent : null,

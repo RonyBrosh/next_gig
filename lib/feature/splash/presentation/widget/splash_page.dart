@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:next_gig/desgin_system/atoms/app_space.dart';
 import 'package:next_gig/desgin_system/molecules/button/app_inverted_primary_button.dart';
 import 'package:next_gig/desgin_system/molecules/widget/app_fade_animated_widget.dart';
-import 'package:next_gig/feature/filter/presentation/widget/filters_widget.dart';
+import 'package:next_gig/feature/filters/presentation/widget/filters_widget.dart';
 import 'package:next_gig/feature/splash/localisation/build_context_extension.dart';
 import 'package:next_gig/feature/splash/presentation/bloc/splash_bloc.dart';
 import 'package:next_gig/feature/splash/presentation/widget/background_image.dart';
