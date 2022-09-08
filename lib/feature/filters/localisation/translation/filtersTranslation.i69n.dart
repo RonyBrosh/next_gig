@@ -36,6 +36,7 @@ String _cardinal(int count,
 class FiltersTranslation implements i69n.I69nMessageBundle {
   const FiltersTranslation();
   String get city => "Select a country or a city";
+  String get genre => "Select a genre";
   Object operator [](String key) {
     var index = key.indexOf('.');
     if (index > 0) {
@@ -45,6 +46,8 @@ class FiltersTranslation implements i69n.I69nMessageBundle {
     switch (key) {
       case 'city':
         return city;
+      case 'genre':
+        return genre;
       default:
         return key;
     }

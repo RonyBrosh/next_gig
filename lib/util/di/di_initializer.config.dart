@@ -9,7 +9,8 @@ import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
 import '../../feature/cities/domain/use_case/get_cities_use_case.dart' as _i4;
-import '../../feature/filters/presentation/bloc/filters_bloc.dart' as _i5;
+import '../../feature/filters/presentation/bloc/filters_bloc.dart' as _i6;
+import '../../feature/genre/domain/use_case/get_genres_use_case.dart' as _i5;
 import '../device/assets_manager.dart'
     as _i3; // ignore_for_file: unnecessary_lambdas
 
@@ -21,7 +22,9 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   gh.factory<_i3.AssetsManager>(() => _i3.AssetsManager());
   gh.factory<_i4.GetCitiesUseCase>(
       () => _i4.GetCitiesUseCase(get<_i3.AssetsManager>()));
-  gh.factory<_i5.FiltersBloc>(
-      () => _i5.FiltersBloc(get<_i4.GetCitiesUseCase>()));
+  gh.factory<_i5.GetGenresUseCase>(
+      () => _i5.GetGenresUseCase(get<_i3.AssetsManager>()));
+  gh.factory<_i6.FiltersBloc>(() => _i6.FiltersBloc(
+      get<_i4.GetCitiesUseCase>(), get<_i5.GetGenresUseCase>()));
   return get;
 }
