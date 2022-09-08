@@ -6,4 +6,5 @@ part 'filter_type.freezed.dart';
 class FilterType with _$FilterType {
   const factory FilterType.city() = _City;
   const factory FilterType.genre() = _Genre;
+  const factory FilterType.dates() = _Dates;
 }

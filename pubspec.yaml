@@ -17,6 +17,7 @@ dependencies:
   i69n: ^2.1.0
   injectable: ^1.5.3
   get_it: ^7.2.0
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:

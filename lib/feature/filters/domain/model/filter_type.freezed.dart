@@ -20,18 +20,21 @@ mixin _$FilterType {
   TResult when<TResult extends Object?>({
     required TResult Function() city,
     required TResult Function() genre,
+    required TResult Function() dates,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? city,
     TResult Function()? genre,
+    TResult Function()? dates,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? city,
     TResult Function()? genre,
+    TResult Function()? dates,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$FilterType {
   TResult map<TResult extends Object?>({
     required TResult Function(_City value) city,
     required TResult Function(_Genre value) genre,
+    required TResult Function(_Dates value) dates,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_City value)? city,
     TResult Function(_Genre value)? genre,
+    TResult Function(_Dates value)? dates,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_City value)? city,
     TResult Function(_Genre value)? genre,
+    TResult Function(_Dates value)? dates,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -112,6 +118,7 @@ class _$_City implements _City {
   TResult when<TResult extends Object?>({
     required TResult Function() city,
     required TResult Function() genre,
+    required TResult Function() dates,
   }) {
     return city();
   }
@@ -121,6 +128,7 @@ class _$_City implements _City {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? city,
     TResult Function()? genre,
+    TResult Function()? dates,
   }) {
     return city?.call();
   }
@@ -130,6 +138,7 @@ class _$_City implements _City {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? city,
     TResult Function()? genre,
+    TResult Function()? dates,
     required TResult orElse(),
   }) {
     if (city != null) {
@@ -143,6 +152,7 @@ class _$_City implements _City {
   TResult map<TResult extends Object?>({
     required TResult Function(_City value) city,
     required TResult Function(_Genre value) genre,
+    required TResult Function(_Dates value) dates,
   }) {
     return city(this);
   }
@@ -152,6 +162,7 @@ class _$_City implements _City {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_City value)? city,
     TResult Function(_Genre value)? genre,
+    TResult Function(_Dates value)? dates,
   }) {
     return city?.call(this);
   }
@@ -161,6 +172,7 @@ class _$_City implements _City {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_City value)? city,
     TResult Function(_Genre value)? genre,
+    TResult Function(_Dates value)? dates,
     required TResult orElse(),
   }) {
     if (city != null) {
@@ -214,6 +226,7 @@ class _$_Genre implements _Genre {
   TResult when<TResult extends Object?>({
     required TResult Function() city,
     required TResult Function() genre,
+    required TResult Function() dates,
   }) {
     return genre();
   }
@@ -223,6 +236,7 @@ class _$_Genre implements _Genre {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? city,
     TResult Function()? genre,
+    TResult Function()? dates,
   }) {
     return genre?.call();
   }
@@ -232,6 +246,7 @@ class _$_Genre implements _Genre {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? city,
     TResult Function()? genre,
+    TResult Function()? dates,
     required TResult orElse(),
   }) {
     if (genre != null) {
@@ -245,6 +260,7 @@ class _$_Genre implements _Genre {
   TResult map<TResult extends Object?>({
     required TResult Function(_City value) city,
     required TResult Function(_Genre value) genre,
+    required TResult Function(_Dates value) dates,
   }) {
     return genre(this);
   }
@@ -254,6 +270,7 @@ class _$_Genre implements _Genre {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_City value)? city,
     TResult Function(_Genre value)? genre,
+    TResult Function(_Dates value)? dates,
   }) {
     return genre?.call(this);
   }
@@ -263,6 +280,7 @@ class _$_Genre implements _Genre {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_City value)? city,
     TResult Function(_Genre value)? genre,
+    TResult Function(_Dates value)? dates,
     required TResult orElse(),
   }) {
     if (genre != null) {
@@ -274,4 +292,112 @@ class _$_Genre implements _Genre {
 
 abstract class _Genre implements FilterType {
   const factory _Genre() = _$_Genre;
+}
+
+/// @nodoc
+abstract class _$$_DatesCopyWith<$Res> {
+  factory _$$_DatesCopyWith(_$_Dates value, $Res Function(_$_Dates) then) =
+      __$$_DatesCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_DatesCopyWithImpl<$Res> extends _$FilterTypeCopyWithImpl<$Res>
+    implements _$$_DatesCopyWith<$Res> {
+  __$$_DatesCopyWithImpl(_$_Dates _value, $Res Function(_$_Dates) _then)
+      : super(_value, (v) => _then(v as _$_Dates));
+
+  @override
+  _$_Dates get _value => super._value as _$_Dates;
+}
+
+/// @nodoc
+
+class _$_Dates implements _Dates {
+  const _$_Dates();
+
+  @override
+  String toString() {
+    return 'FilterType.dates()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Dates);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() city,
+    required TResult Function() genre,
+    required TResult Function() dates,
+  }) {
+    return dates();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? city,
+    TResult Function()? genre,
+    TResult Function()? dates,
+  }) {
+    return dates?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? city,
+    TResult Function()? genre,
+    TResult Function()? dates,
+    required TResult orElse(),
+  }) {
+    if (dates != null) {
+      return dates();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_City value) city,
+    required TResult Function(_Genre value) genre,
+    required TResult Function(_Dates value) dates,
+  }) {
+    return dates(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_City value)? city,
+    TResult Function(_Genre value)? genre,
+    TResult Function(_Dates value)? dates,
+  }) {
+    return dates?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_City value)? city,
+    TResult Function(_Genre value)? genre,
+    TResult Function(_Dates value)? dates,
+    required TResult orElse(),
+  }) {
+    if (dates != null) {
+      return dates(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Dates implements FilterType {
+  const factory _Dates() = _$_Dates;
 }

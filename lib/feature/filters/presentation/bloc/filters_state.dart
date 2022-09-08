@@ -8,6 +8,8 @@ class FiltersState with _$FiltersState {
     City? selectedCity,
     @Default([]) List<Genre> genres,
     Genre? selectedGenre,
+    @Default([]) List<DateRange> dateRanges,
+    DateRange? selectedDateRange,
   }) = _FiltersState;
 }
 
@@ -16,4 +18,5 @@ class FiltersAction with _$FiltersAction {
   const factory FiltersAction.none() = _None;
   const factory FiltersAction.city() = _City;
   const factory FiltersAction.genre() = _Genre;
+  const factory FiltersAction.dateRange() = _DateRange;
 }

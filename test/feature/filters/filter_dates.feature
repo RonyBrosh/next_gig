@@ -2,35 +2,27 @@ Feature: Filter dates
 
   Background:
     Given the page is shown
-    When I tap {'This week'} text
+    When I tap {'This month'} text
 
-#  Scenario: No filter text
-#    Then I see {'Bristol'} text
-#    And I see {'Brighton'} text
-#    And I see multiple {'London'} texts
+  Scenario: No filter text
+    Then I see {'Today'} text
+    And I see {'This week'} text
+    And I see multiple {'This month'} texts
+    And I see {'3 months'} text
+    And I see {'Custom date range'} text
 
-#  Scenario: Filter text matches the list
-#    When I enter {'bri'} into {0} input field
-#    And I wait
-#    Then I see {'Bristol'} text
-#    And I see {'Brighton'} text
-#    And I see {'London'} text
-#
-#  Scenario: Filter text doesn't match the list
-#    When I enter {'123'} into {0} input field
-#    And I wait
-#    Then I don't see {'Bristol'} text
-#    And I don't see {'Brighton'} text
-#    And I see {'London'} text
-#
-#  Scenario: Filter text is cleared
-#    Given I enter {'123'} into {0} input field
-#    And I enter {''} into {0} input field
-#    And I wait
-#    Then I see {'Bristol'} text
-#    And I see {'Brighton'} text
-#    And I see multiple {'London'} texts
-#
+  Scenario Outline: Filter is selected
+    When I tap <text> list option
+    And I wait
+    Then I see <text> text
+    Examples:
+      | text         |
+      | 'Today'      |
+      | 'This week'  |
+      | 'This month' |
+      | '3 months'   |
+
+
 #  Scenario: City is selected
 #    Given I enter {'bri'} into {0} input field
 #    And I wait

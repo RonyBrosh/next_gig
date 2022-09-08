@@ -18,32 +18,35 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$FiltersEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            List<City> cities, City city, List<Genre> genres, Genre genre)
+    required TResult Function(List<City> cities, City city, List<Genre> genres,
+            Genre genre, List<DateRange> dateRanges, DateRange dateRange)
         setDefault,
     required TResult Function(FilterType filterType) showPicker,
     required TResult Function(City city) citySelected,
     required TResult Function(Genre genre) genreSelected,
+    required TResult Function(DateRange dateRange) dateRangeSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(
-            List<City> cities, City city, List<Genre> genres, Genre genre)?
+    TResult Function(List<City> cities, City city, List<Genre> genres,
+            Genre genre, List<DateRange> dateRanges, DateRange dateRange)?
         setDefault,
     TResult Function(FilterType filterType)? showPicker,
     TResult Function(City city)? citySelected,
     TResult Function(Genre genre)? genreSelected,
+    TResult Function(DateRange dateRange)? dateRangeSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            List<City> cities, City city, List<Genre> genres, Genre genre)?
+    TResult Function(List<City> cities, City city, List<Genre> genres,
+            Genre genre, List<DateRange> dateRanges, DateRange dateRange)?
         setDefault,
     TResult Function(FilterType filterType)? showPicker,
     TResult Function(City city)? citySelected,
     TResult Function(Genre genre)? genreSelected,
+    TResult Function(DateRange dateRange)? dateRangeSelected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -53,6 +56,7 @@ mixin _$FiltersEvent {
     required TResult Function(_ShowPicker value) showPicker,
     required TResult Function(_CitySelected value) citySelected,
     required TResult Function(_GenreSelected value) genreSelected,
+    required TResult Function(_DateRangeSelected value) dateRangeSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -61,6 +65,7 @@ mixin _$FiltersEvent {
     TResult Function(_ShowPicker value)? showPicker,
     TResult Function(_CitySelected value)? citySelected,
     TResult Function(_GenreSelected value)? genreSelected,
+    TResult Function(_DateRangeSelected value)? dateRangeSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,6 +74,7 @@ mixin _$FiltersEvent {
     TResult Function(_ShowPicker value)? showPicker,
     TResult Function(_CitySelected value)? citySelected,
     TResult Function(_GenreSelected value)? genreSelected,
+    TResult Function(_DateRangeSelected value)? dateRangeSelected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -95,10 +101,17 @@ abstract class _$$_SetDefaultCopyWith<$Res> {
   factory _$$_SetDefaultCopyWith(
           _$_SetDefault value, $Res Function(_$_SetDefault) then) =
       __$$_SetDefaultCopyWithImpl<$Res>;
-  $Res call({List<City> cities, City city, List<Genre> genres, Genre genre});
+  $Res call(
+      {List<City> cities,
+      City city,
+      List<Genre> genres,
+      Genre genre,
+      List<DateRange> dateRanges,
+      DateRange dateRange});
 
   $CityCopyWith<$Res> get city;
   $GenreCopyWith<$Res> get genre;
+  $DateRangeCopyWith<$Res> get dateRange;
 }
 
 /// @nodoc
@@ -117,6 +130,8 @@ class __$$_SetDefaultCopyWithImpl<$Res> extends _$FiltersEventCopyWithImpl<$Res>
     Object? city = freezed,
     Object? genres = freezed,
     Object? genre = freezed,
+    Object? dateRanges = freezed,
+    Object? dateRange = freezed,
   }) {
     return _then(_$_SetDefault(
       cities: cities == freezed
@@ -135,6 +150,14 @@ class __$$_SetDefaultCopyWithImpl<$Res> extends _$FiltersEventCopyWithImpl<$Res>
           ? _value.genre
           : genre // ignore: cast_nullable_to_non_nullable
               as Genre,
+      dateRanges: dateRanges == freezed
+          ? _value._dateRanges
+          : dateRanges // ignore: cast_nullable_to_non_nullable
+              as List<DateRange>,
+      dateRange: dateRange == freezed
+          ? _value.dateRange
+          : dateRange // ignore: cast_nullable_to_non_nullable
+              as DateRange,
     ));
   }
 
@@ -151,6 +174,13 @@ class __$$_SetDefaultCopyWithImpl<$Res> extends _$FiltersEventCopyWithImpl<$Res>
       return _then(_value.copyWith(genre: value));
     });
   }
+
+  @override
+  $DateRangeCopyWith<$Res> get dateRange {
+    return $DateRangeCopyWith<$Res>(_value.dateRange, (value) {
+      return _then(_value.copyWith(dateRange: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -160,9 +190,12 @@ class _$_SetDefault implements _SetDefault {
       {required final List<City> cities,
       required this.city,
       required final List<Genre> genres,
-      required this.genre})
+      required this.genre,
+      required final List<DateRange> dateRanges,
+      required this.dateRange})
       : _cities = cities,
-        _genres = genres;
+        _genres = genres,
+        _dateRanges = dateRanges;
 
   final List<City> _cities;
   @override
@@ -182,10 +215,19 @@ class _$_SetDefault implements _SetDefault {
 
   @override
   final Genre genre;
+  final List<DateRange> _dateRanges;
+  @override
+  List<DateRange> get dateRanges {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_dateRanges);
+  }
+
+  @override
+  final DateRange dateRange;
 
   @override
   String toString() {
-    return 'FiltersEvent.setDefault(cities: $cities, city: $city, genres: $genres, genre: $genre)';
+    return 'FiltersEvent.setDefault(cities: $cities, city: $city, genres: $genres, genre: $genre, dateRanges: $dateRanges, dateRange: $dateRange)';
   }
 
   @override
@@ -196,7 +238,10 @@ class _$_SetDefault implements _SetDefault {
             const DeepCollectionEquality().equals(other._cities, _cities) &&
             const DeepCollectionEquality().equals(other.city, city) &&
             const DeepCollectionEquality().equals(other._genres, _genres) &&
-            const DeepCollectionEquality().equals(other.genre, genre));
+            const DeepCollectionEquality().equals(other.genre, genre) &&
+            const DeepCollectionEquality()
+                .equals(other._dateRanges, _dateRanges) &&
+            const DeepCollectionEquality().equals(other.dateRange, dateRange));
   }
 
   @override
@@ -205,7 +250,9 @@ class _$_SetDefault implements _SetDefault {
       const DeepCollectionEquality().hash(_cities),
       const DeepCollectionEquality().hash(city),
       const DeepCollectionEquality().hash(_genres),
-      const DeepCollectionEquality().hash(genre));
+      const DeepCollectionEquality().hash(genre),
+      const DeepCollectionEquality().hash(_dateRanges),
+      const DeepCollectionEquality().hash(dateRange));
 
   @JsonKey(ignore: true)
   @override
@@ -215,42 +262,45 @@ class _$_SetDefault implements _SetDefault {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            List<City> cities, City city, List<Genre> genres, Genre genre)
+    required TResult Function(List<City> cities, City city, List<Genre> genres,
+            Genre genre, List<DateRange> dateRanges, DateRange dateRange)
         setDefault,
     required TResult Function(FilterType filterType) showPicker,
     required TResult Function(City city) citySelected,
     required TResult Function(Genre genre) genreSelected,
+    required TResult Function(DateRange dateRange) dateRangeSelected,
   }) {
-    return setDefault(cities, city, genres, genre);
+    return setDefault(cities, city, genres, genre, dateRanges, dateRange);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(
-            List<City> cities, City city, List<Genre> genres, Genre genre)?
+    TResult Function(List<City> cities, City city, List<Genre> genres,
+            Genre genre, List<DateRange> dateRanges, DateRange dateRange)?
         setDefault,
     TResult Function(FilterType filterType)? showPicker,
     TResult Function(City city)? citySelected,
     TResult Function(Genre genre)? genreSelected,
+    TResult Function(DateRange dateRange)? dateRangeSelected,
   }) {
-    return setDefault?.call(cities, city, genres, genre);
+    return setDefault?.call(cities, city, genres, genre, dateRanges, dateRange);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            List<City> cities, City city, List<Genre> genres, Genre genre)?
+    TResult Function(List<City> cities, City city, List<Genre> genres,
+            Genre genre, List<DateRange> dateRanges, DateRange dateRange)?
         setDefault,
     TResult Function(FilterType filterType)? showPicker,
     TResult Function(City city)? citySelected,
     TResult Function(Genre genre)? genreSelected,
+    TResult Function(DateRange dateRange)? dateRangeSelected,
     required TResult orElse(),
   }) {
     if (setDefault != null) {
-      return setDefault(cities, city, genres, genre);
+      return setDefault(cities, city, genres, genre, dateRanges, dateRange);
     }
     return orElse();
   }
@@ -262,6 +312,7 @@ class _$_SetDefault implements _SetDefault {
     required TResult Function(_ShowPicker value) showPicker,
     required TResult Function(_CitySelected value) citySelected,
     required TResult Function(_GenreSelected value) genreSelected,
+    required TResult Function(_DateRangeSelected value) dateRangeSelected,
   }) {
     return setDefault(this);
   }
@@ -273,6 +324,7 @@ class _$_SetDefault implements _SetDefault {
     TResult Function(_ShowPicker value)? showPicker,
     TResult Function(_CitySelected value)? citySelected,
     TResult Function(_GenreSelected value)? genreSelected,
+    TResult Function(_DateRangeSelected value)? dateRangeSelected,
   }) {
     return setDefault?.call(this);
   }
@@ -284,6 +336,7 @@ class _$_SetDefault implements _SetDefault {
     TResult Function(_ShowPicker value)? showPicker,
     TResult Function(_CitySelected value)? citySelected,
     TResult Function(_GenreSelected value)? genreSelected,
+    TResult Function(_DateRangeSelected value)? dateRangeSelected,
     required TResult orElse(),
   }) {
     if (setDefault != null) {
@@ -298,12 +351,16 @@ abstract class _SetDefault implements FiltersEvent {
       {required final List<City> cities,
       required final City city,
       required final List<Genre> genres,
-      required final Genre genre}) = _$_SetDefault;
+      required final Genre genre,
+      required final List<DateRange> dateRanges,
+      required final DateRange dateRange}) = _$_SetDefault;
 
   List<City> get cities;
   City get city;
   List<Genre> get genres;
   Genre get genre;
+  List<DateRange> get dateRanges;
+  DateRange get dateRange;
   @JsonKey(ignore: true)
   _$$_SetDefaultCopyWith<_$_SetDefault> get copyWith =>
       throw _privateConstructorUsedError;
@@ -383,12 +440,13 @@ class _$_ShowPicker implements _ShowPicker {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            List<City> cities, City city, List<Genre> genres, Genre genre)
+    required TResult Function(List<City> cities, City city, List<Genre> genres,
+            Genre genre, List<DateRange> dateRanges, DateRange dateRange)
         setDefault,
     required TResult Function(FilterType filterType) showPicker,
     required TResult Function(City city) citySelected,
     required TResult Function(Genre genre) genreSelected,
+    required TResult Function(DateRange dateRange) dateRangeSelected,
   }) {
     return showPicker(filterType);
   }
@@ -396,12 +454,13 @@ class _$_ShowPicker implements _ShowPicker {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(
-            List<City> cities, City city, List<Genre> genres, Genre genre)?
+    TResult Function(List<City> cities, City city, List<Genre> genres,
+            Genre genre, List<DateRange> dateRanges, DateRange dateRange)?
         setDefault,
     TResult Function(FilterType filterType)? showPicker,
     TResult Function(City city)? citySelected,
     TResult Function(Genre genre)? genreSelected,
+    TResult Function(DateRange dateRange)? dateRangeSelected,
   }) {
     return showPicker?.call(filterType);
   }
@@ -409,12 +468,13 @@ class _$_ShowPicker implements _ShowPicker {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            List<City> cities, City city, List<Genre> genres, Genre genre)?
+    TResult Function(List<City> cities, City city, List<Genre> genres,
+            Genre genre, List<DateRange> dateRanges, DateRange dateRange)?
         setDefault,
     TResult Function(FilterType filterType)? showPicker,
     TResult Function(City city)? citySelected,
     TResult Function(Genre genre)? genreSelected,
+    TResult Function(DateRange dateRange)? dateRangeSelected,
     required TResult orElse(),
   }) {
     if (showPicker != null) {
@@ -430,6 +490,7 @@ class _$_ShowPicker implements _ShowPicker {
     required TResult Function(_ShowPicker value) showPicker,
     required TResult Function(_CitySelected value) citySelected,
     required TResult Function(_GenreSelected value) genreSelected,
+    required TResult Function(_DateRangeSelected value) dateRangeSelected,
   }) {
     return showPicker(this);
   }
@@ -441,6 +502,7 @@ class _$_ShowPicker implements _ShowPicker {
     TResult Function(_ShowPicker value)? showPicker,
     TResult Function(_CitySelected value)? citySelected,
     TResult Function(_GenreSelected value)? genreSelected,
+    TResult Function(_DateRangeSelected value)? dateRangeSelected,
   }) {
     return showPicker?.call(this);
   }
@@ -452,6 +514,7 @@ class _$_ShowPicker implements _ShowPicker {
     TResult Function(_ShowPicker value)? showPicker,
     TResult Function(_CitySelected value)? citySelected,
     TResult Function(_GenreSelected value)? genreSelected,
+    TResult Function(_DateRangeSelected value)? dateRangeSelected,
     required TResult orElse(),
   }) {
     if (showPicker != null) {
@@ -544,12 +607,13 @@ class _$_CitySelected implements _CitySelected {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            List<City> cities, City city, List<Genre> genres, Genre genre)
+    required TResult Function(List<City> cities, City city, List<Genre> genres,
+            Genre genre, List<DateRange> dateRanges, DateRange dateRange)
         setDefault,
     required TResult Function(FilterType filterType) showPicker,
     required TResult Function(City city) citySelected,
     required TResult Function(Genre genre) genreSelected,
+    required TResult Function(DateRange dateRange) dateRangeSelected,
   }) {
     return citySelected(city);
   }
@@ -557,12 +621,13 @@ class _$_CitySelected implements _CitySelected {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(
-            List<City> cities, City city, List<Genre> genres, Genre genre)?
+    TResult Function(List<City> cities, City city, List<Genre> genres,
+            Genre genre, List<DateRange> dateRanges, DateRange dateRange)?
         setDefault,
     TResult Function(FilterType filterType)? showPicker,
     TResult Function(City city)? citySelected,
     TResult Function(Genre genre)? genreSelected,
+    TResult Function(DateRange dateRange)? dateRangeSelected,
   }) {
     return citySelected?.call(city);
   }
@@ -570,12 +635,13 @@ class _$_CitySelected implements _CitySelected {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            List<City> cities, City city, List<Genre> genres, Genre genre)?
+    TResult Function(List<City> cities, City city, List<Genre> genres,
+            Genre genre, List<DateRange> dateRanges, DateRange dateRange)?
         setDefault,
     TResult Function(FilterType filterType)? showPicker,
     TResult Function(City city)? citySelected,
     TResult Function(Genre genre)? genreSelected,
+    TResult Function(DateRange dateRange)? dateRangeSelected,
     required TResult orElse(),
   }) {
     if (citySelected != null) {
@@ -591,6 +657,7 @@ class _$_CitySelected implements _CitySelected {
     required TResult Function(_ShowPicker value) showPicker,
     required TResult Function(_CitySelected value) citySelected,
     required TResult Function(_GenreSelected value) genreSelected,
+    required TResult Function(_DateRangeSelected value) dateRangeSelected,
   }) {
     return citySelected(this);
   }
@@ -602,6 +669,7 @@ class _$_CitySelected implements _CitySelected {
     TResult Function(_ShowPicker value)? showPicker,
     TResult Function(_CitySelected value)? citySelected,
     TResult Function(_GenreSelected value)? genreSelected,
+    TResult Function(_DateRangeSelected value)? dateRangeSelected,
   }) {
     return citySelected?.call(this);
   }
@@ -613,6 +681,7 @@ class _$_CitySelected implements _CitySelected {
     TResult Function(_ShowPicker value)? showPicker,
     TResult Function(_CitySelected value)? citySelected,
     TResult Function(_GenreSelected value)? genreSelected,
+    TResult Function(_DateRangeSelected value)? dateRangeSelected,
     required TResult orElse(),
   }) {
     if (citySelected != null) {
@@ -705,12 +774,13 @@ class _$_GenreSelected implements _GenreSelected {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            List<City> cities, City city, List<Genre> genres, Genre genre)
+    required TResult Function(List<City> cities, City city, List<Genre> genres,
+            Genre genre, List<DateRange> dateRanges, DateRange dateRange)
         setDefault,
     required TResult Function(FilterType filterType) showPicker,
     required TResult Function(City city) citySelected,
     required TResult Function(Genre genre) genreSelected,
+    required TResult Function(DateRange dateRange) dateRangeSelected,
   }) {
     return genreSelected(genre);
   }
@@ -718,12 +788,13 @@ class _$_GenreSelected implements _GenreSelected {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(
-            List<City> cities, City city, List<Genre> genres, Genre genre)?
+    TResult Function(List<City> cities, City city, List<Genre> genres,
+            Genre genre, List<DateRange> dateRanges, DateRange dateRange)?
         setDefault,
     TResult Function(FilterType filterType)? showPicker,
     TResult Function(City city)? citySelected,
     TResult Function(Genre genre)? genreSelected,
+    TResult Function(DateRange dateRange)? dateRangeSelected,
   }) {
     return genreSelected?.call(genre);
   }
@@ -731,12 +802,13 @@ class _$_GenreSelected implements _GenreSelected {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            List<City> cities, City city, List<Genre> genres, Genre genre)?
+    TResult Function(List<City> cities, City city, List<Genre> genres,
+            Genre genre, List<DateRange> dateRanges, DateRange dateRange)?
         setDefault,
     TResult Function(FilterType filterType)? showPicker,
     TResult Function(City city)? citySelected,
     TResult Function(Genre genre)? genreSelected,
+    TResult Function(DateRange dateRange)? dateRangeSelected,
     required TResult orElse(),
   }) {
     if (genreSelected != null) {
@@ -752,6 +824,7 @@ class _$_GenreSelected implements _GenreSelected {
     required TResult Function(_ShowPicker value) showPicker,
     required TResult Function(_CitySelected value) citySelected,
     required TResult Function(_GenreSelected value) genreSelected,
+    required TResult Function(_DateRangeSelected value) dateRangeSelected,
   }) {
     return genreSelected(this);
   }
@@ -763,6 +836,7 @@ class _$_GenreSelected implements _GenreSelected {
     TResult Function(_ShowPicker value)? showPicker,
     TResult Function(_CitySelected value)? citySelected,
     TResult Function(_GenreSelected value)? genreSelected,
+    TResult Function(_DateRangeSelected value)? dateRangeSelected,
   }) {
     return genreSelected?.call(this);
   }
@@ -774,6 +848,7 @@ class _$_GenreSelected implements _GenreSelected {
     TResult Function(_ShowPicker value)? showPicker,
     TResult Function(_CitySelected value)? citySelected,
     TResult Function(_GenreSelected value)? genreSelected,
+    TResult Function(_DateRangeSelected value)? dateRangeSelected,
     required TResult orElse(),
   }) {
     if (genreSelected != null) {
@@ -793,12 +868,183 @@ abstract class _GenreSelected implements FiltersEvent {
 }
 
 /// @nodoc
+abstract class _$$_DateRangeSelectedCopyWith<$Res> {
+  factory _$$_DateRangeSelectedCopyWith(_$_DateRangeSelected value,
+          $Res Function(_$_DateRangeSelected) then) =
+      __$$_DateRangeSelectedCopyWithImpl<$Res>;
+  $Res call({DateRange dateRange});
+
+  $DateRangeCopyWith<$Res> get dateRange;
+}
+
+/// @nodoc
+class __$$_DateRangeSelectedCopyWithImpl<$Res>
+    extends _$FiltersEventCopyWithImpl<$Res>
+    implements _$$_DateRangeSelectedCopyWith<$Res> {
+  __$$_DateRangeSelectedCopyWithImpl(
+      _$_DateRangeSelected _value, $Res Function(_$_DateRangeSelected) _then)
+      : super(_value, (v) => _then(v as _$_DateRangeSelected));
+
+  @override
+  _$_DateRangeSelected get _value => super._value as _$_DateRangeSelected;
+
+  @override
+  $Res call({
+    Object? dateRange = freezed,
+  }) {
+    return _then(_$_DateRangeSelected(
+      dateRange == freezed
+          ? _value.dateRange
+          : dateRange // ignore: cast_nullable_to_non_nullable
+              as DateRange,
+    ));
+  }
+
+  @override
+  $DateRangeCopyWith<$Res> get dateRange {
+    return $DateRangeCopyWith<$Res>(_value.dateRange, (value) {
+      return _then(_value.copyWith(dateRange: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_DateRangeSelected implements _DateRangeSelected {
+  const _$_DateRangeSelected(this.dateRange);
+
+  @override
+  final DateRange dateRange;
+
+  @override
+  String toString() {
+    return 'FiltersEvent.dateRangeSelected(dateRange: $dateRange)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_DateRangeSelected &&
+            const DeepCollectionEquality().equals(other.dateRange, dateRange));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(dateRange));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_DateRangeSelectedCopyWith<_$_DateRangeSelected> get copyWith =>
+      __$$_DateRangeSelectedCopyWithImpl<_$_DateRangeSelected>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(List<City> cities, City city, List<Genre> genres,
+            Genre genre, List<DateRange> dateRanges, DateRange dateRange)
+        setDefault,
+    required TResult Function(FilterType filterType) showPicker,
+    required TResult Function(City city) citySelected,
+    required TResult Function(Genre genre) genreSelected,
+    required TResult Function(DateRange dateRange) dateRangeSelected,
+  }) {
+    return dateRangeSelected(dateRange);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(List<City> cities, City city, List<Genre> genres,
+            Genre genre, List<DateRange> dateRanges, DateRange dateRange)?
+        setDefault,
+    TResult Function(FilterType filterType)? showPicker,
+    TResult Function(City city)? citySelected,
+    TResult Function(Genre genre)? genreSelected,
+    TResult Function(DateRange dateRange)? dateRangeSelected,
+  }) {
+    return dateRangeSelected?.call(dateRange);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(List<City> cities, City city, List<Genre> genres,
+            Genre genre, List<DateRange> dateRanges, DateRange dateRange)?
+        setDefault,
+    TResult Function(FilterType filterType)? showPicker,
+    TResult Function(City city)? citySelected,
+    TResult Function(Genre genre)? genreSelected,
+    TResult Function(DateRange dateRange)? dateRangeSelected,
+    required TResult orElse(),
+  }) {
+    if (dateRangeSelected != null) {
+      return dateRangeSelected(dateRange);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SetDefault value) setDefault,
+    required TResult Function(_ShowPicker value) showPicker,
+    required TResult Function(_CitySelected value) citySelected,
+    required TResult Function(_GenreSelected value) genreSelected,
+    required TResult Function(_DateRangeSelected value) dateRangeSelected,
+  }) {
+    return dateRangeSelected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_SetDefault value)? setDefault,
+    TResult Function(_ShowPicker value)? showPicker,
+    TResult Function(_CitySelected value)? citySelected,
+    TResult Function(_GenreSelected value)? genreSelected,
+    TResult Function(_DateRangeSelected value)? dateRangeSelected,
+  }) {
+    return dateRangeSelected?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetDefault value)? setDefault,
+    TResult Function(_ShowPicker value)? showPicker,
+    TResult Function(_CitySelected value)? citySelected,
+    TResult Function(_GenreSelected value)? genreSelected,
+    TResult Function(_DateRangeSelected value)? dateRangeSelected,
+    required TResult orElse(),
+  }) {
+    if (dateRangeSelected != null) {
+      return dateRangeSelected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DateRangeSelected implements FiltersEvent {
+  const factory _DateRangeSelected(final DateRange dateRange) =
+      _$_DateRangeSelected;
+
+  DateRange get dateRange;
+  @JsonKey(ignore: true)
+  _$$_DateRangeSelectedCopyWith<_$_DateRangeSelected> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$FiltersState {
   FiltersAction get action => throw _privateConstructorUsedError;
   List<City> get cities => throw _privateConstructorUsedError;
   City? get selectedCity => throw _privateConstructorUsedError;
   List<Genre> get genres => throw _privateConstructorUsedError;
   Genre? get selectedGenre => throw _privateConstructorUsedError;
+  List<DateRange> get dateRanges => throw _privateConstructorUsedError;
+  DateRange? get selectedDateRange => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $FiltersStateCopyWith<FiltersState> get copyWith =>
@@ -815,11 +1061,14 @@ abstract class $FiltersStateCopyWith<$Res> {
       List<City> cities,
       City? selectedCity,
       List<Genre> genres,
-      Genre? selectedGenre});
+      Genre? selectedGenre,
+      List<DateRange> dateRanges,
+      DateRange? selectedDateRange});
 
   $FiltersActionCopyWith<$Res> get action;
   $CityCopyWith<$Res>? get selectedCity;
   $GenreCopyWith<$Res>? get selectedGenre;
+  $DateRangeCopyWith<$Res>? get selectedDateRange;
 }
 
 /// @nodoc
@@ -837,6 +1086,8 @@ class _$FiltersStateCopyWithImpl<$Res> implements $FiltersStateCopyWith<$Res> {
     Object? selectedCity = freezed,
     Object? genres = freezed,
     Object? selectedGenre = freezed,
+    Object? dateRanges = freezed,
+    Object? selectedDateRange = freezed,
   }) {
     return _then(_value.copyWith(
       action: action == freezed
@@ -859,6 +1110,14 @@ class _$FiltersStateCopyWithImpl<$Res> implements $FiltersStateCopyWith<$Res> {
           ? _value.selectedGenre
           : selectedGenre // ignore: cast_nullable_to_non_nullable
               as Genre?,
+      dateRanges: dateRanges == freezed
+          ? _value.dateRanges
+          : dateRanges // ignore: cast_nullable_to_non_nullable
+              as List<DateRange>,
+      selectedDateRange: selectedDateRange == freezed
+          ? _value.selectedDateRange
+          : selectedDateRange // ignore: cast_nullable_to_non_nullable
+              as DateRange?,
     ));
   }
 
@@ -890,6 +1149,17 @@ class _$FiltersStateCopyWithImpl<$Res> implements $FiltersStateCopyWith<$Res> {
       return _then(_value.copyWith(selectedGenre: value));
     });
   }
+
+  @override
+  $DateRangeCopyWith<$Res>? get selectedDateRange {
+    if (_value.selectedDateRange == null) {
+      return null;
+    }
+
+    return $DateRangeCopyWith<$Res>(_value.selectedDateRange!, (value) {
+      return _then(_value.copyWith(selectedDateRange: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -904,7 +1174,9 @@ abstract class _$$_FiltersStateCopyWith<$Res>
       List<City> cities,
       City? selectedCity,
       List<Genre> genres,
-      Genre? selectedGenre});
+      Genre? selectedGenre,
+      List<DateRange> dateRanges,
+      DateRange? selectedDateRange});
 
   @override
   $FiltersActionCopyWith<$Res> get action;
@@ -912,6 +1184,8 @@ abstract class _$$_FiltersStateCopyWith<$Res>
   $CityCopyWith<$Res>? get selectedCity;
   @override
   $GenreCopyWith<$Res>? get selectedGenre;
+  @override
+  $DateRangeCopyWith<$Res>? get selectedDateRange;
 }
 
 /// @nodoc
@@ -932,6 +1206,8 @@ class __$$_FiltersStateCopyWithImpl<$Res>
     Object? selectedCity = freezed,
     Object? genres = freezed,
     Object? selectedGenre = freezed,
+    Object? dateRanges = freezed,
+    Object? selectedDateRange = freezed,
   }) {
     return _then(_$_FiltersState(
       action: action == freezed
@@ -954,6 +1230,14 @@ class __$$_FiltersStateCopyWithImpl<$Res>
           ? _value.selectedGenre
           : selectedGenre // ignore: cast_nullable_to_non_nullable
               as Genre?,
+      dateRanges: dateRanges == freezed
+          ? _value._dateRanges
+          : dateRanges // ignore: cast_nullable_to_non_nullable
+              as List<DateRange>,
+      selectedDateRange: selectedDateRange == freezed
+          ? _value.selectedDateRange
+          : selectedDateRange // ignore: cast_nullable_to_non_nullable
+              as DateRange?,
     ));
   }
 }
@@ -966,9 +1250,12 @@ class _$_FiltersState implements _FiltersState {
       final List<City> cities = const [],
       this.selectedCity,
       final List<Genre> genres = const [],
-      this.selectedGenre})
+      this.selectedGenre,
+      final List<DateRange> dateRanges = const [],
+      this.selectedDateRange})
       : _cities = cities,
-        _genres = genres;
+        _genres = genres,
+        _dateRanges = dateRanges;
 
   @override
   @JsonKey()
@@ -993,10 +1280,20 @@ class _$_FiltersState implements _FiltersState {
 
   @override
   final Genre? selectedGenre;
+  final List<DateRange> _dateRanges;
+  @override
+  @JsonKey()
+  List<DateRange> get dateRanges {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_dateRanges);
+  }
+
+  @override
+  final DateRange? selectedDateRange;
 
   @override
   String toString() {
-    return 'FiltersState(action: $action, cities: $cities, selectedCity: $selectedCity, genres: $genres, selectedGenre: $selectedGenre)';
+    return 'FiltersState(action: $action, cities: $cities, selectedCity: $selectedCity, genres: $genres, selectedGenre: $selectedGenre, dateRanges: $dateRanges, selectedDateRange: $selectedDateRange)';
   }
 
   @override
@@ -1010,7 +1307,11 @@ class _$_FiltersState implements _FiltersState {
                 .equals(other.selectedCity, selectedCity) &&
             const DeepCollectionEquality().equals(other._genres, _genres) &&
             const DeepCollectionEquality()
-                .equals(other.selectedGenre, selectedGenre));
+                .equals(other.selectedGenre, selectedGenre) &&
+            const DeepCollectionEquality()
+                .equals(other._dateRanges, _dateRanges) &&
+            const DeepCollectionEquality()
+                .equals(other.selectedDateRange, selectedDateRange));
   }
 
   @override
@@ -1020,7 +1321,9 @@ class _$_FiltersState implements _FiltersState {
       const DeepCollectionEquality().hash(_cities),
       const DeepCollectionEquality().hash(selectedCity),
       const DeepCollectionEquality().hash(_genres),
-      const DeepCollectionEquality().hash(selectedGenre));
+      const DeepCollectionEquality().hash(selectedGenre),
+      const DeepCollectionEquality().hash(_dateRanges),
+      const DeepCollectionEquality().hash(selectedDateRange));
 
   @JsonKey(ignore: true)
   @override
@@ -1034,7 +1337,9 @@ abstract class _FiltersState implements FiltersState {
       final List<City> cities,
       final City? selectedCity,
       final List<Genre> genres,
-      final Genre? selectedGenre}) = _$_FiltersState;
+      final Genre? selectedGenre,
+      final List<DateRange> dateRanges,
+      final DateRange? selectedDateRange}) = _$_FiltersState;
 
   @override
   FiltersAction get action;
@@ -1046,6 +1351,10 @@ abstract class _FiltersState implements FiltersState {
   List<Genre> get genres;
   @override
   Genre? get selectedGenre;
+  @override
+  List<DateRange> get dateRanges;
+  @override
+  DateRange? get selectedDateRange;
   @override
   @JsonKey(ignore: true)
   _$$_FiltersStateCopyWith<_$_FiltersState> get copyWith =>
@@ -1059,6 +1368,7 @@ mixin _$FiltersAction {
     required TResult Function() none,
     required TResult Function() city,
     required TResult Function() genre,
+    required TResult Function() dateRange,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1066,6 +1376,7 @@ mixin _$FiltersAction {
     TResult Function()? none,
     TResult Function()? city,
     TResult Function()? genre,
+    TResult Function()? dateRange,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1073,6 +1384,7 @@ mixin _$FiltersAction {
     TResult Function()? none,
     TResult Function()? city,
     TResult Function()? genre,
+    TResult Function()? dateRange,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1081,6 +1393,7 @@ mixin _$FiltersAction {
     required TResult Function(_None value) none,
     required TResult Function(_City value) city,
     required TResult Function(_Genre value) genre,
+    required TResult Function(_DateRange value) dateRange,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1088,6 +1401,7 @@ mixin _$FiltersAction {
     TResult Function(_None value)? none,
     TResult Function(_City value)? city,
     TResult Function(_Genre value)? genre,
+    TResult Function(_DateRange value)? dateRange,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1095,6 +1409,7 @@ mixin _$FiltersAction {
     TResult Function(_None value)? none,
     TResult Function(_City value)? city,
     TResult Function(_Genre value)? genre,
+    TResult Function(_DateRange value)? dateRange,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1158,6 +1473,7 @@ class _$_None implements _None {
     required TResult Function() none,
     required TResult Function() city,
     required TResult Function() genre,
+    required TResult Function() dateRange,
   }) {
     return none();
   }
@@ -1168,6 +1484,7 @@ class _$_None implements _None {
     TResult Function()? none,
     TResult Function()? city,
     TResult Function()? genre,
+    TResult Function()? dateRange,
   }) {
     return none?.call();
   }
@@ -1178,6 +1495,7 @@ class _$_None implements _None {
     TResult Function()? none,
     TResult Function()? city,
     TResult Function()? genre,
+    TResult Function()? dateRange,
     required TResult orElse(),
   }) {
     if (none != null) {
@@ -1192,6 +1510,7 @@ class _$_None implements _None {
     required TResult Function(_None value) none,
     required TResult Function(_City value) city,
     required TResult Function(_Genre value) genre,
+    required TResult Function(_DateRange value) dateRange,
   }) {
     return none(this);
   }
@@ -1202,6 +1521,7 @@ class _$_None implements _None {
     TResult Function(_None value)? none,
     TResult Function(_City value)? city,
     TResult Function(_Genre value)? genre,
+    TResult Function(_DateRange value)? dateRange,
   }) {
     return none?.call(this);
   }
@@ -1212,6 +1532,7 @@ class _$_None implements _None {
     TResult Function(_None value)? none,
     TResult Function(_City value)? city,
     TResult Function(_Genre value)? genre,
+    TResult Function(_DateRange value)? dateRange,
     required TResult orElse(),
   }) {
     if (none != null) {
@@ -1266,6 +1587,7 @@ class _$_City implements _City {
     required TResult Function() none,
     required TResult Function() city,
     required TResult Function() genre,
+    required TResult Function() dateRange,
   }) {
     return city();
   }
@@ -1276,6 +1598,7 @@ class _$_City implements _City {
     TResult Function()? none,
     TResult Function()? city,
     TResult Function()? genre,
+    TResult Function()? dateRange,
   }) {
     return city?.call();
   }
@@ -1286,6 +1609,7 @@ class _$_City implements _City {
     TResult Function()? none,
     TResult Function()? city,
     TResult Function()? genre,
+    TResult Function()? dateRange,
     required TResult orElse(),
   }) {
     if (city != null) {
@@ -1300,6 +1624,7 @@ class _$_City implements _City {
     required TResult Function(_None value) none,
     required TResult Function(_City value) city,
     required TResult Function(_Genre value) genre,
+    required TResult Function(_DateRange value) dateRange,
   }) {
     return city(this);
   }
@@ -1310,6 +1635,7 @@ class _$_City implements _City {
     TResult Function(_None value)? none,
     TResult Function(_City value)? city,
     TResult Function(_Genre value)? genre,
+    TResult Function(_DateRange value)? dateRange,
   }) {
     return city?.call(this);
   }
@@ -1320,6 +1646,7 @@ class _$_City implements _City {
     TResult Function(_None value)? none,
     TResult Function(_City value)? city,
     TResult Function(_Genre value)? genre,
+    TResult Function(_DateRange value)? dateRange,
     required TResult orElse(),
   }) {
     if (city != null) {
@@ -1374,6 +1701,7 @@ class _$_Genre implements _Genre {
     required TResult Function() none,
     required TResult Function() city,
     required TResult Function() genre,
+    required TResult Function() dateRange,
   }) {
     return genre();
   }
@@ -1384,6 +1712,7 @@ class _$_Genre implements _Genre {
     TResult Function()? none,
     TResult Function()? city,
     TResult Function()? genre,
+    TResult Function()? dateRange,
   }) {
     return genre?.call();
   }
@@ -1394,6 +1723,7 @@ class _$_Genre implements _Genre {
     TResult Function()? none,
     TResult Function()? city,
     TResult Function()? genre,
+    TResult Function()? dateRange,
     required TResult orElse(),
   }) {
     if (genre != null) {
@@ -1408,6 +1738,7 @@ class _$_Genre implements _Genre {
     required TResult Function(_None value) none,
     required TResult Function(_City value) city,
     required TResult Function(_Genre value) genre,
+    required TResult Function(_DateRange value) dateRange,
   }) {
     return genre(this);
   }
@@ -1418,6 +1749,7 @@ class _$_Genre implements _Genre {
     TResult Function(_None value)? none,
     TResult Function(_City value)? city,
     TResult Function(_Genre value)? genre,
+    TResult Function(_DateRange value)? dateRange,
   }) {
     return genre?.call(this);
   }
@@ -1428,6 +1760,7 @@ class _$_Genre implements _Genre {
     TResult Function(_None value)? none,
     TResult Function(_City value)? city,
     TResult Function(_Genre value)? genre,
+    TResult Function(_DateRange value)? dateRange,
     required TResult orElse(),
   }) {
     if (genre != null) {
@@ -1439,4 +1772,120 @@ class _$_Genre implements _Genre {
 
 abstract class _Genre implements FiltersAction {
   const factory _Genre() = _$_Genre;
+}
+
+/// @nodoc
+abstract class _$$_DateRangeCopyWith<$Res> {
+  factory _$$_DateRangeCopyWith(
+          _$_DateRange value, $Res Function(_$_DateRange) then) =
+      __$$_DateRangeCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_DateRangeCopyWithImpl<$Res> extends _$FiltersActionCopyWithImpl<$Res>
+    implements _$$_DateRangeCopyWith<$Res> {
+  __$$_DateRangeCopyWithImpl(
+      _$_DateRange _value, $Res Function(_$_DateRange) _then)
+      : super(_value, (v) => _then(v as _$_DateRange));
+
+  @override
+  _$_DateRange get _value => super._value as _$_DateRange;
+}
+
+/// @nodoc
+
+class _$_DateRange implements _DateRange {
+  const _$_DateRange();
+
+  @override
+  String toString() {
+    return 'FiltersAction.dateRange()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_DateRange);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() none,
+    required TResult Function() city,
+    required TResult Function() genre,
+    required TResult Function() dateRange,
+  }) {
+    return dateRange();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? none,
+    TResult Function()? city,
+    TResult Function()? genre,
+    TResult Function()? dateRange,
+  }) {
+    return dateRange?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? none,
+    TResult Function()? city,
+    TResult Function()? genre,
+    TResult Function()? dateRange,
+    required TResult orElse(),
+  }) {
+    if (dateRange != null) {
+      return dateRange();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_None value) none,
+    required TResult Function(_City value) city,
+    required TResult Function(_Genre value) genre,
+    required TResult Function(_DateRange value) dateRange,
+  }) {
+    return dateRange(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_None value)? none,
+    TResult Function(_City value)? city,
+    TResult Function(_Genre value)? genre,
+    TResult Function(_DateRange value)? dateRange,
+  }) {
+    return dateRange?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_None value)? none,
+    TResult Function(_City value)? city,
+    TResult Function(_Genre value)? genre,
+    TResult Function(_DateRange value)? dateRange,
+    required TResult orElse(),
+  }) {
+    if (dateRange != null) {
+      return dateRange(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DateRange implements FiltersAction {
+  const factory _DateRange() = _$_DateRange;
 }

@@ -1,2 +1,9 @@
 city: 'Select a country or a city'
 genre: 'Select a genre'
+dates:
+  title: 'Select a date range'
+  today: 'Today'
+  week: 'This week'
+  month: 'This month'
+  threeMonths: '3 months'
+  custom: 'Custom date range'

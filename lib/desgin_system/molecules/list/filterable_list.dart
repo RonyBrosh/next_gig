@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:next_gig/desgin_system/molecules/input/app_input_text.dart';
+import 'package:next_gig/desgin_system/molecules/list/app_list.dart';
 
 class FilterableList<T> extends StatefulWidget {
   const FilterableList({
@@ -34,9 +35,9 @@ class _FilterableListState<T> extends State<FilterableList<T>> {
           onChanged: (text) => _filterData(text),
         ),
         Expanded(
-          child: ListView.builder(
-            itemCount: data.length,
-            itemBuilder: (context, index) => widget.buildItem(data[index]),
+          child: AppList<T>(
+            data: data,
+            buildItem: (item) => widget.buildItem(item),
           ),
         ),
       ],

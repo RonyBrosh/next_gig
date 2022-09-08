@@ -22,7 +22,7 @@ mixin _$DateRange {
     required TResult Function() week,
     required TResult Function() month,
     required TResult Function() threeMonths,
-    required TResult Function() custom,
+    required TResult Function(DateTime? start, DateTime? end) custom,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -31,7 +31,7 @@ mixin _$DateRange {
     TResult Function()? week,
     TResult Function()? month,
     TResult Function()? threeMonths,
-    TResult Function()? custom,
+    TResult Function(DateTime? start, DateTime? end)? custom,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,7 +40,7 @@ mixin _$DateRange {
     TResult Function()? week,
     TResult Function()? month,
     TResult Function()? threeMonths,
-    TResult Function()? custom,
+    TResult Function(DateTime? start, DateTime? end)? custom,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -131,7 +131,7 @@ class _$_Today implements _Today {
     required TResult Function() week,
     required TResult Function() month,
     required TResult Function() threeMonths,
-    required TResult Function() custom,
+    required TResult Function(DateTime? start, DateTime? end) custom,
   }) {
     return today();
   }
@@ -143,7 +143,7 @@ class _$_Today implements _Today {
     TResult Function()? week,
     TResult Function()? month,
     TResult Function()? threeMonths,
-    TResult Function()? custom,
+    TResult Function(DateTime? start, DateTime? end)? custom,
   }) {
     return today?.call();
   }
@@ -155,7 +155,7 @@ class _$_Today implements _Today {
     TResult Function()? week,
     TResult Function()? month,
     TResult Function()? threeMonths,
-    TResult Function()? custom,
+    TResult Function(DateTime? start, DateTime? end)? custom,
     required TResult orElse(),
   }) {
     if (today != null) {
@@ -251,7 +251,7 @@ class _$_Week implements _Week {
     required TResult Function() week,
     required TResult Function() month,
     required TResult Function() threeMonths,
-    required TResult Function() custom,
+    required TResult Function(DateTime? start, DateTime? end) custom,
   }) {
     return week();
   }
@@ -263,7 +263,7 @@ class _$_Week implements _Week {
     TResult Function()? week,
     TResult Function()? month,
     TResult Function()? threeMonths,
-    TResult Function()? custom,
+    TResult Function(DateTime? start, DateTime? end)? custom,
   }) {
     return week?.call();
   }
@@ -275,7 +275,7 @@ class _$_Week implements _Week {
     TResult Function()? week,
     TResult Function()? month,
     TResult Function()? threeMonths,
-    TResult Function()? custom,
+    TResult Function(DateTime? start, DateTime? end)? custom,
     required TResult orElse(),
   }) {
     if (week != null) {
@@ -371,7 +371,7 @@ class _$_Month implements _Month {
     required TResult Function() week,
     required TResult Function() month,
     required TResult Function() threeMonths,
-    required TResult Function() custom,
+    required TResult Function(DateTime? start, DateTime? end) custom,
   }) {
     return month();
   }
@@ -383,7 +383,7 @@ class _$_Month implements _Month {
     TResult Function()? week,
     TResult Function()? month,
     TResult Function()? threeMonths,
-    TResult Function()? custom,
+    TResult Function(DateTime? start, DateTime? end)? custom,
   }) {
     return month?.call();
   }
@@ -395,7 +395,7 @@ class _$_Month implements _Month {
     TResult Function()? week,
     TResult Function()? month,
     TResult Function()? threeMonths,
-    TResult Function()? custom,
+    TResult Function(DateTime? start, DateTime? end)? custom,
     required TResult orElse(),
   }) {
     if (month != null) {
@@ -493,7 +493,7 @@ class _$_ThreeMonths implements _ThreeMonths {
     required TResult Function() week,
     required TResult Function() month,
     required TResult Function() threeMonths,
-    required TResult Function() custom,
+    required TResult Function(DateTime? start, DateTime? end) custom,
   }) {
     return threeMonths();
   }
@@ -505,7 +505,7 @@ class _$_ThreeMonths implements _ThreeMonths {
     TResult Function()? week,
     TResult Function()? month,
     TResult Function()? threeMonths,
-    TResult Function()? custom,
+    TResult Function(DateTime? start, DateTime? end)? custom,
   }) {
     return threeMonths?.call();
   }
@@ -517,7 +517,7 @@ class _$_ThreeMonths implements _ThreeMonths {
     TResult Function()? week,
     TResult Function()? month,
     TResult Function()? threeMonths,
-    TResult Function()? custom,
+    TResult Function(DateTime? start, DateTime? end)? custom,
     required TResult orElse(),
   }) {
     if (threeMonths != null) {
@@ -575,6 +575,7 @@ abstract class _ThreeMonths implements DateRange {
 abstract class _$$_CustomCopyWith<$Res> {
   factory _$$_CustomCopyWith(_$_Custom value, $Res Function(_$_Custom) then) =
       __$$_CustomCopyWithImpl<$Res>;
+  $Res call({DateTime? start, DateTime? end});
 }
 
 /// @nodoc
@@ -585,26 +586,59 @@ class __$$_CustomCopyWithImpl<$Res> extends _$DateRangeCopyWithImpl<$Res>
 
   @override
   _$_Custom get _value => super._value as _$_Custom;
+
+  @override
+  $Res call({
+    Object? start = freezed,
+    Object? end = freezed,
+  }) {
+    return _then(_$_Custom(
+      start: start == freezed
+          ? _value.start
+          : start // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      end: end == freezed
+          ? _value.end
+          : end // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_Custom implements _Custom {
-  const _$_Custom();
+  const _$_Custom({this.start, this.end});
+
+  @override
+  final DateTime? start;
+  @override
+  final DateTime? end;
 
   @override
   String toString() {
-    return 'DateRange.custom()';
+    return 'DateRange.custom(start: $start, end: $end)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Custom);
+        (other.runtimeType == runtimeType &&
+            other is _$_Custom &&
+            const DeepCollectionEquality().equals(other.start, start) &&
+            const DeepCollectionEquality().equals(other.end, end));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(start),
+      const DeepCollectionEquality().hash(end));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_CustomCopyWith<_$_Custom> get copyWith =>
+      __$$_CustomCopyWithImpl<_$_Custom>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -613,9 +647,9 @@ class _$_Custom implements _Custom {
     required TResult Function() week,
     required TResult Function() month,
     required TResult Function() threeMonths,
-    required TResult Function() custom,
+    required TResult Function(DateTime? start, DateTime? end) custom,
   }) {
-    return custom();
+    return custom(start, end);
   }
 
   @override
@@ -625,9 +659,9 @@ class _$_Custom implements _Custom {
     TResult Function()? week,
     TResult Function()? month,
     TResult Function()? threeMonths,
-    TResult Function()? custom,
+    TResult Function(DateTime? start, DateTime? end)? custom,
   }) {
-    return custom?.call();
+    return custom?.call(start, end);
   }
 
   @override
@@ -637,11 +671,11 @@ class _$_Custom implements _Custom {
     TResult Function()? week,
     TResult Function()? month,
     TResult Function()? threeMonths,
-    TResult Function()? custom,
+    TResult Function(DateTime? start, DateTime? end)? custom,
     required TResult orElse(),
   }) {
     if (custom != null) {
-      return custom();
+      return custom(start, end);
     }
     return orElse();
   }
@@ -688,5 +722,12 @@ class _$_Custom implements _Custom {
 }
 
 abstract class _Custom implements DateRange {
-  const factory _Custom() = _$_Custom;
+  const factory _Custom({final DateTime? start, final DateTime? end}) =
+      _$_Custom;
+
+  DateTime? get start;
+  DateTime? get end;
+  @JsonKey(ignore: true)
+  _$$_CustomCopyWith<_$_Custom> get copyWith =>
+      throw _privateConstructorUsedError;
 }
