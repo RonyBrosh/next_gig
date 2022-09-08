@@ -3,9 +3,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:next_gig/feature/filters/domain/model/city.dart';
 import 'package:next_gig/feature/filters/domain/model/filter_type.dart';
+import 'package:next_gig/feature/filters/domain/model/genre.dart';
 import 'package:next_gig/feature/filters/domain/use_case/get_cities_use_case.dart';
-import 'package:next_gig/feature/genre/domain/model/genre.dart';
-import 'package:next_gig/feature/genre/domain/use_case/get_genres_use_case.dart';
+import 'package:next_gig/feature/filters/domain/use_case/get_genres_use_case.dart';
 
 part 'filters_bloc.freezed.dart';
 part 'filters_event.dart';

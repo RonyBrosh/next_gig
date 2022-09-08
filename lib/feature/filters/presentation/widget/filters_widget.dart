@@ -11,9 +11,9 @@ import 'package:next_gig/desgin_system/molecules/widget/app_list_tile.dart';
 import 'package:next_gig/feature/filters/domain/model/city.dart';
 import 'package:next_gig/feature/filters/domain/model/filter_type.dart';
 import 'package:next_gig/feature/filters/domain/model/filters.dart';
+import 'package:next_gig/feature/filters/domain/model/genre.dart';
 import 'package:next_gig/feature/filters/localisation/build_context_extension.dart';
 import 'package:next_gig/feature/filters/presentation/bloc/filters_bloc.dart';
-import 'package:next_gig/feature/genre/domain/model/genre.dart';
 import 'package:next_gig/util/di/di_container.dart';
 
 class FiltersWidget extends StatelessWidget {

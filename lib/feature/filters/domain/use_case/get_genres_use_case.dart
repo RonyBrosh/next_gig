@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:injectable/injectable.dart';
-import 'package:next_gig/feature/genre/domain/model/genre.dart';
+import 'package:next_gig/feature/filters/domain/model/genre.dart';
 import 'package:next_gig/util/device/assets_manager.dart';
 
 const genresAssetsPath = 'json/genres.json';
