@@ -5,9 +5,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:next_gig/desgin_system/atoms/app_space.dart';
 import 'package:next_gig/desgin_system/molecules/button/app_primary_button.dart';
 import 'package:next_gig/desgin_system/molecules/input/filterable_list.dart';
-import 'package:next_gig/desgin_system/molecules/text/app_body.dart';
 import 'package:next_gig/desgin_system/molecules/text/app_title.dart';
 import 'package:next_gig/desgin_system/molecules/widget/app_dialog.dart';
+import 'package:next_gig/desgin_system/molecules/widget/app_list_tile.dart';
 import 'package:next_gig/feature/cities/domain/model/city.dart';
 import 'package:next_gig/feature/filters/domain/model/filters.dart';
 import 'package:next_gig/feature/filters/localisation/build_context_extension.dart';
@@ -55,12 +55,10 @@ class FiltersWidget extends StatelessWidget {
         title: AppTitle(text: context.filtersTranslation.city),
         content: FilterableList<City>(
           data: cities,
-          buildItem: (city) => ListTile(
-              title: AppBody(text: city.name),
-              onTap: () {
-                Navigator.pop(context, false);
-                context.read<FiltersBloc>().add(FiltersEvent.citySelected(city));
-              }),
+          buildItem: (city) => AppListTile(
+            title: city.name,
+            onTap: () => context.read<FiltersBloc>().add(FiltersEvent.citySelected(city)),
+          ),
           filter: filterCities,
         ),
       ),
