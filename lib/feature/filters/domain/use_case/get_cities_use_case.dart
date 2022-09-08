@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:injectable/injectable.dart';
-import 'package:next_gig/feature/cities/domain/model/city.dart';
+import 'package:next_gig/feature/filters/domain/model/city.dart';
 import 'package:next_gig/util/device/assets_manager.dart';
 
 const citiesAssetsPath = 'json/cities.json';

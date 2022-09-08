@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:next_gig/feature/cities/domain/use_case/get_cities_use_case.dart';
+import 'package:next_gig/feature/filters/domain/use_case/get_cities_use_case.dart';
 import 'package:next_gig/feature/filters/presentation/widget/filters_widget.dart';
 import 'package:next_gig/feature/genre/domain/use_case/get_genres_use_case.dart';
 import 'package:next_gig/util/device/assets_manager.dart';

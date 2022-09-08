@@ -8,7 +8,7 @@ import 'package:next_gig/desgin_system/molecules/input/filterable_list.dart';
 import 'package:next_gig/desgin_system/molecules/text/app_title.dart';
 import 'package:next_gig/desgin_system/molecules/widget/app_dialog.dart';
 import 'package:next_gig/desgin_system/molecules/widget/app_list_tile.dart';
-import 'package:next_gig/feature/cities/domain/model/city.dart';
+import 'package:next_gig/feature/filters/domain/model/city.dart';
 import 'package:next_gig/feature/filters/domain/model/filter_type.dart';
 import 'package:next_gig/feature/filters/domain/model/filters.dart';
 import 'package:next_gig/feature/filters/localisation/build_context_extension.dart';

@@ -8,7 +8,7 @@
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import '../../feature/cities/domain/use_case/get_cities_use_case.dart' as _i4;
+import '../../feature/filters/domain/use_case/get_cities_use_case.dart' as _i4;
 import '../../feature/filters/presentation/bloc/filters_bloc.dart' as _i6;
 import '../../feature/genre/domain/use_case/get_genres_use_case.dart' as _i5;
 import '../device/assets_manager.dart'
