@@ -7,5 +7,8 @@ class SplashState with _$SplashState {
     @Default(AnimationState.initial) AnimationState subtitleAnimationState,
     @Default(AnimationState.initial) AnimationState bodyAnimationState,
     @Default(AnimationState.initial) AnimationState discoverButtonAnimationState,
+    City? city,
+    Genre? genre,
+    DateRange? dateRange,
   }) = _SplashState;
 }

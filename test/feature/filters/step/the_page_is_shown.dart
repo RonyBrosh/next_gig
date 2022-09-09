@@ -12,7 +12,7 @@ import '../../../util/test_assets.dart';
 Future<void> thePageIsShown(WidgetTester tester) async {
   await runTestApp(
     tester: tester,
-    pageBuilder: () => const FiltersWidget(),
+    pageBuilder: () => FiltersWidget(onFilter: (_, __, ___) {}),
     dIInitializers: [],
     postDI: () {
       final assetsManager = diContainer<AssetsManager>();

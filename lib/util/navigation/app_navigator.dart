@@ -8,12 +8,12 @@ class AppNavigator {
   final AppRouter _appRouter;
 
   Future<void> goToEvents({
-    required String locationId,
-    required String genreId,
+    String? locationId,
+    String? genreId,
   }) {
     return _appRouter.push(EventsRoute(
-      locationId: locationId,
-      genreId: genreId,
+      locationId: locationId ?? '',
+      genreId: genreId ?? '',
     ));
   }
 }

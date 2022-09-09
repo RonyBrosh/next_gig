@@ -10,11 +10,11 @@ void main() async {
       const CoreDIInitializer(),
     ],
   );
-  runApp(NextGigApp());
+  runApp(const NextGigApp());
 }
 
 class NextGigApp extends StatelessWidget {
-  NextGigApp({Key? key}) : super(key: key);
+  const NextGigApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

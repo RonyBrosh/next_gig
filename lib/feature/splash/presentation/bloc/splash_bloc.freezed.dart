@@ -22,6 +22,8 @@ mixin _$SplashEvent {
     required TResult Function() animateSubtitle,
     required TResult Function() animateBody,
     required TResult Function() animateDiscoverButton,
+    required TResult Function(City city, Genre genre, DateRange dateRange)
+        setFilters,
     required TResult Function() discover,
   }) =>
       throw _privateConstructorUsedError;
@@ -31,6 +33,7 @@ mixin _$SplashEvent {
     TResult Function()? animateSubtitle,
     TResult Function()? animateBody,
     TResult Function()? animateDiscoverButton,
+    TResult Function(City city, Genre genre, DateRange dateRange)? setFilters,
     TResult Function()? discover,
   }) =>
       throw _privateConstructorUsedError;
@@ -40,6 +43,7 @@ mixin _$SplashEvent {
     TResult Function()? animateSubtitle,
     TResult Function()? animateBody,
     TResult Function()? animateDiscoverButton,
+    TResult Function(City city, Genre genre, DateRange dateRange)? setFilters,
     TResult Function()? discover,
     required TResult orElse(),
   }) =>
@@ -51,6 +55,7 @@ mixin _$SplashEvent {
     required TResult Function(_AnimateBody value) animateBody,
     required TResult Function(_AnimateDiscoverButton value)
         animateDiscoverButton,
+    required TResult Function(_SetFilters value) setFilters,
     required TResult Function(_Discover value) discover,
   }) =>
       throw _privateConstructorUsedError;
@@ -60,6 +65,7 @@ mixin _$SplashEvent {
     TResult Function(_AnimateSubtitle value)? animateSubtitle,
     TResult Function(_AnimateBody value)? animateBody,
     TResult Function(_AnimateDiscoverButton value)? animateDiscoverButton,
+    TResult Function(_SetFilters value)? setFilters,
     TResult Function(_Discover value)? discover,
   }) =>
       throw _privateConstructorUsedError;
@@ -69,6 +75,7 @@ mixin _$SplashEvent {
     TResult Function(_AnimateSubtitle value)? animateSubtitle,
     TResult Function(_AnimateBody value)? animateBody,
     TResult Function(_AnimateDiscoverButton value)? animateDiscoverButton,
+    TResult Function(_SetFilters value)? setFilters,
     TResult Function(_Discover value)? discover,
     required TResult orElse(),
   }) =>
@@ -136,6 +143,8 @@ class _$_AnimateTitle implements _AnimateTitle {
     required TResult Function() animateSubtitle,
     required TResult Function() animateBody,
     required TResult Function() animateDiscoverButton,
+    required TResult Function(City city, Genre genre, DateRange dateRange)
+        setFilters,
     required TResult Function() discover,
   }) {
     return animateTitle();
@@ -148,6 +157,7 @@ class _$_AnimateTitle implements _AnimateTitle {
     TResult Function()? animateSubtitle,
     TResult Function()? animateBody,
     TResult Function()? animateDiscoverButton,
+    TResult Function(City city, Genre genre, DateRange dateRange)? setFilters,
     TResult Function()? discover,
   }) {
     return animateTitle?.call();
@@ -160,6 +170,7 @@ class _$_AnimateTitle implements _AnimateTitle {
     TResult Function()? animateSubtitle,
     TResult Function()? animateBody,
     TResult Function()? animateDiscoverButton,
+    TResult Function(City city, Genre genre, DateRange dateRange)? setFilters,
     TResult Function()? discover,
     required TResult orElse(),
   }) {
@@ -177,6 +188,7 @@ class _$_AnimateTitle implements _AnimateTitle {
     required TResult Function(_AnimateBody value) animateBody,
     required TResult Function(_AnimateDiscoverButton value)
         animateDiscoverButton,
+    required TResult Function(_SetFilters value) setFilters,
     required TResult Function(_Discover value) discover,
   }) {
     return animateTitle(this);
@@ -189,6 +201,7 @@ class _$_AnimateTitle implements _AnimateTitle {
     TResult Function(_AnimateSubtitle value)? animateSubtitle,
     TResult Function(_AnimateBody value)? animateBody,
     TResult Function(_AnimateDiscoverButton value)? animateDiscoverButton,
+    TResult Function(_SetFilters value)? setFilters,
     TResult Function(_Discover value)? discover,
   }) {
     return animateTitle?.call(this);
@@ -201,6 +214,7 @@ class _$_AnimateTitle implements _AnimateTitle {
     TResult Function(_AnimateSubtitle value)? animateSubtitle,
     TResult Function(_AnimateBody value)? animateBody,
     TResult Function(_AnimateDiscoverButton value)? animateDiscoverButton,
+    TResult Function(_SetFilters value)? setFilters,
     TResult Function(_Discover value)? discover,
     required TResult orElse(),
   }) {
@@ -260,6 +274,8 @@ class _$_AnimateSubtitle implements _AnimateSubtitle {
     required TResult Function() animateSubtitle,
     required TResult Function() animateBody,
     required TResult Function() animateDiscoverButton,
+    required TResult Function(City city, Genre genre, DateRange dateRange)
+        setFilters,
     required TResult Function() discover,
   }) {
     return animateSubtitle();
@@ -272,6 +288,7 @@ class _$_AnimateSubtitle implements _AnimateSubtitle {
     TResult Function()? animateSubtitle,
     TResult Function()? animateBody,
     TResult Function()? animateDiscoverButton,
+    TResult Function(City city, Genre genre, DateRange dateRange)? setFilters,
     TResult Function()? discover,
   }) {
     return animateSubtitle?.call();
@@ -284,6 +301,7 @@ class _$_AnimateSubtitle implements _AnimateSubtitle {
     TResult Function()? animateSubtitle,
     TResult Function()? animateBody,
     TResult Function()? animateDiscoverButton,
+    TResult Function(City city, Genre genre, DateRange dateRange)? setFilters,
     TResult Function()? discover,
     required TResult orElse(),
   }) {
@@ -301,6 +319,7 @@ class _$_AnimateSubtitle implements _AnimateSubtitle {
     required TResult Function(_AnimateBody value) animateBody,
     required TResult Function(_AnimateDiscoverButton value)
         animateDiscoverButton,
+    required TResult Function(_SetFilters value) setFilters,
     required TResult Function(_Discover value) discover,
   }) {
     return animateSubtitle(this);
@@ -313,6 +332,7 @@ class _$_AnimateSubtitle implements _AnimateSubtitle {
     TResult Function(_AnimateSubtitle value)? animateSubtitle,
     TResult Function(_AnimateBody value)? animateBody,
     TResult Function(_AnimateDiscoverButton value)? animateDiscoverButton,
+    TResult Function(_SetFilters value)? setFilters,
     TResult Function(_Discover value)? discover,
   }) {
     return animateSubtitle?.call(this);
@@ -325,6 +345,7 @@ class _$_AnimateSubtitle implements _AnimateSubtitle {
     TResult Function(_AnimateSubtitle value)? animateSubtitle,
     TResult Function(_AnimateBody value)? animateBody,
     TResult Function(_AnimateDiscoverButton value)? animateDiscoverButton,
+    TResult Function(_SetFilters value)? setFilters,
     TResult Function(_Discover value)? discover,
     required TResult orElse(),
   }) {
@@ -383,6 +404,8 @@ class _$_AnimateBody implements _AnimateBody {
     required TResult Function() animateSubtitle,
     required TResult Function() animateBody,
     required TResult Function() animateDiscoverButton,
+    required TResult Function(City city, Genre genre, DateRange dateRange)
+        setFilters,
     required TResult Function() discover,
   }) {
     return animateBody();
@@ -395,6 +418,7 @@ class _$_AnimateBody implements _AnimateBody {
     TResult Function()? animateSubtitle,
     TResult Function()? animateBody,
     TResult Function()? animateDiscoverButton,
+    TResult Function(City city, Genre genre, DateRange dateRange)? setFilters,
     TResult Function()? discover,
   }) {
     return animateBody?.call();
@@ -407,6 +431,7 @@ class _$_AnimateBody implements _AnimateBody {
     TResult Function()? animateSubtitle,
     TResult Function()? animateBody,
     TResult Function()? animateDiscoverButton,
+    TResult Function(City city, Genre genre, DateRange dateRange)? setFilters,
     TResult Function()? discover,
     required TResult orElse(),
   }) {
@@ -424,6 +449,7 @@ class _$_AnimateBody implements _AnimateBody {
     required TResult Function(_AnimateBody value) animateBody,
     required TResult Function(_AnimateDiscoverButton value)
         animateDiscoverButton,
+    required TResult Function(_SetFilters value) setFilters,
     required TResult Function(_Discover value) discover,
   }) {
     return animateBody(this);
@@ -436,6 +462,7 @@ class _$_AnimateBody implements _AnimateBody {
     TResult Function(_AnimateSubtitle value)? animateSubtitle,
     TResult Function(_AnimateBody value)? animateBody,
     TResult Function(_AnimateDiscoverButton value)? animateDiscoverButton,
+    TResult Function(_SetFilters value)? setFilters,
     TResult Function(_Discover value)? discover,
   }) {
     return animateBody?.call(this);
@@ -448,6 +475,7 @@ class _$_AnimateBody implements _AnimateBody {
     TResult Function(_AnimateSubtitle value)? animateSubtitle,
     TResult Function(_AnimateBody value)? animateBody,
     TResult Function(_AnimateDiscoverButton value)? animateDiscoverButton,
+    TResult Function(_SetFilters value)? setFilters,
     TResult Function(_Discover value)? discover,
     required TResult orElse(),
   }) {
@@ -508,6 +536,8 @@ class _$_AnimateDiscoverButton implements _AnimateDiscoverButton {
     required TResult Function() animateSubtitle,
     required TResult Function() animateBody,
     required TResult Function() animateDiscoverButton,
+    required TResult Function(City city, Genre genre, DateRange dateRange)
+        setFilters,
     required TResult Function() discover,
   }) {
     return animateDiscoverButton();
@@ -520,6 +550,7 @@ class _$_AnimateDiscoverButton implements _AnimateDiscoverButton {
     TResult Function()? animateSubtitle,
     TResult Function()? animateBody,
     TResult Function()? animateDiscoverButton,
+    TResult Function(City city, Genre genre, DateRange dateRange)? setFilters,
     TResult Function()? discover,
   }) {
     return animateDiscoverButton?.call();
@@ -532,6 +563,7 @@ class _$_AnimateDiscoverButton implements _AnimateDiscoverButton {
     TResult Function()? animateSubtitle,
     TResult Function()? animateBody,
     TResult Function()? animateDiscoverButton,
+    TResult Function(City city, Genre genre, DateRange dateRange)? setFilters,
     TResult Function()? discover,
     required TResult orElse(),
   }) {
@@ -549,6 +581,7 @@ class _$_AnimateDiscoverButton implements _AnimateDiscoverButton {
     required TResult Function(_AnimateBody value) animateBody,
     required TResult Function(_AnimateDiscoverButton value)
         animateDiscoverButton,
+    required TResult Function(_SetFilters value) setFilters,
     required TResult Function(_Discover value) discover,
   }) {
     return animateDiscoverButton(this);
@@ -561,6 +594,7 @@ class _$_AnimateDiscoverButton implements _AnimateDiscoverButton {
     TResult Function(_AnimateSubtitle value)? animateSubtitle,
     TResult Function(_AnimateBody value)? animateBody,
     TResult Function(_AnimateDiscoverButton value)? animateDiscoverButton,
+    TResult Function(_SetFilters value)? setFilters,
     TResult Function(_Discover value)? discover,
   }) {
     return animateDiscoverButton?.call(this);
@@ -573,6 +607,7 @@ class _$_AnimateDiscoverButton implements _AnimateDiscoverButton {
     TResult Function(_AnimateSubtitle value)? animateSubtitle,
     TResult Function(_AnimateBody value)? animateBody,
     TResult Function(_AnimateDiscoverButton value)? animateDiscoverButton,
+    TResult Function(_SetFilters value)? setFilters,
     TResult Function(_Discover value)? discover,
     required TResult orElse(),
   }) {
@@ -585,6 +620,215 @@ class _$_AnimateDiscoverButton implements _AnimateDiscoverButton {
 
 abstract class _AnimateDiscoverButton implements SplashEvent {
   const factory _AnimateDiscoverButton() = _$_AnimateDiscoverButton;
+}
+
+/// @nodoc
+abstract class _$$_SetFiltersCopyWith<$Res> {
+  factory _$$_SetFiltersCopyWith(
+          _$_SetFilters value, $Res Function(_$_SetFilters) then) =
+      __$$_SetFiltersCopyWithImpl<$Res>;
+  $Res call({City city, Genre genre, DateRange dateRange});
+
+  $CityCopyWith<$Res> get city;
+  $GenreCopyWith<$Res> get genre;
+  $DateRangeCopyWith<$Res> get dateRange;
+}
+
+/// @nodoc
+class __$$_SetFiltersCopyWithImpl<$Res> extends _$SplashEventCopyWithImpl<$Res>
+    implements _$$_SetFiltersCopyWith<$Res> {
+  __$$_SetFiltersCopyWithImpl(
+      _$_SetFilters _value, $Res Function(_$_SetFilters) _then)
+      : super(_value, (v) => _then(v as _$_SetFilters));
+
+  @override
+  _$_SetFilters get _value => super._value as _$_SetFilters;
+
+  @override
+  $Res call({
+    Object? city = freezed,
+    Object? genre = freezed,
+    Object? dateRange = freezed,
+  }) {
+    return _then(_$_SetFilters(
+      city: city == freezed
+          ? _value.city
+          : city // ignore: cast_nullable_to_non_nullable
+              as City,
+      genre: genre == freezed
+          ? _value.genre
+          : genre // ignore: cast_nullable_to_non_nullable
+              as Genre,
+      dateRange: dateRange == freezed
+          ? _value.dateRange
+          : dateRange // ignore: cast_nullable_to_non_nullable
+              as DateRange,
+    ));
+  }
+
+  @override
+  $CityCopyWith<$Res> get city {
+    return $CityCopyWith<$Res>(_value.city, (value) {
+      return _then(_value.copyWith(city: value));
+    });
+  }
+
+  @override
+  $GenreCopyWith<$Res> get genre {
+    return $GenreCopyWith<$Res>(_value.genre, (value) {
+      return _then(_value.copyWith(genre: value));
+    });
+  }
+
+  @override
+  $DateRangeCopyWith<$Res> get dateRange {
+    return $DateRangeCopyWith<$Res>(_value.dateRange, (value) {
+      return _then(_value.copyWith(dateRange: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_SetFilters implements _SetFilters {
+  const _$_SetFilters(
+      {required this.city, required this.genre, required this.dateRange});
+
+  @override
+  final City city;
+  @override
+  final Genre genre;
+  @override
+  final DateRange dateRange;
+
+  @override
+  String toString() {
+    return 'SplashEvent.setFilters(city: $city, genre: $genre, dateRange: $dateRange)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SetFilters &&
+            const DeepCollectionEquality().equals(other.city, city) &&
+            const DeepCollectionEquality().equals(other.genre, genre) &&
+            const DeepCollectionEquality().equals(other.dateRange, dateRange));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(city),
+      const DeepCollectionEquality().hash(genre),
+      const DeepCollectionEquality().hash(dateRange));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_SetFiltersCopyWith<_$_SetFilters> get copyWith =>
+      __$$_SetFiltersCopyWithImpl<_$_SetFilters>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() animateTitle,
+    required TResult Function() animateSubtitle,
+    required TResult Function() animateBody,
+    required TResult Function() animateDiscoverButton,
+    required TResult Function(City city, Genre genre, DateRange dateRange)
+        setFilters,
+    required TResult Function() discover,
+  }) {
+    return setFilters(city, genre, dateRange);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? animateTitle,
+    TResult Function()? animateSubtitle,
+    TResult Function()? animateBody,
+    TResult Function()? animateDiscoverButton,
+    TResult Function(City city, Genre genre, DateRange dateRange)? setFilters,
+    TResult Function()? discover,
+  }) {
+    return setFilters?.call(city, genre, dateRange);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? animateTitle,
+    TResult Function()? animateSubtitle,
+    TResult Function()? animateBody,
+    TResult Function()? animateDiscoverButton,
+    TResult Function(City city, Genre genre, DateRange dateRange)? setFilters,
+    TResult Function()? discover,
+    required TResult orElse(),
+  }) {
+    if (setFilters != null) {
+      return setFilters(city, genre, dateRange);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AnimateTitle value) animateTitle,
+    required TResult Function(_AnimateSubtitle value) animateSubtitle,
+    required TResult Function(_AnimateBody value) animateBody,
+    required TResult Function(_AnimateDiscoverButton value)
+        animateDiscoverButton,
+    required TResult Function(_SetFilters value) setFilters,
+    required TResult Function(_Discover value) discover,
+  }) {
+    return setFilters(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_AnimateTitle value)? animateTitle,
+    TResult Function(_AnimateSubtitle value)? animateSubtitle,
+    TResult Function(_AnimateBody value)? animateBody,
+    TResult Function(_AnimateDiscoverButton value)? animateDiscoverButton,
+    TResult Function(_SetFilters value)? setFilters,
+    TResult Function(_Discover value)? discover,
+  }) {
+    return setFilters?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AnimateTitle value)? animateTitle,
+    TResult Function(_AnimateSubtitle value)? animateSubtitle,
+    TResult Function(_AnimateBody value)? animateBody,
+    TResult Function(_AnimateDiscoverButton value)? animateDiscoverButton,
+    TResult Function(_SetFilters value)? setFilters,
+    TResult Function(_Discover value)? discover,
+    required TResult orElse(),
+  }) {
+    if (setFilters != null) {
+      return setFilters(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetFilters implements SplashEvent {
+  const factory _SetFilters(
+      {required final City city,
+      required final Genre genre,
+      required final DateRange dateRange}) = _$_SetFilters;
+
+  City get city;
+  Genre get genre;
+  DateRange get dateRange;
+  @JsonKey(ignore: true)
+  _$$_SetFiltersCopyWith<_$_SetFilters> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -631,6 +875,8 @@ class _$_Discover implements _Discover {
     required TResult Function() animateSubtitle,
     required TResult Function() animateBody,
     required TResult Function() animateDiscoverButton,
+    required TResult Function(City city, Genre genre, DateRange dateRange)
+        setFilters,
     required TResult Function() discover,
   }) {
     return discover();
@@ -643,6 +889,7 @@ class _$_Discover implements _Discover {
     TResult Function()? animateSubtitle,
     TResult Function()? animateBody,
     TResult Function()? animateDiscoverButton,
+    TResult Function(City city, Genre genre, DateRange dateRange)? setFilters,
     TResult Function()? discover,
   }) {
     return discover?.call();
@@ -655,6 +902,7 @@ class _$_Discover implements _Discover {
     TResult Function()? animateSubtitle,
     TResult Function()? animateBody,
     TResult Function()? animateDiscoverButton,
+    TResult Function(City city, Genre genre, DateRange dateRange)? setFilters,
     TResult Function()? discover,
     required TResult orElse(),
   }) {
@@ -672,6 +920,7 @@ class _$_Discover implements _Discover {
     required TResult Function(_AnimateBody value) animateBody,
     required TResult Function(_AnimateDiscoverButton value)
         animateDiscoverButton,
+    required TResult Function(_SetFilters value) setFilters,
     required TResult Function(_Discover value) discover,
   }) {
     return discover(this);
@@ -684,6 +933,7 @@ class _$_Discover implements _Discover {
     TResult Function(_AnimateSubtitle value)? animateSubtitle,
     TResult Function(_AnimateBody value)? animateBody,
     TResult Function(_AnimateDiscoverButton value)? animateDiscoverButton,
+    TResult Function(_SetFilters value)? setFilters,
     TResult Function(_Discover value)? discover,
   }) {
     return discover?.call(this);
@@ -696,6 +946,7 @@ class _$_Discover implements _Discover {
     TResult Function(_AnimateSubtitle value)? animateSubtitle,
     TResult Function(_AnimateBody value)? animateBody,
     TResult Function(_AnimateDiscoverButton value)? animateDiscoverButton,
+    TResult Function(_SetFilters value)? setFilters,
     TResult Function(_Discover value)? discover,
     required TResult orElse(),
   }) {
@@ -718,6 +969,9 @@ mixin _$SplashState {
   AnimationState get bodyAnimationState => throw _privateConstructorUsedError;
   AnimationState get discoverButtonAnimationState =>
       throw _privateConstructorUsedError;
+  City? get city => throw _privateConstructorUsedError;
+  Genre? get genre => throw _privateConstructorUsedError;
+  DateRange? get dateRange => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SplashStateCopyWith<SplashState> get copyWith =>
@@ -733,7 +987,14 @@ abstract class $SplashStateCopyWith<$Res> {
       {AnimationState titleAnimationState,
       AnimationState subtitleAnimationState,
       AnimationState bodyAnimationState,
-      AnimationState discoverButtonAnimationState});
+      AnimationState discoverButtonAnimationState,
+      City? city,
+      Genre? genre,
+      DateRange? dateRange});
+
+  $CityCopyWith<$Res>? get city;
+  $GenreCopyWith<$Res>? get genre;
+  $DateRangeCopyWith<$Res>? get dateRange;
 }
 
 /// @nodoc
@@ -750,6 +1011,9 @@ class _$SplashStateCopyWithImpl<$Res> implements $SplashStateCopyWith<$Res> {
     Object? subtitleAnimationState = freezed,
     Object? bodyAnimationState = freezed,
     Object? discoverButtonAnimationState = freezed,
+    Object? city = freezed,
+    Object? genre = freezed,
+    Object? dateRange = freezed,
   }) {
     return _then(_value.copyWith(
       titleAnimationState: titleAnimationState == freezed
@@ -768,7 +1032,52 @@ class _$SplashStateCopyWithImpl<$Res> implements $SplashStateCopyWith<$Res> {
           ? _value.discoverButtonAnimationState
           : discoverButtonAnimationState // ignore: cast_nullable_to_non_nullable
               as AnimationState,
+      city: city == freezed
+          ? _value.city
+          : city // ignore: cast_nullable_to_non_nullable
+              as City?,
+      genre: genre == freezed
+          ? _value.genre
+          : genre // ignore: cast_nullable_to_non_nullable
+              as Genre?,
+      dateRange: dateRange == freezed
+          ? _value.dateRange
+          : dateRange // ignore: cast_nullable_to_non_nullable
+              as DateRange?,
     ));
+  }
+
+  @override
+  $CityCopyWith<$Res>? get city {
+    if (_value.city == null) {
+      return null;
+    }
+
+    return $CityCopyWith<$Res>(_value.city!, (value) {
+      return _then(_value.copyWith(city: value));
+    });
+  }
+
+  @override
+  $GenreCopyWith<$Res>? get genre {
+    if (_value.genre == null) {
+      return null;
+    }
+
+    return $GenreCopyWith<$Res>(_value.genre!, (value) {
+      return _then(_value.copyWith(genre: value));
+    });
+  }
+
+  @override
+  $DateRangeCopyWith<$Res>? get dateRange {
+    if (_value.dateRange == null) {
+      return null;
+    }
+
+    return $DateRangeCopyWith<$Res>(_value.dateRange!, (value) {
+      return _then(_value.copyWith(dateRange: value));
+    });
   }
 }
 
@@ -783,7 +1092,17 @@ abstract class _$$_SplashStateCopyWith<$Res>
       {AnimationState titleAnimationState,
       AnimationState subtitleAnimationState,
       AnimationState bodyAnimationState,
-      AnimationState discoverButtonAnimationState});
+      AnimationState discoverButtonAnimationState,
+      City? city,
+      Genre? genre,
+      DateRange? dateRange});
+
+  @override
+  $CityCopyWith<$Res>? get city;
+  @override
+  $GenreCopyWith<$Res>? get genre;
+  @override
+  $DateRangeCopyWith<$Res>? get dateRange;
 }
 
 /// @nodoc
@@ -802,6 +1121,9 @@ class __$$_SplashStateCopyWithImpl<$Res> extends _$SplashStateCopyWithImpl<$Res>
     Object? subtitleAnimationState = freezed,
     Object? bodyAnimationState = freezed,
     Object? discoverButtonAnimationState = freezed,
+    Object? city = freezed,
+    Object? genre = freezed,
+    Object? dateRange = freezed,
   }) {
     return _then(_$_SplashState(
       titleAnimationState: titleAnimationState == freezed
@@ -820,6 +1142,18 @@ class __$$_SplashStateCopyWithImpl<$Res> extends _$SplashStateCopyWithImpl<$Res>
           ? _value.discoverButtonAnimationState
           : discoverButtonAnimationState // ignore: cast_nullable_to_non_nullable
               as AnimationState,
+      city: city == freezed
+          ? _value.city
+          : city // ignore: cast_nullable_to_non_nullable
+              as City?,
+      genre: genre == freezed
+          ? _value.genre
+          : genre // ignore: cast_nullable_to_non_nullable
+              as Genre?,
+      dateRange: dateRange == freezed
+          ? _value.dateRange
+          : dateRange // ignore: cast_nullable_to_non_nullable
+              as DateRange?,
     ));
   }
 }
@@ -831,7 +1165,10 @@ class _$_SplashState implements _SplashState {
       {this.titleAnimationState = AnimationState.initial,
       this.subtitleAnimationState = AnimationState.initial,
       this.bodyAnimationState = AnimationState.initial,
-      this.discoverButtonAnimationState = AnimationState.initial});
+      this.discoverButtonAnimationState = AnimationState.initial,
+      this.city,
+      this.genre,
+      this.dateRange});
 
   @override
   @JsonKey()
@@ -845,10 +1182,16 @@ class _$_SplashState implements _SplashState {
   @override
   @JsonKey()
   final AnimationState discoverButtonAnimationState;
+  @override
+  final City? city;
+  @override
+  final Genre? genre;
+  @override
+  final DateRange? dateRange;
 
   @override
   String toString() {
-    return 'SplashState(titleAnimationState: $titleAnimationState, subtitleAnimationState: $subtitleAnimationState, bodyAnimationState: $bodyAnimationState, discoverButtonAnimationState: $discoverButtonAnimationState)';
+    return 'SplashState(titleAnimationState: $titleAnimationState, subtitleAnimationState: $subtitleAnimationState, bodyAnimationState: $bodyAnimationState, discoverButtonAnimationState: $discoverButtonAnimationState, city: $city, genre: $genre, dateRange: $dateRange)';
   }
 
   @override
@@ -864,7 +1207,10 @@ class _$_SplashState implements _SplashState {
                 .equals(other.bodyAnimationState, bodyAnimationState) &&
             const DeepCollectionEquality().equals(
                 other.discoverButtonAnimationState,
-                discoverButtonAnimationState));
+                discoverButtonAnimationState) &&
+            const DeepCollectionEquality().equals(other.city, city) &&
+            const DeepCollectionEquality().equals(other.genre, genre) &&
+            const DeepCollectionEquality().equals(other.dateRange, dateRange));
   }
 
   @override
@@ -873,7 +1219,10 @@ class _$_SplashState implements _SplashState {
       const DeepCollectionEquality().hash(titleAnimationState),
       const DeepCollectionEquality().hash(subtitleAnimationState),
       const DeepCollectionEquality().hash(bodyAnimationState),
-      const DeepCollectionEquality().hash(discoverButtonAnimationState));
+      const DeepCollectionEquality().hash(discoverButtonAnimationState),
+      const DeepCollectionEquality().hash(city),
+      const DeepCollectionEquality().hash(genre),
+      const DeepCollectionEquality().hash(dateRange));
 
   @JsonKey(ignore: true)
   @override
@@ -886,7 +1235,10 @@ abstract class _SplashState implements SplashState {
       {final AnimationState titleAnimationState,
       final AnimationState subtitleAnimationState,
       final AnimationState bodyAnimationState,
-      final AnimationState discoverButtonAnimationState}) = _$_SplashState;
+      final AnimationState discoverButtonAnimationState,
+      final City? city,
+      final Genre? genre,
+      final DateRange? dateRange}) = _$_SplashState;
 
   @override
   AnimationState get titleAnimationState;
@@ -896,6 +1248,12 @@ abstract class _SplashState implements SplashState {
   AnimationState get bodyAnimationState;
   @override
   AnimationState get discoverButtonAnimationState;
+  @override
+  City? get city;
+  @override
+  Genre? get genre;
+  @override
+  DateRange? get dateRange;
   @override
   @JsonKey(ignore: true)
   _$$_SplashStateCopyWith<_$_SplashState> get copyWith =>

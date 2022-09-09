@@ -43,7 +43,15 @@ class SplashPage extends StatelessWidget {
                             scrollDirection: Axis.horizontal,
                             child: Row(
                               children: [
-                                const FiltersWidget(),
+                                FiltersWidget(
+                                  onFilter: (city, genre, dateRange) => context.read<SplashBloc>().add(
+                                        SplashEvent.setFilters(
+                                          city: city,
+                                          genre: genre,
+                                          dateRange: dateRange,
+                                        ),
+                                      ),
+                                ),
                                 const SizedBox(width: AppSpace.normal),
                                 AppInvertedPrimaryButton(
                                   text: context.splashTranslation.button.discover,

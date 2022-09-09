@@ -13,17 +13,21 @@ import 'package:next_gig/desgin_system/molecules/widget/app_dialog.dart';
 import 'package:next_gig/desgin_system/molecules/widget/app_list_tile.dart';
 import 'package:next_gig/feature/filters/domain/model/city.dart';
 import 'package:next_gig/feature/filters/domain/model/date_range.dart';
-import 'package:next_gig/feature/filters/domain/model/filter_type.dart';
 import 'package:next_gig/feature/filters/domain/model/filters.dart';
 import 'package:next_gig/feature/filters/domain/model/genre.dart';
+import 'package:next_gig/feature/filters/domain/use_case/get_cities_use_case.dart';
 import 'package:next_gig/feature/filters/domain/use_case/get_date_range_max_use_case.dart';
 import 'package:next_gig/feature/filters/domain/use_case/get_date_range_min_use_case.dart';
+import 'package:next_gig/feature/filters/domain/use_case/get_date_ranges_use_case.dart';
+import 'package:next_gig/feature/filters/domain/use_case/get_genres_use_case.dart';
 import 'package:next_gig/feature/filters/localisation/build_context_extension.dart';
 import 'package:next_gig/feature/filters/presentation/bloc/filters_bloc.dart';
 import 'package:next_gig/util/di/di_container.dart';
 
 class FiltersWidget extends StatefulWidget {
-  const FiltersWidget({Key? key}) : super(key: key);
+  const FiltersWidget({Key? key, required this.onFilter}) : super(key: key);
+
+  final void Function(City, Genre, DateRange) onFilter;
 
   @override
   State<FiltersWidget> createState() => _FiltersWidgetState();
@@ -34,33 +38,31 @@ class _FiltersWidgetState extends State<FiltersWidget> {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => diContainer<FiltersBloc>(),
-      child: BlocConsumer<FiltersBloc, FiltersState>(
-        listener: (context, state) {
-          unawaited(state.action.map(
-            none: (_) => Future.value(),
-            city: (_) => _showCityPicker(context, state.cities),
-            genre: (_) => _showGenrePicker(context, state.genres),
-            dateRange: (_) => _showDateRangePicker(context, state.dateRanges),
-          ));
-        },
+      child: BlocBuilder<FiltersBloc, FiltersState>(
         builder: (context, state) {
+          widget.onFilter(
+            state.city,
+            state.genre,
+            state.dateRange,
+          );
+
           return SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
               children: [
                 AppPrimaryButton(
-                  text: state.selectedCity?.name ?? '',
-                  onTap: () => context.read<FiltersBloc>().add(const FiltersEvent.showPicker(FilterType.city())),
+                  text: state.city.name,
+                  onTap: () => _showCityPicker(context),
                 ),
                 const SizedBox(width: AppSpace.normal),
                 AppPrimaryButton(
-                  text: state.selectedGenre?.name ?? '',
-                  onTap: () => context.read<FiltersBloc>().add(const FiltersEvent.showPicker(FilterType.genre())),
+                  text: state.genre.name,
+                  onTap: () => _showGenrePicker(context),
                 ),
                 const SizedBox(width: AppSpace.normal),
                 AppPrimaryButton(
-                  text: _getDateRangeText(context, state.selectedDateRange),
-                  onTap: () => context.read<FiltersBloc>().add(const FiltersEvent.showPicker(FilterType.dates())),
+                  text: _getDateRangeText(context, state.dateRange),
+                  onTap: () => _showDateRangePicker(context),
                 ),
               ],
             ),
@@ -70,7 +72,8 @@ class _FiltersWidgetState extends State<FiltersWidget> {
     );
   }
 
-  Future<void> _showCityPicker(BuildContext context, List<City> cities) async {
+  Future<void> _showCityPicker(BuildContext context) async {
+    final cities = await diContainer<GetCitiesUseCase>()();
     await AppDialog.show(
       context: context,
       title: AppTitle(text: context.filtersTranslation.city),
@@ -85,7 +88,8 @@ class _FiltersWidgetState extends State<FiltersWidget> {
     );
   }
 
-  Future<void> _showGenrePicker(BuildContext context, List<Genre> genres) async {
+  Future<void> _showGenrePicker(BuildContext context) async {
+    final genres = await diContainer<GetGenresUseCase>()();
     await AppDialog.show(
       context: context,
       title: AppTitle(text: context.filtersTranslation.genre),
@@ -100,7 +104,8 @@ class _FiltersWidgetState extends State<FiltersWidget> {
     );
   }
 
-  Future<void> _showDateRangePicker(BuildContext context, List<DateRange> datesRanges) async {
+  Future<void> _showDateRangePicker(BuildContext context) async {
+    final List<DateRange> datesRanges = await diContainer<GetDateRangesUseCase>()();
     await AppDialog.show(
       context: context,
       title: AppTitle(text: context.filtersTranslation.dates.title),
@@ -114,11 +119,7 @@ class _FiltersWidgetState extends State<FiltersWidget> {
     );
   }
 
-  String _getDateRangeText(BuildContext context, DateRange? dateRange) {
-    if (dateRange == null) {
-      return '';
-    }
-
+  String _getDateRangeText(BuildContext context, DateRange dateRange) {
     return dateRange.map(
       today: (_) => context.filtersTranslation.dates.today,
       week: (_) => context.filtersTranslation.dates.week,

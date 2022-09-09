@@ -3,6 +3,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:next_gig/desgin_system/animation/animation_state.dart';
 import 'package:next_gig/desgin_system/animation/animation_time.dart';
+import 'package:next_gig/feature/filters/domain/model/city.dart';
+import 'package:next_gig/feature/filters/domain/model/date_range.dart';
+import 'package:next_gig/feature/filters/domain/model/genre.dart';
 import 'package:next_gig/util/navigation/app_navigator.dart';
 
 part 'splash_bloc.freezed.dart';
@@ -18,6 +21,8 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
         animateSubtitle: (_) => _onAnimateSubtitle(emit),
         animateBody: (_) => _onAnimateBody(emit),
         animateDiscoverButton: (_) => _onAnimateDiscoverButton(emit),
+        setFilters: (event) =>
+            _onSetFilters(emit: emit, city: event.city, genre: event.genre, dateRange: event.dateRange),
         discover: (_) => _onDiscover(),
       ),
     );
@@ -56,7 +61,18 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
     ));
   }
 
+  void _onSetFilters({
+    required Emitter<SplashState> emit,
+    required City city,
+    required Genre genre,
+    required DateRange dateRange,
+  }) =>
+      emit(state.copyWith(city: city, genre: genre, dateRange: dateRange));
+
   Future<void> _onDiscover() {
-    return _appNavigator.goToEvents(genreId: 'genreId', locationId: 'locationId');
+    return _appNavigator.goToEvents(
+      locationId: state.city?.id,
+      genreId: state.genre?.id,
+    );
   }
 }
