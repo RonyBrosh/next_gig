@@ -22,8 +22,17 @@ class _$AppRouter extends RootStackRouter {
           routeData: routeData, child: const SplashPage());
     },
     EventsRoute.name: (routeData) {
+      final queryParams = routeData.queryParams;
+      final args = routeData.argsAs<EventsRouteArgs>(
+          orElse: () => EventsRouteArgs(
+              locationId: queryParams.getString('locationId', ''),
+              genreId: queryParams.getString('genreId', '')));
       return AdaptivePage<dynamic>(
-          routeData: routeData, child: const EventsPage());
+          routeData: routeData,
+          child: EventsPage(
+              key: args.key,
+              locationId: args.locationId,
+              genreId: args.genreId));
     }
   };
 
@@ -44,8 +53,28 @@ class SplashRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [EventsPage]
-class EventsRoute extends PageRouteInfo<void> {
-  const EventsRoute() : super(EventsRoute.name, path: '/events');
+class EventsRoute extends PageRouteInfo<EventsRouteArgs> {
+  EventsRoute({Key? key, String locationId = '', String genreId = ''})
+      : super(EventsRoute.name,
+            path: '/events',
+            args: EventsRouteArgs(
+                key: key, locationId: locationId, genreId: genreId),
+            rawQueryParams: {'locationId': locationId, 'genreId': genreId});
 
   static const String name = 'EventsRoute';
+}
+
+class EventsRouteArgs {
+  const EventsRouteArgs({this.key, this.locationId = '', this.genreId = ''});
+
+  final Key? key;
+
+  final String locationId;
+
+  final String genreId;
+
+  @override
+  String toString() {
+    return 'EventsRouteArgs{key: $key, locationId: $locationId, genreId: $genreId}';
+  }
 }

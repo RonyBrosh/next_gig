@@ -7,7 +7,13 @@ class AppNavigator {
 
   final AppRouter _appRouter;
 
-  Future<void> goToEvents() {
-    return _appRouter.push(const EventsRoute());
+  Future<void> goToEvents({
+    required String locationId,
+    required String genreId,
+  }) {
+    return _appRouter.push(EventsRoute(
+      locationId: locationId,
+      genreId: genreId,
+    ));
   }
 }

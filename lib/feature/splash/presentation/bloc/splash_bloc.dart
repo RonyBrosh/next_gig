@@ -57,6 +57,6 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
   }
 
   Future<void> _onDiscover() {
-    return _appNavigator.goToEvents();
+    return _appNavigator.goToEvents(genreId: 'genreId', locationId: 'locationId');
   }
 }
