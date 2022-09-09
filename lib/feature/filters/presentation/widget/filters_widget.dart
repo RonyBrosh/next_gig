@@ -8,6 +8,7 @@ import 'package:next_gig/desgin_system/molecules/button/app_primary_button.dart'
 import 'package:next_gig/desgin_system/molecules/list/app_list.dart';
 import 'package:next_gig/desgin_system/molecules/list/filterable_list.dart';
 import 'package:next_gig/desgin_system/molecules/text/app_title.dart';
+import 'package:next_gig/desgin_system/molecules/widget/app_date_range_picker.dart';
 import 'package:next_gig/desgin_system/molecules/widget/app_dialog.dart';
 import 'package:next_gig/desgin_system/molecules/widget/app_list_tile.dart';
 import 'package:next_gig/feature/filters/domain/model/city.dart';
@@ -15,13 +16,20 @@ import 'package:next_gig/feature/filters/domain/model/date_range.dart';
 import 'package:next_gig/feature/filters/domain/model/filter_type.dart';
 import 'package:next_gig/feature/filters/domain/model/filters.dart';
 import 'package:next_gig/feature/filters/domain/model/genre.dart';
+import 'package:next_gig/feature/filters/domain/use_case/get_date_range_max_use_case.dart';
+import 'package:next_gig/feature/filters/domain/use_case/get_date_range_min_use_case.dart';
 import 'package:next_gig/feature/filters/localisation/build_context_extension.dart';
 import 'package:next_gig/feature/filters/presentation/bloc/filters_bloc.dart';
 import 'package:next_gig/util/di/di_container.dart';
 
-class FiltersWidget extends StatelessWidget {
+class FiltersWidget extends StatefulWidget {
   const FiltersWidget({Key? key}) : super(key: key);
 
+  @override
+  State<FiltersWidget> createState() => _FiltersWidgetState();
+}
+
+class _FiltersWidgetState extends State<FiltersWidget> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -100,7 +108,7 @@ class FiltersWidget extends StatelessWidget {
         data: datesRanges,
         buildItem: (dateRange) => AppListTile(
           title: _getDateRangeText(context, dateRange),
-          onTap: () => context.read<FiltersBloc>().add(FiltersEvent.dateRangeSelected(dateRange)),
+          onTap: () => _onDateRangeClicked(context, dateRange),
         ),
       ),
     );
@@ -134,5 +142,23 @@ class FiltersWidget extends StatelessWidget {
     } else {
       return '${DateFormat.yMMMd().format(start)} - ${DateFormat.yMMMd().format(end)}';
     }
+  }
+
+  void _onDateRangeClicked(BuildContext context, DateRange dateRange) {
+    dateRange.maybeMap(
+      custom: (_) async {
+        final dateTimeRange = await diContainer<AppDateRangePicker>().show(
+          context: context,
+          startDateTime: diContainer<GetDateRangeMinUseCase>()(),
+          endDateTime: diContainer<GetDateRangeMaxUseCase>()(),
+          helpText: context.filtersTranslation.dates.title,
+        );
+        if (dateTimeRange != null && mounted) {
+          context.read<FiltersBloc>().add(
+              FiltersEvent.dateRangeSelected(DateRange.custom(start: dateTimeRange.start, end: dateTimeRange.end)));
+        }
+      },
+      orElse: () => context.read<FiltersBloc>().add(FiltersEvent.dateRangeSelected(dateRange)),
+    );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:clock/clock.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 import 'package:next_gig/util/di/di_container.dart';
@@ -8,4 +9,7 @@ class CoreDIInitializer extends DIInitializer {
 }
 
 @injectableInit
-void _init(GetIt getIt) => $initGetIt(getIt);
+void _init(GetIt getIt) {
+  getIt.registerSingleton<Clock>(clock);
+  $initGetIt(getIt);
+}

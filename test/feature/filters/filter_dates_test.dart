@@ -49,5 +49,13 @@ void main() {
       await iWait(tester);
       await iSeeText(tester, '3 months');
     });
+    testWidgets('''Custom date range selected''', (tester) async {
+      await bddSetUp(tester);
+      await iTapListOption(tester, 'Custom date range');
+      await iTapText(tester, '10');
+      await iTapText(tester, '14');
+      await iTapText(tester, 'SAVE');
+      await iSeeText(tester, 'Jan 10, 2000 - Jan 14, 2000');
+    });
   });
 }

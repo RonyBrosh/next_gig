@@ -22,10 +22,10 @@ Feature: Filter dates
       | 'This month' |
       | '3 months'   |
 
+  Scenario: Custom date range selected
+    Given I tap {'Custom date range'} list option
+    And I tap {'10'} text
+    And I tap {'14'} text
+    When I tap {'SAVE'} text
+    Then I see {'Jan 10, 2000 - Jan 14, 2000'} text
 
-#  Scenario: City is selected
-#    Given I enter {'bri'} into {0} input field
-#    And I wait
-#    When I tap {'Bristol'} text
-#    And I wait
-#    Then I see {'Bristol'} text

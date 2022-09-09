@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:next_gig/desgin_system/atoms/app_colours.dart';
 import 'package:next_gig/desgin_system/atoms/app_space.dart';
+import 'package:next_gig/desgin_system/util/screen_util.dart';
 import 'package:next_gig/util/device/screen_info.dart';
 
 class AppDialog {
@@ -12,8 +13,8 @@ class AppDialog {
     required Widget content,
     bool isFixedSize = true,
   }) {
-    final size = MediaQuery.of(context).size;
     final isLargeScreen = ScreenInfo.isLargeScreen(context);
+    final dialogSize = ScreenUtil.getDialogSize(context);
 
     return showDialog(
       context: context,
@@ -29,8 +30,8 @@ class AppDialog {
         ),
         content: isFixedSize
             ? SizedBox(
-                width: isLargeScreen ? size.width * 0.4 : double.maxFinite,
-                height: isLargeScreen ? size.height * 0.7 : size.height * 0.5,
+                width: dialogSize.width,
+                height: dialogSize.height,
                 child: content,
               )
             : content,
