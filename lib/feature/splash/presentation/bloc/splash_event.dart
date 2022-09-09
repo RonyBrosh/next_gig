@@ -6,4 +6,5 @@ class SplashEvent with _$SplashEvent {
   const factory SplashEvent.animateSubtitle() = _AnimateSubtitle;
   const factory SplashEvent.animateBody() = _AnimateBody;
   const factory SplashEvent.animateDiscoverButton() = _AnimateDiscoverButton;
+  const factory SplashEvent.discover() = _Discover;
 }

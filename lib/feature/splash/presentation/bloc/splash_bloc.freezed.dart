@@ -22,6 +22,7 @@ mixin _$SplashEvent {
     required TResult Function() animateSubtitle,
     required TResult Function() animateBody,
     required TResult Function() animateDiscoverButton,
+    required TResult Function() discover,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$SplashEvent {
     TResult Function()? animateSubtitle,
     TResult Function()? animateBody,
     TResult Function()? animateDiscoverButton,
+    TResult Function()? discover,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$SplashEvent {
     TResult Function()? animateSubtitle,
     TResult Function()? animateBody,
     TResult Function()? animateDiscoverButton,
+    TResult Function()? discover,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -48,6 +51,7 @@ mixin _$SplashEvent {
     required TResult Function(_AnimateBody value) animateBody,
     required TResult Function(_AnimateDiscoverButton value)
         animateDiscoverButton,
+    required TResult Function(_Discover value) discover,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -56,6 +60,7 @@ mixin _$SplashEvent {
     TResult Function(_AnimateSubtitle value)? animateSubtitle,
     TResult Function(_AnimateBody value)? animateBody,
     TResult Function(_AnimateDiscoverButton value)? animateDiscoverButton,
+    TResult Function(_Discover value)? discover,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -64,6 +69,7 @@ mixin _$SplashEvent {
     TResult Function(_AnimateSubtitle value)? animateSubtitle,
     TResult Function(_AnimateBody value)? animateBody,
     TResult Function(_AnimateDiscoverButton value)? animateDiscoverButton,
+    TResult Function(_Discover value)? discover,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -130,6 +136,7 @@ class _$_AnimateTitle implements _AnimateTitle {
     required TResult Function() animateSubtitle,
     required TResult Function() animateBody,
     required TResult Function() animateDiscoverButton,
+    required TResult Function() discover,
   }) {
     return animateTitle();
   }
@@ -141,6 +148,7 @@ class _$_AnimateTitle implements _AnimateTitle {
     TResult Function()? animateSubtitle,
     TResult Function()? animateBody,
     TResult Function()? animateDiscoverButton,
+    TResult Function()? discover,
   }) {
     return animateTitle?.call();
   }
@@ -152,6 +160,7 @@ class _$_AnimateTitle implements _AnimateTitle {
     TResult Function()? animateSubtitle,
     TResult Function()? animateBody,
     TResult Function()? animateDiscoverButton,
+    TResult Function()? discover,
     required TResult orElse(),
   }) {
     if (animateTitle != null) {
@@ -168,6 +177,7 @@ class _$_AnimateTitle implements _AnimateTitle {
     required TResult Function(_AnimateBody value) animateBody,
     required TResult Function(_AnimateDiscoverButton value)
         animateDiscoverButton,
+    required TResult Function(_Discover value) discover,
   }) {
     return animateTitle(this);
   }
@@ -179,6 +189,7 @@ class _$_AnimateTitle implements _AnimateTitle {
     TResult Function(_AnimateSubtitle value)? animateSubtitle,
     TResult Function(_AnimateBody value)? animateBody,
     TResult Function(_AnimateDiscoverButton value)? animateDiscoverButton,
+    TResult Function(_Discover value)? discover,
   }) {
     return animateTitle?.call(this);
   }
@@ -190,6 +201,7 @@ class _$_AnimateTitle implements _AnimateTitle {
     TResult Function(_AnimateSubtitle value)? animateSubtitle,
     TResult Function(_AnimateBody value)? animateBody,
     TResult Function(_AnimateDiscoverButton value)? animateDiscoverButton,
+    TResult Function(_Discover value)? discover,
     required TResult orElse(),
   }) {
     if (animateTitle != null) {
@@ -248,6 +260,7 @@ class _$_AnimateSubtitle implements _AnimateSubtitle {
     required TResult Function() animateSubtitle,
     required TResult Function() animateBody,
     required TResult Function() animateDiscoverButton,
+    required TResult Function() discover,
   }) {
     return animateSubtitle();
   }
@@ -259,6 +272,7 @@ class _$_AnimateSubtitle implements _AnimateSubtitle {
     TResult Function()? animateSubtitle,
     TResult Function()? animateBody,
     TResult Function()? animateDiscoverButton,
+    TResult Function()? discover,
   }) {
     return animateSubtitle?.call();
   }
@@ -270,6 +284,7 @@ class _$_AnimateSubtitle implements _AnimateSubtitle {
     TResult Function()? animateSubtitle,
     TResult Function()? animateBody,
     TResult Function()? animateDiscoverButton,
+    TResult Function()? discover,
     required TResult orElse(),
   }) {
     if (animateSubtitle != null) {
@@ -286,6 +301,7 @@ class _$_AnimateSubtitle implements _AnimateSubtitle {
     required TResult Function(_AnimateBody value) animateBody,
     required TResult Function(_AnimateDiscoverButton value)
         animateDiscoverButton,
+    required TResult Function(_Discover value) discover,
   }) {
     return animateSubtitle(this);
   }
@@ -297,6 +313,7 @@ class _$_AnimateSubtitle implements _AnimateSubtitle {
     TResult Function(_AnimateSubtitle value)? animateSubtitle,
     TResult Function(_AnimateBody value)? animateBody,
     TResult Function(_AnimateDiscoverButton value)? animateDiscoverButton,
+    TResult Function(_Discover value)? discover,
   }) {
     return animateSubtitle?.call(this);
   }
@@ -308,6 +325,7 @@ class _$_AnimateSubtitle implements _AnimateSubtitle {
     TResult Function(_AnimateSubtitle value)? animateSubtitle,
     TResult Function(_AnimateBody value)? animateBody,
     TResult Function(_AnimateDiscoverButton value)? animateDiscoverButton,
+    TResult Function(_Discover value)? discover,
     required TResult orElse(),
   }) {
     if (animateSubtitle != null) {
@@ -365,6 +383,7 @@ class _$_AnimateBody implements _AnimateBody {
     required TResult Function() animateSubtitle,
     required TResult Function() animateBody,
     required TResult Function() animateDiscoverButton,
+    required TResult Function() discover,
   }) {
     return animateBody();
   }
@@ -376,6 +395,7 @@ class _$_AnimateBody implements _AnimateBody {
     TResult Function()? animateSubtitle,
     TResult Function()? animateBody,
     TResult Function()? animateDiscoverButton,
+    TResult Function()? discover,
   }) {
     return animateBody?.call();
   }
@@ -387,6 +407,7 @@ class _$_AnimateBody implements _AnimateBody {
     TResult Function()? animateSubtitle,
     TResult Function()? animateBody,
     TResult Function()? animateDiscoverButton,
+    TResult Function()? discover,
     required TResult orElse(),
   }) {
     if (animateBody != null) {
@@ -403,6 +424,7 @@ class _$_AnimateBody implements _AnimateBody {
     required TResult Function(_AnimateBody value) animateBody,
     required TResult Function(_AnimateDiscoverButton value)
         animateDiscoverButton,
+    required TResult Function(_Discover value) discover,
   }) {
     return animateBody(this);
   }
@@ -414,6 +436,7 @@ class _$_AnimateBody implements _AnimateBody {
     TResult Function(_AnimateSubtitle value)? animateSubtitle,
     TResult Function(_AnimateBody value)? animateBody,
     TResult Function(_AnimateDiscoverButton value)? animateDiscoverButton,
+    TResult Function(_Discover value)? discover,
   }) {
     return animateBody?.call(this);
   }
@@ -425,6 +448,7 @@ class _$_AnimateBody implements _AnimateBody {
     TResult Function(_AnimateSubtitle value)? animateSubtitle,
     TResult Function(_AnimateBody value)? animateBody,
     TResult Function(_AnimateDiscoverButton value)? animateDiscoverButton,
+    TResult Function(_Discover value)? discover,
     required TResult orElse(),
   }) {
     if (animateBody != null) {
@@ -484,6 +508,7 @@ class _$_AnimateDiscoverButton implements _AnimateDiscoverButton {
     required TResult Function() animateSubtitle,
     required TResult Function() animateBody,
     required TResult Function() animateDiscoverButton,
+    required TResult Function() discover,
   }) {
     return animateDiscoverButton();
   }
@@ -495,6 +520,7 @@ class _$_AnimateDiscoverButton implements _AnimateDiscoverButton {
     TResult Function()? animateSubtitle,
     TResult Function()? animateBody,
     TResult Function()? animateDiscoverButton,
+    TResult Function()? discover,
   }) {
     return animateDiscoverButton?.call();
   }
@@ -506,6 +532,7 @@ class _$_AnimateDiscoverButton implements _AnimateDiscoverButton {
     TResult Function()? animateSubtitle,
     TResult Function()? animateBody,
     TResult Function()? animateDiscoverButton,
+    TResult Function()? discover,
     required TResult orElse(),
   }) {
     if (animateDiscoverButton != null) {
@@ -522,6 +549,7 @@ class _$_AnimateDiscoverButton implements _AnimateDiscoverButton {
     required TResult Function(_AnimateBody value) animateBody,
     required TResult Function(_AnimateDiscoverButton value)
         animateDiscoverButton,
+    required TResult Function(_Discover value) discover,
   }) {
     return animateDiscoverButton(this);
   }
@@ -533,6 +561,7 @@ class _$_AnimateDiscoverButton implements _AnimateDiscoverButton {
     TResult Function(_AnimateSubtitle value)? animateSubtitle,
     TResult Function(_AnimateBody value)? animateBody,
     TResult Function(_AnimateDiscoverButton value)? animateDiscoverButton,
+    TResult Function(_Discover value)? discover,
   }) {
     return animateDiscoverButton?.call(this);
   }
@@ -544,6 +573,7 @@ class _$_AnimateDiscoverButton implements _AnimateDiscoverButton {
     TResult Function(_AnimateSubtitle value)? animateSubtitle,
     TResult Function(_AnimateBody value)? animateBody,
     TResult Function(_AnimateDiscoverButton value)? animateDiscoverButton,
+    TResult Function(_Discover value)? discover,
     required TResult orElse(),
   }) {
     if (animateDiscoverButton != null) {
@@ -555,6 +585,129 @@ class _$_AnimateDiscoverButton implements _AnimateDiscoverButton {
 
 abstract class _AnimateDiscoverButton implements SplashEvent {
   const factory _AnimateDiscoverButton() = _$_AnimateDiscoverButton;
+}
+
+/// @nodoc
+abstract class _$$_DiscoverCopyWith<$Res> {
+  factory _$$_DiscoverCopyWith(
+          _$_Discover value, $Res Function(_$_Discover) then) =
+      __$$_DiscoverCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_DiscoverCopyWithImpl<$Res> extends _$SplashEventCopyWithImpl<$Res>
+    implements _$$_DiscoverCopyWith<$Res> {
+  __$$_DiscoverCopyWithImpl(
+      _$_Discover _value, $Res Function(_$_Discover) _then)
+      : super(_value, (v) => _then(v as _$_Discover));
+
+  @override
+  _$_Discover get _value => super._value as _$_Discover;
+}
+
+/// @nodoc
+
+class _$_Discover implements _Discover {
+  const _$_Discover();
+
+  @override
+  String toString() {
+    return 'SplashEvent.discover()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Discover);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() animateTitle,
+    required TResult Function() animateSubtitle,
+    required TResult Function() animateBody,
+    required TResult Function() animateDiscoverButton,
+    required TResult Function() discover,
+  }) {
+    return discover();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? animateTitle,
+    TResult Function()? animateSubtitle,
+    TResult Function()? animateBody,
+    TResult Function()? animateDiscoverButton,
+    TResult Function()? discover,
+  }) {
+    return discover?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? animateTitle,
+    TResult Function()? animateSubtitle,
+    TResult Function()? animateBody,
+    TResult Function()? animateDiscoverButton,
+    TResult Function()? discover,
+    required TResult orElse(),
+  }) {
+    if (discover != null) {
+      return discover();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AnimateTitle value) animateTitle,
+    required TResult Function(_AnimateSubtitle value) animateSubtitle,
+    required TResult Function(_AnimateBody value) animateBody,
+    required TResult Function(_AnimateDiscoverButton value)
+        animateDiscoverButton,
+    required TResult Function(_Discover value) discover,
+  }) {
+    return discover(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_AnimateTitle value)? animateTitle,
+    TResult Function(_AnimateSubtitle value)? animateSubtitle,
+    TResult Function(_AnimateBody value)? animateBody,
+    TResult Function(_AnimateDiscoverButton value)? animateDiscoverButton,
+    TResult Function(_Discover value)? discover,
+  }) {
+    return discover?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AnimateTitle value)? animateTitle,
+    TResult Function(_AnimateSubtitle value)? animateSubtitle,
+    TResult Function(_AnimateBody value)? animateBody,
+    TResult Function(_AnimateDiscoverButton value)? animateDiscoverButton,
+    TResult Function(_Discover value)? discover,
+    required TResult orElse(),
+  }) {
+    if (discover != null) {
+      return discover(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Discover implements SplashEvent {
+  const factory _Discover() = _$_Discover;
 }
 
 /// @nodoc

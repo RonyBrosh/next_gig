@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:next_gig/feature/splash/presentation/widget/splash_page.dart';
 import 'package:next_gig/util/di/di_container.dart';
 import 'package:next_gig/util/di/di_initializer.dart';
+import 'package:next_gig/util/navigation/app_router.dart';
 
 void main() async {
   await diContainer.reset();
@@ -10,18 +10,19 @@ void main() async {
       const CoreDIInitializer(),
     ],
   );
-  runApp(const NextGigApp());
+  runApp(NextGigApp());
 }
 
 class NextGigApp extends StatelessWidget {
-  const NextGigApp({Key? key}) : super(key: key);
+  NextGigApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'NextGig',
       theme: ThemeData(fontFamily: 'Roboto'),
-      home: const SplashPage(),
+      routerDelegate: diContainer<AppRouter>().delegate(),
+      routeInformationParser: diContainer<AppRouter>().defaultRouteParser(),
     );
   }
 }

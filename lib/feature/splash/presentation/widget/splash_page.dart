@@ -9,6 +9,7 @@ import 'package:next_gig/feature/splash/presentation/bloc/splash_bloc.dart';
 import 'package:next_gig/feature/splash/presentation/widget/background_image.dart';
 import 'package:next_gig/feature/splash/presentation/widget/splash_text.dart';
 import 'package:next_gig/util/device/screen_info.dart';
+import 'package:next_gig/util/di/di_container.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -17,36 +18,44 @@ class SplashPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final padding = ScreenInfo.isLargeScreen(context) ? AppSpace.massive : AppSpace.normal;
     return BlocProvider(
-      create: (_) => SplashBloc(),
+      create: (_) => diContainer<SplashBloc>(),
       child: Scaffold(
         body: Stack(
           children: [
             const BackgroundImage(),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SplashText(),
-                const SizedBox(height: AppSpace.normal),
-                BlocBuilder<SplashBloc, SplashState>(
-                  builder: (context, state) {
-                    return AppFadeAnimatedWidget(
-                      animationState: state.discoverButtonAnimationState,
-                      child: SingleChildScrollView(
-                        padding: EdgeInsets.symmetric(horizontal: padding),
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          children: [
-                            const FiltersWidget(),
-                            const SizedBox(width: AppSpace.normal),
-                            AppInvertedPrimaryButton(text: context.splashTranslation.button.discover),
-                          ],
-                        ),
-                      ),
-                    );
-                  },
+            Align(
+              alignment: Alignment.centerLeft,
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SplashText(),
+                    const SizedBox(height: AppSpace.normal),
+                    BlocBuilder<SplashBloc, SplashState>(
+                      builder: (context, state) {
+                        return AppFadeAnimatedWidget(
+                          animationState: state.discoverButtonAnimationState,
+                          child: SingleChildScrollView(
+                            padding: EdgeInsets.symmetric(horizontal: padding),
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              children: [
+                                const FiltersWidget(),
+                                const SizedBox(width: AppSpace.normal),
+                                AppInvertedPrimaryButton(
+                                  text: context.splashTranslation.button.discover,
+                                  onTap: () => context.read<SplashBloc>().add(const SplashEvent.discover()),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
           ],
         ),

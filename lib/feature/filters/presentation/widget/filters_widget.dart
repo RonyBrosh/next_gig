@@ -147,7 +147,7 @@ class _FiltersWidgetState extends State<FiltersWidget> {
   void _onDateRangeClicked(BuildContext context, DateRange dateRange) {
     dateRange.maybeMap(
       custom: (_) async {
-        final dateTimeRange = await diContainer<AppDateRangePicker>().show(
+        final dateTimeRange = await showAppDateRangePicker(
           context: context,
           startDateTime: diContainer<GetDateRangeMinUseCase>()(),
           endDateTime: diContainer<GetDateRangeMaxUseCase>()(),
