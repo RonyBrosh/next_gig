@@ -2,9 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:next_gig/desgin_system/molecules/widget/app_background_image.dart';
-import 'package:next_gig/desgin_system/molecules/widget/app_list_tile.dart';
 import 'package:next_gig/desgin_system/molecules/widget/app_loading.dart';
 import 'package:next_gig/feature/events/presentation/bloc/events_bloc.dart';
+import 'package:next_gig/feature/events/presentation/widget/events_card.dart';
 import 'package:next_gig/feature/events/presentation/widget/events_empty_message.dart';
 import 'package:next_gig/feature/events/presentation/widget/events_loading_error.dart';
 import 'package:next_gig/util/di/di_container.dart';
@@ -37,10 +37,7 @@ class EventsPage extends StatelessWidget {
                   } else {
                     return ListView.builder(
                       itemCount: state.events.length,
-                      itemBuilder: (context, index) {
-                        final event = state.events[index];
-                        return AppListTile(title: event.name);
-                      },
+                      itemBuilder: (context, index) => EventsCard(event: state.events[index]),
                     );
                   }
                 },

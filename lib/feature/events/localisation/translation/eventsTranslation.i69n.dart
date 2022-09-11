@@ -37,6 +37,7 @@ class EventsTranslation implements i69n.I69nMessageBundle {
   const EventsTranslation();
   InitialEventsEventsTranslation get initialEvents =>
       InitialEventsEventsTranslation(this);
+  EventsEventsTranslation get events => EventsEventsTranslation(this);
   Object operator [](String key) {
     var index = key.indexOf('.');
     if (index > 0) {
@@ -46,6 +47,8 @@ class EventsTranslation implements i69n.I69nMessageBundle {
     switch (key) {
       case 'initialEvents':
         return initialEvents;
+      case 'events':
+        return events;
       default:
         return key;
     }
@@ -155,6 +158,25 @@ class DateRangeInitialEventsEventsTranslation
         return threeMonths;
       case 'custom':
         return custom;
+      default:
+        return key;
+    }
+  }
+}
+
+class EventsEventsTranslation implements i69n.I69nMessageBundle {
+  final EventsTranslation _parent;
+  const EventsEventsTranslation(this._parent);
+  String get missingDate => "No date yet";
+  Object operator [](String key) {
+    var index = key.indexOf('.');
+    if (index > 0) {
+      return (this[key.substring(0, index)]
+          as i69n.I69nMessageBundle)[key.substring(index + 1)];
+    }
+    switch (key) {
+      case 'missingDate':
+        return missingDate;
       default:
         return key;
     }

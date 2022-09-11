@@ -15,3 +15,6 @@ initialEvents:
     threeMonths: 'in three months'
     custom: 'for the selected date range'
 
+events:
+  missingDate: 'No date yet'
+
