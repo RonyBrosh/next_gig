@@ -1,6 +1,12 @@
 initialEvents:
-  error: 'Failed to load events...\nPlease try again later.'
-  empty(String city, String genre, String dateRange): 'There are no $genre events in $city $dateRange.\nTry to pick a different genre.'
+  error:
+    title: 'Snap!'
+    body: "Something went wrong, and we couldn't load events...\nPlease try again later."
+
+  empty:
+    title: 'Snap!'
+    body(String city, String genre, String dateRange): 'There are no $genre events in $city $dateRange.\nTry to pick a different genre or date range.'
+
   dateRange:
     today: 'today'
     week: 'this week'

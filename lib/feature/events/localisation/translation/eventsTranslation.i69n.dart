@@ -55,9 +55,10 @@ class EventsTranslation implements i69n.I69nMessageBundle {
 class InitialEventsEventsTranslation implements i69n.I69nMessageBundle {
   final EventsTranslation _parent;
   const InitialEventsEventsTranslation(this._parent);
-  String get error => "Failed to load events...\nPlease try again later.";
-  String empty(String city, String genre, String dateRange) =>
-      "There are no $genre events in $city $dateRange.\nTry to pick a different genre.";
+  ErrorInitialEventsEventsTranslation get error =>
+      ErrorInitialEventsEventsTranslation(this);
+  EmptyInitialEventsEventsTranslation get empty =>
+      EmptyInitialEventsEventsTranslation(this);
   DateRangeInitialEventsEventsTranslation get dateRange =>
       DateRangeInitialEventsEventsTranslation(this);
   Object operator [](String key) {
@@ -73,6 +74,52 @@ class InitialEventsEventsTranslation implements i69n.I69nMessageBundle {
         return empty;
       case 'dateRange':
         return dateRange;
+      default:
+        return key;
+    }
+  }
+}
+
+class ErrorInitialEventsEventsTranslation implements i69n.I69nMessageBundle {
+  final InitialEventsEventsTranslation _parent;
+  const ErrorInitialEventsEventsTranslation(this._parent);
+  String get title => "Snap!";
+  String get body =>
+      "Something went wrong, and we couldn't load events...\nPlease try again later.";
+  Object operator [](String key) {
+    var index = key.indexOf('.');
+    if (index > 0) {
+      return (this[key.substring(0, index)]
+          as i69n.I69nMessageBundle)[key.substring(index + 1)];
+    }
+    switch (key) {
+      case 'title':
+        return title;
+      case 'body':
+        return body;
+      default:
+        return key;
+    }
+  }
+}
+
+class EmptyInitialEventsEventsTranslation implements i69n.I69nMessageBundle {
+  final InitialEventsEventsTranslation _parent;
+  const EmptyInitialEventsEventsTranslation(this._parent);
+  String get title => "Snap!";
+  String body(String city, String genre, String dateRange) =>
+      "There are no $genre events in $city $dateRange.\nTry to pick a different genre or date range.";
+  Object operator [](String key) {
+    var index = key.indexOf('.');
+    if (index > 0) {
+      return (this[key.substring(0, index)]
+          as i69n.I69nMessageBundle)[key.substring(index + 1)];
+    }
+    switch (key) {
+      case 'title':
+        return title;
+      case 'body':
+        return body;
       default:
         return key;
     }
