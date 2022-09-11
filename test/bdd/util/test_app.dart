@@ -8,7 +8,7 @@ import 'test_initializer.dart';
 
 Future<void> runTestApp({
   required WidgetTester tester,
-  required List<DIInitializer> dIInitializers,
+  List<DIInitializer>? dIInitializers,
   Widget Function()? pageBuilder,
   void Function()? postDI,
 }) async {
@@ -17,7 +17,7 @@ Future<void> runTestApp({
     [
       const CoreDIInitializer(),
       const TestInitializer(),
-      ...dIInitializers,
+      if (dIInitializers != null) ...dIInitializers,
     ],
   );
 

@@ -16,42 +16,43 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$EventsEvent {
-  Filters get filters => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Filters filters) load,
+    required TResult Function() changeFilters,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Filters filters)? load,
+    TResult Function()? changeFilters,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Filters filters)? load,
+    TResult Function()? changeFilters,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Load value) load,
+    required TResult Function(_ChangeFilters value) changeFilters,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Load value)? load,
+    TResult Function(_ChangeFilters value)? changeFilters,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Load value)? load,
+    TResult Function(_ChangeFilters value)? changeFilters,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $EventsEventCopyWith<EventsEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -60,9 +61,6 @@ abstract class $EventsEventCopyWith<$Res> {
   factory $EventsEventCopyWith(
           EventsEvent value, $Res Function(EventsEvent) then) =
       _$EventsEventCopyWithImpl<$Res>;
-  $Res call({Filters filters});
-
-  $FiltersCopyWith<$Res> get filters;
 }
 
 /// @nodoc
@@ -72,35 +70,14 @@ class _$EventsEventCopyWithImpl<$Res> implements $EventsEventCopyWith<$Res> {
   final EventsEvent _value;
   // ignore: unused_field
   final $Res Function(EventsEvent) _then;
-
-  @override
-  $Res call({
-    Object? filters = freezed,
-  }) {
-    return _then(_value.copyWith(
-      filters: filters == freezed
-          ? _value.filters
-          : filters // ignore: cast_nullable_to_non_nullable
-              as Filters,
-    ));
-  }
-
-  @override
-  $FiltersCopyWith<$Res> get filters {
-    return $FiltersCopyWith<$Res>(_value.filters, (value) {
-      return _then(_value.copyWith(filters: value));
-    });
-  }
 }
 
 /// @nodoc
-abstract class _$$_LoadCopyWith<$Res> implements $EventsEventCopyWith<$Res> {
+abstract class _$$_LoadCopyWith<$Res> {
   factory _$$_LoadCopyWith(_$_Load value, $Res Function(_$_Load) then) =
       __$$_LoadCopyWithImpl<$Res>;
-  @override
   $Res call({Filters filters});
 
-  @override
   $FiltersCopyWith<$Res> get filters;
 }
 
@@ -123,6 +100,13 @@ class __$$_LoadCopyWithImpl<$Res> extends _$EventsEventCopyWithImpl<$Res>
           : filters // ignore: cast_nullable_to_non_nullable
               as Filters,
     ));
+  }
+
+  @override
+  $FiltersCopyWith<$Res> get filters {
+    return $FiltersCopyWith<$Res>(_value.filters, (value) {
+      return _then(_value.copyWith(filters: value));
+    });
   }
 }
 
@@ -160,6 +144,7 @@ class _$_Load implements _Load {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Filters filters) load,
+    required TResult Function() changeFilters,
   }) {
     return load(filters);
   }
@@ -168,6 +153,7 @@ class _$_Load implements _Load {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Filters filters)? load,
+    TResult Function()? changeFilters,
   }) {
     return load?.call(filters);
   }
@@ -176,6 +162,7 @@ class _$_Load implements _Load {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Filters filters)? load,
+    TResult Function()? changeFilters,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -188,6 +175,7 @@ class _$_Load implements _Load {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Load value) load,
+    required TResult Function(_ChangeFilters value) changeFilters,
   }) {
     return load(this);
   }
@@ -196,6 +184,7 @@ class _$_Load implements _Load {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Load value)? load,
+    TResult Function(_ChangeFilters value)? changeFilters,
   }) {
     return load?.call(this);
   }
@@ -204,6 +193,7 @@ class _$_Load implements _Load {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Load value)? load,
+    TResult Function(_ChangeFilters value)? changeFilters,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -216,11 +206,114 @@ class _$_Load implements _Load {
 abstract class _Load implements EventsEvent {
   const factory _Load({required final Filters filters}) = _$_Load;
 
-  @override
   Filters get filters;
-  @override
   @JsonKey(ignore: true)
   _$$_LoadCopyWith<_$_Load> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_ChangeFiltersCopyWith<$Res> {
+  factory _$$_ChangeFiltersCopyWith(
+          _$_ChangeFilters value, $Res Function(_$_ChangeFilters) then) =
+      __$$_ChangeFiltersCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ChangeFiltersCopyWithImpl<$Res>
+    extends _$EventsEventCopyWithImpl<$Res>
+    implements _$$_ChangeFiltersCopyWith<$Res> {
+  __$$_ChangeFiltersCopyWithImpl(
+      _$_ChangeFilters _value, $Res Function(_$_ChangeFilters) _then)
+      : super(_value, (v) => _then(v as _$_ChangeFilters));
+
+  @override
+  _$_ChangeFilters get _value => super._value as _$_ChangeFilters;
+}
+
+/// @nodoc
+
+class _$_ChangeFilters implements _ChangeFilters {
+  const _$_ChangeFilters();
+
+  @override
+  String toString() {
+    return 'EventsEvent.changeFilters()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_ChangeFilters);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Filters filters) load,
+    required TResult Function() changeFilters,
+  }) {
+    return changeFilters();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Filters filters)? load,
+    TResult Function()? changeFilters,
+  }) {
+    return changeFilters?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Filters filters)? load,
+    TResult Function()? changeFilters,
+    required TResult orElse(),
+  }) {
+    if (changeFilters != null) {
+      return changeFilters();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Load value) load,
+    required TResult Function(_ChangeFilters value) changeFilters,
+  }) {
+    return changeFilters(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Load value)? load,
+    TResult Function(_ChangeFilters value)? changeFilters,
+  }) {
+    return changeFilters?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Load value)? load,
+    TResult Function(_ChangeFilters value)? changeFilters,
+    required TResult orElse(),
+  }) {
+    if (changeFilters != null) {
+      return changeFilters(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeFilters implements EventsEvent {
+  const factory _ChangeFilters() = _$_ChangeFilters;
 }
 
 /// @nodoc

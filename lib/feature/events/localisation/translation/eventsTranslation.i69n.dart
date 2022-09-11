@@ -109,6 +109,7 @@ class EmptyInitialEventsEventsTranslation implements i69n.I69nMessageBundle {
   String get title => "Snap!";
   String body(String city, String genre, String dateRange) =>
       "There are no $genre events in $city $dateRange.\nTry to pick a different genre or date range.";
+  String get button => "Edit search";
   Object operator [](String key) {
     var index = key.indexOf('.');
     if (index > 0) {
@@ -120,6 +121,8 @@ class EmptyInitialEventsEventsTranslation implements i69n.I69nMessageBundle {
         return title;
       case 'body':
         return body;
+      case 'button':
+        return button;
       default:
         return key;
     }

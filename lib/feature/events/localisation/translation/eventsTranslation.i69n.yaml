@@ -6,6 +6,7 @@ initialEvents:
   empty:
     title: 'Snap!'
     body(String city, String genre, String dateRange): 'There are no $genre events in $city $dateRange.\nTry to pick a different genre or date range.'
+    button: 'Edit search'
 
   dateRange:
     today: 'today'

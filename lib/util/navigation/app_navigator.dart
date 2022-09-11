@@ -13,4 +13,8 @@ class AppNavigator {
   Future<void> goToEvents({required Filters filters}) {
     return _appRouter.push(EventsRoute(encodedFilters: _encodeFiltersUseCase(filters: filters)));
   }
+
+  Future<void> goBack() {
+    return _appRouter.pop();
+  }
 }

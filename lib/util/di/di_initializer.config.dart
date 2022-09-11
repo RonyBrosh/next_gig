@@ -75,8 +75,11 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       () => _i20.GetEventsUseCase(get<_i19.EventsRepository>()));
   gh.factory<_i21.SplashBloc>(() => _i21.SplashBloc(get<_i18.AppNavigator>()));
   gh.factoryParam<_i22.EventsBloc, String, dynamic>((encodedFilters, _) =>
-      _i22.EventsBloc(get<_i5.DecodeFiltersUseCase>(),
-          get<_i20.GetEventsUseCase>(), encodedFilters));
+      _i22.EventsBloc(
+          get<_i5.DecodeFiltersUseCase>(),
+          get<_i20.GetEventsUseCase>(),
+          get<_i18.AppNavigator>(),
+          encodedFilters));
   return get;
 }
 
