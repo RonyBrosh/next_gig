@@ -13,10 +13,10 @@ part 'filters_state.dart';
 class FiltersBloc extends Bloc<FiltersEvent, FiltersState> {
   FiltersBloc()
       : super(
-          const FiltersState(
-            city: City(id: '602', name: 'London'),
-            genre: Genre(id: 'KnvZfZ7vAeA', name: 'Rock'),
-            dateRange: DateRange.month(),
+          FiltersState(
+            city: City.makeDefault(),
+            genre: Genre.makeDefault(),
+            dateRange: DateRange.makeDefault(),
           ),
         ) {
     on<FiltersEvent>(

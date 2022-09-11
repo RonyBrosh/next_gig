@@ -1,8 +1,18 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:next_gig/feature/filters/domain/model/city.dart';
+import 'package:next_gig/feature/filters/domain/model/date_range.dart';
 import 'package:next_gig/feature/filters/domain/model/genre.dart';
 
-bool _filterByName({required String name, required String text}) => name.toLowerCase().contains(text.toLowerCase());
+part 'filters.freezed.dart';
+part 'filters.g.dart';
 
-bool filterCities(City city, String text) => _filterByName(name: city.name, text: text);
+@freezed
+class Filters with _$Filters {
+  const factory Filters({
+    required City city,
+    required Genre genre,
+    required DateRange dateRange,
+  }) = _Filters;
 
-bool filterGenres(Genre genre, String text) => _filterByName(name: genre.name, text: text);
+  factory Filters.fromJson(Map<String, dynamic> json) => _$FiltersFromJson(json);
+}

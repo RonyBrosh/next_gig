@@ -11,4 +11,6 @@ class Genre with _$Genre {
   }) = _Genre;
 
   factory Genre.fromJson(Map<String, dynamic> json) => _$GenreFromJson(json);
+
+  factory Genre.makeDefault() => const Genre(id: 'KnvZfZ7vAeA', name: 'Rock');
 }

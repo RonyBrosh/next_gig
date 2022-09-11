@@ -11,7 +11,7 @@ part 'app_router.gr.dart';
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
     AutoRoute(page: SplashPage, path: '/', initial: true),
-    AutoRoute(page: EventsPage, path: '/events'),
+    AutoRoute(page: EventsPage, path: '/events/:encodedFilters'),
   ],
 )
 class AppRouter extends _$AppRouter {}

@@ -22,24 +22,21 @@ class _$AppRouter extends RootStackRouter {
           routeData: routeData, child: const SplashPage());
     },
     EventsRoute.name: (routeData) {
-      final queryParams = routeData.queryParams;
+      final pathParams = routeData.inheritedPathParams;
       final args = routeData.argsAs<EventsRouteArgs>(
           orElse: () => EventsRouteArgs(
-              locationId: queryParams.getString('locationId', ''),
-              genreId: queryParams.getString('genreId', '')));
+              encodedFilters: pathParams.getString('encodedFilters')));
       return AdaptivePage<dynamic>(
           routeData: routeData,
-          child: EventsPage(
-              key: args.key,
-              locationId: args.locationId,
-              genreId: args.genreId));
+          child:
+              EventsPage(key: args.key, encodedFilters: args.encodedFilters));
     }
   };
 
   @override
   List<RouteConfig> get routes => [
         RouteConfig(SplashRoute.name, path: '/'),
-        RouteConfig(EventsRoute.name, path: '/events')
+        RouteConfig(EventsRoute.name, path: '/events/:encodedFilters')
       ];
 }
 
@@ -54,27 +51,24 @@ class SplashRoute extends PageRouteInfo<void> {
 /// generated route for
 /// [EventsPage]
 class EventsRoute extends PageRouteInfo<EventsRouteArgs> {
-  EventsRoute({Key? key, String locationId = '', String genreId = ''})
+  EventsRoute({Key? key, required String encodedFilters})
       : super(EventsRoute.name,
-            path: '/events',
-            args: EventsRouteArgs(
-                key: key, locationId: locationId, genreId: genreId),
-            rawQueryParams: {'locationId': locationId, 'genreId': genreId});
+            path: '/events/:encodedFilters',
+            args: EventsRouteArgs(key: key, encodedFilters: encodedFilters),
+            rawPathParams: {'encodedFilters': encodedFilters});
 
   static const String name = 'EventsRoute';
 }
 
 class EventsRouteArgs {
-  const EventsRouteArgs({this.key, this.locationId = '', this.genreId = ''});
+  const EventsRouteArgs({this.key, required this.encodedFilters});
 
   final Key? key;
 
-  final String locationId;
-
-  final String genreId;
+  final String encodedFilters;
 
   @override
   String toString() {
-    return 'EventsRouteArgs{key: $key, locationId: $locationId, genreId: $genreId}';
+    return 'EventsRouteArgs{key: $key, encodedFilters: $encodedFilters}';
   }
 }

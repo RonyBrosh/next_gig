@@ -5,6 +5,7 @@ import 'package:next_gig/desgin_system/animation/animation_state.dart';
 import 'package:next_gig/desgin_system/animation/animation_time.dart';
 import 'package:next_gig/feature/filters/domain/model/city.dart';
 import 'package:next_gig/feature/filters/domain/model/date_range.dart';
+import 'package:next_gig/feature/filters/domain/model/filters.dart';
 import 'package:next_gig/feature/filters/domain/model/genre.dart';
 import 'package:next_gig/util/navigation/app_navigator.dart';
 
@@ -14,7 +15,12 @@ part 'splash_state.dart';
 
 @injectable
 class SplashBloc extends Bloc<SplashEvent, SplashState> {
-  SplashBloc(this._appNavigator) : super(const SplashState()) {
+  SplashBloc(this._appNavigator)
+      : super(SplashState(
+          city: City.makeDefault(),
+          genre: Genre.makeDefault(),
+          dateRange: DateRange.makeDefault(),
+        )) {
     on<SplashEvent>(
       (event, emit) => event.map(
         animateTitle: (_) => _onAnimateTitle(emit),
@@ -70,9 +76,11 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
       emit(state.copyWith(city: city, genre: genre, dateRange: dateRange));
 
   Future<void> _onDiscover() {
-    return _appNavigator.goToEvents(
-      locationId: state.city?.id,
-      genreId: state.genre?.id,
+    final filters = Filters(
+      city: state.city,
+      genre: state.genre,
+      dateRange: state.dateRange,
     );
+    return _appNavigator.goToEvents(filters: filters);
   }
 }

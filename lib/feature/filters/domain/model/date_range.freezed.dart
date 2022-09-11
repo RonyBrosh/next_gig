@@ -14,6 +14,25 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+DateRange _$DateRangeFromJson(Map<String, dynamic> json) {
+  switch (json['runtimeType']) {
+    case 'today':
+      return _Today.fromJson(json);
+    case 'week':
+      return _Week.fromJson(json);
+    case 'month':
+      return _Month.fromJson(json);
+    case 'threeMonths':
+      return _ThreeMonths.fromJson(json);
+    case 'custom':
+      return _Custom.fromJson(json);
+
+    default:
+      throw CheckedFromJsonException(json, 'runtimeType', 'DateRange',
+          'Invalid union type "${json['runtimeType']}"!');
+  }
+}
+
 /// @nodoc
 mixin _$DateRange {
   @optionalTypeArgs
@@ -22,7 +41,7 @@ mixin _$DateRange {
     required TResult Function() week,
     required TResult Function() month,
     required TResult Function() threeMonths,
-    required TResult Function(DateTime? start, DateTime? end) custom,
+    required TResult Function(DateTime start, DateTime end) custom,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -31,7 +50,7 @@ mixin _$DateRange {
     TResult Function()? week,
     TResult Function()? month,
     TResult Function()? threeMonths,
-    TResult Function(DateTime? start, DateTime? end)? custom,
+    TResult Function(DateTime start, DateTime end)? custom,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,7 +59,7 @@ mixin _$DateRange {
     TResult Function()? week,
     TResult Function()? month,
     TResult Function()? threeMonths,
-    TResult Function(DateTime? start, DateTime? end)? custom,
+    TResult Function(DateTime start, DateTime end)? custom,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -72,6 +91,7 @@ mixin _$DateRange {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -106,9 +126,15 @@ class __$$_TodayCopyWithImpl<$Res> extends _$DateRangeCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_Today implements _Today {
-  const _$_Today();
+  const _$_Today({final String? $type}) : $type = $type ?? 'today';
+
+  factory _$_Today.fromJson(Map<String, dynamic> json) =>
+      _$$_TodayFromJson(json);
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
@@ -121,6 +147,7 @@ class _$_Today implements _Today {
         (other.runtimeType == runtimeType && other is _$_Today);
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -131,7 +158,7 @@ class _$_Today implements _Today {
     required TResult Function() week,
     required TResult Function() month,
     required TResult Function() threeMonths,
-    required TResult Function(DateTime? start, DateTime? end) custom,
+    required TResult Function(DateTime start, DateTime end) custom,
   }) {
     return today();
   }
@@ -143,7 +170,7 @@ class _$_Today implements _Today {
     TResult Function()? week,
     TResult Function()? month,
     TResult Function()? threeMonths,
-    TResult Function(DateTime? start, DateTime? end)? custom,
+    TResult Function(DateTime start, DateTime end)? custom,
   }) {
     return today?.call();
   }
@@ -155,7 +182,7 @@ class _$_Today implements _Today {
     TResult Function()? week,
     TResult Function()? month,
     TResult Function()? threeMonths,
-    TResult Function(DateTime? start, DateTime? end)? custom,
+    TResult Function(DateTime start, DateTime end)? custom,
     required TResult orElse(),
   }) {
     if (today != null) {
@@ -203,10 +230,19 @@ class _$_Today implements _Today {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_TodayToJson(
+      this,
+    );
+  }
 }
 
 abstract class _Today implements DateRange {
   const factory _Today() = _$_Today;
+
+  factory _Today.fromJson(Map<String, dynamic> json) = _$_Today.fromJson;
 }
 
 /// @nodoc
@@ -226,9 +262,14 @@ class __$$_WeekCopyWithImpl<$Res> extends _$DateRangeCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_Week implements _Week {
-  const _$_Week();
+  const _$_Week({final String? $type}) : $type = $type ?? 'week';
+
+  factory _$_Week.fromJson(Map<String, dynamic> json) => _$$_WeekFromJson(json);
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
@@ -241,6 +282,7 @@ class _$_Week implements _Week {
         (other.runtimeType == runtimeType && other is _$_Week);
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -251,7 +293,7 @@ class _$_Week implements _Week {
     required TResult Function() week,
     required TResult Function() month,
     required TResult Function() threeMonths,
-    required TResult Function(DateTime? start, DateTime? end) custom,
+    required TResult Function(DateTime start, DateTime end) custom,
   }) {
     return week();
   }
@@ -263,7 +305,7 @@ class _$_Week implements _Week {
     TResult Function()? week,
     TResult Function()? month,
     TResult Function()? threeMonths,
-    TResult Function(DateTime? start, DateTime? end)? custom,
+    TResult Function(DateTime start, DateTime end)? custom,
   }) {
     return week?.call();
   }
@@ -275,7 +317,7 @@ class _$_Week implements _Week {
     TResult Function()? week,
     TResult Function()? month,
     TResult Function()? threeMonths,
-    TResult Function(DateTime? start, DateTime? end)? custom,
+    TResult Function(DateTime start, DateTime end)? custom,
     required TResult orElse(),
   }) {
     if (week != null) {
@@ -323,10 +365,19 @@ class _$_Week implements _Week {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_WeekToJson(
+      this,
+    );
+  }
 }
 
 abstract class _Week implements DateRange {
   const factory _Week() = _$_Week;
+
+  factory _Week.fromJson(Map<String, dynamic> json) = _$_Week.fromJson;
 }
 
 /// @nodoc
@@ -346,9 +397,15 @@ class __$$_MonthCopyWithImpl<$Res> extends _$DateRangeCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_Month implements _Month {
-  const _$_Month();
+  const _$_Month({final String? $type}) : $type = $type ?? 'month';
+
+  factory _$_Month.fromJson(Map<String, dynamic> json) =>
+      _$$_MonthFromJson(json);
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
@@ -361,6 +418,7 @@ class _$_Month implements _Month {
         (other.runtimeType == runtimeType && other is _$_Month);
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -371,7 +429,7 @@ class _$_Month implements _Month {
     required TResult Function() week,
     required TResult Function() month,
     required TResult Function() threeMonths,
-    required TResult Function(DateTime? start, DateTime? end) custom,
+    required TResult Function(DateTime start, DateTime end) custom,
   }) {
     return month();
   }
@@ -383,7 +441,7 @@ class _$_Month implements _Month {
     TResult Function()? week,
     TResult Function()? month,
     TResult Function()? threeMonths,
-    TResult Function(DateTime? start, DateTime? end)? custom,
+    TResult Function(DateTime start, DateTime end)? custom,
   }) {
     return month?.call();
   }
@@ -395,7 +453,7 @@ class _$_Month implements _Month {
     TResult Function()? week,
     TResult Function()? month,
     TResult Function()? threeMonths,
-    TResult Function(DateTime? start, DateTime? end)? custom,
+    TResult Function(DateTime start, DateTime end)? custom,
     required TResult orElse(),
   }) {
     if (month != null) {
@@ -443,10 +501,19 @@ class _$_Month implements _Month {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_MonthToJson(
+      this,
+    );
+  }
 }
 
 abstract class _Month implements DateRange {
   const factory _Month() = _$_Month;
+
+  factory _Month.fromJson(Map<String, dynamic> json) = _$_Month.fromJson;
 }
 
 /// @nodoc
@@ -468,9 +535,15 @@ class __$$_ThreeMonthsCopyWithImpl<$Res> extends _$DateRangeCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_ThreeMonths implements _ThreeMonths {
-  const _$_ThreeMonths();
+  const _$_ThreeMonths({final String? $type}) : $type = $type ?? 'threeMonths';
+
+  factory _$_ThreeMonths.fromJson(Map<String, dynamic> json) =>
+      _$$_ThreeMonthsFromJson(json);
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
@@ -483,6 +556,7 @@ class _$_ThreeMonths implements _ThreeMonths {
         (other.runtimeType == runtimeType && other is _$_ThreeMonths);
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -493,7 +567,7 @@ class _$_ThreeMonths implements _ThreeMonths {
     required TResult Function() week,
     required TResult Function() month,
     required TResult Function() threeMonths,
-    required TResult Function(DateTime? start, DateTime? end) custom,
+    required TResult Function(DateTime start, DateTime end) custom,
   }) {
     return threeMonths();
   }
@@ -505,7 +579,7 @@ class _$_ThreeMonths implements _ThreeMonths {
     TResult Function()? week,
     TResult Function()? month,
     TResult Function()? threeMonths,
-    TResult Function(DateTime? start, DateTime? end)? custom,
+    TResult Function(DateTime start, DateTime end)? custom,
   }) {
     return threeMonths?.call();
   }
@@ -517,7 +591,7 @@ class _$_ThreeMonths implements _ThreeMonths {
     TResult Function()? week,
     TResult Function()? month,
     TResult Function()? threeMonths,
-    TResult Function(DateTime? start, DateTime? end)? custom,
+    TResult Function(DateTime start, DateTime end)? custom,
     required TResult orElse(),
   }) {
     if (threeMonths != null) {
@@ -565,17 +639,27 @@ class _$_ThreeMonths implements _ThreeMonths {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_ThreeMonthsToJson(
+      this,
+    );
+  }
 }
 
 abstract class _ThreeMonths implements DateRange {
   const factory _ThreeMonths() = _$_ThreeMonths;
+
+  factory _ThreeMonths.fromJson(Map<String, dynamic> json) =
+      _$_ThreeMonths.fromJson;
 }
 
 /// @nodoc
 abstract class _$$_CustomCopyWith<$Res> {
   factory _$$_CustomCopyWith(_$_Custom value, $Res Function(_$_Custom) then) =
       __$$_CustomCopyWithImpl<$Res>;
-  $Res call({DateTime? start, DateTime? end});
+  $Res call({DateTime start, DateTime end});
 }
 
 /// @nodoc
@@ -596,24 +680,31 @@ class __$$_CustomCopyWithImpl<$Res> extends _$DateRangeCopyWithImpl<$Res>
       start: start == freezed
           ? _value.start
           : start // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as DateTime,
       end: end == freezed
           ? _value.end
           : end // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as DateTime,
     ));
   }
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_Custom implements _Custom {
-  const _$_Custom({this.start, this.end});
+  const _$_Custom({required this.start, required this.end, final String? $type})
+      : $type = $type ?? 'custom';
+
+  factory _$_Custom.fromJson(Map<String, dynamic> json) =>
+      _$$_CustomFromJson(json);
 
   @override
-  final DateTime? start;
+  final DateTime start;
   @override
-  final DateTime? end;
+  final DateTime end;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
@@ -629,6 +720,7 @@ class _$_Custom implements _Custom {
             const DeepCollectionEquality().equals(other.end, end));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -647,7 +739,7 @@ class _$_Custom implements _Custom {
     required TResult Function() week,
     required TResult Function() month,
     required TResult Function() threeMonths,
-    required TResult Function(DateTime? start, DateTime? end) custom,
+    required TResult Function(DateTime start, DateTime end) custom,
   }) {
     return custom(start, end);
   }
@@ -659,7 +751,7 @@ class _$_Custom implements _Custom {
     TResult Function()? week,
     TResult Function()? month,
     TResult Function()? threeMonths,
-    TResult Function(DateTime? start, DateTime? end)? custom,
+    TResult Function(DateTime start, DateTime end)? custom,
   }) {
     return custom?.call(start, end);
   }
@@ -671,7 +763,7 @@ class _$_Custom implements _Custom {
     TResult Function()? week,
     TResult Function()? month,
     TResult Function()? threeMonths,
-    TResult Function(DateTime? start, DateTime? end)? custom,
+    TResult Function(DateTime start, DateTime end)? custom,
     required TResult orElse(),
   }) {
     if (custom != null) {
@@ -719,14 +811,23 @@ class _$_Custom implements _Custom {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_CustomToJson(
+      this,
+    );
+  }
 }
 
 abstract class _Custom implements DateRange {
-  const factory _Custom({final DateTime? start, final DateTime? end}) =
-      _$_Custom;
+  const factory _Custom(
+      {required final DateTime start, required final DateTime end}) = _$_Custom;
 
-  DateTime? get start;
-  DateTime? get end;
+  factory _Custom.fromJson(Map<String, dynamic> json) = _$_Custom.fromJson;
+
+  DateTime get start;
+  DateTime get end;
   @JsonKey(ignore: true)
   _$$_CustomCopyWith<_$_Custom> get copyWith =>
       throw _privateConstructorUsedError;

@@ -13,13 +13,13 @@ import 'package:next_gig/desgin_system/molecules/widget/app_dialog.dart';
 import 'package:next_gig/desgin_system/molecules/widget/app_list_tile.dart';
 import 'package:next_gig/feature/filters/domain/model/city.dart';
 import 'package:next_gig/feature/filters/domain/model/date_range.dart';
-import 'package:next_gig/feature/filters/domain/model/filters.dart';
 import 'package:next_gig/feature/filters/domain/model/genre.dart';
 import 'package:next_gig/feature/filters/domain/use_case/get_cities_use_case.dart';
 import 'package:next_gig/feature/filters/domain/use_case/get_date_range_max_use_case.dart';
 import 'package:next_gig/feature/filters/domain/use_case/get_date_range_min_use_case.dart';
 import 'package:next_gig/feature/filters/domain/use_case/get_date_ranges_use_case.dart';
 import 'package:next_gig/feature/filters/domain/use_case/get_genres_use_case.dart';
+import 'package:next_gig/feature/filters/domain/util/model_list_filters.dart';
 import 'package:next_gig/feature/filters/localisation/build_context_extension.dart';
 import 'package:next_gig/feature/filters/presentation/bloc/filters_bloc.dart';
 import 'package:next_gig/util/di/di_container.dart';
@@ -61,7 +61,7 @@ class _FiltersWidgetState extends State<FiltersWidget> {
                 ),
                 const SizedBox(width: AppSpace.normal),
                 AppPrimaryButton(
-                  text: _getDateRangeText(context, state.dateRange),
+                  text: _getDateRangeText(context, state.dateRange, false),
                   onTap: () => _showDateRangePicker(context),
                 ),
               ],
@@ -112,14 +112,14 @@ class _FiltersWidgetState extends State<FiltersWidget> {
       content: AppList<DateRange>(
         data: datesRanges,
         buildItem: (dateRange) => AppListTile(
-          title: _getDateRangeText(context, dateRange),
+          title: _getDateRangeText(context, dateRange, true),
           onTap: () => _onDateRangeClicked(context, dateRange),
         ),
       ),
     );
   }
 
-  String _getDateRangeText(BuildContext context, DateRange dateRange) {
+  String _getDateRangeText(BuildContext context, DateRange dateRange, bool isPicker) {
     return dateRange.map(
       today: (_) => context.filtersTranslation.dates.today,
       week: (_) => context.filtersTranslation.dates.week,
@@ -129,16 +129,18 @@ class _FiltersWidgetState extends State<FiltersWidget> {
         context: context,
         start: dateRange.start,
         end: dateRange.end,
+        isPicker: isPicker,
       ),
     );
   }
 
   String _getCustomDateRangeText({
     required BuildContext context,
-    required DateTime? start,
-    required DateTime? end,
+    required DateTime start,
+    required DateTime end,
+    required bool isPicker,
   }) {
-    if (start == null || end == null) {
+    if (isPicker) {
       return context.filtersTranslation.dates.custom;
     } else {
       return '${DateFormat.yMMMd().format(start)} - ${DateFormat.yMMMd().format(end)}';

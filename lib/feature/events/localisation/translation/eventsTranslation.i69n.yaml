@@ -1,0 +1,10 @@
+initialEvents:
+  error: 'Failed to load events...\nPlease try again later.'
+  empty(String city, String genre, String dateRange): 'There are no $genre events in $city $dateRange.\nTry to pick a different genre.'
+  dateRange:
+    today: 'today'
+    week: 'this week'
+    month: 'this month'
+    threeMonths: 'in three months'
+    custom: 'for the selected date range'
+

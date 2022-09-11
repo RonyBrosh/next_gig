@@ -969,9 +969,9 @@ mixin _$SplashState {
   AnimationState get bodyAnimationState => throw _privateConstructorUsedError;
   AnimationState get discoverButtonAnimationState =>
       throw _privateConstructorUsedError;
-  City? get city => throw _privateConstructorUsedError;
-  Genre? get genre => throw _privateConstructorUsedError;
-  DateRange? get dateRange => throw _privateConstructorUsedError;
+  City get city => throw _privateConstructorUsedError;
+  Genre get genre => throw _privateConstructorUsedError;
+  DateRange get dateRange => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SplashStateCopyWith<SplashState> get copyWith =>
@@ -988,13 +988,13 @@ abstract class $SplashStateCopyWith<$Res> {
       AnimationState subtitleAnimationState,
       AnimationState bodyAnimationState,
       AnimationState discoverButtonAnimationState,
-      City? city,
-      Genre? genre,
-      DateRange? dateRange});
+      City city,
+      Genre genre,
+      DateRange dateRange});
 
-  $CityCopyWith<$Res>? get city;
-  $GenreCopyWith<$Res>? get genre;
-  $DateRangeCopyWith<$Res>? get dateRange;
+  $CityCopyWith<$Res> get city;
+  $GenreCopyWith<$Res> get genre;
+  $DateRangeCopyWith<$Res> get dateRange;
 }
 
 /// @nodoc
@@ -1035,47 +1035,35 @@ class _$SplashStateCopyWithImpl<$Res> implements $SplashStateCopyWith<$Res> {
       city: city == freezed
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
-              as City?,
+              as City,
       genre: genre == freezed
           ? _value.genre
           : genre // ignore: cast_nullable_to_non_nullable
-              as Genre?,
+              as Genre,
       dateRange: dateRange == freezed
           ? _value.dateRange
           : dateRange // ignore: cast_nullable_to_non_nullable
-              as DateRange?,
+              as DateRange,
     ));
   }
 
   @override
-  $CityCopyWith<$Res>? get city {
-    if (_value.city == null) {
-      return null;
-    }
-
-    return $CityCopyWith<$Res>(_value.city!, (value) {
+  $CityCopyWith<$Res> get city {
+    return $CityCopyWith<$Res>(_value.city, (value) {
       return _then(_value.copyWith(city: value));
     });
   }
 
   @override
-  $GenreCopyWith<$Res>? get genre {
-    if (_value.genre == null) {
-      return null;
-    }
-
-    return $GenreCopyWith<$Res>(_value.genre!, (value) {
+  $GenreCopyWith<$Res> get genre {
+    return $GenreCopyWith<$Res>(_value.genre, (value) {
       return _then(_value.copyWith(genre: value));
     });
   }
 
   @override
-  $DateRangeCopyWith<$Res>? get dateRange {
-    if (_value.dateRange == null) {
-      return null;
-    }
-
-    return $DateRangeCopyWith<$Res>(_value.dateRange!, (value) {
+  $DateRangeCopyWith<$Res> get dateRange {
+    return $DateRangeCopyWith<$Res>(_value.dateRange, (value) {
       return _then(_value.copyWith(dateRange: value));
     });
   }
@@ -1093,16 +1081,16 @@ abstract class _$$_SplashStateCopyWith<$Res>
       AnimationState subtitleAnimationState,
       AnimationState bodyAnimationState,
       AnimationState discoverButtonAnimationState,
-      City? city,
-      Genre? genre,
-      DateRange? dateRange});
+      City city,
+      Genre genre,
+      DateRange dateRange});
 
   @override
-  $CityCopyWith<$Res>? get city;
+  $CityCopyWith<$Res> get city;
   @override
-  $GenreCopyWith<$Res>? get genre;
+  $GenreCopyWith<$Res> get genre;
   @override
-  $DateRangeCopyWith<$Res>? get dateRange;
+  $DateRangeCopyWith<$Res> get dateRange;
 }
 
 /// @nodoc
@@ -1145,15 +1133,15 @@ class __$$_SplashStateCopyWithImpl<$Res> extends _$SplashStateCopyWithImpl<$Res>
       city: city == freezed
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
-              as City?,
+              as City,
       genre: genre == freezed
           ? _value.genre
           : genre // ignore: cast_nullable_to_non_nullable
-              as Genre?,
+              as Genre,
       dateRange: dateRange == freezed
           ? _value.dateRange
           : dateRange // ignore: cast_nullable_to_non_nullable
-              as DateRange?,
+              as DateRange,
     ));
   }
 }
@@ -1166,9 +1154,9 @@ class _$_SplashState implements _SplashState {
       this.subtitleAnimationState = AnimationState.initial,
       this.bodyAnimationState = AnimationState.initial,
       this.discoverButtonAnimationState = AnimationState.initial,
-      this.city,
-      this.genre,
-      this.dateRange});
+      required this.city,
+      required this.genre,
+      required this.dateRange});
 
   @override
   @JsonKey()
@@ -1183,11 +1171,11 @@ class _$_SplashState implements _SplashState {
   @JsonKey()
   final AnimationState discoverButtonAnimationState;
   @override
-  final City? city;
+  final City city;
   @override
-  final Genre? genre;
+  final Genre genre;
   @override
-  final DateRange? dateRange;
+  final DateRange dateRange;
 
   @override
   String toString() {
@@ -1236,9 +1224,9 @@ abstract class _SplashState implements SplashState {
       final AnimationState subtitleAnimationState,
       final AnimationState bodyAnimationState,
       final AnimationState discoverButtonAnimationState,
-      final City? city,
-      final Genre? genre,
-      final DateRange? dateRange}) = _$_SplashState;
+      required final City city,
+      required final Genre genre,
+      required final DateRange dateRange}) = _$_SplashState;
 
   @override
   AnimationState get titleAnimationState;
@@ -1249,11 +1237,11 @@ abstract class _SplashState implements SplashState {
   @override
   AnimationState get discoverButtonAnimationState;
   @override
-  City? get city;
+  City get city;
   @override
-  Genre? get genre;
+  Genre get genre;
   @override
-  DateRange? get dateRange;
+  DateRange get dateRange;
   @override
   @JsonKey(ignore: true)
   _$$_SplashStateCopyWith<_$_SplashState> get copyWith =>
