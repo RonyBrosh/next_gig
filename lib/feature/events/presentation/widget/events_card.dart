@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:next_gig/desgin_system/atoms/app_colours.dart';
 import 'package:next_gig/desgin_system/atoms/app_space.dart';
+import 'package:next_gig/desgin_system/molecules/button/app_secondary_button.dart';
 import 'package:next_gig/desgin_system/molecules/text/app_body.dart';
 import 'package:next_gig/desgin_system/molecules/text/app_title.dart';
 import 'package:next_gig/feature/events/domain/model/event.dart';
@@ -13,7 +16,11 @@ class EventsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: AppColours.transparent,
       clipBehavior: Clip.antiAlias,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(AppSpace.normal)),
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -24,36 +31,25 @@ class EventsCard extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-          AppTitle(text: event.name),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  AppBody(text: _createDateText(context, event.dateTime)),
-                  // TextCaption(text: event.venue),
-                  // TextLink(
-                  //   text: context.discoverTranslation.event_picker.hyperlink,
-                  //   url: event.url,
-                  //   onTap: () => onWeblinkTap(event),
-                  // ),
-                ],
-              ),
-              Expanded(
-                child: Align(
-                  alignment: Alignment.bottomRight,
-                  child: Padding(
-                    padding: const EdgeInsets.all(AppSpace.large),
-                    child: IconButton(
-                      alignment: Alignment.bottomRight,
-                      onPressed: () {},
-                      icon: const Icon(Icons.music_off),
-                    ),
-                  ),
+          Padding(
+            padding: const EdgeInsets.all(AppSpace.normal),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                AppTitle(text: event.name),
+                const SizedBox(height: AppSpace.normal),
+                AppBody(text: event.venue),
+                AppBody(text: _createDateText(context, event.dateTime)),
+                const SizedBox(height: AppSpace.normal),
+                Row(
+                  children: [
+                    AppSecondaryButton(text: context.eventsTranslation.events.openLink),
+                    const SizedBox(width: AppSpace.small),
+                    AppSecondaryButton(text: context.eventsTranslation.events.listen),
+                  ],
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ],
       ),
@@ -61,6 +57,6 @@ class EventsCard extends StatelessWidget {
   }
 
   String _createDateText(BuildContext context, DateTime? dateTime) {
-    return dateTime != null ? dateTime.toString() : context.eventsTranslation.events.missingDate;
+    return dateTime != null ? DateFormat.yMMMd().format(dateTime) : context.eventsTranslation.events.missingDate;
   }
 }

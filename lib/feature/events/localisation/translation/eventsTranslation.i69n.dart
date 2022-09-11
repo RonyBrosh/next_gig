@@ -168,6 +168,8 @@ class EventsEventsTranslation implements i69n.I69nMessageBundle {
   final EventsTranslation _parent;
   const EventsEventsTranslation(this._parent);
   String get missingDate => "No date yet";
+  String get openLink => "Open";
+  String get listen => "Listen";
   Object operator [](String key) {
     var index = key.indexOf('.');
     if (index > 0) {
@@ -177,6 +179,10 @@ class EventsEventsTranslation implements i69n.I69nMessageBundle {
     switch (key) {
       case 'missingDate':
         return missingDate;
+      case 'openLink':
+        return openLink;
+      case 'listen':
+        return listen;
       default:
         return key;
     }

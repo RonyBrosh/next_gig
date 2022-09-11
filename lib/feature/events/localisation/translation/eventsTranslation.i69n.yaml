@@ -17,4 +17,6 @@ initialEvents:
 
 events:
   missingDate: 'No date yet'
+  openLink: 'Open'
+  listen: 'Listen'
 
