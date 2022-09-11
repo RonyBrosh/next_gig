@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:next_gig/desgin_system/molecules/widget/app_background_image.dart';
+import 'package:next_gig/desgin_system/molecules/widget/app_list_tile.dart';
 import 'package:next_gig/desgin_system/molecules/widget/app_loading.dart';
 import 'package:next_gig/feature/events/presentation/bloc/events_bloc.dart';
 import 'package:next_gig/feature/events/presentation/widget/events_empty_message.dart';
@@ -34,8 +35,12 @@ class EventsPage extends StatelessWidget {
                   if (state.events.isEmpty) {
                     return EventsEmptyMessage(filters: state.filters);
                   } else {
-                    return SizedBox(
-                      child: Text('Found ${state.events.length} events'),
+                    return ListView.builder(
+                      itemCount: state.events.length,
+                      itemBuilder: (context, index) {
+                        final event = state.events[index];
+                        return AppListTile(title: event.name);
+                      },
                     );
                   }
                 },

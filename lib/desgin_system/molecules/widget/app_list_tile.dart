@@ -17,10 +17,7 @@ class AppListTile extends StatelessWidget {
     return ListTile(
       hoverColor: AppColours.accent,
       title: AppBody(text: title),
-      onTap: () {
-        Navigator.pop(context, false);
-        onTap?.call();
-      },
+      onTap: () => onTap?.call(),
     );
   }
 }

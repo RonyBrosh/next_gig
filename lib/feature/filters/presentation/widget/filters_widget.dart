@@ -81,7 +81,10 @@ class _FiltersWidgetState extends State<FiltersWidget> {
         data: cities,
         buildItem: (city) => AppListTile(
           title: city.name,
-          onTap: () => context.read<FiltersBloc>().add(FiltersEvent.citySelected(city)),
+          onTap: () {
+            Navigator.pop(context, false);
+            context.read<FiltersBloc>().add(FiltersEvent.citySelected(city));
+          },
         ),
         filter: filterCities,
       ),
@@ -97,7 +100,10 @@ class _FiltersWidgetState extends State<FiltersWidget> {
         data: genres,
         buildItem: (genre) => AppListTile(
           title: genre.name,
-          onTap: () => context.read<FiltersBloc>().add(FiltersEvent.genreSelected(genre)),
+          onTap: () {
+            Navigator.pop(context, false);
+            context.read<FiltersBloc>().add(FiltersEvent.genreSelected(genre));
+          },
         ),
         filter: filterGenres,
       ),
@@ -113,7 +119,10 @@ class _FiltersWidgetState extends State<FiltersWidget> {
         data: datesRanges,
         buildItem: (dateRange) => AppListTile(
           title: _getDateRangeText(context, dateRange, true),
-          onTap: () => _onDateRangeClicked(context, dateRange),
+          onTap: () {
+            Navigator.pop(context, false);
+            _onDateRangeClicked(context, dateRange);
+          },
         ),
       ),
     );
