@@ -19,4 +19,12 @@ events:
   missingDate: 'No date yet'
   openLink: 'Open'
   listen: 'Listen'
+  title(String city, String genre, String dateRange): '$genre events in $city $dateRange'
+  dateRage:
+    today: 'today'
+    week: 'this week'
+    month: 'this month'
+    threeMonths: 'in 3 months'
+    custom(String start, String end): 'on $start - $end'
+
 

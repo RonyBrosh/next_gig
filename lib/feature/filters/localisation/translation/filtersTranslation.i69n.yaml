@@ -6,4 +6,5 @@ dates:
   week: 'This week'
   month: 'This month'
   threeMonths: '3 months'
-  custom: 'Custom date range'
+  customLabel: 'Custom date range'
+  customDates(String start, String end): '$start - $end'

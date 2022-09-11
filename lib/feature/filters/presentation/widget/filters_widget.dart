@@ -114,8 +114,10 @@ class _FiltersWidgetState extends State<FiltersWidget> {
     final List<DateRange> datesRanges = await diContainer<GetDateRangesUseCase>()();
     await AppDialog.show(
       context: context,
+      isFixedSize: false,
       title: AppTitle(text: context.filtersTranslation.dates.title),
       content: AppList<DateRange>(
+        isShrinkWrap: true,
         data: datesRanges,
         buildItem: (dateRange) => AppListTile(
           title: _getDateRangeText(context, dateRange, true),
@@ -150,9 +152,12 @@ class _FiltersWidgetState extends State<FiltersWidget> {
     required bool isPicker,
   }) {
     if (isPicker) {
-      return context.filtersTranslation.dates.custom;
+      return context.filtersTranslation.dates.customLabel;
     } else {
-      return '${DateFormat.yMMMd().format(start)} - ${DateFormat.yMMMd().format(end)}';
+      return context.filtersTranslation.dates.customDates(
+        DateFormat.yMMMd().format(start),
+        DateFormat.yMMMd().format(end),
+      );
     }
   }
 

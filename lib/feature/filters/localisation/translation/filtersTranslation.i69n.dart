@@ -65,7 +65,8 @@ class DatesFiltersTranslation implements i69n.I69nMessageBundle {
   String get week => "This week";
   String get month => "This month";
   String get threeMonths => "3 months";
-  String get custom => "Custom date range";
+  String get customLabel => "Custom date range";
+  String customDates(String start, String end) => "$start - $end";
   Object operator [](String key) {
     var index = key.indexOf('.');
     if (index > 0) {
@@ -83,8 +84,10 @@ class DatesFiltersTranslation implements i69n.I69nMessageBundle {
         return month;
       case 'threeMonths':
         return threeMonths;
-      case 'custom':
-        return custom;
+      case 'customLabel':
+        return customLabel;
+      case 'customDates':
+        return customDates;
       default:
         return key;
     }

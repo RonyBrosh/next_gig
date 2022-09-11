@@ -170,6 +170,10 @@ class EventsEventsTranslation implements i69n.I69nMessageBundle {
   String get missingDate => "No date yet";
   String get openLink => "Open";
   String get listen => "Listen";
+  String title(String city, String genre, String dateRange) =>
+      "$genre events in $city $dateRange";
+  DateRageEventsEventsTranslation get dateRage =>
+      DateRageEventsEventsTranslation(this);
   Object operator [](String key) {
     var index = key.indexOf('.');
     if (index > 0) {
@@ -183,6 +187,41 @@ class EventsEventsTranslation implements i69n.I69nMessageBundle {
         return openLink;
       case 'listen':
         return listen;
+      case 'title':
+        return title;
+      case 'dateRage':
+        return dateRage;
+      default:
+        return key;
+    }
+  }
+}
+
+class DateRageEventsEventsTranslation implements i69n.I69nMessageBundle {
+  final EventsEventsTranslation _parent;
+  const DateRageEventsEventsTranslation(this._parent);
+  String get today => "today";
+  String get week => "this week";
+  String get month => "this month";
+  String get threeMonths => "in 3 months";
+  String custom(String start, String end) => "on $start - $end";
+  Object operator [](String key) {
+    var index = key.indexOf('.');
+    if (index > 0) {
+      return (this[key.substring(0, index)]
+          as i69n.I69nMessageBundle)[key.substring(index + 1)];
+    }
+    switch (key) {
+      case 'today':
+        return today;
+      case 'week':
+        return week;
+      case 'month':
+        return month;
+      case 'threeMonths':
+        return threeMonths;
+      case 'custom':
+        return custom;
       default:
         return key;
     }

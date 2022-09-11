@@ -28,13 +28,11 @@ class AppDialog {
           padding: EdgeInsets.all(isLargeScreen ? AppSpace.normal : AppSpace.small),
           child: title,
         ),
-        content: isFixedSize
-            ? SizedBox(
-                width: dialogSize.width,
-                height: dialogSize.height,
-                child: content,
-              )
-            : content,
+        content: SizedBox(
+          width: dialogSize.width,
+          height: isFixedSize ? dialogSize.height : null,
+          child: content,
+        ),
       ),
     );
   }
