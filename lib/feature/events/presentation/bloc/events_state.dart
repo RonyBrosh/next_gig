@@ -6,5 +6,9 @@ class EventsState with _$EventsState {
 
   const factory EventsState.error() = _Error;
 
-  const factory EventsState.content({required Filters filters, required List<Event> events}) = _Content;
+  const factory EventsState.content({
+    required Filters filters,
+    required List<Event> events,
+    required bool isLoadingMore,
+  }) = _Content;
 }

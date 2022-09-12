@@ -20,18 +20,21 @@ mixin _$EventsEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(Filters filters) load,
     required TResult Function() changeFilters,
+    required TResult Function() loadMore,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Filters filters)? load,
     TResult Function()? changeFilters,
+    TResult Function()? loadMore,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Filters filters)? load,
     TResult Function()? changeFilters,
+    TResult Function()? loadMore,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$EventsEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Load value) load,
     required TResult Function(_ChangeFilters value) changeFilters,
+    required TResult Function(_LoadMore value) loadMore,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Load value)? load,
     TResult Function(_ChangeFilters value)? changeFilters,
+    TResult Function(_LoadMore value)? loadMore,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Load value)? load,
     TResult Function(_ChangeFilters value)? changeFilters,
+    TResult Function(_LoadMore value)? loadMore,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -145,6 +151,7 @@ class _$_Load implements _Load {
   TResult when<TResult extends Object?>({
     required TResult Function(Filters filters) load,
     required TResult Function() changeFilters,
+    required TResult Function() loadMore,
   }) {
     return load(filters);
   }
@@ -154,6 +161,7 @@ class _$_Load implements _Load {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Filters filters)? load,
     TResult Function()? changeFilters,
+    TResult Function()? loadMore,
   }) {
     return load?.call(filters);
   }
@@ -163,6 +171,7 @@ class _$_Load implements _Load {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Filters filters)? load,
     TResult Function()? changeFilters,
+    TResult Function()? loadMore,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -176,6 +185,7 @@ class _$_Load implements _Load {
   TResult map<TResult extends Object?>({
     required TResult Function(_Load value) load,
     required TResult Function(_ChangeFilters value) changeFilters,
+    required TResult Function(_LoadMore value) loadMore,
   }) {
     return load(this);
   }
@@ -185,6 +195,7 @@ class _$_Load implements _Load {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Load value)? load,
     TResult Function(_ChangeFilters value)? changeFilters,
+    TResult Function(_LoadMore value)? loadMore,
   }) {
     return load?.call(this);
   }
@@ -194,6 +205,7 @@ class _$_Load implements _Load {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Load value)? load,
     TResult Function(_ChangeFilters value)? changeFilters,
+    TResult Function(_LoadMore value)? loadMore,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -254,6 +266,7 @@ class _$_ChangeFilters implements _ChangeFilters {
   TResult when<TResult extends Object?>({
     required TResult Function(Filters filters) load,
     required TResult Function() changeFilters,
+    required TResult Function() loadMore,
   }) {
     return changeFilters();
   }
@@ -263,6 +276,7 @@ class _$_ChangeFilters implements _ChangeFilters {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Filters filters)? load,
     TResult Function()? changeFilters,
+    TResult Function()? loadMore,
   }) {
     return changeFilters?.call();
   }
@@ -272,6 +286,7 @@ class _$_ChangeFilters implements _ChangeFilters {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Filters filters)? load,
     TResult Function()? changeFilters,
+    TResult Function()? loadMore,
     required TResult orElse(),
   }) {
     if (changeFilters != null) {
@@ -285,6 +300,7 @@ class _$_ChangeFilters implements _ChangeFilters {
   TResult map<TResult extends Object?>({
     required TResult Function(_Load value) load,
     required TResult Function(_ChangeFilters value) changeFilters,
+    required TResult Function(_LoadMore value) loadMore,
   }) {
     return changeFilters(this);
   }
@@ -294,6 +310,7 @@ class _$_ChangeFilters implements _ChangeFilters {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Load value)? load,
     TResult Function(_ChangeFilters value)? changeFilters,
+    TResult Function(_LoadMore value)? loadMore,
   }) {
     return changeFilters?.call(this);
   }
@@ -303,6 +320,7 @@ class _$_ChangeFilters implements _ChangeFilters {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Load value)? load,
     TResult Function(_ChangeFilters value)? changeFilters,
+    TResult Function(_LoadMore value)? loadMore,
     required TResult orElse(),
   }) {
     if (changeFilters != null) {
@@ -317,26 +335,140 @@ abstract class _ChangeFilters implements EventsEvent {
 }
 
 /// @nodoc
+abstract class _$$_LoadMoreCopyWith<$Res> {
+  factory _$$_LoadMoreCopyWith(
+          _$_LoadMore value, $Res Function(_$_LoadMore) then) =
+      __$$_LoadMoreCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_LoadMoreCopyWithImpl<$Res> extends _$EventsEventCopyWithImpl<$Res>
+    implements _$$_LoadMoreCopyWith<$Res> {
+  __$$_LoadMoreCopyWithImpl(
+      _$_LoadMore _value, $Res Function(_$_LoadMore) _then)
+      : super(_value, (v) => _then(v as _$_LoadMore));
+
+  @override
+  _$_LoadMore get _value => super._value as _$_LoadMore;
+}
+
+/// @nodoc
+
+class _$_LoadMore implements _LoadMore {
+  const _$_LoadMore();
+
+  @override
+  String toString() {
+    return 'EventsEvent.loadMore()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_LoadMore);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Filters filters) load,
+    required TResult Function() changeFilters,
+    required TResult Function() loadMore,
+  }) {
+    return loadMore();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Filters filters)? load,
+    TResult Function()? changeFilters,
+    TResult Function()? loadMore,
+  }) {
+    return loadMore?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Filters filters)? load,
+    TResult Function()? changeFilters,
+    TResult Function()? loadMore,
+    required TResult orElse(),
+  }) {
+    if (loadMore != null) {
+      return loadMore();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Load value) load,
+    required TResult Function(_ChangeFilters value) changeFilters,
+    required TResult Function(_LoadMore value) loadMore,
+  }) {
+    return loadMore(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Load value)? load,
+    TResult Function(_ChangeFilters value)? changeFilters,
+    TResult Function(_LoadMore value)? loadMore,
+  }) {
+    return loadMore?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Load value)? load,
+    TResult Function(_ChangeFilters value)? changeFilters,
+    TResult Function(_LoadMore value)? loadMore,
+    required TResult orElse(),
+  }) {
+    if (loadMore != null) {
+      return loadMore(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadMore implements EventsEvent {
+  const factory _LoadMore() = _$_LoadMore;
+}
+
+/// @nodoc
 mixin _$EventsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function() error,
-    required TResult Function(Filters filters, List<Event> events) content,
+    required TResult Function(
+            Filters filters, List<Event> events, bool isLoadingMore)
+        content,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(Filters filters, List<Event> events)? content,
+    TResult Function(Filters filters, List<Event> events, bool isLoadingMore)?
+        content,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(Filters filters, List<Event> events)? content,
+    TResult Function(Filters filters, List<Event> events, bool isLoadingMore)?
+        content,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -421,7 +553,9 @@ class _$_Loading implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function() error,
-    required TResult Function(Filters filters, List<Event> events) content,
+    required TResult Function(
+            Filters filters, List<Event> events, bool isLoadingMore)
+        content,
   }) {
     return loading();
   }
@@ -431,7 +565,8 @@ class _$_Loading implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(Filters filters, List<Event> events)? content,
+    TResult Function(Filters filters, List<Event> events, bool isLoadingMore)?
+        content,
   }) {
     return loading?.call();
   }
@@ -441,7 +576,8 @@ class _$_Loading implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(Filters filters, List<Event> events)? content,
+    TResult Function(Filters filters, List<Event> events, bool isLoadingMore)?
+        content,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -529,7 +665,9 @@ class _$_Error implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function() error,
-    required TResult Function(Filters filters, List<Event> events) content,
+    required TResult Function(
+            Filters filters, List<Event> events, bool isLoadingMore)
+        content,
   }) {
     return error();
   }
@@ -539,7 +677,8 @@ class _$_Error implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(Filters filters, List<Event> events)? content,
+    TResult Function(Filters filters, List<Event> events, bool isLoadingMore)?
+        content,
   }) {
     return error?.call();
   }
@@ -549,7 +688,8 @@ class _$_Error implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(Filters filters, List<Event> events)? content,
+    TResult Function(Filters filters, List<Event> events, bool isLoadingMore)?
+        content,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -602,7 +742,7 @@ abstract class _$$_ContentCopyWith<$Res> {
   factory _$$_ContentCopyWith(
           _$_Content value, $Res Function(_$_Content) then) =
       __$$_ContentCopyWithImpl<$Res>;
-  $Res call({Filters filters, List<Event> events});
+  $Res call({Filters filters, List<Event> events, bool isLoadingMore});
 
   $FiltersCopyWith<$Res> get filters;
 }
@@ -620,6 +760,7 @@ class __$$_ContentCopyWithImpl<$Res> extends _$EventsStateCopyWithImpl<$Res>
   $Res call({
     Object? filters = freezed,
     Object? events = freezed,
+    Object? isLoadingMore = freezed,
   }) {
     return _then(_$_Content(
       filters: filters == freezed
@@ -630,6 +771,10 @@ class __$$_ContentCopyWithImpl<$Res> extends _$EventsStateCopyWithImpl<$Res>
           ? _value._events
           : events // ignore: cast_nullable_to_non_nullable
               as List<Event>,
+      isLoadingMore: isLoadingMore == freezed
+          ? _value.isLoadingMore
+          : isLoadingMore // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 
@@ -644,7 +789,10 @@ class __$$_ContentCopyWithImpl<$Res> extends _$EventsStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Content implements _Content {
-  const _$_Content({required this.filters, required final List<Event> events})
+  const _$_Content(
+      {required this.filters,
+      required final List<Event> events,
+      required this.isLoadingMore})
       : _events = events;
 
   @override
@@ -657,8 +805,11 @@ class _$_Content implements _Content {
   }
 
   @override
+  final bool isLoadingMore;
+
+  @override
   String toString() {
-    return 'EventsState.content(filters: $filters, events: $events)';
+    return 'EventsState.content(filters: $filters, events: $events, isLoadingMore: $isLoadingMore)';
   }
 
   @override
@@ -667,14 +818,17 @@ class _$_Content implements _Content {
         (other.runtimeType == runtimeType &&
             other is _$_Content &&
             const DeepCollectionEquality().equals(other.filters, filters) &&
-            const DeepCollectionEquality().equals(other._events, _events));
+            const DeepCollectionEquality().equals(other._events, _events) &&
+            const DeepCollectionEquality()
+                .equals(other.isLoadingMore, isLoadingMore));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(filters),
-      const DeepCollectionEquality().hash(_events));
+      const DeepCollectionEquality().hash(_events),
+      const DeepCollectionEquality().hash(isLoadingMore));
 
   @JsonKey(ignore: true)
   @override
@@ -686,9 +840,11 @@ class _$_Content implements _Content {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function() error,
-    required TResult Function(Filters filters, List<Event> events) content,
+    required TResult Function(
+            Filters filters, List<Event> events, bool isLoadingMore)
+        content,
   }) {
-    return content(filters, events);
+    return content(filters, events, isLoadingMore);
   }
 
   @override
@@ -696,9 +852,10 @@ class _$_Content implements _Content {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(Filters filters, List<Event> events)? content,
+    TResult Function(Filters filters, List<Event> events, bool isLoadingMore)?
+        content,
   }) {
-    return content?.call(filters, events);
+    return content?.call(filters, events, isLoadingMore);
   }
 
   @override
@@ -706,11 +863,12 @@ class _$_Content implements _Content {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(Filters filters, List<Event> events)? content,
+    TResult Function(Filters filters, List<Event> events, bool isLoadingMore)?
+        content,
     required TResult orElse(),
   }) {
     if (content != null) {
-      return content(filters, events);
+      return content(filters, events, isLoadingMore);
     }
     return orElse();
   }
@@ -753,10 +911,12 @@ class _$_Content implements _Content {
 abstract class _Content implements EventsState {
   const factory _Content(
       {required final Filters filters,
-      required final List<Event> events}) = _$_Content;
+      required final List<Event> events,
+      required final bool isLoadingMore}) = _$_Content;
 
   Filters get filters;
   List<Event> get events;
+  bool get isLoadingMore;
   @JsonKey(ignore: true)
   _$$_ContentCopyWith<_$_Content> get copyWith =>
       throw _privateConstructorUsedError;

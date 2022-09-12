@@ -8,4 +8,5 @@ class AppColours {
   static const accent = Color(0xFF0092ff);
   static const shadow = Colors.black87;
   static const transparent = Colors.transparent;
+  static const transparentLight = Color(0x40000000);
 }

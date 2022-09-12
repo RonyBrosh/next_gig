@@ -23,6 +23,7 @@ class EventsBloc extends Bloc<EventsEvent, EventsState> {
       (event, emit) => event.map(
         load: (event) => _onLoad(emit, event.filters),
         changeFilters: (_) => _appNavigator.goBack(),
+        loadMore: (_) => _onLoadMore(emit),
       ),
     );
     final filters = decodeFiltersUseCase(encodedFilters: encodedFilters);
@@ -37,8 +38,18 @@ class EventsBloc extends Bloc<EventsEvent, EventsState> {
 
     final eventsResult = await _getEventsUseCase(filters: filters);
     emit(eventsResult.fold(
-      onSuccess: (events) => EventsState.content(filters: filters, events: events),
+      onSuccess: (events) => EventsState.content(
+        filters: filters,
+        events: events,
+        isLoadingMore: false,
+      ),
       onFailure: (_) => const EventsState.error(),
     ));
+  }
+
+  Future<void> _onLoadMore(Emitter<EventsState> emit) async {
+    state.mapOrNull(content: (state) {
+      emit(state.copyWith(isLoadingMore: true));
+    });
   }
 }
