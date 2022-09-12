@@ -41,12 +41,15 @@ class EventsCard extends StatelessWidget {
                 AppBody(text: event.venue),
                 AppBody(text: _createDateText(context, event.dateTime)),
                 const SizedBox(height: AppSpace.normal),
-                Row(
-                  children: [
-                    AppSecondaryButton(text: context.eventsTranslation.events.openLink),
-                    const SizedBox(width: AppSpace.small),
-                    AppSecondaryButton(text: context.eventsTranslation.events.listen),
-                  ],
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      AppSecondaryButton(text: context.eventsTranslation.events.openLink),
+                      const SizedBox(width: AppSpace.small),
+                      AppSecondaryButton(text: context.eventsTranslation.events.listen),
+                    ],
+                  ),
                 ),
               ],
             ),

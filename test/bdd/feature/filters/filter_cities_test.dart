@@ -3,6 +3,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:network_image_mock/network_image_mock.dart';
 
 import './step/the_app_is_running.dart';
 import 'package:bdd_widget_test/step/i_tap_text.dart';
@@ -19,28 +20,35 @@ void main() {
   }
   group('''Filter cities''', () {
     testWidgets('''No filter text''', (tester) async {
+      await mockNetworkImagesFor(() async {
       await bddSetUp(tester);
       await iSeeText(tester, 'Bristol');
       await iSeeText(tester, 'Brighton');
       await iSeeMultipleTexts(tester, 'London');
+      });
     });
     testWidgets('''Filter text matches the list''', (tester) async {
+      await mockNetworkImagesFor(() async {
       await bddSetUp(tester);
       await iEnterIntoInputField(tester, 'bri', 0);
       await iWait(tester);
       await iSeeText(tester, 'Bristol');
       await iSeeText(tester, 'Brighton');
       await iSeeText(tester, 'London');
+      });
     });
     testWidgets('''Filter text doesn't match the list''', (tester) async {
+      await mockNetworkImagesFor(() async {
       await bddSetUp(tester);
       await iEnterIntoInputField(tester, '123', 0);
       await iWait(tester);
       await iDontSeeText(tester, 'Bristol');
       await iDontSeeText(tester, 'Brighton');
       await iSeeText(tester, 'London');
+      });
     });
     testWidgets('''Filter text is cleared''', (tester) async {
+      await mockNetworkImagesFor(() async {
       await bddSetUp(tester);
       await iEnterIntoInputField(tester, '123', 0);
       await iEnterIntoInputField(tester, '', 0);
@@ -48,14 +56,17 @@ void main() {
       await iSeeText(tester, 'Bristol');
       await iSeeText(tester, 'Brighton');
       await iSeeMultipleTexts(tester, 'London');
+      });
     });
     testWidgets('''City is selected''', (tester) async {
+      await mockNetworkImagesFor(() async {
       await bddSetUp(tester);
       await iEnterIntoInputField(tester, 'bri', 0);
       await iWait(tester);
       await iTapText(tester, 'Bristol');
       await iWait(tester);
       await iSeeText(tester, 'Bristol');
+      });
     });
   });
 }

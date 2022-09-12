@@ -3,6 +3,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:network_image_mock/network_image_mock.dart';
 
 import './step/the_app_is_running.dart';
 import 'package:bdd_widget_test/step/i_tap_text.dart';
@@ -19,28 +20,35 @@ void main() {
   }
   group('''Filter genres''', () {
     testWidgets('''No filter text''', (tester) async {
+      await mockNetworkImagesFor(() async {
       await bddSetUp(tester);
       await iSeeText(tester, 'Alternative');
       await iSeeText(tester, 'Blues');
       await iSeeMultipleTexts(tester, 'Rock');
+      });
     });
     testWidgets('''Filter text matches the list''', (tester) async {
+      await mockNetworkImagesFor(() async {
       await bddSetUp(tester);
       await iEnterIntoInputField(tester, 'r', 0);
       await iWait(tester);
       await iSeeText(tester, 'Alternative');
       await iSeeMultipleTexts(tester, 'Rock');
       await iDontSeeText(tester, 'Blues');
+      });
     });
     testWidgets('''Filter text doesn't match the list''', (tester) async {
+      await mockNetworkImagesFor(() async {
       await bddSetUp(tester);
       await iEnterIntoInputField(tester, '123', 0);
       await iWait(tester);
       await iDontSeeText(tester, 'Alternative');
       await iDontSeeText(tester, 'Blues');
       await iSeeText(tester, 'Rock');
+      });
     });
     testWidgets('''Filter text is cleared''', (tester) async {
+      await mockNetworkImagesFor(() async {
       await bddSetUp(tester);
       await iEnterIntoInputField(tester, '123', 0);
       await iEnterIntoInputField(tester, '', 0);
@@ -48,14 +56,17 @@ void main() {
       await iSeeText(tester, 'Alternative');
       await iSeeText(tester, 'Blues');
       await iSeeMultipleTexts(tester, 'Rock');
+      });
     });
     testWidgets('''Genre is selected''', (tester) async {
+      await mockNetworkImagesFor(() async {
       await bddSetUp(tester);
       await iEnterIntoInputField(tester, 'r', 0);
       await iWait(tester);
       await iTapText(tester, 'Alternative');
       await iWait(tester);
       await iSeeText(tester, 'Alternative');
+      });
     });
   });
 }

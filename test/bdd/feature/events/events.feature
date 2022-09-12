@@ -40,3 +40,9 @@ Feature: Events
     And I wait
     Then I don't see {EventsPage} widget
     Then I see {SplashPage} widget
+
+  Scenario: Load initial events succeeds
+    Given the BE is mocked with {getInitialEventsSucceedsScenario} scenario
+    When i select filters {rockEventsInLondonToday}
+    Then I see {"Big Mama's Door"} text
+    And I see {'Connor Selby Band'} text

@@ -47,13 +47,18 @@ DateTime? _createDateTime(String? date) {
 
 Object _readImage(Map json, String key) {
   final images = json['images'] as List;
-  final sizes = images.map((image) => image['width'] * image['height']).toList(growable: false)..sort();
-  int maxSizeIndex = sizes.length ~/ 2;
-  for (int index = maxSizeIndex; index < sizes.length; index++) {
-    if (sizes[index] >= sizes[maxSizeIndex]) {
-      maxSizeIndex = index;
-    }
-  }
+  images.sort(_imageDescendingComparator);
+  return images[0]['url'];
+}
 
-  return images[maxSizeIndex]['url'];
+int _imageDescendingComparator(dynamic image, dynamic otherImage) {
+  final imageSize = image['width'] * image['height'];
+  final otherImageSize = otherImage['width'] * otherImage['height'];
+  if (imageSize > otherImageSize) {
+    return -1;
+  } else if (imageSize < otherImageSize) {
+    return -1;
+  } else {
+    return 1;
+  }
 }
