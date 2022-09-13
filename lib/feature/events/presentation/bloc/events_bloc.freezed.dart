@@ -451,7 +451,7 @@ mixin _$EventsState {
     required TResult Function() loading,
     required TResult Function() error,
     required TResult Function(
-            Filters filters, List<Event> events, bool isLoadingMore)
+            Filters filters, EventsBulk eventsBulk, bool isLoadingMore)
         content,
   }) =>
       throw _privateConstructorUsedError;
@@ -459,7 +459,8 @@ mixin _$EventsState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(Filters filters, List<Event> events, bool isLoadingMore)?
+    TResult Function(
+            Filters filters, EventsBulk eventsBulk, bool isLoadingMore)?
         content,
   }) =>
       throw _privateConstructorUsedError;
@@ -467,7 +468,8 @@ mixin _$EventsState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(Filters filters, List<Event> events, bool isLoadingMore)?
+    TResult Function(
+            Filters filters, EventsBulk eventsBulk, bool isLoadingMore)?
         content,
     required TResult orElse(),
   }) =>
@@ -554,7 +556,7 @@ class _$_Loading implements _Loading {
     required TResult Function() loading,
     required TResult Function() error,
     required TResult Function(
-            Filters filters, List<Event> events, bool isLoadingMore)
+            Filters filters, EventsBulk eventsBulk, bool isLoadingMore)
         content,
   }) {
     return loading();
@@ -565,7 +567,8 @@ class _$_Loading implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(Filters filters, List<Event> events, bool isLoadingMore)?
+    TResult Function(
+            Filters filters, EventsBulk eventsBulk, bool isLoadingMore)?
         content,
   }) {
     return loading?.call();
@@ -576,7 +579,8 @@ class _$_Loading implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(Filters filters, List<Event> events, bool isLoadingMore)?
+    TResult Function(
+            Filters filters, EventsBulk eventsBulk, bool isLoadingMore)?
         content,
     required TResult orElse(),
   }) {
@@ -666,7 +670,7 @@ class _$_Error implements _Error {
     required TResult Function() loading,
     required TResult Function() error,
     required TResult Function(
-            Filters filters, List<Event> events, bool isLoadingMore)
+            Filters filters, EventsBulk eventsBulk, bool isLoadingMore)
         content,
   }) {
     return error();
@@ -677,7 +681,8 @@ class _$_Error implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(Filters filters, List<Event> events, bool isLoadingMore)?
+    TResult Function(
+            Filters filters, EventsBulk eventsBulk, bool isLoadingMore)?
         content,
   }) {
     return error?.call();
@@ -688,7 +693,8 @@ class _$_Error implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(Filters filters, List<Event> events, bool isLoadingMore)?
+    TResult Function(
+            Filters filters, EventsBulk eventsBulk, bool isLoadingMore)?
         content,
     required TResult orElse(),
   }) {
@@ -742,9 +748,10 @@ abstract class _$$_ContentCopyWith<$Res> {
   factory _$$_ContentCopyWith(
           _$_Content value, $Res Function(_$_Content) then) =
       __$$_ContentCopyWithImpl<$Res>;
-  $Res call({Filters filters, List<Event> events, bool isLoadingMore});
+  $Res call({Filters filters, EventsBulk eventsBulk, bool isLoadingMore});
 
   $FiltersCopyWith<$Res> get filters;
+  $EventsBulkCopyWith<$Res> get eventsBulk;
 }
 
 /// @nodoc
@@ -759,7 +766,7 @@ class __$$_ContentCopyWithImpl<$Res> extends _$EventsStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? filters = freezed,
-    Object? events = freezed,
+    Object? eventsBulk = freezed,
     Object? isLoadingMore = freezed,
   }) {
     return _then(_$_Content(
@@ -767,10 +774,10 @@ class __$$_ContentCopyWithImpl<$Res> extends _$EventsStateCopyWithImpl<$Res>
           ? _value.filters
           : filters // ignore: cast_nullable_to_non_nullable
               as Filters,
-      events: events == freezed
-          ? _value._events
-          : events // ignore: cast_nullable_to_non_nullable
-              as List<Event>,
+      eventsBulk: eventsBulk == freezed
+          ? _value.eventsBulk
+          : eventsBulk // ignore: cast_nullable_to_non_nullable
+              as EventsBulk,
       isLoadingMore: isLoadingMore == freezed
           ? _value.isLoadingMore
           : isLoadingMore // ignore: cast_nullable_to_non_nullable
@@ -784,6 +791,13 @@ class __$$_ContentCopyWithImpl<$Res> extends _$EventsStateCopyWithImpl<$Res>
       return _then(_value.copyWith(filters: value));
     });
   }
+
+  @override
+  $EventsBulkCopyWith<$Res> get eventsBulk {
+    return $EventsBulkCopyWith<$Res>(_value.eventsBulk, (value) {
+      return _then(_value.copyWith(eventsBulk: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -791,25 +805,19 @@ class __$$_ContentCopyWithImpl<$Res> extends _$EventsStateCopyWithImpl<$Res>
 class _$_Content implements _Content {
   const _$_Content(
       {required this.filters,
-      required final List<Event> events,
-      required this.isLoadingMore})
-      : _events = events;
+      required this.eventsBulk,
+      required this.isLoadingMore});
 
   @override
   final Filters filters;
-  final List<Event> _events;
   @override
-  List<Event> get events {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_events);
-  }
-
+  final EventsBulk eventsBulk;
   @override
   final bool isLoadingMore;
 
   @override
   String toString() {
-    return 'EventsState.content(filters: $filters, events: $events, isLoadingMore: $isLoadingMore)';
+    return 'EventsState.content(filters: $filters, eventsBulk: $eventsBulk, isLoadingMore: $isLoadingMore)';
   }
 
   @override
@@ -818,7 +826,8 @@ class _$_Content implements _Content {
         (other.runtimeType == runtimeType &&
             other is _$_Content &&
             const DeepCollectionEquality().equals(other.filters, filters) &&
-            const DeepCollectionEquality().equals(other._events, _events) &&
+            const DeepCollectionEquality()
+                .equals(other.eventsBulk, eventsBulk) &&
             const DeepCollectionEquality()
                 .equals(other.isLoadingMore, isLoadingMore));
   }
@@ -827,7 +836,7 @@ class _$_Content implements _Content {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(filters),
-      const DeepCollectionEquality().hash(_events),
+      const DeepCollectionEquality().hash(eventsBulk),
       const DeepCollectionEquality().hash(isLoadingMore));
 
   @JsonKey(ignore: true)
@@ -841,10 +850,10 @@ class _$_Content implements _Content {
     required TResult Function() loading,
     required TResult Function() error,
     required TResult Function(
-            Filters filters, List<Event> events, bool isLoadingMore)
+            Filters filters, EventsBulk eventsBulk, bool isLoadingMore)
         content,
   }) {
-    return content(filters, events, isLoadingMore);
+    return content(filters, eventsBulk, isLoadingMore);
   }
 
   @override
@@ -852,10 +861,11 @@ class _$_Content implements _Content {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(Filters filters, List<Event> events, bool isLoadingMore)?
+    TResult Function(
+            Filters filters, EventsBulk eventsBulk, bool isLoadingMore)?
         content,
   }) {
-    return content?.call(filters, events, isLoadingMore);
+    return content?.call(filters, eventsBulk, isLoadingMore);
   }
 
   @override
@@ -863,12 +873,13 @@ class _$_Content implements _Content {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(Filters filters, List<Event> events, bool isLoadingMore)?
+    TResult Function(
+            Filters filters, EventsBulk eventsBulk, bool isLoadingMore)?
         content,
     required TResult orElse(),
   }) {
     if (content != null) {
-      return content(filters, events, isLoadingMore);
+      return content(filters, eventsBulk, isLoadingMore);
     }
     return orElse();
   }
@@ -911,11 +922,11 @@ class _$_Content implements _Content {
 abstract class _Content implements EventsState {
   const factory _Content(
       {required final Filters filters,
-      required final List<Event> events,
+      required final EventsBulk eventsBulk,
       required final bool isLoadingMore}) = _$_Content;
 
   Filters get filters;
-  List<Event> get events;
+  EventsBulk get eventsBulk;
   bool get isLoadingMore;
   @JsonKey(ignore: true)
   _$$_ContentCopyWith<_$_Content> get copyWith =>

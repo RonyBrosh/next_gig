@@ -18,5 +18,6 @@ abstract class TicketMasterApi {
     @Query('genreId') required String genreId,
     @Query('startDateTime') required String startDateTime,
     @Query('endDateTime') required String endDateTime,
+    @Query('page') required int pageIndex,
   });
 }

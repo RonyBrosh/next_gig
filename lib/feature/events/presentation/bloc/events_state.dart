@@ -8,7 +8,7 @@ class EventsState with _$EventsState {
 
   const factory EventsState.content({
     required Filters filters,
-    required List<Event> events,
+    required EventsBulk eventsBulk,
     required bool isLoadingMore,
   }) = _Content;
 }

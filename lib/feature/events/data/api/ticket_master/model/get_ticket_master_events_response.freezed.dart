@@ -23,6 +23,7 @@ TicketMasterEventsResponse _$TicketMasterEventsResponseFromJson(
 mixin _$TicketMasterEventsResponse {
   @JsonKey(readValue: _readEvents)
   List<TicketMasterEvent> get events => throw _privateConstructorUsedError;
+  _Page get page => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +36,11 @@ abstract class $TicketMasterEventsResponseCopyWith<$Res> {
   factory $TicketMasterEventsResponseCopyWith(TicketMasterEventsResponse value,
           $Res Function(TicketMasterEventsResponse) then) =
       _$TicketMasterEventsResponseCopyWithImpl<$Res>;
-  $Res call({@JsonKey(readValue: _readEvents) List<TicketMasterEvent> events});
+  $Res call(
+      {@JsonKey(readValue: _readEvents) List<TicketMasterEvent> events,
+      _Page page});
+
+  _$PageCopyWith<$Res> get page;
 }
 
 /// @nodoc
@@ -50,13 +55,25 @@ class _$TicketMasterEventsResponseCopyWithImpl<$Res>
   @override
   $Res call({
     Object? events = freezed,
+    Object? page = freezed,
   }) {
     return _then(_value.copyWith(
       events: events == freezed
           ? _value.events
           : events // ignore: cast_nullable_to_non_nullable
               as List<TicketMasterEvent>,
+      page: page == freezed
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as _Page,
     ));
+  }
+
+  @override
+  _$PageCopyWith<$Res> get page {
+    return _$PageCopyWith<$Res>(_value.page, (value) {
+      return _then(_value.copyWith(page: value));
+    });
   }
 }
 
@@ -68,7 +85,12 @@ abstract class _$$_TicketMasterEventsResponseCopyWith<$Res>
           $Res Function(_$_TicketMasterEventsResponse) then) =
       __$$_TicketMasterEventsResponseCopyWithImpl<$Res>;
   @override
-  $Res call({@JsonKey(readValue: _readEvents) List<TicketMasterEvent> events});
+  $Res call(
+      {@JsonKey(readValue: _readEvents) List<TicketMasterEvent> events,
+      _Page page});
+
+  @override
+  _$PageCopyWith<$Res> get page;
 }
 
 /// @nodoc
@@ -87,12 +109,17 @@ class __$$_TicketMasterEventsResponseCopyWithImpl<$Res>
   @override
   $Res call({
     Object? events = freezed,
+    Object? page = freezed,
   }) {
     return _then(_$_TicketMasterEventsResponse(
       events: events == freezed
           ? _value._events
           : events // ignore: cast_nullable_to_non_nullable
               as List<TicketMasterEvent>,
+      page: page == freezed
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as _Page,
     ));
   }
 }
@@ -102,7 +129,8 @@ class __$$_TicketMasterEventsResponseCopyWithImpl<$Res>
 class _$_TicketMasterEventsResponse extends _TicketMasterEventsResponse {
   const _$_TicketMasterEventsResponse(
       {@JsonKey(readValue: _readEvents)
-          required final List<TicketMasterEvent> events})
+          required final List<TicketMasterEvent> events,
+      required this.page})
       : _events = events,
         super._();
 
@@ -118,8 +146,11 @@ class _$_TicketMasterEventsResponse extends _TicketMasterEventsResponse {
   }
 
   @override
+  final _Page page;
+
+  @override
   String toString() {
-    return 'TicketMasterEventsResponse(events: $events)';
+    return 'TicketMasterEventsResponse(events: $events, page: $page)';
   }
 
   @override
@@ -127,13 +158,16 @@ class _$_TicketMasterEventsResponse extends _TicketMasterEventsResponse {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TicketMasterEventsResponse &&
-            const DeepCollectionEquality().equals(other._events, _events));
+            const DeepCollectionEquality().equals(other._events, _events) &&
+            const DeepCollectionEquality().equals(other.page, page));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_events));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_events),
+      const DeepCollectionEquality().hash(page));
 
   @JsonKey(ignore: true)
   @override
@@ -151,9 +185,9 @@ class _$_TicketMasterEventsResponse extends _TicketMasterEventsResponse {
 
 abstract class _TicketMasterEventsResponse extends TicketMasterEventsResponse {
   const factory _TicketMasterEventsResponse(
-          {@JsonKey(readValue: _readEvents)
-              required final List<TicketMasterEvent> events}) =
-      _$_TicketMasterEventsResponse;
+      {@JsonKey(readValue: _readEvents)
+          required final List<TicketMasterEvent> events,
+      required final _Page page}) = _$_TicketMasterEventsResponse;
   const _TicketMasterEventsResponse._() : super._();
 
   factory _TicketMasterEventsResponse.fromJson(Map<String, dynamic> json) =
@@ -163,7 +197,155 @@ abstract class _TicketMasterEventsResponse extends TicketMasterEventsResponse {
   @JsonKey(readValue: _readEvents)
   List<TicketMasterEvent> get events;
   @override
+  _Page get page;
+  @override
   @JsonKey(ignore: true)
   _$$_TicketMasterEventsResponseCopyWith<_$_TicketMasterEventsResponse>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+_Page _$_PageFromJson(Map<String, dynamic> json) {
+  return __Page.fromJson(json);
+}
+
+/// @nodoc
+mixin _$_Page {
+  int get totalPages => throw _privateConstructorUsedError;
+  int get number => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$PageCopyWith<_Page> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$PageCopyWith<$Res> {
+  factory _$PageCopyWith(_Page value, $Res Function(_Page) then) =
+      __$PageCopyWithImpl<$Res>;
+  $Res call({int totalPages, int number});
+}
+
+/// @nodoc
+class __$PageCopyWithImpl<$Res> implements _$PageCopyWith<$Res> {
+  __$PageCopyWithImpl(this._value, this._then);
+
+  final _Page _value;
+  // ignore: unused_field
+  final $Res Function(_Page) _then;
+
+  @override
+  $Res call({
+    Object? totalPages = freezed,
+    Object? number = freezed,
+  }) {
+    return _then(_value.copyWith(
+      totalPages: totalPages == freezed
+          ? _value.totalPages
+          : totalPages // ignore: cast_nullable_to_non_nullable
+              as int,
+      number: number == freezed
+          ? _value.number
+          : number // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$$__PageCopyWith<$Res> implements _$PageCopyWith<$Res> {
+  factory _$$__PageCopyWith(_$__Page value, $Res Function(_$__Page) then) =
+      __$$__PageCopyWithImpl<$Res>;
+  @override
+  $Res call({int totalPages, int number});
+}
+
+/// @nodoc
+class __$$__PageCopyWithImpl<$Res> extends __$PageCopyWithImpl<$Res>
+    implements _$$__PageCopyWith<$Res> {
+  __$$__PageCopyWithImpl(_$__Page _value, $Res Function(_$__Page) _then)
+      : super(_value, (v) => _then(v as _$__Page));
+
+  @override
+  _$__Page get _value => super._value as _$__Page;
+
+  @override
+  $Res call({
+    Object? totalPages = freezed,
+    Object? number = freezed,
+  }) {
+    return _then(_$__Page(
+      totalPages: totalPages == freezed
+          ? _value.totalPages
+          : totalPages // ignore: cast_nullable_to_non_nullable
+              as int,
+      number: number == freezed
+          ? _value.number
+          : number // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$__Page implements __Page {
+  const _$__Page({required this.totalPages, required this.number});
+
+  factory _$__Page.fromJson(Map<String, dynamic> json) =>
+      _$$__PageFromJson(json);
+
+  @override
+  final int totalPages;
+  @override
+  final int number;
+
+  @override
+  String toString() {
+    return '_Page(totalPages: $totalPages, number: $number)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$__Page &&
+            const DeepCollectionEquality()
+                .equals(other.totalPages, totalPages) &&
+            const DeepCollectionEquality().equals(other.number, number));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(totalPages),
+      const DeepCollectionEquality().hash(number));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$__PageCopyWith<_$__Page> get copyWith =>
+      __$$__PageCopyWithImpl<_$__Page>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$__PageToJson(
+      this,
+    );
+  }
+}
+
+abstract class __Page implements _Page {
+  const factory __Page(
+      {required final int totalPages, required final int number}) = _$__Page;
+
+  factory __Page.fromJson(Map<String, dynamic> json) = _$__Page.fromJson;
+
+  @override
+  int get totalPages;
+  @override
+  int get number;
+  @override
+  @JsonKey(ignore: true)
+  _$$__PageCopyWith<_$__Page> get copyWith =>
+      throw _privateConstructorUsedError;
 }

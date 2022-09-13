@@ -32,11 +32,11 @@ class EventsPage extends StatelessWidget {
                 loading: (_) => const AppLoading(),
                 error: (_) => const EventsLoadingError(),
                 content: (state) {
-                  if (state.events.isEmpty) {
+                  if (state.eventsBulk.events.isEmpty) {
                     return EventsEmptyMessage(filters: state.filters);
                   } else {
                     return EventSContent(
-                      events: state.events,
+                      events: state.eventsBulk.events,
                       filters: state.filters,
                       isLoadingMore: state.isLoadingMore,
                     );

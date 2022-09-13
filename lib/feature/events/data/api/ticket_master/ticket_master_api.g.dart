@@ -20,13 +20,15 @@ class _TicketMasterApi implements TicketMasterApi {
       {required cityId,
       required genreId,
       required startDateTime,
-      required endDateTime}) async {
+      required endDateTime,
+      required pageIndex}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'dmaId': cityId,
       r'genreId': genreId,
       r'startDateTime': startDateTime,
-      r'endDateTime': endDateTime
+      r'endDateTime': endDateTime,
+      r'page': pageIndex
     };
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
