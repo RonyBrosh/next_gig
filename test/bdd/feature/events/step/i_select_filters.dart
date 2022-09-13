@@ -2,6 +2,7 @@ import 'package:bdd_widget_test/step/i_enter_into_input_field.dart';
 import 'package:bdd_widget_test/step/i_tap_text.dart';
 import 'package:bdd_widget_test/step/i_wait.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail_image_network/mocktail_image_network.dart';
 import 'package:next_gig/desgin_system/molecules/widget/app_list_tile.dart';
 import 'package:next_gig/feature/filters/domain/model/city.dart';
 import 'package:next_gig/feature/filters/domain/model/date_range.dart';
@@ -15,7 +16,9 @@ Future<void> iSelectFilters(WidgetTester tester, Filters filters) async {
 
   await tester.ensureVisible(find.text('Discover'));
   await iTapText(tester, 'Discover');
-  await iWait(tester);
+  await mockNetworkImages(() async {
+    await iWait(tester);
+  });
 }
 
 String _getDateRangeName(DateRange dateRange) {

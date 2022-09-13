@@ -3,7 +3,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:network_image_mock/network_image_mock.dart';
 
 import './step/the_app_is_running.dart';
 import 'package:bdd_widget_test/step/i_tap_text.dart';
@@ -19,56 +18,44 @@ void main() {
   }
   group('''Filter dates''', () {
     testWidgets('''No filter text''', (tester) async {
-      await mockNetworkImagesFor(() async {
       await bddSetUp(tester);
       await iSeeText(tester, 'Today');
       await iSeeText(tester, 'This week');
       await iSeeMultipleTexts(tester, 'This month');
       await iSeeText(tester, '3 months');
       await iSeeText(tester, 'Custom date range');
-      });
     });
     testWidgets('''Outline: Filter is selected ('Today')''', (tester) async {
-      await mockNetworkImagesFor(() async {
       await bddSetUp(tester);
       await iTapListOption(tester, 'Today');
       await iWait(tester);
       await iSeeText(tester, 'Today');
-      });
     });
     testWidgets('''Outline: Filter is selected ('This week')''', (tester) async {
-      await mockNetworkImagesFor(() async {
       await bddSetUp(tester);
       await iTapListOption(tester, 'This week');
       await iWait(tester);
       await iSeeText(tester, 'This week');
-      });
     });
     testWidgets('''Outline: Filter is selected ('This month')''', (tester) async {
-      await mockNetworkImagesFor(() async {
       await bddSetUp(tester);
       await iTapListOption(tester, 'This month');
       await iWait(tester);
       await iSeeText(tester, 'This month');
-      });
     });
     testWidgets('''Outline: Filter is selected ('3 months')''', (tester) async {
-      await mockNetworkImagesFor(() async {
       await bddSetUp(tester);
       await iTapListOption(tester, '3 months');
       await iWait(tester);
       await iSeeText(tester, '3 months');
-      });
     });
     testWidgets('''Custom date range selected''', (tester) async {
-      await mockNetworkImagesFor(() async {
       await bddSetUp(tester);
       await iTapListOption(tester, 'Custom date range');
       await iTapText(tester, '10');
       await iTapText(tester, '14');
       await iTapText(tester, 'SAVE');
       await iSeeText(tester, 'Jan 10, 2000 - Jan 14, 2000');
-      });
     });
   });
 }

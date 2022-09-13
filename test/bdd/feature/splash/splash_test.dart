@@ -3,7 +3,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:network_image_mock/network_image_mock.dart';
 
 import 'package:next_gig/feature/splash/presentation/widget/splash_page.dart';
 import 'package:next_gig/feature/events/presentation/widget/events_page.dart';
@@ -22,13 +21,11 @@ void main() {
   }
   group('''Splash''', () {
     testWidgets('''Discovering events''', (tester) async {
-      await mockNetworkImagesFor(() async {
       await bddSetUp(tester);
       await iTapText(tester, 'Discover');
       await iWait(tester);
       await iDontSeeWidget(tester, SplashPage);
       await iSeeWidget(tester, EventsPage);
-      });
     });
   });
 }

@@ -44,5 +44,13 @@ Feature: Events
   Scenario: Load initial events succeeds
     Given the BE is mocked with {getInitialEventsSucceedsScenario} scenario
     When i select filters {rockEventsInLondonToday}
-    Then I see {"Big Mama's Door"} text
-    And I see {'Connor Selby Band'} text
+    Then I see {"Melt"} text
+    And I see multiple {'Alice Cooper'} texts
+
+  Scenario: Load more events succeeds
+    Given the BE is mocked with {getInitialEventsSucceedsScenario} scenario
+    And i select filters {rockEventsInLondonToday}
+    And the BE is mocked with {getMoreEventsSucceedsScenario} scenario
+    When I scroll to the bottom
+    Then I see {"Cold Waves X Cold Cave"} text
+    And I see multiple {'Shinedown: Planet Zero World Tour'} texts
