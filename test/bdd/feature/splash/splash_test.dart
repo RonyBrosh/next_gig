@@ -8,24 +8,15 @@ import 'package:next_gig/feature/splash/presentation/widget/splash_page.dart';
 import 'package:next_gig/feature/events/presentation/widget/events_page.dart';
 
 import './step/the_app_is_running.dart';
-import './step/i_wait_seconds.dart';
 import 'package:bdd_widget_test/step/i_tap_text.dart';
-import 'package:bdd_widget_test/step/i_wait.dart';
-import 'package:bdd_widget_test/step/i_dont_see_widget.dart';
-import 'package:bdd_widget_test/step/i_see_widget.dart';
+import './step/i_go_to_events_screen.dart';
 
 void main() {
-  Future<void> bddSetUp(WidgetTester tester) async {
-    await theAppIsRunning(tester);
-    await iWaitSeconds(tester, 5);
-  }
   group('''Splash''', () {
     testWidgets('''Discovering events''', (tester) async {
-      await bddSetUp(tester);
+      await theAppIsRunning(tester);
       await iTapText(tester, 'Discover');
-      await iWait(tester);
-      await iDontSeeWidget(tester, SplashPage);
-      await iSeeWidget(tester, EventsPage);
+      await iGoToEventsScreen(tester);
     });
   });
 }

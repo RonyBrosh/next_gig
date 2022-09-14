@@ -9,6 +9,7 @@ import 'package:next_gig/feature/splash/presentation/widget/splash_page.dart';
 import 'package:next_gig/util/device/assets_manager.dart';
 import 'package:next_gig/util/di/di_container.dart';
 import 'package:next_gig/util/di/dio_module.dart';
+import 'package:next_gig/util/navigation/app_navigator.dart';
 
 import 'mocked_backend/mocked_backend_interceptor.dart';
 import 'mocked_backend/mocked_requests_manager.dart';
@@ -33,6 +34,11 @@ void _init(GetIt getIt) {
   when(() => assetsManager.loadString(genresAssetsPath)).thenAnswer((_) async => testGenresJson);
   when(() => assetsManager.loadByteData(splashBackgroundAssetsPath)).thenAnswer((_) async => null);
   when(() => assetsManager.loadByteData(mainBackgroundAssetsPath)).thenAnswer((_) async => null);
+
+  if (getIt.isRegistered<AppNavigator>()) {
+    getIt.unregister<AppNavigator>();
+  }
+  getIt.registerSingleton<AppNavigator>(AppNavigatorMock());
 
   if (getIt.isRegistered<Clock>()) {
     getIt.unregister<Clock>();

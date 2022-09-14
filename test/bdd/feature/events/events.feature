@@ -5,13 +5,8 @@ import 'util/test_models.dart';
 
 Feature: Events
 
-  Background:
-    Given the app is running
-    And I wait {5} seconds
-
   Scenario Outline: Load initial events fails
-    Given the BE is mocked with {getInitialEventsFailsScenario} scenario
-    And i select filters <filters>
+    Given the app is running with {getInitialEventsFailsScenario} scenario and <filters> filters
     Then I see {"Something went wrong, and we couldn't load events...\nPlease try again later."} text
     Examples:
       | filters                                 |
@@ -22,8 +17,7 @@ Feature: Events
       | rockEventsInLondonWithinCustomDateRange |
 
   Scenario Outline: No initial events
-    Given the BE is mocked with {getInitialEventsSucceedsWithEmptyListScenario} scenario
-    And i select filters <filters>
+    Given the app is running with {getInitialEventsSucceedsWithEmptyListScenario} scenario and <filters> filters
     Then I see <text> text
     Examples:
       | filters                                 | text                                                                                                            |
@@ -34,22 +28,17 @@ Feature: Events
       | rockEventsInLondonWithinCustomDateRange | 'There are no rock events in London for the selected date range.\nTry to pick a different genre or date range.' |
 
   Scenario: Edit search
-    Given the BE is mocked with {getInitialEventsSucceedsWithEmptyListScenario} scenario
-    And i select filters {rockEventsInLondonToday}
+    Given the app is running with {getInitialEventsSucceedsWithEmptyListScenario} scenario and {rockEventsInLondonToday} filters
     When I tap {'Edit search'} text
-    And I wait
-    Then I don't see {EventsPage} widget
-    Then I see {SplashPage} widget
+    Then i go back
 
   Scenario: Load initial events succeeds
-    Given the BE is mocked with {getInitialEventsSucceedsScenario} scenario
-    When i select filters {rockEventsInLondonToday}
+    Given the app is running with {getInitialEventsSucceedsScenario} scenario and {rockEventsInLondonToday} filters
     Then I see {"Melt"} text
     And I see multiple {'Alice Cooper'} texts
 
   Scenario: Load more events succeeds
-    Given the BE is mocked with {getInitialEventsSucceedsScenario} scenario
-    And i select filters {rockEventsInLondonToday}
+    Given the app is running with {getInitialEventsSucceedsScenario} scenario and {rockEventsInLondonToday} filters
     And the BE is mocked with {getMoreEventsSucceedsScenario} scenario
     When I scroll to the bottom
     Then I see {"Cold Waves X Cold Cave"} text
