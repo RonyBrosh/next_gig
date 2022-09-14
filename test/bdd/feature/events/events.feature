@@ -44,11 +44,17 @@ Feature: Events
     Then I see {"Cold Waves X Cold Cave"} text
     And I see multiple {'Shinedown: Planet Zero World Tour'} texts
 
-  Scenario: Load more events succeeds
+  Scenario: Load more events fails
     Given the app is running with {getInitialEventsSucceedsScenario} scenario and {rockEventsInLondonToday} filters
     And the BE is mocked with {getMoreEventsFailsScenario} scenario
     When I scroll to the bottom
     Then I don't see {"Cold Waves X Cold Cave"} text
     And I see {'Shinedown: Planet Zero World Tour'} text
+
+  Scenario: Open event's link
+    Given the app is running with {getInitialEventsSucceedsScenario} scenario and {rockEventsInLondonToday} filters
+    And i scroll to event name {'Melt'} with link {'https://www.ticketweb.com/event/melt-rec-room-tickets/12090835?REFERRAL_ID=tmfeed'}
+    When i tap {'Open'} text on event's name {'Melt'}
+    Then link {'https://www.ticketweb.com/event/melt-rec-room-tickets/12090835?REFERRAL_ID=tmfeed'} is opened
 
 

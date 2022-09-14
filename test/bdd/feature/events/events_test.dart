@@ -17,6 +17,9 @@ import 'package:bdd_widget_test/step/i_see_multiple_texts.dart';
 import './step/the_be_is_mocked_with_scenario.dart';
 import './step/i_scroll_to_the_bottom.dart';
 import 'package:bdd_widget_test/step/i_dont_see_text.dart';
+import './step/i_scroll_to_event_name_with_link.dart';
+import './step/i_tap_text_on_events_name.dart';
+import './step/link_is_opened.dart';
 
 void main() {
   group('''Events''', () {
@@ -77,12 +80,18 @@ void main() {
       await iSeeText(tester, "Cold Waves X Cold Cave");
       await iSeeMultipleTexts(tester, 'Shinedown: Planet Zero World Tour');
     });
-    testWidgets('''Load more events succeeds''', (tester) async {
+    testWidgets('''Load more events fails''', (tester) async {
       await theAppIsRunningWithScenarioAndFilters(tester, getInitialEventsSucceedsScenario, rockEventsInLondonToday);
       await theBeIsMockedWithScenario(tester, getMoreEventsFailsScenario);
       await iScrollToTheBottom(tester);
       await iDontSeeText(tester, "Cold Waves X Cold Cave");
       await iSeeText(tester, 'Shinedown: Planet Zero World Tour');
+    });
+    testWidgets('''Open event's link''', (tester) async {
+      await theAppIsRunningWithScenarioAndFilters(tester, getInitialEventsSucceedsScenario, rockEventsInLondonToday);
+      await iScrollToEventNameWithLink(tester, 'Melt', 'https://www.ticketweb.com/event/melt-rec-room-tickets/12090835?REFERRAL_ID=tmfeed');
+      await iTapTextOnEventsName(tester, 'Open', 'Melt');
+      await linkIsOpened(tester, 'https://www.ticketweb.com/event/melt-rec-room-tickets/12090835?REFERRAL_ID=tmfeed');
     });
   });
 }

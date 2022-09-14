@@ -2,10 +2,12 @@ import 'package:collection/collection.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:next_gig/feature/events/domain/model/event.dart';
 import 'package:next_gig/feature/events/domain/model/events_bulk.dart';
 import 'package:next_gig/feature/events/domain/use_case/get_events_use_case.dart';
 import 'package:next_gig/feature/filters/domain/model/filters.dart';
 import 'package:next_gig/feature/filters/domain/use_case/decode_filters_use_case.dart';
+import 'package:next_gig/util/device/link_manager.dart';
 import 'package:next_gig/util/navigation/app_navigator.dart';
 
 part 'events_bloc.freezed.dart';
@@ -18,6 +20,7 @@ class EventsBloc extends Bloc<EventsEvent, EventsState> {
     DecodeFiltersUseCase decodeFiltersUseCase,
     this._getEventsUseCase,
     this._appNavigator,
+    this._linkManager,
     @factoryParam String encodedFilters,
   ) : super(const EventsState.loading()) {
     on<EventsEvent>(
@@ -25,6 +28,7 @@ class EventsBloc extends Bloc<EventsEvent, EventsState> {
         load: (event) => _onLoad(emit, event.filters),
         changeFilters: (_) => _appNavigator.goBack(),
         loadMore: (_) => _onLoadMore(emit),
+        open: (event) => _onOpen(event.event),
       ),
     );
     final filters = decodeFiltersUseCase(encodedFilters: encodedFilters);
@@ -33,6 +37,7 @@ class EventsBloc extends Bloc<EventsEvent, EventsState> {
 
   final GetEventsUseCase _getEventsUseCase;
   final AppNavigator _appNavigator;
+  final LinkManager _linkManager;
 
   Future<void> _onLoad(Emitter<EventsState> emit, Filters filters) async {
     emit(const EventsState.loading());
@@ -67,5 +72,9 @@ class EventsBloc extends Bloc<EventsEvent, EventsState> {
       onFailure: (_) => currentEventsBulk,
     );
     emit(EventsState.content(filters: filters, eventsBulk: updatedEventsBulk, isLoadingMore: false));
+  }
+
+  Future<void> _onOpen(Event event) async {
+    await _linkManager.openWebLink(event.url);
   }
 }

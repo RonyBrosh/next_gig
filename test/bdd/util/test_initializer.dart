@@ -7,6 +7,7 @@ import 'package:next_gig/feature/filters/domain/use_case/get_cities_use_case.dar
 import 'package:next_gig/feature/filters/domain/use_case/get_genres_use_case.dart';
 import 'package:next_gig/feature/splash/presentation/widget/splash_page.dart';
 import 'package:next_gig/util/device/assets_manager.dart';
+import 'package:next_gig/util/device/link_manager.dart';
 import 'package:next_gig/util/di/di_container.dart';
 import 'package:next_gig/util/di/dio_module.dart';
 import 'package:next_gig/util/navigation/app_navigator.dart';
@@ -44,4 +45,9 @@ void _init(GetIt getIt) {
     getIt.unregister<Clock>();
   }
   getIt.registerSingleton<Clock>(Clock.fixed(DateTime(2000, 1, 1)));
+
+  if (getIt.isRegistered<LinkManager>()) {
+    getIt.unregister<LinkManager>();
+  }
+  getIt.registerSingleton<LinkManager>(LinkManagerMock());
 }

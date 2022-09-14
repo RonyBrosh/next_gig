@@ -21,6 +21,7 @@ mixin _$EventsEvent {
     required TResult Function(Filters filters) load,
     required TResult Function() changeFilters,
     required TResult Function() loadMore,
+    required TResult Function(Event event) open,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$EventsEvent {
     TResult Function(Filters filters)? load,
     TResult Function()? changeFilters,
     TResult Function()? loadMore,
+    TResult Function(Event event)? open,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$EventsEvent {
     TResult Function(Filters filters)? load,
     TResult Function()? changeFilters,
     TResult Function()? loadMore,
+    TResult Function(Event event)? open,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$EventsEvent {
     required TResult Function(_Load value) load,
     required TResult Function(_ChangeFilters value) changeFilters,
     required TResult Function(_LoadMore value) loadMore,
+    required TResult Function(_Open value) open,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$EventsEvent {
     TResult Function(_Load value)? load,
     TResult Function(_ChangeFilters value)? changeFilters,
     TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_Open value)? open,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$EventsEvent {
     TResult Function(_Load value)? load,
     TResult Function(_ChangeFilters value)? changeFilters,
     TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_Open value)? open,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -152,6 +158,7 @@ class _$_Load implements _Load {
     required TResult Function(Filters filters) load,
     required TResult Function() changeFilters,
     required TResult Function() loadMore,
+    required TResult Function(Event event) open,
   }) {
     return load(filters);
   }
@@ -162,6 +169,7 @@ class _$_Load implements _Load {
     TResult Function(Filters filters)? load,
     TResult Function()? changeFilters,
     TResult Function()? loadMore,
+    TResult Function(Event event)? open,
   }) {
     return load?.call(filters);
   }
@@ -172,6 +180,7 @@ class _$_Load implements _Load {
     TResult Function(Filters filters)? load,
     TResult Function()? changeFilters,
     TResult Function()? loadMore,
+    TResult Function(Event event)? open,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -186,6 +195,7 @@ class _$_Load implements _Load {
     required TResult Function(_Load value) load,
     required TResult Function(_ChangeFilters value) changeFilters,
     required TResult Function(_LoadMore value) loadMore,
+    required TResult Function(_Open value) open,
   }) {
     return load(this);
   }
@@ -196,6 +206,7 @@ class _$_Load implements _Load {
     TResult Function(_Load value)? load,
     TResult Function(_ChangeFilters value)? changeFilters,
     TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_Open value)? open,
   }) {
     return load?.call(this);
   }
@@ -206,6 +217,7 @@ class _$_Load implements _Load {
     TResult Function(_Load value)? load,
     TResult Function(_ChangeFilters value)? changeFilters,
     TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_Open value)? open,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -267,6 +279,7 @@ class _$_ChangeFilters implements _ChangeFilters {
     required TResult Function(Filters filters) load,
     required TResult Function() changeFilters,
     required TResult Function() loadMore,
+    required TResult Function(Event event) open,
   }) {
     return changeFilters();
   }
@@ -277,6 +290,7 @@ class _$_ChangeFilters implements _ChangeFilters {
     TResult Function(Filters filters)? load,
     TResult Function()? changeFilters,
     TResult Function()? loadMore,
+    TResult Function(Event event)? open,
   }) {
     return changeFilters?.call();
   }
@@ -287,6 +301,7 @@ class _$_ChangeFilters implements _ChangeFilters {
     TResult Function(Filters filters)? load,
     TResult Function()? changeFilters,
     TResult Function()? loadMore,
+    TResult Function(Event event)? open,
     required TResult orElse(),
   }) {
     if (changeFilters != null) {
@@ -301,6 +316,7 @@ class _$_ChangeFilters implements _ChangeFilters {
     required TResult Function(_Load value) load,
     required TResult Function(_ChangeFilters value) changeFilters,
     required TResult Function(_LoadMore value) loadMore,
+    required TResult Function(_Open value) open,
   }) {
     return changeFilters(this);
   }
@@ -311,6 +327,7 @@ class _$_ChangeFilters implements _ChangeFilters {
     TResult Function(_Load value)? load,
     TResult Function(_ChangeFilters value)? changeFilters,
     TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_Open value)? open,
   }) {
     return changeFilters?.call(this);
   }
@@ -321,6 +338,7 @@ class _$_ChangeFilters implements _ChangeFilters {
     TResult Function(_Load value)? load,
     TResult Function(_ChangeFilters value)? changeFilters,
     TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_Open value)? open,
     required TResult orElse(),
   }) {
     if (changeFilters != null) {
@@ -377,6 +395,7 @@ class _$_LoadMore implements _LoadMore {
     required TResult Function(Filters filters) load,
     required TResult Function() changeFilters,
     required TResult Function() loadMore,
+    required TResult Function(Event event) open,
   }) {
     return loadMore();
   }
@@ -387,6 +406,7 @@ class _$_LoadMore implements _LoadMore {
     TResult Function(Filters filters)? load,
     TResult Function()? changeFilters,
     TResult Function()? loadMore,
+    TResult Function(Event event)? open,
   }) {
     return loadMore?.call();
   }
@@ -397,6 +417,7 @@ class _$_LoadMore implements _LoadMore {
     TResult Function(Filters filters)? load,
     TResult Function()? changeFilters,
     TResult Function()? loadMore,
+    TResult Function(Event event)? open,
     required TResult orElse(),
   }) {
     if (loadMore != null) {
@@ -411,6 +432,7 @@ class _$_LoadMore implements _LoadMore {
     required TResult Function(_Load value) load,
     required TResult Function(_ChangeFilters value) changeFilters,
     required TResult Function(_LoadMore value) loadMore,
+    required TResult Function(_Open value) open,
   }) {
     return loadMore(this);
   }
@@ -421,6 +443,7 @@ class _$_LoadMore implements _LoadMore {
     TResult Function(_Load value)? load,
     TResult Function(_ChangeFilters value)? changeFilters,
     TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_Open value)? open,
   }) {
     return loadMore?.call(this);
   }
@@ -431,6 +454,7 @@ class _$_LoadMore implements _LoadMore {
     TResult Function(_Load value)? load,
     TResult Function(_ChangeFilters value)? changeFilters,
     TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_Open value)? open,
     required TResult orElse(),
   }) {
     if (loadMore != null) {
@@ -442,6 +466,157 @@ class _$_LoadMore implements _LoadMore {
 
 abstract class _LoadMore implements EventsEvent {
   const factory _LoadMore() = _$_LoadMore;
+}
+
+/// @nodoc
+abstract class _$$_OpenCopyWith<$Res> {
+  factory _$$_OpenCopyWith(_$_Open value, $Res Function(_$_Open) then) =
+      __$$_OpenCopyWithImpl<$Res>;
+  $Res call({Event event});
+
+  $EventCopyWith<$Res> get event;
+}
+
+/// @nodoc
+class __$$_OpenCopyWithImpl<$Res> extends _$EventsEventCopyWithImpl<$Res>
+    implements _$$_OpenCopyWith<$Res> {
+  __$$_OpenCopyWithImpl(_$_Open _value, $Res Function(_$_Open) _then)
+      : super(_value, (v) => _then(v as _$_Open));
+
+  @override
+  _$_Open get _value => super._value as _$_Open;
+
+  @override
+  $Res call({
+    Object? event = freezed,
+  }) {
+    return _then(_$_Open(
+      event: event == freezed
+          ? _value.event
+          : event // ignore: cast_nullable_to_non_nullable
+              as Event,
+    ));
+  }
+
+  @override
+  $EventCopyWith<$Res> get event {
+    return $EventCopyWith<$Res>(_value.event, (value) {
+      return _then(_value.copyWith(event: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_Open implements _Open {
+  const _$_Open({required this.event});
+
+  @override
+  final Event event;
+
+  @override
+  String toString() {
+    return 'EventsEvent.open(event: $event)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Open &&
+            const DeepCollectionEquality().equals(other.event, event));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(event));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_OpenCopyWith<_$_Open> get copyWith =>
+      __$$_OpenCopyWithImpl<_$_Open>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Filters filters) load,
+    required TResult Function() changeFilters,
+    required TResult Function() loadMore,
+    required TResult Function(Event event) open,
+  }) {
+    return open(event);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Filters filters)? load,
+    TResult Function()? changeFilters,
+    TResult Function()? loadMore,
+    TResult Function(Event event)? open,
+  }) {
+    return open?.call(event);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Filters filters)? load,
+    TResult Function()? changeFilters,
+    TResult Function()? loadMore,
+    TResult Function(Event event)? open,
+    required TResult orElse(),
+  }) {
+    if (open != null) {
+      return open(event);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Load value) load,
+    required TResult Function(_ChangeFilters value) changeFilters,
+    required TResult Function(_LoadMore value) loadMore,
+    required TResult Function(_Open value) open,
+  }) {
+    return open(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Load value)? load,
+    TResult Function(_ChangeFilters value)? changeFilters,
+    TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_Open value)? open,
+  }) {
+    return open?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Load value)? load,
+    TResult Function(_ChangeFilters value)? changeFilters,
+    TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_Open value)? open,
+    required TResult orElse(),
+  }) {
+    if (open != null) {
+      return open(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Open implements EventsEvent {
+  const factory _Open({required final Event event}) = _$_Open;
+
+  Event get event;
+  @JsonKey(ignore: true)
+  _$$_OpenCopyWith<_$_Open> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
