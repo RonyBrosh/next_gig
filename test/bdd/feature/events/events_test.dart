@@ -16,6 +16,7 @@ import './step/i_go_back.dart';
 import 'package:bdd_widget_test/step/i_see_multiple_texts.dart';
 import './step/the_be_is_mocked_with_scenario.dart';
 import './step/i_scroll_to_the_bottom.dart';
+import 'package:bdd_widget_test/step/i_dont_see_text.dart';
 
 void main() {
   group('''Events''', () {
@@ -75,6 +76,13 @@ void main() {
       await iScrollToTheBottom(tester);
       await iSeeText(tester, "Cold Waves X Cold Cave");
       await iSeeMultipleTexts(tester, 'Shinedown: Planet Zero World Tour');
+    });
+    testWidgets('''Load more events succeeds''', (tester) async {
+      await theAppIsRunningWithScenarioAndFilters(tester, getInitialEventsSucceedsScenario, rockEventsInLondonToday);
+      await theBeIsMockedWithScenario(tester, getMoreEventsFailsScenario);
+      await iScrollToTheBottom(tester);
+      await iDontSeeText(tester, "Cold Waves X Cold Cave");
+      await iSeeText(tester, 'Shinedown: Planet Zero World Tour');
     });
   });
 }

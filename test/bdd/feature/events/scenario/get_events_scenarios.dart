@@ -37,3 +37,10 @@ final getMoreEventsSucceedsScenario = Scenario(handlers: [
     ),
   ),
 ]);
+
+final getMoreEventsFailsScenario = Scenario(handlers: [
+  MockedRequestHandler(
+    path: _endpoint,
+    result: MockedRequestHandler.returnError(errorCode: 400),
+  ),
+]);

@@ -43,3 +43,12 @@ Feature: Events
     When I scroll to the bottom
     Then I see {"Cold Waves X Cold Cave"} text
     And I see multiple {'Shinedown: Planet Zero World Tour'} texts
+
+  Scenario: Load more events succeeds
+    Given the app is running with {getInitialEventsSucceedsScenario} scenario and {rockEventsInLondonToday} filters
+    And the BE is mocked with {getMoreEventsFailsScenario} scenario
+    When I scroll to the bottom
+    Then I don't see {"Cold Waves X Cold Cave"} text
+    And I see {'Shinedown: Planet Zero World Tour'} text
+
+
