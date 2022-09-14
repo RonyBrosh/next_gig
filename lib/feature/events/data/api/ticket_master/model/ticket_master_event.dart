@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:next_gig/feature/events/domain/model/event.dart';
 
@@ -46,9 +47,14 @@ DateTime? _createDateTime(String? date) {
 }
 
 Object _readImage(Map json, String key) {
-  final images = json['images'] as List;
-  images.sort(_imageDescendingComparator);
-  return images[0]['url'];
+  final allImages = json['images'] as List;
+  allImages.sort(_imageDescendingComparator);
+  final nonDefaultImage = allImages.firstWhereOrNull((image) => image['fallback'] == false);
+  if (nonDefaultImage != null) {
+    return nonDefaultImage['url'];
+  } else {
+    return allImages[0]['url'];
+  }
 }
 
 int _imageDescendingComparator(dynamic image, dynamic otherImage) {
