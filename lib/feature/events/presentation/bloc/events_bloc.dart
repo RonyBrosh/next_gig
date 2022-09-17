@@ -29,6 +29,7 @@ class EventsBloc extends Bloc<EventsEvent, EventsState> {
         changeFilters: (_) => _appNavigator.goBack(),
         loadMore: (_) => _onLoadMore(emit),
         open: (event) => _onOpen(event.event),
+        play: (event) => _onPlay(emit, event.event),
       ),
     );
     final filters = decodeFiltersUseCase(encodedFilters: encodedFilters);
@@ -54,27 +55,39 @@ class EventsBloc extends Bloc<EventsEvent, EventsState> {
   }
 
   Future<void> _onLoadMore(Emitter<EventsState> emit) async {
-    final currentEventsBulk = state.mapOrNull(content: (state) => state.eventsBulk);
-    final filters = state.mapOrNull(content: (state) => state.filters);
-    if (currentEventsBulk == null || !currentEventsBulk.hasMorePages || filters == null) {
+    final content = state.mapOrNull(content: (state) => state);
+    if (content == null) {
       return;
     }
 
-    emit(EventsState.content(filters: filters, eventsBulk: currentEventsBulk, isLoadingMore: true));
-    final eventsBulkResult = await _getEventsUseCase(filters: filters, pageIndex: currentEventsBulk.pageIndex + 1);
+    emit(content.copyWith(isLoadingMore: true));
+    final eventsBulkResult = await _getEventsUseCase(
+      filters: content.filters,
+      pageIndex: content.eventsBulk.pageIndex + 1,
+    );
     final updatedEventsBulk = eventsBulkResult.fold(
       onSuccess: (newEventsBulk) {
-        final currentEvents = currentEventsBulk.events;
+        final currentEvents = content.eventsBulk.events;
         final newEvents = newEventsBulk.events;
         final combinedEvents = [currentEvents, newEvents].flattened.toList(growable: false);
         return newEventsBulk.copyWith(events: combinedEvents);
       },
-      onFailure: (_) => currentEventsBulk,
+      onFailure: (_) => content.eventsBulk,
     );
-    emit(EventsState.content(filters: filters, eventsBulk: updatedEventsBulk, isLoadingMore: false));
+    emit(content.copyWith(eventsBulk: updatedEventsBulk, isLoadingMore: false));
   }
 
   Future<void> _onOpen(Event event) async {
     await _linkManager.openWebLink(event.url);
+  }
+
+  Future<void> _onPlay(Emitter<EventsState> emit, Event event) async {
+    print('_onPlay');
+    final content = state.mapOrNull(content: (state) => state);
+    if (content == null) {
+      return;
+    }
+
+    emit(content.copyWith(selectedEvent: event));
   }
 }

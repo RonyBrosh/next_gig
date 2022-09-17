@@ -22,6 +22,7 @@ mixin _$EventsEvent {
     required TResult Function() changeFilters,
     required TResult Function() loadMore,
     required TResult Function(Event event) open,
+    required TResult Function(Event event) play,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$EventsEvent {
     TResult Function()? changeFilters,
     TResult Function()? loadMore,
     TResult Function(Event event)? open,
+    TResult Function(Event event)? play,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$EventsEvent {
     TResult Function()? changeFilters,
     TResult Function()? loadMore,
     TResult Function(Event event)? open,
+    TResult Function(Event event)? play,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,7 @@ mixin _$EventsEvent {
     required TResult Function(_ChangeFilters value) changeFilters,
     required TResult Function(_LoadMore value) loadMore,
     required TResult Function(_Open value) open,
+    required TResult Function(_Play value) play,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +59,7 @@ mixin _$EventsEvent {
     TResult Function(_ChangeFilters value)? changeFilters,
     TResult Function(_LoadMore value)? loadMore,
     TResult Function(_Open value)? open,
+    TResult Function(_Play value)? play,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$EventsEvent {
     TResult Function(_ChangeFilters value)? changeFilters,
     TResult Function(_LoadMore value)? loadMore,
     TResult Function(_Open value)? open,
+    TResult Function(_Play value)? play,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -159,6 +165,7 @@ class _$_Load implements _Load {
     required TResult Function() changeFilters,
     required TResult Function() loadMore,
     required TResult Function(Event event) open,
+    required TResult Function(Event event) play,
   }) {
     return load(filters);
   }
@@ -170,6 +177,7 @@ class _$_Load implements _Load {
     TResult Function()? changeFilters,
     TResult Function()? loadMore,
     TResult Function(Event event)? open,
+    TResult Function(Event event)? play,
   }) {
     return load?.call(filters);
   }
@@ -181,6 +189,7 @@ class _$_Load implements _Load {
     TResult Function()? changeFilters,
     TResult Function()? loadMore,
     TResult Function(Event event)? open,
+    TResult Function(Event event)? play,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -196,6 +205,7 @@ class _$_Load implements _Load {
     required TResult Function(_ChangeFilters value) changeFilters,
     required TResult Function(_LoadMore value) loadMore,
     required TResult Function(_Open value) open,
+    required TResult Function(_Play value) play,
   }) {
     return load(this);
   }
@@ -207,6 +217,7 @@ class _$_Load implements _Load {
     TResult Function(_ChangeFilters value)? changeFilters,
     TResult Function(_LoadMore value)? loadMore,
     TResult Function(_Open value)? open,
+    TResult Function(_Play value)? play,
   }) {
     return load?.call(this);
   }
@@ -218,6 +229,7 @@ class _$_Load implements _Load {
     TResult Function(_ChangeFilters value)? changeFilters,
     TResult Function(_LoadMore value)? loadMore,
     TResult Function(_Open value)? open,
+    TResult Function(_Play value)? play,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -280,6 +292,7 @@ class _$_ChangeFilters implements _ChangeFilters {
     required TResult Function() changeFilters,
     required TResult Function() loadMore,
     required TResult Function(Event event) open,
+    required TResult Function(Event event) play,
   }) {
     return changeFilters();
   }
@@ -291,6 +304,7 @@ class _$_ChangeFilters implements _ChangeFilters {
     TResult Function()? changeFilters,
     TResult Function()? loadMore,
     TResult Function(Event event)? open,
+    TResult Function(Event event)? play,
   }) {
     return changeFilters?.call();
   }
@@ -302,6 +316,7 @@ class _$_ChangeFilters implements _ChangeFilters {
     TResult Function()? changeFilters,
     TResult Function()? loadMore,
     TResult Function(Event event)? open,
+    TResult Function(Event event)? play,
     required TResult orElse(),
   }) {
     if (changeFilters != null) {
@@ -317,6 +332,7 @@ class _$_ChangeFilters implements _ChangeFilters {
     required TResult Function(_ChangeFilters value) changeFilters,
     required TResult Function(_LoadMore value) loadMore,
     required TResult Function(_Open value) open,
+    required TResult Function(_Play value) play,
   }) {
     return changeFilters(this);
   }
@@ -328,6 +344,7 @@ class _$_ChangeFilters implements _ChangeFilters {
     TResult Function(_ChangeFilters value)? changeFilters,
     TResult Function(_LoadMore value)? loadMore,
     TResult Function(_Open value)? open,
+    TResult Function(_Play value)? play,
   }) {
     return changeFilters?.call(this);
   }
@@ -339,6 +356,7 @@ class _$_ChangeFilters implements _ChangeFilters {
     TResult Function(_ChangeFilters value)? changeFilters,
     TResult Function(_LoadMore value)? loadMore,
     TResult Function(_Open value)? open,
+    TResult Function(_Play value)? play,
     required TResult orElse(),
   }) {
     if (changeFilters != null) {
@@ -396,6 +414,7 @@ class _$_LoadMore implements _LoadMore {
     required TResult Function() changeFilters,
     required TResult Function() loadMore,
     required TResult Function(Event event) open,
+    required TResult Function(Event event) play,
   }) {
     return loadMore();
   }
@@ -407,6 +426,7 @@ class _$_LoadMore implements _LoadMore {
     TResult Function()? changeFilters,
     TResult Function()? loadMore,
     TResult Function(Event event)? open,
+    TResult Function(Event event)? play,
   }) {
     return loadMore?.call();
   }
@@ -418,6 +438,7 @@ class _$_LoadMore implements _LoadMore {
     TResult Function()? changeFilters,
     TResult Function()? loadMore,
     TResult Function(Event event)? open,
+    TResult Function(Event event)? play,
     required TResult orElse(),
   }) {
     if (loadMore != null) {
@@ -433,6 +454,7 @@ class _$_LoadMore implements _LoadMore {
     required TResult Function(_ChangeFilters value) changeFilters,
     required TResult Function(_LoadMore value) loadMore,
     required TResult Function(_Open value) open,
+    required TResult Function(_Play value) play,
   }) {
     return loadMore(this);
   }
@@ -444,6 +466,7 @@ class _$_LoadMore implements _LoadMore {
     TResult Function(_ChangeFilters value)? changeFilters,
     TResult Function(_LoadMore value)? loadMore,
     TResult Function(_Open value)? open,
+    TResult Function(_Play value)? play,
   }) {
     return loadMore?.call(this);
   }
@@ -455,6 +478,7 @@ class _$_LoadMore implements _LoadMore {
     TResult Function(_ChangeFilters value)? changeFilters,
     TResult Function(_LoadMore value)? loadMore,
     TResult Function(_Open value)? open,
+    TResult Function(_Play value)? play,
     required TResult orElse(),
   }) {
     if (loadMore != null) {
@@ -543,6 +567,7 @@ class _$_Open implements _Open {
     required TResult Function() changeFilters,
     required TResult Function() loadMore,
     required TResult Function(Event event) open,
+    required TResult Function(Event event) play,
   }) {
     return open(event);
   }
@@ -554,6 +579,7 @@ class _$_Open implements _Open {
     TResult Function()? changeFilters,
     TResult Function()? loadMore,
     TResult Function(Event event)? open,
+    TResult Function(Event event)? play,
   }) {
     return open?.call(event);
   }
@@ -565,6 +591,7 @@ class _$_Open implements _Open {
     TResult Function()? changeFilters,
     TResult Function()? loadMore,
     TResult Function(Event event)? open,
+    TResult Function(Event event)? play,
     required TResult orElse(),
   }) {
     if (open != null) {
@@ -580,6 +607,7 @@ class _$_Open implements _Open {
     required TResult Function(_ChangeFilters value) changeFilters,
     required TResult Function(_LoadMore value) loadMore,
     required TResult Function(_Open value) open,
+    required TResult Function(_Play value) play,
   }) {
     return open(this);
   }
@@ -591,6 +619,7 @@ class _$_Open implements _Open {
     TResult Function(_ChangeFilters value)? changeFilters,
     TResult Function(_LoadMore value)? loadMore,
     TResult Function(_Open value)? open,
+    TResult Function(_Play value)? play,
   }) {
     return open?.call(this);
   }
@@ -602,6 +631,7 @@ class _$_Open implements _Open {
     TResult Function(_ChangeFilters value)? changeFilters,
     TResult Function(_LoadMore value)? loadMore,
     TResult Function(_Open value)? open,
+    TResult Function(_Play value)? play,
     required TResult orElse(),
   }) {
     if (open != null) {
@@ -620,13 +650,170 @@ abstract class _Open implements EventsEvent {
 }
 
 /// @nodoc
+abstract class _$$_PlayCopyWith<$Res> {
+  factory _$$_PlayCopyWith(_$_Play value, $Res Function(_$_Play) then) =
+      __$$_PlayCopyWithImpl<$Res>;
+  $Res call({Event event});
+
+  $EventCopyWith<$Res> get event;
+}
+
+/// @nodoc
+class __$$_PlayCopyWithImpl<$Res> extends _$EventsEventCopyWithImpl<$Res>
+    implements _$$_PlayCopyWith<$Res> {
+  __$$_PlayCopyWithImpl(_$_Play _value, $Res Function(_$_Play) _then)
+      : super(_value, (v) => _then(v as _$_Play));
+
+  @override
+  _$_Play get _value => super._value as _$_Play;
+
+  @override
+  $Res call({
+    Object? event = freezed,
+  }) {
+    return _then(_$_Play(
+      event: event == freezed
+          ? _value.event
+          : event // ignore: cast_nullable_to_non_nullable
+              as Event,
+    ));
+  }
+
+  @override
+  $EventCopyWith<$Res> get event {
+    return $EventCopyWith<$Res>(_value.event, (value) {
+      return _then(_value.copyWith(event: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_Play implements _Play {
+  const _$_Play({required this.event});
+
+  @override
+  final Event event;
+
+  @override
+  String toString() {
+    return 'EventsEvent.play(event: $event)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Play &&
+            const DeepCollectionEquality().equals(other.event, event));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(event));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_PlayCopyWith<_$_Play> get copyWith =>
+      __$$_PlayCopyWithImpl<_$_Play>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Filters filters) load,
+    required TResult Function() changeFilters,
+    required TResult Function() loadMore,
+    required TResult Function(Event event) open,
+    required TResult Function(Event event) play,
+  }) {
+    return play(event);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Filters filters)? load,
+    TResult Function()? changeFilters,
+    TResult Function()? loadMore,
+    TResult Function(Event event)? open,
+    TResult Function(Event event)? play,
+  }) {
+    return play?.call(event);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Filters filters)? load,
+    TResult Function()? changeFilters,
+    TResult Function()? loadMore,
+    TResult Function(Event event)? open,
+    TResult Function(Event event)? play,
+    required TResult orElse(),
+  }) {
+    if (play != null) {
+      return play(event);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Load value) load,
+    required TResult Function(_ChangeFilters value) changeFilters,
+    required TResult Function(_LoadMore value) loadMore,
+    required TResult Function(_Open value) open,
+    required TResult Function(_Play value) play,
+  }) {
+    return play(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Load value)? load,
+    TResult Function(_ChangeFilters value)? changeFilters,
+    TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_Open value)? open,
+    TResult Function(_Play value)? play,
+  }) {
+    return play?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Load value)? load,
+    TResult Function(_ChangeFilters value)? changeFilters,
+    TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_Open value)? open,
+    TResult Function(_Play value)? play,
+    required TResult orElse(),
+  }) {
+    if (play != null) {
+      return play(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Play implements EventsEvent {
+  const factory _Play({required final Event event}) = _$_Play;
+
+  Event get event;
+  @JsonKey(ignore: true)
+  _$$_PlayCopyWith<_$_Play> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$EventsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function() error,
-    required TResult Function(
-            Filters filters, EventsBulk eventsBulk, bool isLoadingMore)
+    required TResult Function(Filters filters, EventsBulk eventsBulk,
+            bool isLoadingMore, Event? selectedEvent)
         content,
   }) =>
       throw _privateConstructorUsedError;
@@ -634,8 +821,8 @@ mixin _$EventsState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(
-            Filters filters, EventsBulk eventsBulk, bool isLoadingMore)?
+    TResult Function(Filters filters, EventsBulk eventsBulk, bool isLoadingMore,
+            Event? selectedEvent)?
         content,
   }) =>
       throw _privateConstructorUsedError;
@@ -643,8 +830,8 @@ mixin _$EventsState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(
-            Filters filters, EventsBulk eventsBulk, bool isLoadingMore)?
+    TResult Function(Filters filters, EventsBulk eventsBulk, bool isLoadingMore,
+            Event? selectedEvent)?
         content,
     required TResult orElse(),
   }) =>
@@ -730,8 +917,8 @@ class _$_Loading implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function() error,
-    required TResult Function(
-            Filters filters, EventsBulk eventsBulk, bool isLoadingMore)
+    required TResult Function(Filters filters, EventsBulk eventsBulk,
+            bool isLoadingMore, Event? selectedEvent)
         content,
   }) {
     return loading();
@@ -742,8 +929,8 @@ class _$_Loading implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(
-            Filters filters, EventsBulk eventsBulk, bool isLoadingMore)?
+    TResult Function(Filters filters, EventsBulk eventsBulk, bool isLoadingMore,
+            Event? selectedEvent)?
         content,
   }) {
     return loading?.call();
@@ -754,8 +941,8 @@ class _$_Loading implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(
-            Filters filters, EventsBulk eventsBulk, bool isLoadingMore)?
+    TResult Function(Filters filters, EventsBulk eventsBulk, bool isLoadingMore,
+            Event? selectedEvent)?
         content,
     required TResult orElse(),
   }) {
@@ -844,8 +1031,8 @@ class _$_Error implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function() error,
-    required TResult Function(
-            Filters filters, EventsBulk eventsBulk, bool isLoadingMore)
+    required TResult Function(Filters filters, EventsBulk eventsBulk,
+            bool isLoadingMore, Event? selectedEvent)
         content,
   }) {
     return error();
@@ -856,8 +1043,8 @@ class _$_Error implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(
-            Filters filters, EventsBulk eventsBulk, bool isLoadingMore)?
+    TResult Function(Filters filters, EventsBulk eventsBulk, bool isLoadingMore,
+            Event? selectedEvent)?
         content,
   }) {
     return error?.call();
@@ -868,8 +1055,8 @@ class _$_Error implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(
-            Filters filters, EventsBulk eventsBulk, bool isLoadingMore)?
+    TResult Function(Filters filters, EventsBulk eventsBulk, bool isLoadingMore,
+            Event? selectedEvent)?
         content,
     required TResult orElse(),
   }) {
@@ -923,10 +1110,15 @@ abstract class _$$_ContentCopyWith<$Res> {
   factory _$$_ContentCopyWith(
           _$_Content value, $Res Function(_$_Content) then) =
       __$$_ContentCopyWithImpl<$Res>;
-  $Res call({Filters filters, EventsBulk eventsBulk, bool isLoadingMore});
+  $Res call(
+      {Filters filters,
+      EventsBulk eventsBulk,
+      bool isLoadingMore,
+      Event? selectedEvent});
 
   $FiltersCopyWith<$Res> get filters;
   $EventsBulkCopyWith<$Res> get eventsBulk;
+  $EventCopyWith<$Res>? get selectedEvent;
 }
 
 /// @nodoc
@@ -943,6 +1135,7 @@ class __$$_ContentCopyWithImpl<$Res> extends _$EventsStateCopyWithImpl<$Res>
     Object? filters = freezed,
     Object? eventsBulk = freezed,
     Object? isLoadingMore = freezed,
+    Object? selectedEvent = freezed,
   }) {
     return _then(_$_Content(
       filters: filters == freezed
@@ -957,6 +1150,10 @@ class __$$_ContentCopyWithImpl<$Res> extends _$EventsStateCopyWithImpl<$Res>
           ? _value.isLoadingMore
           : isLoadingMore // ignore: cast_nullable_to_non_nullable
               as bool,
+      selectedEvent: selectedEvent == freezed
+          ? _value.selectedEvent
+          : selectedEvent // ignore: cast_nullable_to_non_nullable
+              as Event?,
     ));
   }
 
@@ -973,6 +1170,17 @@ class __$$_ContentCopyWithImpl<$Res> extends _$EventsStateCopyWithImpl<$Res>
       return _then(_value.copyWith(eventsBulk: value));
     });
   }
+
+  @override
+  $EventCopyWith<$Res>? get selectedEvent {
+    if (_value.selectedEvent == null) {
+      return null;
+    }
+
+    return $EventCopyWith<$Res>(_value.selectedEvent!, (value) {
+      return _then(_value.copyWith(selectedEvent: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -981,7 +1189,8 @@ class _$_Content implements _Content {
   const _$_Content(
       {required this.filters,
       required this.eventsBulk,
-      required this.isLoadingMore});
+      required this.isLoadingMore,
+      this.selectedEvent = null});
 
   @override
   final Filters filters;
@@ -989,10 +1198,13 @@ class _$_Content implements _Content {
   final EventsBulk eventsBulk;
   @override
   final bool isLoadingMore;
+  @override
+  @JsonKey()
+  final Event? selectedEvent;
 
   @override
   String toString() {
-    return 'EventsState.content(filters: $filters, eventsBulk: $eventsBulk, isLoadingMore: $isLoadingMore)';
+    return 'EventsState.content(filters: $filters, eventsBulk: $eventsBulk, isLoadingMore: $isLoadingMore, selectedEvent: $selectedEvent)';
   }
 
   @override
@@ -1004,7 +1216,9 @@ class _$_Content implements _Content {
             const DeepCollectionEquality()
                 .equals(other.eventsBulk, eventsBulk) &&
             const DeepCollectionEquality()
-                .equals(other.isLoadingMore, isLoadingMore));
+                .equals(other.isLoadingMore, isLoadingMore) &&
+            const DeepCollectionEquality()
+                .equals(other.selectedEvent, selectedEvent));
   }
 
   @override
@@ -1012,7 +1226,8 @@ class _$_Content implements _Content {
       runtimeType,
       const DeepCollectionEquality().hash(filters),
       const DeepCollectionEquality().hash(eventsBulk),
-      const DeepCollectionEquality().hash(isLoadingMore));
+      const DeepCollectionEquality().hash(isLoadingMore),
+      const DeepCollectionEquality().hash(selectedEvent));
 
   @JsonKey(ignore: true)
   @override
@@ -1024,11 +1239,11 @@ class _$_Content implements _Content {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function() error,
-    required TResult Function(
-            Filters filters, EventsBulk eventsBulk, bool isLoadingMore)
+    required TResult Function(Filters filters, EventsBulk eventsBulk,
+            bool isLoadingMore, Event? selectedEvent)
         content,
   }) {
-    return content(filters, eventsBulk, isLoadingMore);
+    return content(filters, eventsBulk, isLoadingMore, selectedEvent);
   }
 
   @override
@@ -1036,11 +1251,11 @@ class _$_Content implements _Content {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(
-            Filters filters, EventsBulk eventsBulk, bool isLoadingMore)?
+    TResult Function(Filters filters, EventsBulk eventsBulk, bool isLoadingMore,
+            Event? selectedEvent)?
         content,
   }) {
-    return content?.call(filters, eventsBulk, isLoadingMore);
+    return content?.call(filters, eventsBulk, isLoadingMore, selectedEvent);
   }
 
   @override
@@ -1048,13 +1263,13 @@ class _$_Content implements _Content {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(
-            Filters filters, EventsBulk eventsBulk, bool isLoadingMore)?
+    TResult Function(Filters filters, EventsBulk eventsBulk, bool isLoadingMore,
+            Event? selectedEvent)?
         content,
     required TResult orElse(),
   }) {
     if (content != null) {
-      return content(filters, eventsBulk, isLoadingMore);
+      return content(filters, eventsBulk, isLoadingMore, selectedEvent);
     }
     return orElse();
   }
@@ -1098,11 +1313,13 @@ abstract class _Content implements EventsState {
   const factory _Content(
       {required final Filters filters,
       required final EventsBulk eventsBulk,
-      required final bool isLoadingMore}) = _$_Content;
+      required final bool isLoadingMore,
+      final Event? selectedEvent}) = _$_Content;
 
   Filters get filters;
   EventsBulk get eventsBulk;
   bool get isLoadingMore;
+  Event? get selectedEvent;
   @JsonKey(ignore: true)
   _$$_ContentCopyWith<_$_Content> get copyWith =>
       throw _privateConstructorUsedError;

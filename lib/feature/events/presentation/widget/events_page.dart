@@ -39,6 +39,7 @@ class EventsPage extends StatelessWidget {
                       events: state.eventsBulk.events,
                       filters: state.filters,
                       isLoadingMore: state.isLoadingMore,
+                      selectedEvent: state.selectedEvent,
                     );
                   }
                 },

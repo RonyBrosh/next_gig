@@ -1,0 +1,8 @@
+initial: 'Tap LISTEN on any event to play some samples'
+loading: 'Loading samples...'
+error:
+  title(String name): "We didn't find any samples for '$name'"
+  body: 'You can manually search for it on'
+button:
+  deezer: 'Go to Deezer'
+

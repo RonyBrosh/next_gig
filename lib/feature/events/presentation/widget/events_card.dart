@@ -52,7 +52,10 @@ class EventsCard extends StatelessWidget {
                         onTap: () => context.read<EventsBloc>().add(EventsEvent.open(event: event)),
                       ),
                       const SizedBox(width: AppSpace.small),
-                      AppSecondaryButton(text: context.eventsTranslation.events.listen),
+                      AppSecondaryButton(
+                        text: context.eventsTranslation.events.listen,
+                        onTap: () => context.read<EventsBloc>().add(EventsEvent.play(event: event)),
+                      ),
                     ],
                   ),
                 ),

@@ -10,5 +10,6 @@ class EventsState with _$EventsState {
     required Filters filters,
     required EventsBulk eventsBulk,
     required bool isLoadingMore,
+    @Default(null) Event? selectedEvent,
   }) = _Content;
 }

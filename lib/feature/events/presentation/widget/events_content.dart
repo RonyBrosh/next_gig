@@ -10,6 +10,7 @@ import 'package:next_gig/feature/events/presentation/bloc/events_bloc.dart';
 import 'package:next_gig/feature/events/presentation/widget/events_card.dart';
 import 'package:next_gig/feature/filters/domain/model/date_range.dart';
 import 'package:next_gig/feature/filters/domain/model/filters.dart';
+import 'package:next_gig/feature/player/presentation/widget/player.dart';
 
 class EventSContent extends StatelessWidget {
   const EventSContent({
@@ -17,11 +18,13 @@ class EventSContent extends StatelessWidget {
     required this.events,
     required this.filters,
     required this.isLoadingMore,
+    required this.selectedEvent,
   }) : super(key: key);
 
   final List<Event> events;
   final Filters filters;
   final bool isLoadingMore;
+  final Event? selectedEvent;
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +45,7 @@ class EventSContent extends StatelessWidget {
             onLoadMore: () => context.read<EventsBloc>().add(const EventsEvent.loadMore()),
           ),
         ),
+        Player(event: selectedEvent),
       ],
     );
   }

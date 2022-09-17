@@ -5,6 +5,7 @@ import 'package:mocktail/mocktail.dart';
 import 'package:next_gig/feature/events/presentation/widget/events_page.dart';
 import 'package:next_gig/feature/filters/domain/use_case/get_cities_use_case.dart';
 import 'package:next_gig/feature/filters/domain/use_case/get_genres_use_case.dart';
+import 'package:next_gig/feature/player/presentation/widget/player_error_widget.dart';
 import 'package:next_gig/feature/splash/presentation/widget/splash_page.dart';
 import 'package:next_gig/util/device/assets_manager.dart';
 import 'package:next_gig/util/device/link_manager.dart';
@@ -35,6 +36,7 @@ void _init(GetIt getIt) {
   when(() => assetsManager.loadString(genresAssetsPath)).thenAnswer((_) async => testGenresJson);
   when(() => assetsManager.loadByteData(splashBackgroundAssetsPath)).thenAnswer((_) async => null);
   when(() => assetsManager.loadByteData(mainBackgroundAssetsPath)).thenAnswer((_) async => null);
+  when(() => assetsManager.loadByteData(playerDeezerLogoAssetsPath)).thenAnswer((_) async => null);
 
   if (getIt.isRegistered<AppNavigator>()) {
     getIt.unregister<AppNavigator>();
