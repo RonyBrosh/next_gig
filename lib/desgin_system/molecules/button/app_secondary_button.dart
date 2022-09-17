@@ -27,7 +27,7 @@ class AppSecondaryButton extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.all(ScreenInfo.isLargeScreen(context) ? AppSpace.small : AppSpace.tiny),
         child: Text(
-          text,
+          text.toUpperCase(),
           style: TextStyle(
             color: isInverted() ? AppColours.onPrimary : AppColours.primary,
             fontWeight: FontWeight.normal,

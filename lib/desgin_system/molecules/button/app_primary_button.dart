@@ -27,7 +27,7 @@ class AppPrimaryButton extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.all(ScreenInfo.isLargeScreen(context) ? AppSpace.normal : AppSpace.small),
         child: Text(
-          text,
+          text.toUpperCase(),
           style: TextStyle(
             color: isInverted() ? AppColours.onPrimary : AppColours.primary,
             fontWeight: FontWeight.bold,
