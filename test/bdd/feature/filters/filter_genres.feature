@@ -2,7 +2,7 @@ Feature: Filter genres
 
   Background:
     Given the app is running
-    When I tap {'Rock'} text
+    When I tap {'ROCK'} text
 
   Scenario: No filter text
     Then I see {'Alternative'} text
@@ -21,7 +21,7 @@ Feature: Filter genres
     And I wait
     Then I don't see {'Alternative'} text
     And I don't see {'Blues'} text
-    And I see {'Rock'} text
+    And I see {'ROCK'} text
 
   Scenario: Filter text is cleared
     Given I enter {'123'} into {0} input field
@@ -36,4 +36,4 @@ Feature: Filter genres
     And I wait
     When I tap {'Alternative'} text
     And I wait
-    Then I see {'Alternative'} text
+    Then I see {'ALTERNATIVE'} text

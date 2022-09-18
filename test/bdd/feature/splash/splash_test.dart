@@ -15,7 +15,7 @@ void main() {
   group('''Splash''', () {
     testWidgets('''Discovering events''', (tester) async {
       await theAppIsRunning(tester);
-      await iTapText(tester, 'Discover');
+      await iTapText(tester, 'DISCOVER');
       await iGoToEventsScreen(tester);
     });
   });

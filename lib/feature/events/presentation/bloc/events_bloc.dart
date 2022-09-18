@@ -29,7 +29,6 @@ class EventsBloc extends Bloc<EventsEvent, EventsState> {
         changeFilters: (_) => _appNavigator.goBack(),
         loadMore: (_) => _onLoadMore(emit),
         open: (event) => _onOpen(event.event),
-        play: (event) => _onPlay(emit, event.event),
       ),
     );
     final filters = decodeFiltersUseCase(encodedFilters: encodedFilters);
@@ -79,15 +78,5 @@ class EventsBloc extends Bloc<EventsEvent, EventsState> {
 
   Future<void> _onOpen(Event event) async {
     await _linkManager.openWebLink(event.url);
-  }
-
-  Future<void> _onPlay(Emitter<EventsState> emit, Event event) async {
-    print('_onPlay');
-    final content = state.mapOrNull(content: (state) => state);
-    if (content == null) {
-      return;
-    }
-
-    emit(content.copyWith(selectedEvent: event));
   }
 }

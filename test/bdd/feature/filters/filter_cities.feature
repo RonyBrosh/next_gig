@@ -2,7 +2,7 @@ Feature: Filter cities
 
   Background:
     Given the app is running
-    When I tap {'London'} text
+    When I tap {'LONDON'} text
 
   Scenario: No filter text
     Then I see {'Bristol'} text
@@ -14,14 +14,14 @@ Feature: Filter cities
     And I wait
     Then I see {'Bristol'} text
     And I see {'Brighton'} text
-    And I see {'London'} text
+    And I don't see {'London'} text
 
   Scenario: Filter text doesn't match the list
     When I enter {'123'} into {0} input field
     And I wait
     Then I don't see {'Bristol'} text
     And I don't see {'Brighton'} text
-    And I see {'London'} text
+    And I don't see {'London'} text
 
   Scenario: Filter text is cleared
     Given I enter {'123'} into {0} input field
@@ -36,4 +36,4 @@ Feature: Filter cities
     And I wait
     When I tap {'Bristol'} text
     And I wait
-    Then I see {'Bristol'} text
+    Then I see {'BRISTOL'} text

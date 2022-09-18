@@ -18,5 +18,5 @@ Future<void> theAppIsRunning(WidgetTester tester) async {
     },
   );
   await iWaitSeconds(tester, 5);
-  await tester.ensureVisible(find.text('Discover'));
+  await tester.ensureVisible(find.text('DISCOVER'));
 }

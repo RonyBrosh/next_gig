@@ -15,7 +15,7 @@ import 'package:bdd_widget_test/step/i_dont_see_text.dart';
 void main() {
   Future<void> bddSetUp(WidgetTester tester) async {
     await theAppIsRunning(tester);
-    await iTapText(tester, 'London');
+    await iTapText(tester, 'LONDON');
   }
   group('''Filter cities''', () {
     testWidgets('''No filter text''', (tester) async {
@@ -30,7 +30,7 @@ void main() {
       await iWait(tester);
       await iSeeText(tester, 'Bristol');
       await iSeeText(tester, 'Brighton');
-      await iSeeText(tester, 'London');
+      await iDontSeeText(tester, 'London');
     });
     testWidgets('''Filter text doesn't match the list''', (tester) async {
       await bddSetUp(tester);
@@ -38,7 +38,7 @@ void main() {
       await iWait(tester);
       await iDontSeeText(tester, 'Bristol');
       await iDontSeeText(tester, 'Brighton');
-      await iSeeText(tester, 'London');
+      await iDontSeeText(tester, 'London');
     });
     testWidgets('''Filter text is cleared''', (tester) async {
       await bddSetUp(tester);
@@ -55,7 +55,7 @@ void main() {
       await iWait(tester);
       await iTapText(tester, 'Bristol');
       await iWait(tester);
-      await iSeeText(tester, 'Bristol');
+      await iSeeText(tester, 'BRISTOL');
     });
   });
 }

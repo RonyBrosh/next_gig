@@ -5,5 +5,5 @@ Feature: Splash
 
   Scenario: Discovering events
     Given the app is running
-    When I tap {'Discover'} text
+    When I tap {'DISCOVER'} text
     Then i go to events screen

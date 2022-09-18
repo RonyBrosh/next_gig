@@ -1,7 +1,7 @@
 import 'package:next_gig/feature/splash/presentation/widget/splash_page.dart';
 import 'package:next_gig/feature/events/presentation/widget/events_page.dart';
 import 'scenario/get_events_scenarios.dart';
-import 'util/test_models.dart';
+import '../../util/test_models.dart';
 
 Feature: Events
 
@@ -56,9 +56,3 @@ Feature: Events
     And i scroll to event name {'Melt'} with link {'https://www.ticketweb.com/event/melt-rec-room-tickets/12090835?REFERRAL_ID=tmfeed'}
     When i tap {'OPEN'} text on event's name {'Melt'}
     Then link {'https://www.ticketweb.com/event/melt-rec-room-tickets/12090835?REFERRAL_ID=tmfeed'} is opened
-
-  Scenario: Listen to event's samples
-    Given the app is running with {getInitialEventsSucceedsScenario} scenario and {rockEventsInLondonToday} filters
-    And i scroll to {'LISTEN'} text on event's name {'Melt'}
-    When i tap {'LISTEN'} text on event's name {'Melt'}
-    Then I see {'Loading samples...'} text

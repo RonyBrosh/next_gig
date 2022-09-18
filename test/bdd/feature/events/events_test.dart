@@ -7,7 +7,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:next_gig/feature/splash/presentation/widget/splash_page.dart';
 import 'package:next_gig/feature/events/presentation/widget/events_page.dart';
 import 'scenario/get_events_scenarios.dart';
-import 'util/test_models.dart';
+import '../../util/test_models.dart';
 
 import './step/the_app_is_running_with_scenario_and_filters.dart';
 import 'package:bdd_widget_test/step/i_see_text.dart';
@@ -20,7 +20,6 @@ import 'package:bdd_widget_test/step/i_dont_see_text.dart';
 import './step/i_scroll_to_event_name_with_link.dart';
 import './step/i_tap_text_on_events_name.dart';
 import './step/link_is_opened.dart';
-import './step/i_scroll_to_text_on_events_name.dart';
 
 void main() {
   group('''Events''', () {
@@ -93,12 +92,6 @@ void main() {
       await iScrollToEventNameWithLink(tester, 'Melt', 'https://www.ticketweb.com/event/melt-rec-room-tickets/12090835?REFERRAL_ID=tmfeed');
       await iTapTextOnEventsName(tester, 'OPEN', 'Melt');
       await linkIsOpened(tester, 'https://www.ticketweb.com/event/melt-rec-room-tickets/12090835?REFERRAL_ID=tmfeed');
-    });
-    testWidgets('''Listen to event's samples''', (tester) async {
-      await theAppIsRunningWithScenarioAndFilters(tester, getInitialEventsSucceedsScenario, rockEventsInLondonToday);
-      await iScrollToTextOnEventsName(tester, 'LISTEN', 'Melt');
-      await iTapTextOnEventsName(tester, 'LISTEN', 'Melt');
-      await iSeeText(tester, 'Loading samples...');
     });
   });
 }

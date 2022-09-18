@@ -7,6 +7,7 @@ import 'package:next_gig/feature/events/presentation/bloc/events_bloc.dart';
 import 'package:next_gig/feature/events/presentation/widget/events_content.dart';
 import 'package:next_gig/feature/events/presentation/widget/events_empty_message.dart';
 import 'package:next_gig/feature/events/presentation/widget/events_loading_error.dart';
+import 'package:next_gig/feature/player/presentation/bloc/player_bloc.dart';
 import 'package:next_gig/util/di/di_container.dart';
 
 const mainBackgroundAssetsPath = 'graphics/main_background.png';
@@ -21,8 +22,11 @@ class EventsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => diContainer<EventsBloc>(parameter: encodedFilters),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => diContainer<EventsBloc>(parameter: encodedFilters)),
+        BlocProvider(create: (_) => diContainer<PlayerBloc>()),
+      ],
       child: Scaffold(
         body: Stack(
           children: [
@@ -39,7 +43,6 @@ class EventsPage extends StatelessWidget {
                       events: state.eventsBulk.events,
                       filters: state.filters,
                       isLoadingMore: state.isLoadingMore,
-                      selectedEvent: state.selectedEvent,
                     );
                   }
                 },

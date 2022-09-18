@@ -15,7 +15,7 @@ import 'package:bdd_widget_test/step/i_dont_see_text.dart';
 void main() {
   Future<void> bddSetUp(WidgetTester tester) async {
     await theAppIsRunning(tester);
-    await iTapText(tester, 'Rock');
+    await iTapText(tester, 'ROCK');
   }
   group('''Filter genres''', () {
     testWidgets('''No filter text''', (tester) async {
@@ -38,7 +38,7 @@ void main() {
       await iWait(tester);
       await iDontSeeText(tester, 'Alternative');
       await iDontSeeText(tester, 'Blues');
-      await iSeeText(tester, 'Rock');
+      await iSeeText(tester, 'ROCK');
     });
     testWidgets('''Filter text is cleared''', (tester) async {
       await bddSetUp(tester);
@@ -55,7 +55,7 @@ void main() {
       await iWait(tester);
       await iTapText(tester, 'Alternative');
       await iWait(tester);
-      await iSeeText(tester, 'Alternative');
+      await iSeeText(tester, 'ALTERNATIVE');
     });
   });
 }

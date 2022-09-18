@@ -9,6 +9,7 @@ import 'package:next_gig/desgin_system/molecules/text/app_title.dart';
 import 'package:next_gig/feature/events/domain/model/event.dart';
 import 'package:next_gig/feature/events/localisation/build_context_extension.dart';
 import 'package:next_gig/feature/events/presentation/bloc/events_bloc.dart';
+import 'package:next_gig/feature/player/presentation/bloc/player_bloc.dart';
 
 class EventsCard extends StatelessWidget {
   const EventsCard({Key? key, required this.event}) : super(key: key);
@@ -54,7 +55,7 @@ class EventsCard extends StatelessWidget {
                       const SizedBox(width: AppSpace.small),
                       AppSecondaryButton(
                         text: context.eventsTranslation.events.listen,
-                        onTap: () => context.read<EventsBloc>().add(EventsEvent.play(event: event)),
+                        onTap: () => context.read<PlayerBloc>().add(PlayerEvent.load(event: event)),
                       ),
                     ],
                   ),
