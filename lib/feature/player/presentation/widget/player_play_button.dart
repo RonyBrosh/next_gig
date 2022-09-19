@@ -24,7 +24,7 @@ class PlayerPlayButton extends StatelessWidget {
       onPressed: onTap,
       child: Padding(
         padding: EdgeInsets.all(ScreenInfo.isLargeScreen(context) ? AppSpace.small : AppSpace.tiny),
-        child: Icon(isPlaying ? Icons.play_arrow : Icons.pause),
+        child: Icon(isPlaying ? Icons.pause : Icons.play_arrow),
       ),
     );
   }
