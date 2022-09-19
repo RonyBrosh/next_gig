@@ -34,3 +34,11 @@ Feature: Player
     When i tap {'LISTEN'} text on event's name {'Melt'}
     Then I see multiple {"Melt"} texts
     And I see {"Good Morning Mr Shmink"} text
+
+  Scenario: See more about event's tracks
+    Given the BE is mocked with scenario {loadTracksSucceedsScenario}
+    And link manager is mocked with link {'https://www.deezer.com/search/Melt'}
+    And i tap {'LISTEN'} text on event's name {'Melt'}
+    And button with {'SEE MORE ON DEEZER'} is visible
+    When i tap {'SEE MORE ON DEEZER'} text
+    Then link {'https://www.deezer.com/search/Melt'} is opened

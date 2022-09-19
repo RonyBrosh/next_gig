@@ -57,5 +57,14 @@ void main() {
       await iSeeMultipleTexts(tester, "Melt");
       await iSeeText(tester, "Good Morning Mr Shmink");
     });
+    testWidgets('''See more about event's tracks''', (tester) async {
+      await bddSetUp(tester);
+      await theBeIsMockedWithScenario(tester, loadTracksSucceedsScenario);
+      await linkManagerIsMockedWithLink(tester, 'https://www.deezer.com/search/Melt');
+      await iTapTextOnEventsName(tester, 'LISTEN', 'Melt');
+      await buttonWithIsVisible(tester, 'SEE MORE ON DEEZER');
+      await iTapText(tester, 'SEE MORE ON DEEZER');
+      await linkIsOpened(tester, 'https://www.deezer.com/search/Melt');
+    });
   });
 }
