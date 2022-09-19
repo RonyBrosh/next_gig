@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:next_gig/desgin_system/atoms/app_space.dart';
 import 'package:next_gig/desgin_system/molecules/button/app_secondary_button.dart';
 import 'package:next_gig/desgin_system/molecules/text/app_body.dart';
@@ -6,6 +7,7 @@ import 'package:next_gig/desgin_system/molecules/text/app_title.dart';
 import 'package:next_gig/desgin_system/molecules/widget/app_asset_image.dart';
 import 'package:next_gig/feature/events/domain/model/event.dart';
 import 'package:next_gig/feature/player/localisation/build_context_extension.dart';
+import 'package:next_gig/feature/player/presentation/bloc/player_bloc.dart';
 import 'package:next_gig/util/device/screen_info.dart';
 
 const playerDeezerLogoAssetsPath = 'graphics/deezer_logo.png';
@@ -43,7 +45,10 @@ class PlayerErrorWidget extends StatelessWidget {
               ],
             ),
             const SizedBox(width: AppSpace.normal),
-            AppSecondaryButton(text: context.playerTranslation.button.deezer),
+            AppSecondaryButton(
+              text: context.playerTranslation.button.deezer,
+              onTap: () => context.read<PlayerBloc>().add(PlayerEvent.openOnDeezer(event: event)),
+            ),
           ],
         ),
       ),

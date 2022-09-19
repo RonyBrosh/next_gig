@@ -1,5 +1,6 @@
 import '../../util/test_models.dart';
 import '../events/scenario/get_events_scenarios.dart';
+import 'scenario/load_tracks_scenarios.dart';
 
 Feature: Player
 
@@ -10,6 +11,21 @@ Feature: Player
   Scenario: Initial player
     Then I see {'Tap LISTEN on any event to play some samples'} text
 
-  Scenario: Loading event fails
+  Scenario: Loading tracks fails
+    Given the BE is mocked with scenario {loadTracksFailsScenario}
     When i tap {'LISTEN'} text on event's name {'Melt'}
     Then I see {"We didn't find any samples for 'Melt'"} text
+
+  Scenario: Manually search for event samples
+    Given the BE is mocked with scenario {loadTracksFailsScenario}
+    And link manager is mocked with link {'https://www.deezer.com/search/Melt'}
+    And i tap {'LISTEN'} text on event's name {'Melt'}
+    And button with {'GO TO DEEZER'} is visible
+    When i tap {'GO TO DEEZER'} text
+    Then link {'https://www.deezer.com/search/Melt'} is opened
+
+  Scenario: Loading tracks succeeds
+    Given the BE is mocked with scenario {loadTracksSucceedsScenario}
+    When i tap {'LISTEN'} text on event's name {'Melt'}
+    Then I see multiple {"Melt"} texts
+    And I see {"Good Morning Mr Shmink"} text

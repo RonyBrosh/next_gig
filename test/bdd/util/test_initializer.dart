@@ -26,8 +26,11 @@ void _init(GetIt getIt) {
   final mockRequestManager = MockedRequestsManager();
   getIt.registerSingleton<MockedRequestsManager>(mockRequestManager);
 
-  final dio = diContainer<Dio>(instanceName: ticketMasterDio);
-  dio.interceptors.add(MockedBackEndInterceptor(mockRequestManager));
+  final dioTicketMaster = diContainer<Dio>(instanceName: ticketMasterDio);
+  dioTicketMaster.interceptors.add(MockedBackEndInterceptor(mockRequestManager));
+
+  final dioNextGig = diContainer<Dio>(instanceName: nextGigDio);
+  dioNextGig.interceptors.add(MockedBackEndInterceptor(mockRequestManager));
 
   final assetsManager = AssetsManagerMock();
   getIt.unregister<AssetsManager>();
