@@ -17,3 +17,10 @@ final loadTracksSucceedsScenario = Scenario(handlers: [
     result: MockedRequestHandler.returnSuccess(data: loadTracksResponsePage),
   ),
 ]);
+
+final loadTracksSucceedsWithEmptyListScenario = Scenario(handlers: [
+  MockedRequestHandler(
+    path: _endpoint,
+    result: MockedRequestHandler.returnSuccess(data: '[]'),
+  ),
+]);

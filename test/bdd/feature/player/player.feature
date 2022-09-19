@@ -16,6 +16,11 @@ Feature: Player
     When i tap {'LISTEN'} text on event's name {'Melt'}
     Then I see {"We didn't find any samples for 'Melt'"} text
 
+  Scenario: Loading tracks returns empty
+    Given the BE is mocked with scenario {loadTracksSucceedsWithEmptyListScenario}
+    When i tap {'LISTEN'} text on event's name {'Melt'}
+    Then I see {"We didn't find any samples for 'Melt'"} text
+
   Scenario: Manually search for event samples
     Given the BE is mocked with scenario {loadTracksFailsScenario}
     And link manager is mocked with link {'https://www.deezer.com/search/Melt'}

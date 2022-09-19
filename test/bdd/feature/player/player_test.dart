@@ -35,6 +35,12 @@ void main() {
       await iTapTextOnEventsName(tester, 'LISTEN', 'Melt');
       await iSeeText(tester, "We didn't find any samples for 'Melt'");
     });
+    testWidgets('''Loading tracks returns empty''', (tester) async {
+      await bddSetUp(tester);
+      await theBeIsMockedWithScenario(tester, loadTracksSucceedsWithEmptyListScenario);
+      await iTapTextOnEventsName(tester, 'LISTEN', 'Melt');
+      await iSeeText(tester, "We didn't find any samples for 'Melt'");
+    });
     testWidgets('''Manually search for event samples''', (tester) async {
       await bddSetUp(tester);
       await theBeIsMockedWithScenario(tester, loadTracksFailsScenario);
