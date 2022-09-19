@@ -44,7 +44,11 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/
+    - assets/graphics/deezer_logo.png
+    - assets/graphics/main_background.png
+    - assets/graphics/splash_background.png
+    - assets/json/cities.json
+    - assets/json/genres.json
   fonts:
     - family: Roboto
       fonts:
