@@ -31,18 +31,13 @@ class _PlayerContentWidgetState extends State<PlayerContentWidget> {
 
   @override
   void initState() {
-    _audioPlayer = just_audio.AudioPlayer();
-    final playlist = just_audio.ConcatenatingAudioSource(
-      children: widget.tracks.map((track) => just_audio.AudioSource.uri(Uri.parse(track.url))).toList(growable: false),
-    );
-    _audioPlayer.setAudioSource(playlist);
-    _audioPlayer.play();
+    _initPlayer();
     super.initState();
   }
 
   @override
   void dispose() {
-    _audioPlayer.dispose();
+    _releasePlayer();
     super.dispose();
   }
 
@@ -65,9 +60,15 @@ class _PlayerContentWidgetState extends State<PlayerContentWidget> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 AppTitle(text: widget.event.name),
-                StreamBuilder<int?>(
-                  stream: _audioPlayer.currentIndexStream,
-                  builder: (_, snapshot) => AppBody(text: widget.tracks[_getTrackIndex(snapshot.data)].title),
+                StreamBuilder<just_audio.PlaybackEvent>(
+                  stream: _audioPlayer.playbackEventStream,
+                  builder: (_, snapshot) {
+                    if (snapshot.data?.processingState == just_audio.ProcessingState.completed) {
+                      _resetPlayer();
+                    }
+
+                    return AppBody(text: widget.tracks[_getTrackIndex(snapshot.data?.currentIndex)].title);
+                  },
                 ),
               ],
             ),
@@ -95,5 +96,23 @@ class _PlayerContentWidgetState extends State<PlayerContentWidget> {
     } else {
       await _audioPlayer.play();
     }
+  }
+
+  Future<void> _resetPlayer() async {
+    final playlist = just_audio.ConcatenatingAudioSource(
+      children: widget.tracks.map((track) => just_audio.AudioSource.uri(Uri.parse(track.url))).toList(growable: false),
+    );
+    await _audioPlayer.stop();
+    await _audioPlayer.setAudioSource(playlist);
+  }
+
+  Future<void> _initPlayer() async {
+    _audioPlayer = just_audio.AudioPlayer();
+    await _resetPlayer();
+    await _audioPlayer.play();
+  }
+
+  Future<void> _releasePlayer() async {
+    await _audioPlayer.dispose();
   }
 }
