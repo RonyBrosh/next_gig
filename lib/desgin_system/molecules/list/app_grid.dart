@@ -46,6 +46,7 @@ class _AppGridState<T> extends State<AppGrid<T>> {
       controller: scrollController,
       children: [
         MasonryGridView.count(
+          primary: false,
           shrinkWrap: true,
           padding: const EdgeInsets.all(AppSpace.small),
           crossAxisCount: ScreenInfo.isLargeScreen(context) ? 4 : 1,
