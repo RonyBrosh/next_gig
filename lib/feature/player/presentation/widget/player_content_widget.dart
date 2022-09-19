@@ -6,6 +6,7 @@ import 'package:next_gig/desgin_system/molecules/button/app_secondary_button.dar
 import 'package:next_gig/desgin_system/molecules/text/app_body.dart';
 import 'package:next_gig/desgin_system/molecules/text/app_title.dart';
 import 'package:next_gig/feature/events/domain/model/event.dart';
+import 'package:next_gig/feature/events/presentation/bloc/events_bloc.dart';
 import 'package:next_gig/feature/player/domain/model/track.dart';
 import 'package:next_gig/feature/player/localisation/build_context_extension.dart';
 import 'package:next_gig/feature/player/presentation/bloc/player_bloc.dart';
@@ -69,6 +70,11 @@ class _PlayerContentWidgetState extends State<PlayerContentWidget> {
                   builder: (_, snapshot) => AppBody(text: widget.tracks[_getTrackIndex(snapshot.data)].title),
                 ),
               ],
+            ),
+            const SizedBox(width: AppSpace.normal),
+            AppSecondaryButton(
+              text: context.playerTranslation.button.open,
+              onTap: () => context.read<EventsBloc>().add(EventsEvent.open(event: widget.event)),
             ),
             const SizedBox(width: AppSpace.normal),
             AppSecondaryButton(

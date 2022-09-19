@@ -6,4 +6,5 @@ error:
 button:
   deezer: 'Go to Deezer'
   seeMore: 'See more on Deezer'
+  open: 'Open event'
 

@@ -87,6 +87,7 @@ class ButtonPlayerTranslation implements i69n.I69nMessageBundle {
   const ButtonPlayerTranslation(this._parent);
   String get deezer => "Go to Deezer";
   String get seeMore => "See more on Deezer";
+  String get open => "Open event";
   Object operator [](String key) {
     var index = key.indexOf('.');
     if (index > 0) {
@@ -98,6 +99,8 @@ class ButtonPlayerTranslation implements i69n.I69nMessageBundle {
         return deezer;
       case 'seeMore':
         return seeMore;
+      case 'open':
+        return open;
       default:
         return key;
     }
