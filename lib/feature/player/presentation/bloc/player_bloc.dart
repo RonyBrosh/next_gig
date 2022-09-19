@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:next_gig/feature/events/domain/model/event.dart';
 import 'package:next_gig/feature/player/domain/model/track.dart';
-import 'package:next_gig/feature/player/domain/use_case/LoadTracksUseCase.dart';
+import 'package:next_gig/feature/player/domain/use_case/load_tracks_use_case.dart';
 import 'package:next_gig/util/device/link_manager.dart';
 
 part 'player_bloc.freezed.dart';

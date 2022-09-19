@@ -34,7 +34,7 @@ import '../../feature/filters/domain/use_case/get_genres_use_case.dart' as _i14;
 import '../../feature/filters/presentation/bloc/filters_bloc.dart' as _i8;
 import '../../feature/player/data/api/next_gig/next_gig_api.dart' as _i16;
 import '../../feature/player/domain/repository/player_repository.dart' as _i17;
-import '../../feature/player/domain/use_case/LoadTracksUseCase.dart' as _i24;
+import '../../feature/player/domain/use_case/load_tracks_use_case.dart' as _i24;
 import '../../feature/player/presentation/bloc/player_bloc.dart' as _i25;
 import '../../feature/splash/presentation/bloc/splash_bloc.dart' as _i26;
 import '../device/assets_manager.dart' as _i4;
