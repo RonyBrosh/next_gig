@@ -20,7 +20,7 @@ class Player extends StatelessWidget {
             initial: (_) => const PlayerInitialWidget(),
             error: (state) => PlayerErrorWidget(event: state.event),
             loading: (_) => const PlayerLoadingWidget(),
-            playing: (state) => PlayerContentWidget(event: state.event, track: state.track),
+            playing: (state) => PlayerContentWidget(event: state.event, tracks: state.tracks),
           );
         },
       ),

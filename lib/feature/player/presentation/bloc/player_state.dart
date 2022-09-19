@@ -8,5 +8,5 @@ class PlayerState with _$PlayerState {
 
   const factory PlayerState.loading() = _Loading;
 
-  const factory PlayerState.playing({required Event event, required Track track}) = _Playing;
+  const factory PlayerState.playing({required Event event, required List<Track> tracks}) = _Playing;
 }

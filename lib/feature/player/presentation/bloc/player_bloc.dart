@@ -34,7 +34,7 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
     final newState = loadResult.fold(
       onSuccess: (tracks) {
         if (tracks.isNotEmpty) {
-          return PlayerState.playing(event: event, track: tracks.first);
+          return PlayerState.playing(event: event, tracks: tracks);
         } else {
           return PlayerState.error(event: event);
         }

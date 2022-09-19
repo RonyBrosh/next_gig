@@ -383,7 +383,7 @@ mixin _$PlayerState {
     required TResult Function() initial,
     required TResult Function(Event event) error,
     required TResult Function() loading,
-    required TResult Function(Event event, Track track) playing,
+    required TResult Function(Event event, List<Track> tracks) playing,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -391,7 +391,7 @@ mixin _$PlayerState {
     TResult Function()? initial,
     TResult Function(Event event)? error,
     TResult Function()? loading,
-    TResult Function(Event event, Track track)? playing,
+    TResult Function(Event event, List<Track> tracks)? playing,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -399,7 +399,7 @@ mixin _$PlayerState {
     TResult Function()? initial,
     TResult Function(Event event)? error,
     TResult Function()? loading,
-    TResult Function(Event event, Track track)? playing,
+    TResult Function(Event event, List<Track> tracks)? playing,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -488,7 +488,7 @@ class _$_Initial implements _Initial {
     required TResult Function() initial,
     required TResult Function(Event event) error,
     required TResult Function() loading,
-    required TResult Function(Event event, Track track) playing,
+    required TResult Function(Event event, List<Track> tracks) playing,
   }) {
     return initial();
   }
@@ -499,7 +499,7 @@ class _$_Initial implements _Initial {
     TResult Function()? initial,
     TResult Function(Event event)? error,
     TResult Function()? loading,
-    TResult Function(Event event, Track track)? playing,
+    TResult Function(Event event, List<Track> tracks)? playing,
   }) {
     return initial?.call();
   }
@@ -510,7 +510,7 @@ class _$_Initial implements _Initial {
     TResult Function()? initial,
     TResult Function(Event event)? error,
     TResult Function()? loading,
-    TResult Function(Event event, Track track)? playing,
+    TResult Function(Event event, List<Track> tracks)? playing,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -635,7 +635,7 @@ class _$_Error implements _Error {
     required TResult Function() initial,
     required TResult Function(Event event) error,
     required TResult Function() loading,
-    required TResult Function(Event event, Track track) playing,
+    required TResult Function(Event event, List<Track> tracks) playing,
   }) {
     return error(event);
   }
@@ -646,7 +646,7 @@ class _$_Error implements _Error {
     TResult Function()? initial,
     TResult Function(Event event)? error,
     TResult Function()? loading,
-    TResult Function(Event event, Track track)? playing,
+    TResult Function(Event event, List<Track> tracks)? playing,
   }) {
     return error?.call(event);
   }
@@ -657,7 +657,7 @@ class _$_Error implements _Error {
     TResult Function()? initial,
     TResult Function(Event event)? error,
     TResult Function()? loading,
-    TResult Function(Event event, Track track)? playing,
+    TResult Function(Event event, List<Track> tracks)? playing,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -755,7 +755,7 @@ class _$_Loading implements _Loading {
     required TResult Function() initial,
     required TResult Function(Event event) error,
     required TResult Function() loading,
-    required TResult Function(Event event, Track track) playing,
+    required TResult Function(Event event, List<Track> tracks) playing,
   }) {
     return loading();
   }
@@ -766,7 +766,7 @@ class _$_Loading implements _Loading {
     TResult Function()? initial,
     TResult Function(Event event)? error,
     TResult Function()? loading,
-    TResult Function(Event event, Track track)? playing,
+    TResult Function(Event event, List<Track> tracks)? playing,
   }) {
     return loading?.call();
   }
@@ -777,7 +777,7 @@ class _$_Loading implements _Loading {
     TResult Function()? initial,
     TResult Function(Event event)? error,
     TResult Function()? loading,
-    TResult Function(Event event, Track track)? playing,
+    TResult Function(Event event, List<Track> tracks)? playing,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -833,10 +833,9 @@ abstract class _$$_PlayingCopyWith<$Res> {
   factory _$$_PlayingCopyWith(
           _$_Playing value, $Res Function(_$_Playing) then) =
       __$$_PlayingCopyWithImpl<$Res>;
-  $Res call({Event event, Track track});
+  $Res call({Event event, List<Track> tracks});
 
   $EventCopyWith<$Res> get event;
-  $TrackCopyWith<$Res> get track;
 }
 
 /// @nodoc
@@ -851,17 +850,17 @@ class __$$_PlayingCopyWithImpl<$Res> extends _$PlayerStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? event = freezed,
-    Object? track = freezed,
+    Object? tracks = freezed,
   }) {
     return _then(_$_Playing(
       event: event == freezed
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
               as Event,
-      track: track == freezed
-          ? _value.track
-          : track // ignore: cast_nullable_to_non_nullable
-              as Track,
+      tracks: tracks == freezed
+          ? _value._tracks
+          : tracks // ignore: cast_nullable_to_non_nullable
+              as List<Track>,
     ));
   }
 
@@ -871,28 +870,26 @@ class __$$_PlayingCopyWithImpl<$Res> extends _$PlayerStateCopyWithImpl<$Res>
       return _then(_value.copyWith(event: value));
     });
   }
-
-  @override
-  $TrackCopyWith<$Res> get track {
-    return $TrackCopyWith<$Res>(_value.track, (value) {
-      return _then(_value.copyWith(track: value));
-    });
-  }
 }
 
 /// @nodoc
 
 class _$_Playing implements _Playing {
-  const _$_Playing({required this.event, required this.track});
+  const _$_Playing({required this.event, required final List<Track> tracks})
+      : _tracks = tracks;
 
   @override
   final Event event;
+  final List<Track> _tracks;
   @override
-  final Track track;
+  List<Track> get tracks {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_tracks);
+  }
 
   @override
   String toString() {
-    return 'PlayerState.playing(event: $event, track: $track)';
+    return 'PlayerState.playing(event: $event, tracks: $tracks)';
   }
 
   @override
@@ -901,14 +898,14 @@ class _$_Playing implements _Playing {
         (other.runtimeType == runtimeType &&
             other is _$_Playing &&
             const DeepCollectionEquality().equals(other.event, event) &&
-            const DeepCollectionEquality().equals(other.track, track));
+            const DeepCollectionEquality().equals(other._tracks, _tracks));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(event),
-      const DeepCollectionEquality().hash(track));
+      const DeepCollectionEquality().hash(_tracks));
 
   @JsonKey(ignore: true)
   @override
@@ -921,9 +918,9 @@ class _$_Playing implements _Playing {
     required TResult Function() initial,
     required TResult Function(Event event) error,
     required TResult Function() loading,
-    required TResult Function(Event event, Track track) playing,
+    required TResult Function(Event event, List<Track> tracks) playing,
   }) {
-    return playing(event, track);
+    return playing(event, tracks);
   }
 
   @override
@@ -932,9 +929,9 @@ class _$_Playing implements _Playing {
     TResult Function()? initial,
     TResult Function(Event event)? error,
     TResult Function()? loading,
-    TResult Function(Event event, Track track)? playing,
+    TResult Function(Event event, List<Track> tracks)? playing,
   }) {
-    return playing?.call(event, track);
+    return playing?.call(event, tracks);
   }
 
   @override
@@ -943,11 +940,11 @@ class _$_Playing implements _Playing {
     TResult Function()? initial,
     TResult Function(Event event)? error,
     TResult Function()? loading,
-    TResult Function(Event event, Track track)? playing,
+    TResult Function(Event event, List<Track> tracks)? playing,
     required TResult orElse(),
   }) {
     if (playing != null) {
-      return playing(event, track);
+      return playing(event, tracks);
     }
     return orElse();
   }
@@ -992,10 +989,11 @@ class _$_Playing implements _Playing {
 
 abstract class _Playing implements PlayerState {
   const factory _Playing(
-      {required final Event event, required final Track track}) = _$_Playing;
+      {required final Event event,
+      required final List<Track> tracks}) = _$_Playing;
 
   Event get event;
-  Track get track;
+  List<Track> get tracks;
   @JsonKey(ignore: true)
   _$$_PlayingCopyWith<_$_Playing> get copyWith =>
       throw _privateConstructorUsedError;
