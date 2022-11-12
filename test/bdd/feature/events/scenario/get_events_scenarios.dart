@@ -1,46 +1,47 @@
-import '../../../util/mocked_backend/mocked_request_handler.dart';
-import '../../../util/mocked_backend/scenario.dart';
+import 'package:mocked_backend/mocked_backend.dart';
+
 import 'get_events_response_empty_page.dart';
 import 'get_events_response_first_page.dart';
 import 'get_events_response_second_page.dart';
 
 const _endpoint = '/discovery/v2/events';
 
-final getInitialEventsFailsScenario = Scenario(handlers: [
+final getInitialEventsFailsScenario = Scenario([
   MockedRequestHandler(
-    path: _endpoint,
-    result: MockedRequestHandler.returnError(errorCode: 400),
+    requestMatcher: RequestMatcherFactory.path(_endpoint),
+    isSuccess: false,
+    statusCode: 400,
   ),
 ]);
 
-final getInitialEventsSucceedsWithEmptyListScenario = Scenario(handlers: [
+final getInitialEventsSucceedsWithEmptyListScenario = Scenario([
   MockedRequestHandler(
-    path: _endpoint,
-    result: MockedRequestHandler.returnSuccess(data: getEventsResponseEmptyPage),
+    requestMatcher: RequestMatcherFactory.path(_endpoint),
+    isSuccess: true,
+    body: getEventsResponseEmptyPage,
   ),
 ]);
 
-final getInitialEventsSucceedsScenario = Scenario(handlers: [
+final getInitialEventsSucceedsScenario = Scenario([
   MockedRequestHandler(
-    path: _endpoint,
-    result: MockedRequestHandler.returnSuccess(
-      data: getEventsResponseFirstPage,
-    ),
+    requestMatcher: RequestMatcherFactory.path(_endpoint),
+    isSuccess: true,
+    body: getEventsResponseFirstPage,
   ),
 ]);
 
-final getMoreEventsSucceedsScenario = Scenario(handlers: [
+final getMoreEventsSucceedsScenario = Scenario([
   MockedRequestHandler(
-    path: _endpoint,
-    result: MockedRequestHandler.returnSuccess(
-      data: getEventsResponseSecondPage,
-    ),
+    requestMatcher: RequestMatcherFactory.path(_endpoint),
+    isSuccess: true,
+    body: getEventsResponseSecondPage,
   ),
 ]);
 
-final getMoreEventsFailsScenario = Scenario(handlers: [
+final getMoreEventsFailsScenario = Scenario([
   MockedRequestHandler(
-    path: _endpoint,
-    result: MockedRequestHandler.returnError(errorCode: 400),
+    requestMatcher: RequestMatcherFactory.path(_endpoint),
+    isSuccess: false,
+    statusCode: 400,
   ),
 ]);

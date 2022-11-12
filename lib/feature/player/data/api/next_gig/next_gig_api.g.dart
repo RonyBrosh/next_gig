@@ -9,7 +9,10 @@ part of 'next_gig_api.dart';
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
 
 class _NextGigApi implements NextGigApi {
-  _NextGigApi(this._dio, {this.baseUrl});
+  _NextGigApi(
+    this._dio, {
+    this.baseUrl,
+  });
 
   final Dio _dio;
 
@@ -21,12 +24,19 @@ class _NextGigApi implements NextGigApi {
     final queryParameters = <String, dynamic>{r'artist': artist};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.fetch<List<dynamic>>(
-        _setStreamType<List<NextGigTrack>>(
-            Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, '/app/tracks?limit=5',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final _result = await _dio
+        .fetch<List<dynamic>>(_setStreamType<List<NextGigTrack>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/app/tracks?limit=5',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
         .map((dynamic i) => NextGigTrack.fromJson(i as Map<String, dynamic>))
         .toList();

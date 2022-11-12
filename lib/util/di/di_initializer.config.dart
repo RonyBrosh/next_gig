@@ -45,17 +45,28 @@ import 'dio_module.dart' as _i28; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
-_i1.GetIt $initGetIt(_i1.GetIt get,
-    {String? environment, _i2.EnvironmentFilter? environmentFilter}) {
-  final gh = _i2.GetItHelper(get, environment, environmentFilter);
+_i1.GetIt $initGetIt(
+  _i1.GetIt get, {
+  String? environment,
+  _i2.EnvironmentFilter? environmentFilter,
+}) {
+  final gh = _i2.GetItHelper(
+    get,
+    environment,
+    environmentFilter,
+  );
   final dioModule = _$DioModule();
   gh.lazySingleton<_i3.AppRouter>(() => _i3.AppRouter());
   gh.factory<_i4.AssetsManager>(() => _i4.AssetsManager());
   gh.lazySingleton<_i5.DecodeFiltersUseCase>(() => _i5.DecodeFiltersUseCase());
-  gh.lazySingleton<_i6.Dio>(() => dioModule.provideTicketMasterDio,
-      instanceName: 'ticketMasterDio');
-  gh.lazySingleton<_i6.Dio>(() => dioModule.provideNextGigDio,
-      instanceName: 'nextGigDio');
+  gh.lazySingleton<_i6.Dio>(
+    () => dioModule.provideTicketMasterDio,
+    instanceName: 'ticketMasterDio',
+  );
+  gh.lazySingleton<_i6.Dio>(
+    () => dioModule.provideNextGigDio,
+    instanceName: 'nextGigDio',
+  );
   gh.lazySingleton<_i7.EncodeFiltersUseCase>(() => _i7.EncodeFiltersUseCase());
   gh.factory<_i8.FiltersBloc>(() => _i8.FiltersBloc());
   gh.factory<_i9.GetCitiesUseCase>(
@@ -79,24 +90,34 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       () => _i19.TicketMasterDateMapper(get<_i11.Clock>()));
   gh.lazySingleton<_i20.TicketMasterInterceptor>(
       () => _i20.TicketMasterInterceptor());
-  gh.lazySingleton<_i21.AppNavigator>(() =>
-      _i21.AppNavigator(get<_i3.AppRouter>(), get<_i7.EncodeFiltersUseCase>()));
+  gh.lazySingleton<_i21.AppNavigator>(() => _i21.AppNavigator(
+        get<_i3.AppRouter>(),
+        get<_i7.EncodeFiltersUseCase>(),
+      ));
   gh.lazySingleton<_i22.EventsRepository>(() => _i22.EventsRepository(
-      get<_i18.TicketMasterApi>(), get<_i19.TicketMasterDateMapper>()));
+        get<_i18.TicketMasterApi>(),
+        get<_i19.TicketMasterDateMapper>(),
+      ));
   gh.factory<_i23.GetEventsUseCase>(
       () => _i23.GetEventsUseCase(get<_i22.EventsRepository>()));
   gh.factory<_i24.LoadTracksUseCase>(
       () => _i24.LoadTracksUseCase(get<_i17.PlayerRepository>()));
-  gh.factory<_i25.PlayerBloc>(() =>
-      _i25.PlayerBloc(get<_i24.LoadTracksUseCase>(), get<_i15.LinkManager>()));
+  gh.factory<_i25.PlayerBloc>(() => _i25.PlayerBloc(
+        get<_i24.LoadTracksUseCase>(),
+        get<_i15.LinkManager>(),
+      ));
   gh.factory<_i26.SplashBloc>(() => _i26.SplashBloc(get<_i21.AppNavigator>()));
-  gh.factoryParam<_i27.EventsBloc, String, dynamic>((encodedFilters, _) =>
+  gh.factoryParam<_i27.EventsBloc, String, dynamic>((
+    encodedFilters,
+    _,
+  ) =>
       _i27.EventsBloc(
-          get<_i5.DecodeFiltersUseCase>(),
-          get<_i23.GetEventsUseCase>(),
-          get<_i21.AppNavigator>(),
-          get<_i15.LinkManager>(),
-          encodedFilters));
+        get<_i5.DecodeFiltersUseCase>(),
+        get<_i23.GetEventsUseCase>(),
+        get<_i21.AppNavigator>(),
+        get<_i15.LinkManager>(),
+        encodedFilters,
+      ));
   return get;
 }
 

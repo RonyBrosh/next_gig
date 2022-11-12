@@ -25,9 +25,9 @@ mixin _$FiltersEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(City city)? citySelected,
-    TResult Function(Genre genre)? genreSelected,
-    TResult Function(DateRange dateRange)? dateRangeSelected,
+    TResult? Function(City city)? citySelected,
+    TResult? Function(Genre genre)? genreSelected,
+    TResult? Function(DateRange dateRange)? dateRangeSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,9 +47,9 @@ mixin _$FiltersEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CitySelected value)? citySelected,
-    TResult Function(_GenreSelected value)? genreSelected,
-    TResult Function(_DateRangeSelected value)? dateRangeSelected,
+    TResult? Function(_CitySelected value)? citySelected,
+    TResult? Function(_GenreSelected value)? genreSelected,
+    TResult? Function(_DateRangeSelected value)? dateRangeSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,16 +66,18 @@ mixin _$FiltersEvent {
 abstract class $FiltersEventCopyWith<$Res> {
   factory $FiltersEventCopyWith(
           FiltersEvent value, $Res Function(FiltersEvent) then) =
-      _$FiltersEventCopyWithImpl<$Res>;
+      _$FiltersEventCopyWithImpl<$Res, FiltersEvent>;
 }
 
 /// @nodoc
-class _$FiltersEventCopyWithImpl<$Res> implements $FiltersEventCopyWith<$Res> {
+class _$FiltersEventCopyWithImpl<$Res, $Val extends FiltersEvent>
+    implements $FiltersEventCopyWith<$Res> {
   _$FiltersEventCopyWithImpl(this._value, this._then);
 
-  final FiltersEvent _value;
   // ignore: unused_field
-  final $Res Function(FiltersEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -83,6 +85,7 @@ abstract class _$$_CitySelectedCopyWith<$Res> {
   factory _$$_CitySelectedCopyWith(
           _$_CitySelected value, $Res Function(_$_CitySelected) then) =
       __$$_CitySelectedCopyWithImpl<$Res>;
+  @useResult
   $Res call({City city});
 
   $CityCopyWith<$Res> get city;
@@ -90,21 +93,19 @@ abstract class _$$_CitySelectedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_CitySelectedCopyWithImpl<$Res>
-    extends _$FiltersEventCopyWithImpl<$Res>
+    extends _$FiltersEventCopyWithImpl<$Res, _$_CitySelected>
     implements _$$_CitySelectedCopyWith<$Res> {
   __$$_CitySelectedCopyWithImpl(
       _$_CitySelected _value, $Res Function(_$_CitySelected) _then)
-      : super(_value, (v) => _then(v as _$_CitySelected));
+      : super(_value, _then);
 
-  @override
-  _$_CitySelected get _value => super._value as _$_CitySelected;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? city = freezed,
+    Object? city = null,
   }) {
     return _then(_$_CitySelected(
-      city == freezed
+      null == city
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
               as City,
@@ -112,6 +113,7 @@ class __$$_CitySelectedCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $CityCopyWith<$Res> get city {
     return $CityCopyWith<$Res>(_value.city, (value) {
       return _then(_value.copyWith(city: value));
@@ -137,15 +139,15 @@ class _$_CitySelected implements _CitySelected {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CitySelected &&
-            const DeepCollectionEquality().equals(other.city, city));
+            (identical(other.city, city) || other.city == city));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(city));
+  int get hashCode => Object.hash(runtimeType, city);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_CitySelectedCopyWith<_$_CitySelected> get copyWith =>
       __$$_CitySelectedCopyWithImpl<_$_CitySelected>(this, _$identity);
 
@@ -162,9 +164,9 @@ class _$_CitySelected implements _CitySelected {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(City city)? citySelected,
-    TResult Function(Genre genre)? genreSelected,
-    TResult Function(DateRange dateRange)? dateRangeSelected,
+    TResult? Function(City city)? citySelected,
+    TResult? Function(Genre genre)? genreSelected,
+    TResult? Function(DateRange dateRange)? dateRangeSelected,
   }) {
     return citySelected?.call(city);
   }
@@ -196,9 +198,9 @@ class _$_CitySelected implements _CitySelected {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CitySelected value)? citySelected,
-    TResult Function(_GenreSelected value)? genreSelected,
-    TResult Function(_DateRangeSelected value)? dateRangeSelected,
+    TResult? Function(_CitySelected value)? citySelected,
+    TResult? Function(_GenreSelected value)? genreSelected,
+    TResult? Function(_DateRangeSelected value)? dateRangeSelected,
   }) {
     return citySelected?.call(this);
   }
@@ -232,6 +234,7 @@ abstract class _$$_GenreSelectedCopyWith<$Res> {
   factory _$$_GenreSelectedCopyWith(
           _$_GenreSelected value, $Res Function(_$_GenreSelected) then) =
       __$$_GenreSelectedCopyWithImpl<$Res>;
+  @useResult
   $Res call({Genre genre});
 
   $GenreCopyWith<$Res> get genre;
@@ -239,21 +242,19 @@ abstract class _$$_GenreSelectedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_GenreSelectedCopyWithImpl<$Res>
-    extends _$FiltersEventCopyWithImpl<$Res>
+    extends _$FiltersEventCopyWithImpl<$Res, _$_GenreSelected>
     implements _$$_GenreSelectedCopyWith<$Res> {
   __$$_GenreSelectedCopyWithImpl(
       _$_GenreSelected _value, $Res Function(_$_GenreSelected) _then)
-      : super(_value, (v) => _then(v as _$_GenreSelected));
+      : super(_value, _then);
 
-  @override
-  _$_GenreSelected get _value => super._value as _$_GenreSelected;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? genre = freezed,
+    Object? genre = null,
   }) {
     return _then(_$_GenreSelected(
-      genre == freezed
+      null == genre
           ? _value.genre
           : genre // ignore: cast_nullable_to_non_nullable
               as Genre,
@@ -261,6 +262,7 @@ class __$$_GenreSelectedCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $GenreCopyWith<$Res> get genre {
     return $GenreCopyWith<$Res>(_value.genre, (value) {
       return _then(_value.copyWith(genre: value));
@@ -286,15 +288,15 @@ class _$_GenreSelected implements _GenreSelected {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_GenreSelected &&
-            const DeepCollectionEquality().equals(other.genre, genre));
+            (identical(other.genre, genre) || other.genre == genre));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(genre));
+  int get hashCode => Object.hash(runtimeType, genre);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_GenreSelectedCopyWith<_$_GenreSelected> get copyWith =>
       __$$_GenreSelectedCopyWithImpl<_$_GenreSelected>(this, _$identity);
 
@@ -311,9 +313,9 @@ class _$_GenreSelected implements _GenreSelected {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(City city)? citySelected,
-    TResult Function(Genre genre)? genreSelected,
-    TResult Function(DateRange dateRange)? dateRangeSelected,
+    TResult? Function(City city)? citySelected,
+    TResult? Function(Genre genre)? genreSelected,
+    TResult? Function(DateRange dateRange)? dateRangeSelected,
   }) {
     return genreSelected?.call(genre);
   }
@@ -345,9 +347,9 @@ class _$_GenreSelected implements _GenreSelected {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CitySelected value)? citySelected,
-    TResult Function(_GenreSelected value)? genreSelected,
-    TResult Function(_DateRangeSelected value)? dateRangeSelected,
+    TResult? Function(_CitySelected value)? citySelected,
+    TResult? Function(_GenreSelected value)? genreSelected,
+    TResult? Function(_DateRangeSelected value)? dateRangeSelected,
   }) {
     return genreSelected?.call(this);
   }
@@ -381,6 +383,7 @@ abstract class _$$_DateRangeSelectedCopyWith<$Res> {
   factory _$$_DateRangeSelectedCopyWith(_$_DateRangeSelected value,
           $Res Function(_$_DateRangeSelected) then) =
       __$$_DateRangeSelectedCopyWithImpl<$Res>;
+  @useResult
   $Res call({DateRange dateRange});
 
   $DateRangeCopyWith<$Res> get dateRange;
@@ -388,21 +391,19 @@ abstract class _$$_DateRangeSelectedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_DateRangeSelectedCopyWithImpl<$Res>
-    extends _$FiltersEventCopyWithImpl<$Res>
+    extends _$FiltersEventCopyWithImpl<$Res, _$_DateRangeSelected>
     implements _$$_DateRangeSelectedCopyWith<$Res> {
   __$$_DateRangeSelectedCopyWithImpl(
       _$_DateRangeSelected _value, $Res Function(_$_DateRangeSelected) _then)
-      : super(_value, (v) => _then(v as _$_DateRangeSelected));
+      : super(_value, _then);
 
-  @override
-  _$_DateRangeSelected get _value => super._value as _$_DateRangeSelected;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? dateRange = freezed,
+    Object? dateRange = null,
   }) {
     return _then(_$_DateRangeSelected(
-      dateRange == freezed
+      null == dateRange
           ? _value.dateRange
           : dateRange // ignore: cast_nullable_to_non_nullable
               as DateRange,
@@ -410,6 +411,7 @@ class __$$_DateRangeSelectedCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $DateRangeCopyWith<$Res> get dateRange {
     return $DateRangeCopyWith<$Res>(_value.dateRange, (value) {
       return _then(_value.copyWith(dateRange: value));
@@ -435,15 +437,16 @@ class _$_DateRangeSelected implements _DateRangeSelected {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DateRangeSelected &&
-            const DeepCollectionEquality().equals(other.dateRange, dateRange));
+            (identical(other.dateRange, dateRange) ||
+                other.dateRange == dateRange));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(dateRange));
+  int get hashCode => Object.hash(runtimeType, dateRange);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DateRangeSelectedCopyWith<_$_DateRangeSelected> get copyWith =>
       __$$_DateRangeSelectedCopyWithImpl<_$_DateRangeSelected>(
           this, _$identity);
@@ -461,9 +464,9 @@ class _$_DateRangeSelected implements _DateRangeSelected {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(City city)? citySelected,
-    TResult Function(Genre genre)? genreSelected,
-    TResult Function(DateRange dateRange)? dateRangeSelected,
+    TResult? Function(City city)? citySelected,
+    TResult? Function(Genre genre)? genreSelected,
+    TResult? Function(DateRange dateRange)? dateRangeSelected,
   }) {
     return dateRangeSelected?.call(dateRange);
   }
@@ -495,9 +498,9 @@ class _$_DateRangeSelected implements _DateRangeSelected {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CitySelected value)? citySelected,
-    TResult Function(_GenreSelected value)? genreSelected,
-    TResult Function(_DateRangeSelected value)? dateRangeSelected,
+    TResult? Function(_CitySelected value)? citySelected,
+    TResult? Function(_GenreSelected value)? genreSelected,
+    TResult? Function(_DateRangeSelected value)? dateRangeSelected,
   }) {
     return dateRangeSelected?.call(this);
   }
@@ -542,7 +545,8 @@ mixin _$FiltersState {
 abstract class $FiltersStateCopyWith<$Res> {
   factory $FiltersStateCopyWith(
           FiltersState value, $Res Function(FiltersState) then) =
-      _$FiltersStateCopyWithImpl<$Res>;
+      _$FiltersStateCopyWithImpl<$Res, FiltersState>;
+  @useResult
   $Res call({City city, Genre genre, DateRange dateRange});
 
   $CityCopyWith<$Res> get city;
@@ -551,53 +555,59 @@ abstract class $FiltersStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$FiltersStateCopyWithImpl<$Res> implements $FiltersStateCopyWith<$Res> {
+class _$FiltersStateCopyWithImpl<$Res, $Val extends FiltersState>
+    implements $FiltersStateCopyWith<$Res> {
   _$FiltersStateCopyWithImpl(this._value, this._then);
 
-  final FiltersState _value;
   // ignore: unused_field
-  final $Res Function(FiltersState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? city = freezed,
-    Object? genre = freezed,
-    Object? dateRange = freezed,
+    Object? city = null,
+    Object? genre = null,
+    Object? dateRange = null,
   }) {
     return _then(_value.copyWith(
-      city: city == freezed
+      city: null == city
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
               as City,
-      genre: genre == freezed
+      genre: null == genre
           ? _value.genre
           : genre // ignore: cast_nullable_to_non_nullable
               as Genre,
-      dateRange: dateRange == freezed
+      dateRange: null == dateRange
           ? _value.dateRange
           : dateRange // ignore: cast_nullable_to_non_nullable
               as DateRange,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $CityCopyWith<$Res> get city {
     return $CityCopyWith<$Res>(_value.city, (value) {
-      return _then(_value.copyWith(city: value));
+      return _then(_value.copyWith(city: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $GenreCopyWith<$Res> get genre {
     return $GenreCopyWith<$Res>(_value.genre, (value) {
-      return _then(_value.copyWith(genre: value));
+      return _then(_value.copyWith(genre: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $DateRangeCopyWith<$Res> get dateRange {
     return $DateRangeCopyWith<$Res>(_value.dateRange, (value) {
-      return _then(_value.copyWith(dateRange: value));
+      return _then(_value.copyWith(dateRange: value) as $Val);
     });
   }
 }
@@ -609,6 +619,7 @@ abstract class _$$_FiltersStateCopyWith<$Res>
           _$_FiltersState value, $Res Function(_$_FiltersState) then) =
       __$$_FiltersStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({City city, Genre genre, DateRange dateRange});
 
   @override
@@ -621,31 +632,29 @@ abstract class _$$_FiltersStateCopyWith<$Res>
 
 /// @nodoc
 class __$$_FiltersStateCopyWithImpl<$Res>
-    extends _$FiltersStateCopyWithImpl<$Res>
+    extends _$FiltersStateCopyWithImpl<$Res, _$_FiltersState>
     implements _$$_FiltersStateCopyWith<$Res> {
   __$$_FiltersStateCopyWithImpl(
       _$_FiltersState _value, $Res Function(_$_FiltersState) _then)
-      : super(_value, (v) => _then(v as _$_FiltersState));
+      : super(_value, _then);
 
-  @override
-  _$_FiltersState get _value => super._value as _$_FiltersState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? city = freezed,
-    Object? genre = freezed,
-    Object? dateRange = freezed,
+    Object? city = null,
+    Object? genre = null,
+    Object? dateRange = null,
   }) {
     return _then(_$_FiltersState(
-      city: city == freezed
+      city: null == city
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
               as City,
-      genre: genre == freezed
+      genre: null == genre
           ? _value.genre
           : genre // ignore: cast_nullable_to_non_nullable
               as Genre,
-      dateRange: dateRange == freezed
+      dateRange: null == dateRange
           ? _value.dateRange
           : dateRange // ignore: cast_nullable_to_non_nullable
               as DateRange,
@@ -676,20 +685,18 @@ class _$_FiltersState implements _FiltersState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_FiltersState &&
-            const DeepCollectionEquality().equals(other.city, city) &&
-            const DeepCollectionEquality().equals(other.genre, genre) &&
-            const DeepCollectionEquality().equals(other.dateRange, dateRange));
+            (identical(other.city, city) || other.city == city) &&
+            (identical(other.genre, genre) || other.genre == genre) &&
+            (identical(other.dateRange, dateRange) ||
+                other.dateRange == dateRange));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(city),
-      const DeepCollectionEquality().hash(genre),
-      const DeepCollectionEquality().hash(dateRange));
+  int get hashCode => Object.hash(runtimeType, city, genre, dateRange);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_FiltersStateCopyWith<_$_FiltersState> get copyWith =>
       __$$_FiltersStateCopyWithImpl<_$_FiltersState>(this, _$identity);
 }

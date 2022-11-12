@@ -34,38 +34,42 @@ mixin _$NextGigTrack {
 abstract class $NextGigTrackCopyWith<$Res> {
   factory $NextGigTrackCopyWith(
           NextGigTrack value, $Res Function(NextGigTrack) then) =
-      _$NextGigTrackCopyWithImpl<$Res>;
+      _$NextGigTrackCopyWithImpl<$Res, NextGigTrack>;
+  @useResult
   $Res call({int id, String title, String url});
 }
 
 /// @nodoc
-class _$NextGigTrackCopyWithImpl<$Res> implements $NextGigTrackCopyWith<$Res> {
+class _$NextGigTrackCopyWithImpl<$Res, $Val extends NextGigTrack>
+    implements $NextGigTrackCopyWith<$Res> {
   _$NextGigTrackCopyWithImpl(this._value, this._then);
 
-  final NextGigTrack _value;
   // ignore: unused_field
-  final $Res Function(NextGigTrack) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? title = freezed,
-    Object? url = freezed,
+    Object? id = null,
+    Object? title = null,
+    Object? url = null,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      title: title == freezed
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      url: url == freezed
+      url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -76,36 +80,35 @@ abstract class _$$_NextGigTrackCopyWith<$Res>
           _$_NextGigTrack value, $Res Function(_$_NextGigTrack) then) =
       __$$_NextGigTrackCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({int id, String title, String url});
 }
 
 /// @nodoc
 class __$$_NextGigTrackCopyWithImpl<$Res>
-    extends _$NextGigTrackCopyWithImpl<$Res>
+    extends _$NextGigTrackCopyWithImpl<$Res, _$_NextGigTrack>
     implements _$$_NextGigTrackCopyWith<$Res> {
   __$$_NextGigTrackCopyWithImpl(
       _$_NextGigTrack _value, $Res Function(_$_NextGigTrack) _then)
-      : super(_value, (v) => _then(v as _$_NextGigTrack));
+      : super(_value, _then);
 
-  @override
-  _$_NextGigTrack get _value => super._value as _$_NextGigTrack;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? title = freezed,
-    Object? url = freezed,
+    Object? id = null,
+    Object? title = null,
+    Object? url = null,
   }) {
     return _then(_$_NextGigTrack(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      title: title == freezed
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      url: url == freezed
+      url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
@@ -140,21 +143,18 @@ class _$_NextGigTrack extends _NextGigTrack {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_NextGigTrack &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.title, title) &&
-            const DeepCollectionEquality().equals(other.url, url));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.url, url) || other.url == url));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(url));
+  int get hashCode => Object.hash(runtimeType, id, title, url);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_NextGigTrackCopyWith<_$_NextGigTrack> get copyWith =>
       __$$_NextGigTrackCopyWithImpl<_$_NextGigTrack>(this, _$identity);
 

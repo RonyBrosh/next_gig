@@ -26,33 +26,37 @@ mixin _$Track {
 /// @nodoc
 abstract class $TrackCopyWith<$Res> {
   factory $TrackCopyWith(Track value, $Res Function(Track) then) =
-      _$TrackCopyWithImpl<$Res>;
+      _$TrackCopyWithImpl<$Res, Track>;
+  @useResult
   $Res call({String title, String url});
 }
 
 /// @nodoc
-class _$TrackCopyWithImpl<$Res> implements $TrackCopyWith<$Res> {
+class _$TrackCopyWithImpl<$Res, $Val extends Track>
+    implements $TrackCopyWith<$Res> {
   _$TrackCopyWithImpl(this._value, this._then);
 
-  final Track _value;
   // ignore: unused_field
-  final $Res Function(Track) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? title = freezed,
-    Object? url = freezed,
+    Object? title = null,
+    Object? url = null,
   }) {
     return _then(_value.copyWith(
-      title: title == freezed
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      url: url == freezed
+      url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -61,29 +65,28 @@ abstract class _$$_TrackCopyWith<$Res> implements $TrackCopyWith<$Res> {
   factory _$$_TrackCopyWith(_$_Track value, $Res Function(_$_Track) then) =
       __$$_TrackCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String title, String url});
 }
 
 /// @nodoc
-class __$$_TrackCopyWithImpl<$Res> extends _$TrackCopyWithImpl<$Res>
+class __$$_TrackCopyWithImpl<$Res> extends _$TrackCopyWithImpl<$Res, _$_Track>
     implements _$$_TrackCopyWith<$Res> {
   __$$_TrackCopyWithImpl(_$_Track _value, $Res Function(_$_Track) _then)
-      : super(_value, (v) => _then(v as _$_Track));
+      : super(_value, _then);
 
-  @override
-  _$_Track get _value => super._value as _$_Track;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? title = freezed,
-    Object? url = freezed,
+    Object? title = null,
+    Object? url = null,
   }) {
     return _then(_$_Track(
-      title: title == freezed
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      url: url == freezed
+      url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
@@ -111,18 +114,16 @@ class _$_Track implements _Track {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Track &&
-            const DeepCollectionEquality().equals(other.title, title) &&
-            const DeepCollectionEquality().equals(other.url, url));
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.url, url) || other.url == url));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(url));
+  int get hashCode => Object.hash(runtimeType, title, url);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TrackCopyWith<_$_Track> get copyWith =>
       __$$_TrackCopyWithImpl<_$_Track>(this, _$identity);
 }

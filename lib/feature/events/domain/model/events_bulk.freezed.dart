@@ -29,38 +29,42 @@ mixin _$EventsBulk {
 abstract class $EventsBulkCopyWith<$Res> {
   factory $EventsBulkCopyWith(
           EventsBulk value, $Res Function(EventsBulk) then) =
-      _$EventsBulkCopyWithImpl<$Res>;
+      _$EventsBulkCopyWithImpl<$Res, EventsBulk>;
+  @useResult
   $Res call({int pageIndex, bool hasMorePages, List<Event> events});
 }
 
 /// @nodoc
-class _$EventsBulkCopyWithImpl<$Res> implements $EventsBulkCopyWith<$Res> {
+class _$EventsBulkCopyWithImpl<$Res, $Val extends EventsBulk>
+    implements $EventsBulkCopyWith<$Res> {
   _$EventsBulkCopyWithImpl(this._value, this._then);
 
-  final EventsBulk _value;
   // ignore: unused_field
-  final $Res Function(EventsBulk) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? pageIndex = freezed,
-    Object? hasMorePages = freezed,
-    Object? events = freezed,
+    Object? pageIndex = null,
+    Object? hasMorePages = null,
+    Object? events = null,
   }) {
     return _then(_value.copyWith(
-      pageIndex: pageIndex == freezed
+      pageIndex: null == pageIndex
           ? _value.pageIndex
           : pageIndex // ignore: cast_nullable_to_non_nullable
               as int,
-      hasMorePages: hasMorePages == freezed
+      hasMorePages: null == hasMorePages
           ? _value.hasMorePages
           : hasMorePages // ignore: cast_nullable_to_non_nullable
               as bool,
-      events: events == freezed
+      events: null == events
           ? _value.events
           : events // ignore: cast_nullable_to_non_nullable
               as List<Event>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -71,35 +75,35 @@ abstract class _$$_EventsBulkCopyWith<$Res>
           _$_EventsBulk value, $Res Function(_$_EventsBulk) then) =
       __$$_EventsBulkCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({int pageIndex, bool hasMorePages, List<Event> events});
 }
 
 /// @nodoc
-class __$$_EventsBulkCopyWithImpl<$Res> extends _$EventsBulkCopyWithImpl<$Res>
+class __$$_EventsBulkCopyWithImpl<$Res>
+    extends _$EventsBulkCopyWithImpl<$Res, _$_EventsBulk>
     implements _$$_EventsBulkCopyWith<$Res> {
   __$$_EventsBulkCopyWithImpl(
       _$_EventsBulk _value, $Res Function(_$_EventsBulk) _then)
-      : super(_value, (v) => _then(v as _$_EventsBulk));
+      : super(_value, _then);
 
-  @override
-  _$_EventsBulk get _value => super._value as _$_EventsBulk;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? pageIndex = freezed,
-    Object? hasMorePages = freezed,
-    Object? events = freezed,
+    Object? pageIndex = null,
+    Object? hasMorePages = null,
+    Object? events = null,
   }) {
     return _then(_$_EventsBulk(
-      pageIndex: pageIndex == freezed
+      pageIndex: null == pageIndex
           ? _value.pageIndex
           : pageIndex // ignore: cast_nullable_to_non_nullable
               as int,
-      hasMorePages: hasMorePages == freezed
+      hasMorePages: null == hasMorePages
           ? _value.hasMorePages
           : hasMorePages // ignore: cast_nullable_to_non_nullable
               as bool,
-      events: events == freezed
+      events: null == events
           ? _value._events
           : events // ignore: cast_nullable_to_non_nullable
               as List<Event>,
@@ -137,21 +141,20 @@ class _$_EventsBulk implements _EventsBulk {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_EventsBulk &&
-            const DeepCollectionEquality().equals(other.pageIndex, pageIndex) &&
-            const DeepCollectionEquality()
-                .equals(other.hasMorePages, hasMorePages) &&
+            (identical(other.pageIndex, pageIndex) ||
+                other.pageIndex == pageIndex) &&
+            (identical(other.hasMorePages, hasMorePages) ||
+                other.hasMorePages == hasMorePages) &&
             const DeepCollectionEquality().equals(other._events, _events));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(pageIndex),
-      const DeepCollectionEquality().hash(hasMorePages),
+  int get hashCode => Object.hash(runtimeType, pageIndex, hasMorePages,
       const DeepCollectionEquality().hash(_events));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_EventsBulkCopyWith<_$_EventsBulk> get copyWith =>
       __$$_EventsBulkCopyWithImpl<_$_EventsBulk>(this, _$identity);
 }

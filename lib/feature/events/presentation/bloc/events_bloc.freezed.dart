@@ -26,10 +26,10 @@ mixin _$EventsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Filters filters)? load,
-    TResult Function()? changeFilters,
-    TResult Function()? loadMore,
-    TResult Function(Event event)? open,
+    TResult? Function(Filters filters)? load,
+    TResult? Function()? changeFilters,
+    TResult? Function()? loadMore,
+    TResult? Function(Event event)? open,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,10 +51,10 @@ mixin _$EventsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Load value)? load,
-    TResult Function(_ChangeFilters value)? changeFilters,
-    TResult Function(_LoadMore value)? loadMore,
-    TResult Function(_Open value)? open,
+    TResult? Function(_Load value)? load,
+    TResult? Function(_ChangeFilters value)? changeFilters,
+    TResult? Function(_LoadMore value)? loadMore,
+    TResult? Function(_Open value)? open,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -72,42 +72,44 @@ mixin _$EventsEvent {
 abstract class $EventsEventCopyWith<$Res> {
   factory $EventsEventCopyWith(
           EventsEvent value, $Res Function(EventsEvent) then) =
-      _$EventsEventCopyWithImpl<$Res>;
+      _$EventsEventCopyWithImpl<$Res, EventsEvent>;
 }
 
 /// @nodoc
-class _$EventsEventCopyWithImpl<$Res> implements $EventsEventCopyWith<$Res> {
+class _$EventsEventCopyWithImpl<$Res, $Val extends EventsEvent>
+    implements $EventsEventCopyWith<$Res> {
   _$EventsEventCopyWithImpl(this._value, this._then);
 
-  final EventsEvent _value;
   // ignore: unused_field
-  final $Res Function(EventsEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
 abstract class _$$_LoadCopyWith<$Res> {
   factory _$$_LoadCopyWith(_$_Load value, $Res Function(_$_Load) then) =
       __$$_LoadCopyWithImpl<$Res>;
+  @useResult
   $Res call({Filters filters});
 
   $FiltersCopyWith<$Res> get filters;
 }
 
 /// @nodoc
-class __$$_LoadCopyWithImpl<$Res> extends _$EventsEventCopyWithImpl<$Res>
+class __$$_LoadCopyWithImpl<$Res>
+    extends _$EventsEventCopyWithImpl<$Res, _$_Load>
     implements _$$_LoadCopyWith<$Res> {
   __$$_LoadCopyWithImpl(_$_Load _value, $Res Function(_$_Load) _then)
-      : super(_value, (v) => _then(v as _$_Load));
+      : super(_value, _then);
 
-  @override
-  _$_Load get _value => super._value as _$_Load;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? filters = freezed,
+    Object? filters = null,
   }) {
     return _then(_$_Load(
-      filters: filters == freezed
+      filters: null == filters
           ? _value.filters
           : filters // ignore: cast_nullable_to_non_nullable
               as Filters,
@@ -115,6 +117,7 @@ class __$$_LoadCopyWithImpl<$Res> extends _$EventsEventCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $FiltersCopyWith<$Res> get filters {
     return $FiltersCopyWith<$Res>(_value.filters, (value) {
       return _then(_value.copyWith(filters: value));
@@ -140,15 +143,15 @@ class _$_Load implements _Load {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Load &&
-            const DeepCollectionEquality().equals(other.filters, filters));
+            (identical(other.filters, filters) || other.filters == filters));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(filters));
+  int get hashCode => Object.hash(runtimeType, filters);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_LoadCopyWith<_$_Load> get copyWith =>
       __$$_LoadCopyWithImpl<_$_Load>(this, _$identity);
 
@@ -166,10 +169,10 @@ class _$_Load implements _Load {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Filters filters)? load,
-    TResult Function()? changeFilters,
-    TResult Function()? loadMore,
-    TResult Function(Event event)? open,
+    TResult? Function(Filters filters)? load,
+    TResult? Function()? changeFilters,
+    TResult? Function()? loadMore,
+    TResult? Function(Event event)? open,
   }) {
     return load?.call(filters);
   }
@@ -203,10 +206,10 @@ class _$_Load implements _Load {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Load value)? load,
-    TResult Function(_ChangeFilters value)? changeFilters,
-    TResult Function(_LoadMore value)? loadMore,
-    TResult Function(_Open value)? open,
+    TResult? Function(_Load value)? load,
+    TResult? Function(_ChangeFilters value)? changeFilters,
+    TResult? Function(_LoadMore value)? loadMore,
+    TResult? Function(_Open value)? open,
   }) {
     return load?.call(this);
   }
@@ -244,14 +247,11 @@ abstract class _$$_ChangeFiltersCopyWith<$Res> {
 
 /// @nodoc
 class __$$_ChangeFiltersCopyWithImpl<$Res>
-    extends _$EventsEventCopyWithImpl<$Res>
+    extends _$EventsEventCopyWithImpl<$Res, _$_ChangeFilters>
     implements _$$_ChangeFiltersCopyWith<$Res> {
   __$$_ChangeFiltersCopyWithImpl(
       _$_ChangeFilters _value, $Res Function(_$_ChangeFilters) _then)
-      : super(_value, (v) => _then(v as _$_ChangeFilters));
-
-  @override
-  _$_ChangeFilters get _value => super._value as _$_ChangeFilters;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -287,10 +287,10 @@ class _$_ChangeFilters implements _ChangeFilters {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Filters filters)? load,
-    TResult Function()? changeFilters,
-    TResult Function()? loadMore,
-    TResult Function(Event event)? open,
+    TResult? Function(Filters filters)? load,
+    TResult? Function()? changeFilters,
+    TResult? Function()? loadMore,
+    TResult? Function(Event event)? open,
   }) {
     return changeFilters?.call();
   }
@@ -324,10 +324,10 @@ class _$_ChangeFilters implements _ChangeFilters {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Load value)? load,
-    TResult Function(_ChangeFilters value)? changeFilters,
-    TResult Function(_LoadMore value)? loadMore,
-    TResult Function(_Open value)? open,
+    TResult? Function(_Load value)? load,
+    TResult? Function(_ChangeFilters value)? changeFilters,
+    TResult? Function(_LoadMore value)? loadMore,
+    TResult? Function(_Open value)? open,
   }) {
     return changeFilters?.call(this);
   }
@@ -360,14 +360,12 @@ abstract class _$$_LoadMoreCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LoadMoreCopyWithImpl<$Res> extends _$EventsEventCopyWithImpl<$Res>
+class __$$_LoadMoreCopyWithImpl<$Res>
+    extends _$EventsEventCopyWithImpl<$Res, _$_LoadMore>
     implements _$$_LoadMoreCopyWith<$Res> {
   __$$_LoadMoreCopyWithImpl(
       _$_LoadMore _value, $Res Function(_$_LoadMore) _then)
-      : super(_value, (v) => _then(v as _$_LoadMore));
-
-  @override
-  _$_LoadMore get _value => super._value as _$_LoadMore;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -403,10 +401,10 @@ class _$_LoadMore implements _LoadMore {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Filters filters)? load,
-    TResult Function()? changeFilters,
-    TResult Function()? loadMore,
-    TResult Function(Event event)? open,
+    TResult? Function(Filters filters)? load,
+    TResult? Function()? changeFilters,
+    TResult? Function()? loadMore,
+    TResult? Function(Event event)? open,
   }) {
     return loadMore?.call();
   }
@@ -440,10 +438,10 @@ class _$_LoadMore implements _LoadMore {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Load value)? load,
-    TResult Function(_ChangeFilters value)? changeFilters,
-    TResult Function(_LoadMore value)? loadMore,
-    TResult Function(_Open value)? open,
+    TResult? Function(_Load value)? load,
+    TResult? Function(_ChangeFilters value)? changeFilters,
+    TResult? Function(_LoadMore value)? loadMore,
+    TResult? Function(_Open value)? open,
   }) {
     return loadMore?.call(this);
   }
@@ -472,26 +470,26 @@ abstract class _LoadMore implements EventsEvent {
 abstract class _$$_OpenCopyWith<$Res> {
   factory _$$_OpenCopyWith(_$_Open value, $Res Function(_$_Open) then) =
       __$$_OpenCopyWithImpl<$Res>;
+  @useResult
   $Res call({Event event});
 
   $EventCopyWith<$Res> get event;
 }
 
 /// @nodoc
-class __$$_OpenCopyWithImpl<$Res> extends _$EventsEventCopyWithImpl<$Res>
+class __$$_OpenCopyWithImpl<$Res>
+    extends _$EventsEventCopyWithImpl<$Res, _$_Open>
     implements _$$_OpenCopyWith<$Res> {
   __$$_OpenCopyWithImpl(_$_Open _value, $Res Function(_$_Open) _then)
-      : super(_value, (v) => _then(v as _$_Open));
+      : super(_value, _then);
 
-  @override
-  _$_Open get _value => super._value as _$_Open;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? event = freezed,
+    Object? event = null,
   }) {
     return _then(_$_Open(
-      event: event == freezed
+      event: null == event
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
               as Event,
@@ -499,6 +497,7 @@ class __$$_OpenCopyWithImpl<$Res> extends _$EventsEventCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $EventCopyWith<$Res> get event {
     return $EventCopyWith<$Res>(_value.event, (value) {
       return _then(_value.copyWith(event: value));
@@ -524,15 +523,15 @@ class _$_Open implements _Open {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Open &&
-            const DeepCollectionEquality().equals(other.event, event));
+            (identical(other.event, event) || other.event == event));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(event));
+  int get hashCode => Object.hash(runtimeType, event);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_OpenCopyWith<_$_Open> get copyWith =>
       __$$_OpenCopyWithImpl<_$_Open>(this, _$identity);
 
@@ -550,10 +549,10 @@ class _$_Open implements _Open {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Filters filters)? load,
-    TResult Function()? changeFilters,
-    TResult Function()? loadMore,
-    TResult Function(Event event)? open,
+    TResult? Function(Filters filters)? load,
+    TResult? Function()? changeFilters,
+    TResult? Function()? loadMore,
+    TResult? Function(Event event)? open,
   }) {
     return open?.call(event);
   }
@@ -587,10 +586,10 @@ class _$_Open implements _Open {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Load value)? load,
-    TResult Function(_ChangeFilters value)? changeFilters,
-    TResult Function(_LoadMore value)? loadMore,
-    TResult Function(_Open value)? open,
+    TResult? Function(_Load value)? load,
+    TResult? Function(_ChangeFilters value)? changeFilters,
+    TResult? Function(_LoadMore value)? loadMore,
+    TResult? Function(_Open value)? open,
   }) {
     return open?.call(this);
   }
@@ -632,9 +631,9 @@ mixin _$EventsState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function()? error,
-    TResult Function(
+    TResult? Function()? loading,
+    TResult? Function()? error,
+    TResult? Function(
             Filters filters, EventsBulk eventsBulk, bool isLoadingMore)?
         content,
   }) =>
@@ -658,9 +657,9 @@ mixin _$EventsState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Error value)? error,
-    TResult Function(_Content value)? content,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Content value)? content,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -677,16 +676,18 @@ mixin _$EventsState {
 abstract class $EventsStateCopyWith<$Res> {
   factory $EventsStateCopyWith(
           EventsState value, $Res Function(EventsState) then) =
-      _$EventsStateCopyWithImpl<$Res>;
+      _$EventsStateCopyWithImpl<$Res, EventsState>;
 }
 
 /// @nodoc
-class _$EventsStateCopyWithImpl<$Res> implements $EventsStateCopyWith<$Res> {
+class _$EventsStateCopyWithImpl<$Res, $Val extends EventsState>
+    implements $EventsStateCopyWith<$Res> {
   _$EventsStateCopyWithImpl(this._value, this._then);
 
-  final EventsState _value;
   // ignore: unused_field
-  final $Res Function(EventsState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -697,13 +698,11 @@ abstract class _$$_LoadingCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LoadingCopyWithImpl<$Res> extends _$EventsStateCopyWithImpl<$Res>
+class __$$_LoadingCopyWithImpl<$Res>
+    extends _$EventsStateCopyWithImpl<$Res, _$_Loading>
     implements _$$_LoadingCopyWith<$Res> {
   __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
-      : super(_value, (v) => _then(v as _$_Loading));
-
-  @override
-  _$_Loading get _value => super._value as _$_Loading;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -740,9 +739,9 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function()? error,
-    TResult Function(
+    TResult? Function()? loading,
+    TResult? Function()? error,
+    TResult? Function(
             Filters filters, EventsBulk eventsBulk, bool isLoadingMore)?
         content,
   }) {
@@ -778,9 +777,9 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Error value)? error,
-    TResult Function(_Content value)? content,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Content value)? content,
   }) {
     return loading?.call(this);
   }
@@ -811,13 +810,11 @@ abstract class _$$_ErrorCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ErrorCopyWithImpl<$Res> extends _$EventsStateCopyWithImpl<$Res>
+class __$$_ErrorCopyWithImpl<$Res>
+    extends _$EventsStateCopyWithImpl<$Res, _$_Error>
     implements _$$_ErrorCopyWith<$Res> {
   __$$_ErrorCopyWithImpl(_$_Error _value, $Res Function(_$_Error) _then)
-      : super(_value, (v) => _then(v as _$_Error));
-
-  @override
-  _$_Error get _value => super._value as _$_Error;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -854,9 +851,9 @@ class _$_Error implements _Error {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function()? error,
-    TResult Function(
+    TResult? Function()? loading,
+    TResult? Function()? error,
+    TResult? Function(
             Filters filters, EventsBulk eventsBulk, bool isLoadingMore)?
         content,
   }) {
@@ -892,9 +889,9 @@ class _$_Error implements _Error {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Error value)? error,
-    TResult Function(_Content value)? content,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Content value)? content,
   }) {
     return error?.call(this);
   }
@@ -923,6 +920,7 @@ abstract class _$$_ContentCopyWith<$Res> {
   factory _$$_ContentCopyWith(
           _$_Content value, $Res Function(_$_Content) then) =
       __$$_ContentCopyWithImpl<$Res>;
+  @useResult
   $Res call({Filters filters, EventsBulk eventsBulk, bool isLoadingMore});
 
   $FiltersCopyWith<$Res> get filters;
@@ -930,30 +928,29 @@ abstract class _$$_ContentCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ContentCopyWithImpl<$Res> extends _$EventsStateCopyWithImpl<$Res>
+class __$$_ContentCopyWithImpl<$Res>
+    extends _$EventsStateCopyWithImpl<$Res, _$_Content>
     implements _$$_ContentCopyWith<$Res> {
   __$$_ContentCopyWithImpl(_$_Content _value, $Res Function(_$_Content) _then)
-      : super(_value, (v) => _then(v as _$_Content));
+      : super(_value, _then);
 
-  @override
-  _$_Content get _value => super._value as _$_Content;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? filters = freezed,
-    Object? eventsBulk = freezed,
-    Object? isLoadingMore = freezed,
+    Object? filters = null,
+    Object? eventsBulk = null,
+    Object? isLoadingMore = null,
   }) {
     return _then(_$_Content(
-      filters: filters == freezed
+      filters: null == filters
           ? _value.filters
           : filters // ignore: cast_nullable_to_non_nullable
               as Filters,
-      eventsBulk: eventsBulk == freezed
+      eventsBulk: null == eventsBulk
           ? _value.eventsBulk
           : eventsBulk // ignore: cast_nullable_to_non_nullable
               as EventsBulk,
-      isLoadingMore: isLoadingMore == freezed
+      isLoadingMore: null == isLoadingMore
           ? _value.isLoadingMore
           : isLoadingMore // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -961,6 +958,7 @@ class __$$_ContentCopyWithImpl<$Res> extends _$EventsStateCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $FiltersCopyWith<$Res> get filters {
     return $FiltersCopyWith<$Res>(_value.filters, (value) {
       return _then(_value.copyWith(filters: value));
@@ -968,6 +966,7 @@ class __$$_ContentCopyWithImpl<$Res> extends _$EventsStateCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $EventsBulkCopyWith<$Res> get eventsBulk {
     return $EventsBulkCopyWith<$Res>(_value.eventsBulk, (value) {
       return _then(_value.copyWith(eventsBulk: value));
@@ -1000,22 +999,20 @@ class _$_Content implements _Content {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Content &&
-            const DeepCollectionEquality().equals(other.filters, filters) &&
-            const DeepCollectionEquality()
-                .equals(other.eventsBulk, eventsBulk) &&
-            const DeepCollectionEquality()
-                .equals(other.isLoadingMore, isLoadingMore));
+            (identical(other.filters, filters) || other.filters == filters) &&
+            (identical(other.eventsBulk, eventsBulk) ||
+                other.eventsBulk == eventsBulk) &&
+            (identical(other.isLoadingMore, isLoadingMore) ||
+                other.isLoadingMore == isLoadingMore));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(filters),
-      const DeepCollectionEquality().hash(eventsBulk),
-      const DeepCollectionEquality().hash(isLoadingMore));
+  int get hashCode =>
+      Object.hash(runtimeType, filters, eventsBulk, isLoadingMore);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ContentCopyWith<_$_Content> get copyWith =>
       __$$_ContentCopyWithImpl<_$_Content>(this, _$identity);
 
@@ -1034,9 +1031,9 @@ class _$_Content implements _Content {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function()? error,
-    TResult Function(
+    TResult? Function()? loading,
+    TResult? Function()? error,
+    TResult? Function(
             Filters filters, EventsBulk eventsBulk, bool isLoadingMore)?
         content,
   }) {
@@ -1072,9 +1069,9 @@ class _$_Content implements _Content {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Error value)? error,
-    TResult Function(_Content value)? content,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Content value)? content,
   }) {
     return content?.call(this);
   }

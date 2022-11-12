@@ -32,7 +32,8 @@ mixin _$Filters {
 /// @nodoc
 abstract class $FiltersCopyWith<$Res> {
   factory $FiltersCopyWith(Filters value, $Res Function(Filters) then) =
-      _$FiltersCopyWithImpl<$Res>;
+      _$FiltersCopyWithImpl<$Res, Filters>;
+  @useResult
   $Res call({City city, Genre genre, DateRange dateRange});
 
   $CityCopyWith<$Res> get city;
@@ -41,53 +42,59 @@ abstract class $FiltersCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$FiltersCopyWithImpl<$Res> implements $FiltersCopyWith<$Res> {
+class _$FiltersCopyWithImpl<$Res, $Val extends Filters>
+    implements $FiltersCopyWith<$Res> {
   _$FiltersCopyWithImpl(this._value, this._then);
 
-  final Filters _value;
   // ignore: unused_field
-  final $Res Function(Filters) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? city = freezed,
-    Object? genre = freezed,
-    Object? dateRange = freezed,
+    Object? city = null,
+    Object? genre = null,
+    Object? dateRange = null,
   }) {
     return _then(_value.copyWith(
-      city: city == freezed
+      city: null == city
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
               as City,
-      genre: genre == freezed
+      genre: null == genre
           ? _value.genre
           : genre // ignore: cast_nullable_to_non_nullable
               as Genre,
-      dateRange: dateRange == freezed
+      dateRange: null == dateRange
           ? _value.dateRange
           : dateRange // ignore: cast_nullable_to_non_nullable
               as DateRange,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $CityCopyWith<$Res> get city {
     return $CityCopyWith<$Res>(_value.city, (value) {
-      return _then(_value.copyWith(city: value));
+      return _then(_value.copyWith(city: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $GenreCopyWith<$Res> get genre {
     return $GenreCopyWith<$Res>(_value.genre, (value) {
-      return _then(_value.copyWith(genre: value));
+      return _then(_value.copyWith(genre: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $DateRangeCopyWith<$Res> get dateRange {
     return $DateRangeCopyWith<$Res>(_value.dateRange, (value) {
-      return _then(_value.copyWith(dateRange: value));
+      return _then(_value.copyWith(dateRange: value) as $Val);
     });
   }
 }
@@ -98,6 +105,7 @@ abstract class _$$_FiltersCopyWith<$Res> implements $FiltersCopyWith<$Res> {
           _$_Filters value, $Res Function(_$_Filters) then) =
       __$$_FiltersCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({City city, Genre genre, DateRange dateRange});
 
   @override
@@ -109,30 +117,29 @@ abstract class _$$_FiltersCopyWith<$Res> implements $FiltersCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_FiltersCopyWithImpl<$Res> extends _$FiltersCopyWithImpl<$Res>
+class __$$_FiltersCopyWithImpl<$Res>
+    extends _$FiltersCopyWithImpl<$Res, _$_Filters>
     implements _$$_FiltersCopyWith<$Res> {
   __$$_FiltersCopyWithImpl(_$_Filters _value, $Res Function(_$_Filters) _then)
-      : super(_value, (v) => _then(v as _$_Filters));
+      : super(_value, _then);
 
-  @override
-  _$_Filters get _value => super._value as _$_Filters;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? city = freezed,
-    Object? genre = freezed,
-    Object? dateRange = freezed,
+    Object? city = null,
+    Object? genre = null,
+    Object? dateRange = null,
   }) {
     return _then(_$_Filters(
-      city: city == freezed
+      city: null == city
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
               as City,
-      genre: genre == freezed
+      genre: null == genre
           ? _value.genre
           : genre // ignore: cast_nullable_to_non_nullable
               as Genre,
-      dateRange: dateRange == freezed
+      dateRange: null == dateRange
           ? _value.dateRange
           : dateRange // ignore: cast_nullable_to_non_nullable
               as DateRange,
@@ -166,21 +173,19 @@ class _$_Filters implements _Filters {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Filters &&
-            const DeepCollectionEquality().equals(other.city, city) &&
-            const DeepCollectionEquality().equals(other.genre, genre) &&
-            const DeepCollectionEquality().equals(other.dateRange, dateRange));
+            (identical(other.city, city) || other.city == city) &&
+            (identical(other.genre, genre) || other.genre == genre) &&
+            (identical(other.dateRange, dateRange) ||
+                other.dateRange == dateRange));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(city),
-      const DeepCollectionEquality().hash(genre),
-      const DeepCollectionEquality().hash(dateRange));
+  int get hashCode => Object.hash(runtimeType, city, genre, dateRange);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_FiltersCopyWith<_$_Filters> get copyWith =>
       __$$_FiltersCopyWithImpl<_$_Filters>(this, _$identity);
 

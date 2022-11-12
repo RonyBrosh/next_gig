@@ -19,7 +19,9 @@ class _$AppRouter extends RootStackRouter {
   final Map<String, PageFactory> pagesMap = {
     SplashRoute.name: (routeData) {
       return AdaptivePage<dynamic>(
-          routeData: routeData, child: const SplashPage());
+        routeData: routeData,
+        child: const SplashPage(),
+      );
     },
     EventsRoute.name: (routeData) {
       final pathParams = routeData.inheritedPathParams;
@@ -27,23 +29,36 @@ class _$AppRouter extends RootStackRouter {
           orElse: () => EventsRouteArgs(
               encodedFilters: pathParams.getString('encodedFilters')));
       return AdaptivePage<dynamic>(
-          routeData: routeData,
-          child:
-              EventsPage(key: args.key, encodedFilters: args.encodedFilters));
-    }
+        routeData: routeData,
+        child: EventsPage(
+          key: args.key,
+          encodedFilters: args.encodedFilters,
+        ),
+      );
+    },
   };
 
   @override
   List<RouteConfig> get routes => [
-        RouteConfig(SplashRoute.name, path: '/'),
-        RouteConfig(EventsRoute.name, path: '/events/:encodedFilters')
+        RouteConfig(
+          SplashRoute.name,
+          path: '/',
+        ),
+        RouteConfig(
+          EventsRoute.name,
+          path: '/events/:encodedFilters',
+        ),
       ];
 }
 
 /// generated route for
 /// [SplashPage]
 class SplashRoute extends PageRouteInfo<void> {
-  const SplashRoute() : super(SplashRoute.name, path: '/');
+  const SplashRoute()
+      : super(
+          SplashRoute.name,
+          path: '/',
+        );
 
   static const String name = 'SplashRoute';
 }
@@ -51,17 +66,27 @@ class SplashRoute extends PageRouteInfo<void> {
 /// generated route for
 /// [EventsPage]
 class EventsRoute extends PageRouteInfo<EventsRouteArgs> {
-  EventsRoute({Key? key, required String encodedFilters})
-      : super(EventsRoute.name,
-            path: '/events/:encodedFilters',
-            args: EventsRouteArgs(key: key, encodedFilters: encodedFilters),
-            rawPathParams: {'encodedFilters': encodedFilters});
+  EventsRoute({
+    Key? key,
+    required String encodedFilters,
+  }) : super(
+          EventsRoute.name,
+          path: '/events/:encodedFilters',
+          args: EventsRouteArgs(
+            key: key,
+            encodedFilters: encodedFilters,
+          ),
+          rawPathParams: {'encodedFilters': encodedFilters},
+        );
 
   static const String name = 'EventsRoute';
 }
 
 class EventsRouteArgs {
-  const EventsRouteArgs({this.key, required this.encodedFilters});
+  const EventsRouteArgs({
+    this.key,
+    required this.encodedFilters,
+  });
 
   final Key? key;
 

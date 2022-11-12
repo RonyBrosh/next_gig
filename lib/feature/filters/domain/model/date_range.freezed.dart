@@ -46,11 +46,11 @@ mixin _$DateRange {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? today,
-    TResult Function()? week,
-    TResult Function()? month,
-    TResult Function()? threeMonths,
-    TResult Function(DateTime start, DateTime end)? custom,
+    TResult? Function()? today,
+    TResult? Function()? week,
+    TResult? Function()? month,
+    TResult? Function()? threeMonths,
+    TResult? Function(DateTime start, DateTime end)? custom,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -74,11 +74,11 @@ mixin _$DateRange {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Today value)? today,
-    TResult Function(_Week value)? week,
-    TResult Function(_Month value)? month,
-    TResult Function(_ThreeMonths value)? threeMonths,
-    TResult Function(_Custom value)? custom,
+    TResult? Function(_Today value)? today,
+    TResult? Function(_Week value)? week,
+    TResult? Function(_Month value)? month,
+    TResult? Function(_ThreeMonths value)? threeMonths,
+    TResult? Function(_Custom value)? custom,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -97,16 +97,18 @@ mixin _$DateRange {
 /// @nodoc
 abstract class $DateRangeCopyWith<$Res> {
   factory $DateRangeCopyWith(DateRange value, $Res Function(DateRange) then) =
-      _$DateRangeCopyWithImpl<$Res>;
+      _$DateRangeCopyWithImpl<$Res, DateRange>;
 }
 
 /// @nodoc
-class _$DateRangeCopyWithImpl<$Res> implements $DateRangeCopyWith<$Res> {
+class _$DateRangeCopyWithImpl<$Res, $Val extends DateRange>
+    implements $DateRangeCopyWith<$Res> {
   _$DateRangeCopyWithImpl(this._value, this._then);
 
-  final DateRange _value;
   // ignore: unused_field
-  final $Res Function(DateRange) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -116,13 +118,11 @@ abstract class _$$_TodayCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_TodayCopyWithImpl<$Res> extends _$DateRangeCopyWithImpl<$Res>
+class __$$_TodayCopyWithImpl<$Res>
+    extends _$DateRangeCopyWithImpl<$Res, _$_Today>
     implements _$$_TodayCopyWith<$Res> {
   __$$_TodayCopyWithImpl(_$_Today _value, $Res Function(_$_Today) _then)
-      : super(_value, (v) => _then(v as _$_Today));
-
-  @override
-  _$_Today get _value => super._value as _$_Today;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -166,11 +166,11 @@ class _$_Today implements _Today {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? today,
-    TResult Function()? week,
-    TResult Function()? month,
-    TResult Function()? threeMonths,
-    TResult Function(DateTime start, DateTime end)? custom,
+    TResult? Function()? today,
+    TResult? Function()? week,
+    TResult? Function()? month,
+    TResult? Function()? threeMonths,
+    TResult? Function(DateTime start, DateTime end)? custom,
   }) {
     return today?.call();
   }
@@ -206,11 +206,11 @@ class _$_Today implements _Today {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Today value)? today,
-    TResult Function(_Week value)? week,
-    TResult Function(_Month value)? month,
-    TResult Function(_ThreeMonths value)? threeMonths,
-    TResult Function(_Custom value)? custom,
+    TResult? Function(_Today value)? today,
+    TResult? Function(_Week value)? week,
+    TResult? Function(_Month value)? month,
+    TResult? Function(_ThreeMonths value)? threeMonths,
+    TResult? Function(_Custom value)? custom,
   }) {
     return today?.call(this);
   }
@@ -252,13 +252,10 @@ abstract class _$$_WeekCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_WeekCopyWithImpl<$Res> extends _$DateRangeCopyWithImpl<$Res>
+class __$$_WeekCopyWithImpl<$Res> extends _$DateRangeCopyWithImpl<$Res, _$_Week>
     implements _$$_WeekCopyWith<$Res> {
   __$$_WeekCopyWithImpl(_$_Week _value, $Res Function(_$_Week) _then)
-      : super(_value, (v) => _then(v as _$_Week));
-
-  @override
-  _$_Week get _value => super._value as _$_Week;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -301,11 +298,11 @@ class _$_Week implements _Week {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? today,
-    TResult Function()? week,
-    TResult Function()? month,
-    TResult Function()? threeMonths,
-    TResult Function(DateTime start, DateTime end)? custom,
+    TResult? Function()? today,
+    TResult? Function()? week,
+    TResult? Function()? month,
+    TResult? Function()? threeMonths,
+    TResult? Function(DateTime start, DateTime end)? custom,
   }) {
     return week?.call();
   }
@@ -341,11 +338,11 @@ class _$_Week implements _Week {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Today value)? today,
-    TResult Function(_Week value)? week,
-    TResult Function(_Month value)? month,
-    TResult Function(_ThreeMonths value)? threeMonths,
-    TResult Function(_Custom value)? custom,
+    TResult? Function(_Today value)? today,
+    TResult? Function(_Week value)? week,
+    TResult? Function(_Month value)? month,
+    TResult? Function(_ThreeMonths value)? threeMonths,
+    TResult? Function(_Custom value)? custom,
   }) {
     return week?.call(this);
   }
@@ -387,13 +384,11 @@ abstract class _$$_MonthCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_MonthCopyWithImpl<$Res> extends _$DateRangeCopyWithImpl<$Res>
+class __$$_MonthCopyWithImpl<$Res>
+    extends _$DateRangeCopyWithImpl<$Res, _$_Month>
     implements _$$_MonthCopyWith<$Res> {
   __$$_MonthCopyWithImpl(_$_Month _value, $Res Function(_$_Month) _then)
-      : super(_value, (v) => _then(v as _$_Month));
-
-  @override
-  _$_Month get _value => super._value as _$_Month;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -437,11 +432,11 @@ class _$_Month implements _Month {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? today,
-    TResult Function()? week,
-    TResult Function()? month,
-    TResult Function()? threeMonths,
-    TResult Function(DateTime start, DateTime end)? custom,
+    TResult? Function()? today,
+    TResult? Function()? week,
+    TResult? Function()? month,
+    TResult? Function()? threeMonths,
+    TResult? Function(DateTime start, DateTime end)? custom,
   }) {
     return month?.call();
   }
@@ -477,11 +472,11 @@ class _$_Month implements _Month {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Today value)? today,
-    TResult Function(_Week value)? week,
-    TResult Function(_Month value)? month,
-    TResult Function(_ThreeMonths value)? threeMonths,
-    TResult Function(_Custom value)? custom,
+    TResult? Function(_Today value)? today,
+    TResult? Function(_Week value)? week,
+    TResult? Function(_Month value)? month,
+    TResult? Function(_ThreeMonths value)? threeMonths,
+    TResult? Function(_Custom value)? custom,
   }) {
     return month?.call(this);
   }
@@ -524,14 +519,12 @@ abstract class _$$_ThreeMonthsCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ThreeMonthsCopyWithImpl<$Res> extends _$DateRangeCopyWithImpl<$Res>
+class __$$_ThreeMonthsCopyWithImpl<$Res>
+    extends _$DateRangeCopyWithImpl<$Res, _$_ThreeMonths>
     implements _$$_ThreeMonthsCopyWith<$Res> {
   __$$_ThreeMonthsCopyWithImpl(
       _$_ThreeMonths _value, $Res Function(_$_ThreeMonths) _then)
-      : super(_value, (v) => _then(v as _$_ThreeMonths));
-
-  @override
-  _$_ThreeMonths get _value => super._value as _$_ThreeMonths;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -575,11 +568,11 @@ class _$_ThreeMonths implements _ThreeMonths {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? today,
-    TResult Function()? week,
-    TResult Function()? month,
-    TResult Function()? threeMonths,
-    TResult Function(DateTime start, DateTime end)? custom,
+    TResult? Function()? today,
+    TResult? Function()? week,
+    TResult? Function()? month,
+    TResult? Function()? threeMonths,
+    TResult? Function(DateTime start, DateTime end)? custom,
   }) {
     return threeMonths?.call();
   }
@@ -615,11 +608,11 @@ class _$_ThreeMonths implements _ThreeMonths {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Today value)? today,
-    TResult Function(_Week value)? week,
-    TResult Function(_Month value)? month,
-    TResult Function(_ThreeMonths value)? threeMonths,
-    TResult Function(_Custom value)? custom,
+    TResult? Function(_Today value)? today,
+    TResult? Function(_Week value)? week,
+    TResult? Function(_Month value)? month,
+    TResult? Function(_ThreeMonths value)? threeMonths,
+    TResult? Function(_Custom value)? custom,
   }) {
     return threeMonths?.call(this);
   }
@@ -659,29 +652,29 @@ abstract class _ThreeMonths implements DateRange {
 abstract class _$$_CustomCopyWith<$Res> {
   factory _$$_CustomCopyWith(_$_Custom value, $Res Function(_$_Custom) then) =
       __$$_CustomCopyWithImpl<$Res>;
+  @useResult
   $Res call({DateTime start, DateTime end});
 }
 
 /// @nodoc
-class __$$_CustomCopyWithImpl<$Res> extends _$DateRangeCopyWithImpl<$Res>
+class __$$_CustomCopyWithImpl<$Res>
+    extends _$DateRangeCopyWithImpl<$Res, _$_Custom>
     implements _$$_CustomCopyWith<$Res> {
   __$$_CustomCopyWithImpl(_$_Custom _value, $Res Function(_$_Custom) _then)
-      : super(_value, (v) => _then(v as _$_Custom));
+      : super(_value, _then);
 
-  @override
-  _$_Custom get _value => super._value as _$_Custom;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? start = freezed,
-    Object? end = freezed,
+    Object? start = null,
+    Object? end = null,
   }) {
     return _then(_$_Custom(
-      start: start == freezed
+      start: null == start
           ? _value.start
           : start // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      end: end == freezed
+      end: null == end
           ? _value.end
           : end // ignore: cast_nullable_to_non_nullable
               as DateTime,
@@ -716,19 +709,17 @@ class _$_Custom implements _Custom {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Custom &&
-            const DeepCollectionEquality().equals(other.start, start) &&
-            const DeepCollectionEquality().equals(other.end, end));
+            (identical(other.start, start) || other.start == start) &&
+            (identical(other.end, end) || other.end == end));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(start),
-      const DeepCollectionEquality().hash(end));
+  int get hashCode => Object.hash(runtimeType, start, end);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_CustomCopyWith<_$_Custom> get copyWith =>
       __$$_CustomCopyWithImpl<_$_Custom>(this, _$identity);
 
@@ -747,11 +738,11 @@ class _$_Custom implements _Custom {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? today,
-    TResult Function()? week,
-    TResult Function()? month,
-    TResult Function()? threeMonths,
-    TResult Function(DateTime start, DateTime end)? custom,
+    TResult? Function()? today,
+    TResult? Function()? week,
+    TResult? Function()? month,
+    TResult? Function()? threeMonths,
+    TResult? Function(DateTime start, DateTime end)? custom,
   }) {
     return custom?.call(start, end);
   }
@@ -787,11 +778,11 @@ class _$_Custom implements _Custom {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Today value)? today,
-    TResult Function(_Week value)? week,
-    TResult Function(_Month value)? month,
-    TResult Function(_ThreeMonths value)? threeMonths,
-    TResult Function(_Custom value)? custom,
+    TResult? Function(_Today value)? today,
+    TResult? Function(_Week value)? week,
+    TResult? Function(_Month value)? month,
+    TResult? Function(_ThreeMonths value)? threeMonths,
+    TResult? Function(_Custom value)? custom,
   }) {
     return custom?.call(this);
   }

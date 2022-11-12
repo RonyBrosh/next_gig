@@ -35,7 +35,9 @@ mixin _$TicketMasterEventsResponse {
 abstract class $TicketMasterEventsResponseCopyWith<$Res> {
   factory $TicketMasterEventsResponseCopyWith(TicketMasterEventsResponse value,
           $Res Function(TicketMasterEventsResponse) then) =
-      _$TicketMasterEventsResponseCopyWithImpl<$Res>;
+      _$TicketMasterEventsResponseCopyWithImpl<$Res,
+          TicketMasterEventsResponse>;
+  @useResult
   $Res call(
       {@JsonKey(readValue: _readEvents) List<TicketMasterEvent> events,
       _Page page});
@@ -44,35 +46,39 @@ abstract class $TicketMasterEventsResponseCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$TicketMasterEventsResponseCopyWithImpl<$Res>
+class _$TicketMasterEventsResponseCopyWithImpl<$Res,
+        $Val extends TicketMasterEventsResponse>
     implements $TicketMasterEventsResponseCopyWith<$Res> {
   _$TicketMasterEventsResponseCopyWithImpl(this._value, this._then);
 
-  final TicketMasterEventsResponse _value;
   // ignore: unused_field
-  final $Res Function(TicketMasterEventsResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? events = freezed,
-    Object? page = freezed,
+    Object? events = null,
+    Object? page = null,
   }) {
     return _then(_value.copyWith(
-      events: events == freezed
+      events: null == events
           ? _value.events
           : events // ignore: cast_nullable_to_non_nullable
               as List<TicketMasterEvent>,
-      page: page == freezed
+      page: null == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
               as _Page,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   _$PageCopyWith<$Res> get page {
     return _$PageCopyWith<$Res>(_value.page, (value) {
-      return _then(_value.copyWith(page: value));
+      return _then(_value.copyWith(page: value) as $Val);
     });
   }
 }
@@ -85,6 +91,7 @@ abstract class _$$_TicketMasterEventsResponseCopyWith<$Res>
           $Res Function(_$_TicketMasterEventsResponse) then) =
       __$$_TicketMasterEventsResponseCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(readValue: _readEvents) List<TicketMasterEvent> events,
       _Page page});
@@ -95,28 +102,26 @@ abstract class _$$_TicketMasterEventsResponseCopyWith<$Res>
 
 /// @nodoc
 class __$$_TicketMasterEventsResponseCopyWithImpl<$Res>
-    extends _$TicketMasterEventsResponseCopyWithImpl<$Res>
+    extends _$TicketMasterEventsResponseCopyWithImpl<$Res,
+        _$_TicketMasterEventsResponse>
     implements _$$_TicketMasterEventsResponseCopyWith<$Res> {
   __$$_TicketMasterEventsResponseCopyWithImpl(
       _$_TicketMasterEventsResponse _value,
       $Res Function(_$_TicketMasterEventsResponse) _then)
-      : super(_value, (v) => _then(v as _$_TicketMasterEventsResponse));
+      : super(_value, _then);
 
-  @override
-  _$_TicketMasterEventsResponse get _value =>
-      super._value as _$_TicketMasterEventsResponse;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? events = freezed,
-    Object? page = freezed,
+    Object? events = null,
+    Object? page = null,
   }) {
     return _then(_$_TicketMasterEventsResponse(
-      events: events == freezed
+      events: null == events
           ? _value._events
           : events // ignore: cast_nullable_to_non_nullable
               as List<TicketMasterEvent>,
-      page: page == freezed
+      page: null == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
               as _Page,
@@ -159,18 +164,17 @@ class _$_TicketMasterEventsResponse extends _TicketMasterEventsResponse {
         (other.runtimeType == runtimeType &&
             other is _$_TicketMasterEventsResponse &&
             const DeepCollectionEquality().equals(other._events, _events) &&
-            const DeepCollectionEquality().equals(other.page, page));
+            (identical(other.page, page) || other.page == page));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_events),
-      const DeepCollectionEquality().hash(page));
+      runtimeType, const DeepCollectionEquality().hash(_events), page);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TicketMasterEventsResponseCopyWith<_$_TicketMasterEventsResponse>
       get copyWith => __$$_TicketMasterEventsResponseCopyWithImpl<
           _$_TicketMasterEventsResponse>(this, _$identity);
@@ -221,33 +225,37 @@ mixin _$_Page {
 /// @nodoc
 abstract class _$PageCopyWith<$Res> {
   factory _$PageCopyWith(_Page value, $Res Function(_Page) then) =
-      __$PageCopyWithImpl<$Res>;
+      __$PageCopyWithImpl<$Res, _Page>;
+  @useResult
   $Res call({int totalPages, int number});
 }
 
 /// @nodoc
-class __$PageCopyWithImpl<$Res> implements _$PageCopyWith<$Res> {
+class __$PageCopyWithImpl<$Res, $Val extends _Page>
+    implements _$PageCopyWith<$Res> {
   __$PageCopyWithImpl(this._value, this._then);
 
-  final _Page _value;
   // ignore: unused_field
-  final $Res Function(_Page) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? totalPages = freezed,
-    Object? number = freezed,
+    Object? totalPages = null,
+    Object? number = null,
   }) {
     return _then(_value.copyWith(
-      totalPages: totalPages == freezed
+      totalPages: null == totalPages
           ? _value.totalPages
           : totalPages // ignore: cast_nullable_to_non_nullable
               as int,
-      number: number == freezed
+      number: null == number
           ? _value.number
           : number // ignore: cast_nullable_to_non_nullable
               as int,
-    ));
+    ) as $Val);
   }
 }
 
@@ -256,29 +264,28 @@ abstract class _$$__PageCopyWith<$Res> implements _$PageCopyWith<$Res> {
   factory _$$__PageCopyWith(_$__Page value, $Res Function(_$__Page) then) =
       __$$__PageCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({int totalPages, int number});
 }
 
 /// @nodoc
-class __$$__PageCopyWithImpl<$Res> extends __$PageCopyWithImpl<$Res>
+class __$$__PageCopyWithImpl<$Res> extends __$PageCopyWithImpl<$Res, _$__Page>
     implements _$$__PageCopyWith<$Res> {
   __$$__PageCopyWithImpl(_$__Page _value, $Res Function(_$__Page) _then)
-      : super(_value, (v) => _then(v as _$__Page));
+      : super(_value, _then);
 
-  @override
-  _$__Page get _value => super._value as _$__Page;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? totalPages = freezed,
-    Object? number = freezed,
+    Object? totalPages = null,
+    Object? number = null,
   }) {
     return _then(_$__Page(
-      totalPages: totalPages == freezed
+      totalPages: null == totalPages
           ? _value.totalPages
           : totalPages // ignore: cast_nullable_to_non_nullable
               as int,
-      number: number == freezed
+      number: null == number
           ? _value.number
           : number // ignore: cast_nullable_to_non_nullable
               as int,
@@ -309,20 +316,18 @@ class _$__Page implements __Page {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$__Page &&
-            const DeepCollectionEquality()
-                .equals(other.totalPages, totalPages) &&
-            const DeepCollectionEquality().equals(other.number, number));
+            (identical(other.totalPages, totalPages) ||
+                other.totalPages == totalPages) &&
+            (identical(other.number, number) || other.number == number));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(totalPages),
-      const DeepCollectionEquality().hash(number));
+  int get hashCode => Object.hash(runtimeType, totalPages, number);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$__PageCopyWith<_$__Page> get copyWith =>
       __$$__PageCopyWithImpl<_$__Page>(this, _$identity);
 

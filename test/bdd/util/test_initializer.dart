@@ -1,6 +1,7 @@
 import 'package:clock/clock.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:mocked_backend/mocked_backend.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:next_gig/feature/events/presentation/widget/events_page.dart';
 import 'package:next_gig/feature/filters/domain/use_case/get_cities_use_case.dart';
@@ -13,8 +14,6 @@ import 'package:next_gig/util/di/di_container.dart';
 import 'package:next_gig/util/di/dio_module.dart';
 import 'package:next_gig/util/navigation/app_navigator.dart';
 
-import 'mocked_backend/mocked_backend_interceptor.dart';
-import 'mocked_backend/mocked_requests_manager.dart';
 import 'mocks.dart';
 import 'test_assets.dart';
 
@@ -23,23 +22,28 @@ class TestInitializer extends DIInitializer {
 }
 
 void _init(GetIt getIt) {
-  final mockRequestManager = MockedRequestsManager();
-  getIt.registerSingleton<MockedRequestsManager>(mockRequestManager);
+  final mockedBackendInterceptor = MockedBackendInterceptor();
+  getIt.registerSingleton<MockedBackendInterceptor>(mockedBackendInterceptor);
 
   final dioTicketMaster = diContainer<Dio>(instanceName: ticketMasterDio);
-  dioTicketMaster.interceptors.add(MockedBackEndInterceptor(mockRequestManager));
+  dioTicketMaster.interceptors.add(mockedBackendInterceptor);
 
   final dioNextGig = diContainer<Dio>(instanceName: nextGigDio);
-  dioNextGig.interceptors.add(MockedBackEndInterceptor(mockRequestManager));
+  dioNextGig.interceptors.add(mockedBackendInterceptor);
 
   final assetsManager = AssetsManagerMock();
   getIt.unregister<AssetsManager>();
   getIt.registerSingleton<AssetsManager>(assetsManager);
-  when(() => assetsManager.loadString(citiesAssetsPath)).thenAnswer((_) async => testCitiesJson);
-  when(() => assetsManager.loadString(genresAssetsPath)).thenAnswer((_) async => testGenresJson);
-  when(() => assetsManager.loadByteData(splashBackgroundAssetsPath)).thenAnswer((_) async => null);
-  when(() => assetsManager.loadByteData(mainBackgroundAssetsPath)).thenAnswer((_) async => null);
-  when(() => assetsManager.loadByteData(playerDeezerLogoAssetsPath)).thenAnswer((_) async => null);
+  when(() => assetsManager.loadString(citiesAssetsPath))
+      .thenAnswer((_) async => testCitiesJson);
+  when(() => assetsManager.loadString(genresAssetsPath))
+      .thenAnswer((_) async => testGenresJson);
+  when(() => assetsManager.loadByteData(splashBackgroundAssetsPath))
+      .thenAnswer((_) async => null);
+  when(() => assetsManager.loadByteData(mainBackgroundAssetsPath))
+      .thenAnswer((_) async => null);
+  when(() => assetsManager.loadByteData(playerDeezerLogoAssetsPath))
+      .thenAnswer((_) async => null);
 
   if (getIt.isRegistered<AppNavigator>()) {
     getIt.unregister<AppNavigator>();

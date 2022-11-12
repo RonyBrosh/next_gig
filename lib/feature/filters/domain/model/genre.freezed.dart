@@ -31,33 +31,37 @@ mixin _$Genre {
 /// @nodoc
 abstract class $GenreCopyWith<$Res> {
   factory $GenreCopyWith(Genre value, $Res Function(Genre) then) =
-      _$GenreCopyWithImpl<$Res>;
+      _$GenreCopyWithImpl<$Res, Genre>;
+  @useResult
   $Res call({String id, String name});
 }
 
 /// @nodoc
-class _$GenreCopyWithImpl<$Res> implements $GenreCopyWith<$Res> {
+class _$GenreCopyWithImpl<$Res, $Val extends Genre>
+    implements $GenreCopyWith<$Res> {
   _$GenreCopyWithImpl(this._value, this._then);
 
-  final Genre _value;
   // ignore: unused_field
-  final $Res Function(Genre) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? name = freezed,
+    Object? id = null,
+    Object? name = null,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -66,29 +70,28 @@ abstract class _$$_GenreCopyWith<$Res> implements $GenreCopyWith<$Res> {
   factory _$$_GenreCopyWith(_$_Genre value, $Res Function(_$_Genre) then) =
       __$$_GenreCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String id, String name});
 }
 
 /// @nodoc
-class __$$_GenreCopyWithImpl<$Res> extends _$GenreCopyWithImpl<$Res>
+class __$$_GenreCopyWithImpl<$Res> extends _$GenreCopyWithImpl<$Res, _$_Genre>
     implements _$$_GenreCopyWith<$Res> {
   __$$_GenreCopyWithImpl(_$_Genre _value, $Res Function(_$_Genre) _then)
-      : super(_value, (v) => _then(v as _$_Genre));
+      : super(_value, _then);
 
-  @override
-  _$_Genre get _value => super._value as _$_Genre;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? name = freezed,
+    Object? id = null,
+    Object? name = null,
   }) {
     return _then(_$_Genre(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
@@ -119,19 +122,17 @@ class _$_Genre implements _Genre {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Genre &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.name, name));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(name));
+  int get hashCode => Object.hash(runtimeType, id, name);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_GenreCopyWith<_$_Genre> get copyWith =>
       __$$_GenreCopyWithImpl<_$_Genre>(this, _$identity);
 

@@ -29,12 +29,12 @@ mixin _$SplashEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? animateTitle,
-    TResult Function()? animateSubtitle,
-    TResult Function()? animateBody,
-    TResult Function()? animateDiscoverButton,
-    TResult Function(City city, Genre genre, DateRange dateRange)? setFilters,
-    TResult Function()? discover,
+    TResult? Function()? animateTitle,
+    TResult? Function()? animateSubtitle,
+    TResult? Function()? animateBody,
+    TResult? Function()? animateDiscoverButton,
+    TResult? Function(City city, Genre genre, DateRange dateRange)? setFilters,
+    TResult? Function()? discover,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -61,12 +61,12 @@ mixin _$SplashEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_AnimateTitle value)? animateTitle,
-    TResult Function(_AnimateSubtitle value)? animateSubtitle,
-    TResult Function(_AnimateBody value)? animateBody,
-    TResult Function(_AnimateDiscoverButton value)? animateDiscoverButton,
-    TResult Function(_SetFilters value)? setFilters,
-    TResult Function(_Discover value)? discover,
+    TResult? Function(_AnimateTitle value)? animateTitle,
+    TResult? Function(_AnimateSubtitle value)? animateSubtitle,
+    TResult? Function(_AnimateBody value)? animateBody,
+    TResult? Function(_AnimateDiscoverButton value)? animateDiscoverButton,
+    TResult? Function(_SetFilters value)? setFilters,
+    TResult? Function(_Discover value)? discover,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -86,16 +86,18 @@ mixin _$SplashEvent {
 abstract class $SplashEventCopyWith<$Res> {
   factory $SplashEventCopyWith(
           SplashEvent value, $Res Function(SplashEvent) then) =
-      _$SplashEventCopyWithImpl<$Res>;
+      _$SplashEventCopyWithImpl<$Res, SplashEvent>;
 }
 
 /// @nodoc
-class _$SplashEventCopyWithImpl<$Res> implements $SplashEventCopyWith<$Res> {
+class _$SplashEventCopyWithImpl<$Res, $Val extends SplashEvent>
+    implements $SplashEventCopyWith<$Res> {
   _$SplashEventCopyWithImpl(this._value, this._then);
 
-  final SplashEvent _value;
   // ignore: unused_field
-  final $Res Function(SplashEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -107,14 +109,11 @@ abstract class _$$_AnimateTitleCopyWith<$Res> {
 
 /// @nodoc
 class __$$_AnimateTitleCopyWithImpl<$Res>
-    extends _$SplashEventCopyWithImpl<$Res>
+    extends _$SplashEventCopyWithImpl<$Res, _$_AnimateTitle>
     implements _$$_AnimateTitleCopyWith<$Res> {
   __$$_AnimateTitleCopyWithImpl(
       _$_AnimateTitle _value, $Res Function(_$_AnimateTitle) _then)
-      : super(_value, (v) => _then(v as _$_AnimateTitle));
-
-  @override
-  _$_AnimateTitle get _value => super._value as _$_AnimateTitle;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -153,12 +152,12 @@ class _$_AnimateTitle implements _AnimateTitle {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? animateTitle,
-    TResult Function()? animateSubtitle,
-    TResult Function()? animateBody,
-    TResult Function()? animateDiscoverButton,
-    TResult Function(City city, Genre genre, DateRange dateRange)? setFilters,
-    TResult Function()? discover,
+    TResult? Function()? animateTitle,
+    TResult? Function()? animateSubtitle,
+    TResult? Function()? animateBody,
+    TResult? Function()? animateDiscoverButton,
+    TResult? Function(City city, Genre genre, DateRange dateRange)? setFilters,
+    TResult? Function()? discover,
   }) {
     return animateTitle?.call();
   }
@@ -197,12 +196,12 @@ class _$_AnimateTitle implements _AnimateTitle {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_AnimateTitle value)? animateTitle,
-    TResult Function(_AnimateSubtitle value)? animateSubtitle,
-    TResult Function(_AnimateBody value)? animateBody,
-    TResult Function(_AnimateDiscoverButton value)? animateDiscoverButton,
-    TResult Function(_SetFilters value)? setFilters,
-    TResult Function(_Discover value)? discover,
+    TResult? Function(_AnimateTitle value)? animateTitle,
+    TResult? Function(_AnimateSubtitle value)? animateSubtitle,
+    TResult? Function(_AnimateBody value)? animateBody,
+    TResult? Function(_AnimateDiscoverButton value)? animateDiscoverButton,
+    TResult? Function(_SetFilters value)? setFilters,
+    TResult? Function(_Discover value)? discover,
   }) {
     return animateTitle?.call(this);
   }
@@ -238,14 +237,11 @@ abstract class _$$_AnimateSubtitleCopyWith<$Res> {
 
 /// @nodoc
 class __$$_AnimateSubtitleCopyWithImpl<$Res>
-    extends _$SplashEventCopyWithImpl<$Res>
+    extends _$SplashEventCopyWithImpl<$Res, _$_AnimateSubtitle>
     implements _$$_AnimateSubtitleCopyWith<$Res> {
   __$$_AnimateSubtitleCopyWithImpl(
       _$_AnimateSubtitle _value, $Res Function(_$_AnimateSubtitle) _then)
-      : super(_value, (v) => _then(v as _$_AnimateSubtitle));
-
-  @override
-  _$_AnimateSubtitle get _value => super._value as _$_AnimateSubtitle;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -284,12 +280,12 @@ class _$_AnimateSubtitle implements _AnimateSubtitle {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? animateTitle,
-    TResult Function()? animateSubtitle,
-    TResult Function()? animateBody,
-    TResult Function()? animateDiscoverButton,
-    TResult Function(City city, Genre genre, DateRange dateRange)? setFilters,
-    TResult Function()? discover,
+    TResult? Function()? animateTitle,
+    TResult? Function()? animateSubtitle,
+    TResult? Function()? animateBody,
+    TResult? Function()? animateDiscoverButton,
+    TResult? Function(City city, Genre genre, DateRange dateRange)? setFilters,
+    TResult? Function()? discover,
   }) {
     return animateSubtitle?.call();
   }
@@ -328,12 +324,12 @@ class _$_AnimateSubtitle implements _AnimateSubtitle {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_AnimateTitle value)? animateTitle,
-    TResult Function(_AnimateSubtitle value)? animateSubtitle,
-    TResult Function(_AnimateBody value)? animateBody,
-    TResult Function(_AnimateDiscoverButton value)? animateDiscoverButton,
-    TResult Function(_SetFilters value)? setFilters,
-    TResult Function(_Discover value)? discover,
+    TResult? Function(_AnimateTitle value)? animateTitle,
+    TResult? Function(_AnimateSubtitle value)? animateSubtitle,
+    TResult? Function(_AnimateBody value)? animateBody,
+    TResult? Function(_AnimateDiscoverButton value)? animateDiscoverButton,
+    TResult? Function(_SetFilters value)? setFilters,
+    TResult? Function(_Discover value)? discover,
   }) {
     return animateSubtitle?.call(this);
   }
@@ -368,14 +364,12 @@ abstract class _$$_AnimateBodyCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_AnimateBodyCopyWithImpl<$Res> extends _$SplashEventCopyWithImpl<$Res>
+class __$$_AnimateBodyCopyWithImpl<$Res>
+    extends _$SplashEventCopyWithImpl<$Res, _$_AnimateBody>
     implements _$$_AnimateBodyCopyWith<$Res> {
   __$$_AnimateBodyCopyWithImpl(
       _$_AnimateBody _value, $Res Function(_$_AnimateBody) _then)
-      : super(_value, (v) => _then(v as _$_AnimateBody));
-
-  @override
-  _$_AnimateBody get _value => super._value as _$_AnimateBody;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -414,12 +408,12 @@ class _$_AnimateBody implements _AnimateBody {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? animateTitle,
-    TResult Function()? animateSubtitle,
-    TResult Function()? animateBody,
-    TResult Function()? animateDiscoverButton,
-    TResult Function(City city, Genre genre, DateRange dateRange)? setFilters,
-    TResult Function()? discover,
+    TResult? Function()? animateTitle,
+    TResult? Function()? animateSubtitle,
+    TResult? Function()? animateBody,
+    TResult? Function()? animateDiscoverButton,
+    TResult? Function(City city, Genre genre, DateRange dateRange)? setFilters,
+    TResult? Function()? discover,
   }) {
     return animateBody?.call();
   }
@@ -458,12 +452,12 @@ class _$_AnimateBody implements _AnimateBody {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_AnimateTitle value)? animateTitle,
-    TResult Function(_AnimateSubtitle value)? animateSubtitle,
-    TResult Function(_AnimateBody value)? animateBody,
-    TResult Function(_AnimateDiscoverButton value)? animateDiscoverButton,
-    TResult Function(_SetFilters value)? setFilters,
-    TResult Function(_Discover value)? discover,
+    TResult? Function(_AnimateTitle value)? animateTitle,
+    TResult? Function(_AnimateSubtitle value)? animateSubtitle,
+    TResult? Function(_AnimateBody value)? animateBody,
+    TResult? Function(_AnimateDiscoverButton value)? animateDiscoverButton,
+    TResult? Function(_SetFilters value)? setFilters,
+    TResult? Function(_Discover value)? discover,
   }) {
     return animateBody?.call(this);
   }
@@ -499,15 +493,11 @@ abstract class _$$_AnimateDiscoverButtonCopyWith<$Res> {
 
 /// @nodoc
 class __$$_AnimateDiscoverButtonCopyWithImpl<$Res>
-    extends _$SplashEventCopyWithImpl<$Res>
+    extends _$SplashEventCopyWithImpl<$Res, _$_AnimateDiscoverButton>
     implements _$$_AnimateDiscoverButtonCopyWith<$Res> {
   __$$_AnimateDiscoverButtonCopyWithImpl(_$_AnimateDiscoverButton _value,
       $Res Function(_$_AnimateDiscoverButton) _then)
-      : super(_value, (v) => _then(v as _$_AnimateDiscoverButton));
-
-  @override
-  _$_AnimateDiscoverButton get _value =>
-      super._value as _$_AnimateDiscoverButton;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -546,12 +536,12 @@ class _$_AnimateDiscoverButton implements _AnimateDiscoverButton {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? animateTitle,
-    TResult Function()? animateSubtitle,
-    TResult Function()? animateBody,
-    TResult Function()? animateDiscoverButton,
-    TResult Function(City city, Genre genre, DateRange dateRange)? setFilters,
-    TResult Function()? discover,
+    TResult? Function()? animateTitle,
+    TResult? Function()? animateSubtitle,
+    TResult? Function()? animateBody,
+    TResult? Function()? animateDiscoverButton,
+    TResult? Function(City city, Genre genre, DateRange dateRange)? setFilters,
+    TResult? Function()? discover,
   }) {
     return animateDiscoverButton?.call();
   }
@@ -590,12 +580,12 @@ class _$_AnimateDiscoverButton implements _AnimateDiscoverButton {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_AnimateTitle value)? animateTitle,
-    TResult Function(_AnimateSubtitle value)? animateSubtitle,
-    TResult Function(_AnimateBody value)? animateBody,
-    TResult Function(_AnimateDiscoverButton value)? animateDiscoverButton,
-    TResult Function(_SetFilters value)? setFilters,
-    TResult Function(_Discover value)? discover,
+    TResult? Function(_AnimateTitle value)? animateTitle,
+    TResult? Function(_AnimateSubtitle value)? animateSubtitle,
+    TResult? Function(_AnimateBody value)? animateBody,
+    TResult? Function(_AnimateDiscoverButton value)? animateDiscoverButton,
+    TResult? Function(_SetFilters value)? setFilters,
+    TResult? Function(_Discover value)? discover,
   }) {
     return animateDiscoverButton?.call(this);
   }
@@ -627,6 +617,7 @@ abstract class _$$_SetFiltersCopyWith<$Res> {
   factory _$$_SetFiltersCopyWith(
           _$_SetFilters value, $Res Function(_$_SetFilters) then) =
       __$$_SetFiltersCopyWithImpl<$Res>;
+  @useResult
   $Res call({City city, Genre genre, DateRange dateRange});
 
   $CityCopyWith<$Res> get city;
@@ -635,31 +626,30 @@ abstract class _$$_SetFiltersCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_SetFiltersCopyWithImpl<$Res> extends _$SplashEventCopyWithImpl<$Res>
+class __$$_SetFiltersCopyWithImpl<$Res>
+    extends _$SplashEventCopyWithImpl<$Res, _$_SetFilters>
     implements _$$_SetFiltersCopyWith<$Res> {
   __$$_SetFiltersCopyWithImpl(
       _$_SetFilters _value, $Res Function(_$_SetFilters) _then)
-      : super(_value, (v) => _then(v as _$_SetFilters));
+      : super(_value, _then);
 
-  @override
-  _$_SetFilters get _value => super._value as _$_SetFilters;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? city = freezed,
-    Object? genre = freezed,
-    Object? dateRange = freezed,
+    Object? city = null,
+    Object? genre = null,
+    Object? dateRange = null,
   }) {
     return _then(_$_SetFilters(
-      city: city == freezed
+      city: null == city
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
               as City,
-      genre: genre == freezed
+      genre: null == genre
           ? _value.genre
           : genre // ignore: cast_nullable_to_non_nullable
               as Genre,
-      dateRange: dateRange == freezed
+      dateRange: null == dateRange
           ? _value.dateRange
           : dateRange // ignore: cast_nullable_to_non_nullable
               as DateRange,
@@ -667,6 +657,7 @@ class __$$_SetFiltersCopyWithImpl<$Res> extends _$SplashEventCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $CityCopyWith<$Res> get city {
     return $CityCopyWith<$Res>(_value.city, (value) {
       return _then(_value.copyWith(city: value));
@@ -674,6 +665,7 @@ class __$$_SetFiltersCopyWithImpl<$Res> extends _$SplashEventCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $GenreCopyWith<$Res> get genre {
     return $GenreCopyWith<$Res>(_value.genre, (value) {
       return _then(_value.copyWith(genre: value));
@@ -681,6 +673,7 @@ class __$$_SetFiltersCopyWithImpl<$Res> extends _$SplashEventCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $DateRangeCopyWith<$Res> get dateRange {
     return $DateRangeCopyWith<$Res>(_value.dateRange, (value) {
       return _then(_value.copyWith(dateRange: value));
@@ -711,20 +704,18 @@ class _$_SetFilters implements _SetFilters {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SetFilters &&
-            const DeepCollectionEquality().equals(other.city, city) &&
-            const DeepCollectionEquality().equals(other.genre, genre) &&
-            const DeepCollectionEquality().equals(other.dateRange, dateRange));
+            (identical(other.city, city) || other.city == city) &&
+            (identical(other.genre, genre) || other.genre == genre) &&
+            (identical(other.dateRange, dateRange) ||
+                other.dateRange == dateRange));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(city),
-      const DeepCollectionEquality().hash(genre),
-      const DeepCollectionEquality().hash(dateRange));
+  int get hashCode => Object.hash(runtimeType, city, genre, dateRange);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SetFiltersCopyWith<_$_SetFilters> get copyWith =>
       __$$_SetFiltersCopyWithImpl<_$_SetFilters>(this, _$identity);
 
@@ -745,12 +736,12 @@ class _$_SetFilters implements _SetFilters {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? animateTitle,
-    TResult Function()? animateSubtitle,
-    TResult Function()? animateBody,
-    TResult Function()? animateDiscoverButton,
-    TResult Function(City city, Genre genre, DateRange dateRange)? setFilters,
-    TResult Function()? discover,
+    TResult? Function()? animateTitle,
+    TResult? Function()? animateSubtitle,
+    TResult? Function()? animateBody,
+    TResult? Function()? animateDiscoverButton,
+    TResult? Function(City city, Genre genre, DateRange dateRange)? setFilters,
+    TResult? Function()? discover,
   }) {
     return setFilters?.call(city, genre, dateRange);
   }
@@ -789,12 +780,12 @@ class _$_SetFilters implements _SetFilters {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_AnimateTitle value)? animateTitle,
-    TResult Function(_AnimateSubtitle value)? animateSubtitle,
-    TResult Function(_AnimateBody value)? animateBody,
-    TResult Function(_AnimateDiscoverButton value)? animateDiscoverButton,
-    TResult Function(_SetFilters value)? setFilters,
-    TResult Function(_Discover value)? discover,
+    TResult? Function(_AnimateTitle value)? animateTitle,
+    TResult? Function(_AnimateSubtitle value)? animateSubtitle,
+    TResult? Function(_AnimateBody value)? animateBody,
+    TResult? Function(_AnimateDiscoverButton value)? animateDiscoverButton,
+    TResult? Function(_SetFilters value)? setFilters,
+    TResult? Function(_Discover value)? discover,
   }) {
     return setFilters?.call(this);
   }
@@ -839,14 +830,12 @@ abstract class _$$_DiscoverCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_DiscoverCopyWithImpl<$Res> extends _$SplashEventCopyWithImpl<$Res>
+class __$$_DiscoverCopyWithImpl<$Res>
+    extends _$SplashEventCopyWithImpl<$Res, _$_Discover>
     implements _$$_DiscoverCopyWith<$Res> {
   __$$_DiscoverCopyWithImpl(
       _$_Discover _value, $Res Function(_$_Discover) _then)
-      : super(_value, (v) => _then(v as _$_Discover));
-
-  @override
-  _$_Discover get _value => super._value as _$_Discover;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -885,12 +874,12 @@ class _$_Discover implements _Discover {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? animateTitle,
-    TResult Function()? animateSubtitle,
-    TResult Function()? animateBody,
-    TResult Function()? animateDiscoverButton,
-    TResult Function(City city, Genre genre, DateRange dateRange)? setFilters,
-    TResult Function()? discover,
+    TResult? Function()? animateTitle,
+    TResult? Function()? animateSubtitle,
+    TResult? Function()? animateBody,
+    TResult? Function()? animateDiscoverButton,
+    TResult? Function(City city, Genre genre, DateRange dateRange)? setFilters,
+    TResult? Function()? discover,
   }) {
     return discover?.call();
   }
@@ -929,12 +918,12 @@ class _$_Discover implements _Discover {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_AnimateTitle value)? animateTitle,
-    TResult Function(_AnimateSubtitle value)? animateSubtitle,
-    TResult Function(_AnimateBody value)? animateBody,
-    TResult Function(_AnimateDiscoverButton value)? animateDiscoverButton,
-    TResult Function(_SetFilters value)? setFilters,
-    TResult Function(_Discover value)? discover,
+    TResult? Function(_AnimateTitle value)? animateTitle,
+    TResult? Function(_AnimateSubtitle value)? animateSubtitle,
+    TResult? Function(_AnimateBody value)? animateBody,
+    TResult? Function(_AnimateDiscoverButton value)? animateDiscoverButton,
+    TResult? Function(_SetFilters value)? setFilters,
+    TResult? Function(_Discover value)? discover,
   }) {
     return discover?.call(this);
   }
@@ -982,7 +971,8 @@ mixin _$SplashState {
 abstract class $SplashStateCopyWith<$Res> {
   factory $SplashStateCopyWith(
           SplashState value, $Res Function(SplashState) then) =
-      _$SplashStateCopyWithImpl<$Res>;
+      _$SplashStateCopyWithImpl<$Res, SplashState>;
+  @useResult
   $Res call(
       {AnimationState titleAnimationState,
       AnimationState subtitleAnimationState,
@@ -998,73 +988,79 @@ abstract class $SplashStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SplashStateCopyWithImpl<$Res> implements $SplashStateCopyWith<$Res> {
+class _$SplashStateCopyWithImpl<$Res, $Val extends SplashState>
+    implements $SplashStateCopyWith<$Res> {
   _$SplashStateCopyWithImpl(this._value, this._then);
 
-  final SplashState _value;
   // ignore: unused_field
-  final $Res Function(SplashState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? titleAnimationState = freezed,
-    Object? subtitleAnimationState = freezed,
-    Object? bodyAnimationState = freezed,
-    Object? discoverButtonAnimationState = freezed,
-    Object? city = freezed,
-    Object? genre = freezed,
-    Object? dateRange = freezed,
+    Object? titleAnimationState = null,
+    Object? subtitleAnimationState = null,
+    Object? bodyAnimationState = null,
+    Object? discoverButtonAnimationState = null,
+    Object? city = null,
+    Object? genre = null,
+    Object? dateRange = null,
   }) {
     return _then(_value.copyWith(
-      titleAnimationState: titleAnimationState == freezed
+      titleAnimationState: null == titleAnimationState
           ? _value.titleAnimationState
           : titleAnimationState // ignore: cast_nullable_to_non_nullable
               as AnimationState,
-      subtitleAnimationState: subtitleAnimationState == freezed
+      subtitleAnimationState: null == subtitleAnimationState
           ? _value.subtitleAnimationState
           : subtitleAnimationState // ignore: cast_nullable_to_non_nullable
               as AnimationState,
-      bodyAnimationState: bodyAnimationState == freezed
+      bodyAnimationState: null == bodyAnimationState
           ? _value.bodyAnimationState
           : bodyAnimationState // ignore: cast_nullable_to_non_nullable
               as AnimationState,
-      discoverButtonAnimationState: discoverButtonAnimationState == freezed
+      discoverButtonAnimationState: null == discoverButtonAnimationState
           ? _value.discoverButtonAnimationState
           : discoverButtonAnimationState // ignore: cast_nullable_to_non_nullable
               as AnimationState,
-      city: city == freezed
+      city: null == city
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
               as City,
-      genre: genre == freezed
+      genre: null == genre
           ? _value.genre
           : genre // ignore: cast_nullable_to_non_nullable
               as Genre,
-      dateRange: dateRange == freezed
+      dateRange: null == dateRange
           ? _value.dateRange
           : dateRange // ignore: cast_nullable_to_non_nullable
               as DateRange,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $CityCopyWith<$Res> get city {
     return $CityCopyWith<$Res>(_value.city, (value) {
-      return _then(_value.copyWith(city: value));
+      return _then(_value.copyWith(city: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $GenreCopyWith<$Res> get genre {
     return $GenreCopyWith<$Res>(_value.genre, (value) {
-      return _then(_value.copyWith(genre: value));
+      return _then(_value.copyWith(genre: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $DateRangeCopyWith<$Res> get dateRange {
     return $DateRangeCopyWith<$Res>(_value.dateRange, (value) {
-      return _then(_value.copyWith(dateRange: value));
+      return _then(_value.copyWith(dateRange: value) as $Val);
     });
   }
 }
@@ -1076,6 +1072,7 @@ abstract class _$$_SplashStateCopyWith<$Res>
           _$_SplashState value, $Res Function(_$_SplashState) then) =
       __$$_SplashStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {AnimationState titleAnimationState,
       AnimationState subtitleAnimationState,
@@ -1094,51 +1091,50 @@ abstract class _$$_SplashStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_SplashStateCopyWithImpl<$Res> extends _$SplashStateCopyWithImpl<$Res>
+class __$$_SplashStateCopyWithImpl<$Res>
+    extends _$SplashStateCopyWithImpl<$Res, _$_SplashState>
     implements _$$_SplashStateCopyWith<$Res> {
   __$$_SplashStateCopyWithImpl(
       _$_SplashState _value, $Res Function(_$_SplashState) _then)
-      : super(_value, (v) => _then(v as _$_SplashState));
+      : super(_value, _then);
 
-  @override
-  _$_SplashState get _value => super._value as _$_SplashState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? titleAnimationState = freezed,
-    Object? subtitleAnimationState = freezed,
-    Object? bodyAnimationState = freezed,
-    Object? discoverButtonAnimationState = freezed,
-    Object? city = freezed,
-    Object? genre = freezed,
-    Object? dateRange = freezed,
+    Object? titleAnimationState = null,
+    Object? subtitleAnimationState = null,
+    Object? bodyAnimationState = null,
+    Object? discoverButtonAnimationState = null,
+    Object? city = null,
+    Object? genre = null,
+    Object? dateRange = null,
   }) {
     return _then(_$_SplashState(
-      titleAnimationState: titleAnimationState == freezed
+      titleAnimationState: null == titleAnimationState
           ? _value.titleAnimationState
           : titleAnimationState // ignore: cast_nullable_to_non_nullable
               as AnimationState,
-      subtitleAnimationState: subtitleAnimationState == freezed
+      subtitleAnimationState: null == subtitleAnimationState
           ? _value.subtitleAnimationState
           : subtitleAnimationState // ignore: cast_nullable_to_non_nullable
               as AnimationState,
-      bodyAnimationState: bodyAnimationState == freezed
+      bodyAnimationState: null == bodyAnimationState
           ? _value.bodyAnimationState
           : bodyAnimationState // ignore: cast_nullable_to_non_nullable
               as AnimationState,
-      discoverButtonAnimationState: discoverButtonAnimationState == freezed
+      discoverButtonAnimationState: null == discoverButtonAnimationState
           ? _value.discoverButtonAnimationState
           : discoverButtonAnimationState // ignore: cast_nullable_to_non_nullable
               as AnimationState,
-      city: city == freezed
+      city: null == city
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
               as City,
-      genre: genre == freezed
+      genre: null == genre
           ? _value.genre
           : genre // ignore: cast_nullable_to_non_nullable
               as Genre,
-      dateRange: dateRange == freezed
+      dateRange: null == dateRange
           ? _value.dateRange
           : dateRange // ignore: cast_nullable_to_non_nullable
               as DateRange,
@@ -1187,33 +1183,36 @@ class _$_SplashState implements _SplashState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SplashState &&
-            const DeepCollectionEquality()
-                .equals(other.titleAnimationState, titleAnimationState) &&
-            const DeepCollectionEquality()
-                .equals(other.subtitleAnimationState, subtitleAnimationState) &&
-            const DeepCollectionEquality()
-                .equals(other.bodyAnimationState, bodyAnimationState) &&
-            const DeepCollectionEquality().equals(
-                other.discoverButtonAnimationState,
-                discoverButtonAnimationState) &&
-            const DeepCollectionEquality().equals(other.city, city) &&
-            const DeepCollectionEquality().equals(other.genre, genre) &&
-            const DeepCollectionEquality().equals(other.dateRange, dateRange));
+            (identical(other.titleAnimationState, titleAnimationState) ||
+                other.titleAnimationState == titleAnimationState) &&
+            (identical(other.subtitleAnimationState, subtitleAnimationState) ||
+                other.subtitleAnimationState == subtitleAnimationState) &&
+            (identical(other.bodyAnimationState, bodyAnimationState) ||
+                other.bodyAnimationState == bodyAnimationState) &&
+            (identical(other.discoverButtonAnimationState,
+                    discoverButtonAnimationState) ||
+                other.discoverButtonAnimationState ==
+                    discoverButtonAnimationState) &&
+            (identical(other.city, city) || other.city == city) &&
+            (identical(other.genre, genre) || other.genre == genre) &&
+            (identical(other.dateRange, dateRange) ||
+                other.dateRange == dateRange));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(titleAnimationState),
-      const DeepCollectionEquality().hash(subtitleAnimationState),
-      const DeepCollectionEquality().hash(bodyAnimationState),
-      const DeepCollectionEquality().hash(discoverButtonAnimationState),
-      const DeepCollectionEquality().hash(city),
-      const DeepCollectionEquality().hash(genre),
-      const DeepCollectionEquality().hash(dateRange));
+      titleAnimationState,
+      subtitleAnimationState,
+      bodyAnimationState,
+      discoverButtonAnimationState,
+      city,
+      genre,
+      dateRange);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SplashStateCopyWith<_$_SplashState> get copyWith =>
       __$$_SplashStateCopyWithImpl<_$_SplashState>(this, _$identity);
 }

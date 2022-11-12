@@ -1,26 +1,29 @@
-import '../../../util/mocked_backend/mocked_request_handler.dart';
-import '../../../util/mocked_backend/scenario.dart';
+import 'package:mocked_backend/mocked_backend.dart';
+
 import 'load_tracks_response_page.dart';
 
 const _endpoint = '/app/tracks';
 
-final loadTracksFailsScenario = Scenario(handlers: [
+final loadTracksFailsScenario = Scenario([
   MockedRequestHandler(
-    path: _endpoint,
-    result: MockedRequestHandler.returnError(errorCode: 400),
+    requestMatcher: RequestMatcherFactory.path(_endpoint),
+    isSuccess: false,
+    statusCode: 400,
   ),
 ]);
 
-final loadTracksSucceedsScenario = Scenario(handlers: [
+final loadTracksSucceedsScenario = Scenario([
   MockedRequestHandler(
-    path: _endpoint,
-    result: MockedRequestHandler.returnSuccess(data: loadTracksResponsePage),
+    requestMatcher: RequestMatcherFactory.path(_endpoint),
+    isSuccess: true,
+    body: loadTracksResponsePage,
   ),
 ]);
 
-final loadTracksSucceedsWithEmptyListScenario = Scenario(handlers: [
+final loadTracksSucceedsWithEmptyListScenario = Scenario([
   MockedRequestHandler(
-    path: _endpoint,
-    result: MockedRequestHandler.returnSuccess(data: '[]'),
+    requestMatcher: RequestMatcherFactory.path(_endpoint),
+    isSuccess: true,
+    body: '[]',
   ),
 ]);

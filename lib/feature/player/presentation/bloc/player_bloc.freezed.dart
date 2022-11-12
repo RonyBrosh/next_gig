@@ -25,8 +25,8 @@ mixin _$PlayerEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Event event)? load,
-    TResult Function(Event event)? openOnDeezer,
+    TResult? Function(Event event)? load,
+    TResult? Function(Event event)? openOnDeezer,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,8 +44,8 @@ mixin _$PlayerEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Load value)? load,
-    TResult Function(_OpenOnDeezer value)? openOnDeezer,
+    TResult? Function(_Load value)? load,
+    TResult? Function(_OpenOnDeezer value)? openOnDeezer,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,36 +65,41 @@ mixin _$PlayerEvent {
 abstract class $PlayerEventCopyWith<$Res> {
   factory $PlayerEventCopyWith(
           PlayerEvent value, $Res Function(PlayerEvent) then) =
-      _$PlayerEventCopyWithImpl<$Res>;
+      _$PlayerEventCopyWithImpl<$Res, PlayerEvent>;
+  @useResult
   $Res call({Event event});
 
   $EventCopyWith<$Res> get event;
 }
 
 /// @nodoc
-class _$PlayerEventCopyWithImpl<$Res> implements $PlayerEventCopyWith<$Res> {
+class _$PlayerEventCopyWithImpl<$Res, $Val extends PlayerEvent>
+    implements $PlayerEventCopyWith<$Res> {
   _$PlayerEventCopyWithImpl(this._value, this._then);
 
-  final PlayerEvent _value;
   // ignore: unused_field
-  final $Res Function(PlayerEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? event = freezed,
+    Object? event = null,
   }) {
     return _then(_value.copyWith(
-      event: event == freezed
+      event: null == event
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
               as Event,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $EventCopyWith<$Res> get event {
     return $EventCopyWith<$Res>(_value.event, (value) {
-      return _then(_value.copyWith(event: value));
+      return _then(_value.copyWith(event: value) as $Val);
     });
   }
 }
@@ -104,6 +109,7 @@ abstract class _$$_LoadCopyWith<$Res> implements $PlayerEventCopyWith<$Res> {
   factory _$$_LoadCopyWith(_$_Load value, $Res Function(_$_Load) then) =
       __$$_LoadCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({Event event});
 
   @override
@@ -111,20 +117,19 @@ abstract class _$$_LoadCopyWith<$Res> implements $PlayerEventCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LoadCopyWithImpl<$Res> extends _$PlayerEventCopyWithImpl<$Res>
+class __$$_LoadCopyWithImpl<$Res>
+    extends _$PlayerEventCopyWithImpl<$Res, _$_Load>
     implements _$$_LoadCopyWith<$Res> {
   __$$_LoadCopyWithImpl(_$_Load _value, $Res Function(_$_Load) _then)
-      : super(_value, (v) => _then(v as _$_Load));
+      : super(_value, _then);
 
-  @override
-  _$_Load get _value => super._value as _$_Load;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? event = freezed,
+    Object? event = null,
   }) {
     return _then(_$_Load(
-      event: event == freezed
+      event: null == event
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
               as Event,
@@ -150,15 +155,15 @@ class _$_Load implements _Load {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Load &&
-            const DeepCollectionEquality().equals(other.event, event));
+            (identical(other.event, event) || other.event == event));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(event));
+  int get hashCode => Object.hash(runtimeType, event);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_LoadCopyWith<_$_Load> get copyWith =>
       __$$_LoadCopyWithImpl<_$_Load>(this, _$identity);
 
@@ -174,8 +179,8 @@ class _$_Load implements _Load {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Event event)? load,
-    TResult Function(Event event)? openOnDeezer,
+    TResult? Function(Event event)? load,
+    TResult? Function(Event event)? openOnDeezer,
   }) {
     return load?.call(event);
   }
@@ -205,8 +210,8 @@ class _$_Load implements _Load {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Load value)? load,
-    TResult Function(_OpenOnDeezer value)? openOnDeezer,
+    TResult? Function(_Load value)? load,
+    TResult? Function(_OpenOnDeezer value)? openOnDeezer,
   }) {
     return load?.call(this);
   }
@@ -242,6 +247,7 @@ abstract class _$$_OpenOnDeezerCopyWith<$Res>
           _$_OpenOnDeezer value, $Res Function(_$_OpenOnDeezer) then) =
       __$$_OpenOnDeezerCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({Event event});
 
   @override
@@ -250,21 +256,19 @@ abstract class _$$_OpenOnDeezerCopyWith<$Res>
 
 /// @nodoc
 class __$$_OpenOnDeezerCopyWithImpl<$Res>
-    extends _$PlayerEventCopyWithImpl<$Res>
+    extends _$PlayerEventCopyWithImpl<$Res, _$_OpenOnDeezer>
     implements _$$_OpenOnDeezerCopyWith<$Res> {
   __$$_OpenOnDeezerCopyWithImpl(
       _$_OpenOnDeezer _value, $Res Function(_$_OpenOnDeezer) _then)
-      : super(_value, (v) => _then(v as _$_OpenOnDeezer));
+      : super(_value, _then);
 
-  @override
-  _$_OpenOnDeezer get _value => super._value as _$_OpenOnDeezer;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? event = freezed,
+    Object? event = null,
   }) {
     return _then(_$_OpenOnDeezer(
-      event: event == freezed
+      event: null == event
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
               as Event,
@@ -290,15 +294,15 @@ class _$_OpenOnDeezer implements _OpenOnDeezer {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_OpenOnDeezer &&
-            const DeepCollectionEquality().equals(other.event, event));
+            (identical(other.event, event) || other.event == event));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(event));
+  int get hashCode => Object.hash(runtimeType, event);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_OpenOnDeezerCopyWith<_$_OpenOnDeezer> get copyWith =>
       __$$_OpenOnDeezerCopyWithImpl<_$_OpenOnDeezer>(this, _$identity);
 
@@ -314,8 +318,8 @@ class _$_OpenOnDeezer implements _OpenOnDeezer {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Event event)? load,
-    TResult Function(Event event)? openOnDeezer,
+    TResult? Function(Event event)? load,
+    TResult? Function(Event event)? openOnDeezer,
   }) {
     return openOnDeezer?.call(event);
   }
@@ -345,8 +349,8 @@ class _$_OpenOnDeezer implements _OpenOnDeezer {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Load value)? load,
-    TResult Function(_OpenOnDeezer value)? openOnDeezer,
+    TResult? Function(_Load value)? load,
+    TResult? Function(_OpenOnDeezer value)? openOnDeezer,
   }) {
     return openOnDeezer?.call(this);
   }
@@ -388,10 +392,10 @@ mixin _$PlayerState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(Event event)? error,
-    TResult Function()? loading,
-    TResult Function(Event event, List<Track> tracks)? playing,
+    TResult? Function()? initial,
+    TResult? Function(Event event)? error,
+    TResult? Function()? loading,
+    TResult? Function(Event event, List<Track> tracks)? playing,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -413,10 +417,10 @@ mixin _$PlayerState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Error value)? error,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Playing value)? playing,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Playing value)? playing,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -434,16 +438,18 @@ mixin _$PlayerState {
 abstract class $PlayerStateCopyWith<$Res> {
   factory $PlayerStateCopyWith(
           PlayerState value, $Res Function(PlayerState) then) =
-      _$PlayerStateCopyWithImpl<$Res>;
+      _$PlayerStateCopyWithImpl<$Res, PlayerState>;
 }
 
 /// @nodoc
-class _$PlayerStateCopyWithImpl<$Res> implements $PlayerStateCopyWith<$Res> {
+class _$PlayerStateCopyWithImpl<$Res, $Val extends PlayerState>
+    implements $PlayerStateCopyWith<$Res> {
   _$PlayerStateCopyWithImpl(this._value, this._then);
 
-  final PlayerState _value;
   // ignore: unused_field
-  final $Res Function(PlayerState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -454,13 +460,11 @@ abstract class _$$_InitialCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res> extends _$PlayerStateCopyWithImpl<$Res>
+class __$$_InitialCopyWithImpl<$Res>
+    extends _$PlayerStateCopyWithImpl<$Res, _$_Initial>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
-      : super(_value, (v) => _then(v as _$_Initial));
-
-  @override
-  _$_Initial get _value => super._value as _$_Initial;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -496,10 +500,10 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(Event event)? error,
-    TResult Function()? loading,
-    TResult Function(Event event, List<Track> tracks)? playing,
+    TResult? Function()? initial,
+    TResult? Function(Event event)? error,
+    TResult? Function()? loading,
+    TResult? Function(Event event, List<Track> tracks)? playing,
   }) {
     return initial?.call();
   }
@@ -533,10 +537,10 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Error value)? error,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Playing value)? playing,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Playing value)? playing,
   }) {
     return initial?.call(this);
   }
@@ -565,26 +569,26 @@ abstract class _Initial implements PlayerState {
 abstract class _$$_ErrorCopyWith<$Res> {
   factory _$$_ErrorCopyWith(_$_Error value, $Res Function(_$_Error) then) =
       __$$_ErrorCopyWithImpl<$Res>;
+  @useResult
   $Res call({Event event});
 
   $EventCopyWith<$Res> get event;
 }
 
 /// @nodoc
-class __$$_ErrorCopyWithImpl<$Res> extends _$PlayerStateCopyWithImpl<$Res>
+class __$$_ErrorCopyWithImpl<$Res>
+    extends _$PlayerStateCopyWithImpl<$Res, _$_Error>
     implements _$$_ErrorCopyWith<$Res> {
   __$$_ErrorCopyWithImpl(_$_Error _value, $Res Function(_$_Error) _then)
-      : super(_value, (v) => _then(v as _$_Error));
+      : super(_value, _then);
 
-  @override
-  _$_Error get _value => super._value as _$_Error;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? event = freezed,
+    Object? event = null,
   }) {
     return _then(_$_Error(
-      event: event == freezed
+      event: null == event
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
               as Event,
@@ -592,6 +596,7 @@ class __$$_ErrorCopyWithImpl<$Res> extends _$PlayerStateCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $EventCopyWith<$Res> get event {
     return $EventCopyWith<$Res>(_value.event, (value) {
       return _then(_value.copyWith(event: value));
@@ -617,15 +622,15 @@ class _$_Error implements _Error {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Error &&
-            const DeepCollectionEquality().equals(other.event, event));
+            (identical(other.event, event) || other.event == event));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(event));
+  int get hashCode => Object.hash(runtimeType, event);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ErrorCopyWith<_$_Error> get copyWith =>
       __$$_ErrorCopyWithImpl<_$_Error>(this, _$identity);
 
@@ -643,10 +648,10 @@ class _$_Error implements _Error {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(Event event)? error,
-    TResult Function()? loading,
-    TResult Function(Event event, List<Track> tracks)? playing,
+    TResult? Function()? initial,
+    TResult? Function(Event event)? error,
+    TResult? Function()? loading,
+    TResult? Function(Event event, List<Track> tracks)? playing,
   }) {
     return error?.call(event);
   }
@@ -680,10 +685,10 @@ class _$_Error implements _Error {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Error value)? error,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Playing value)? playing,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Playing value)? playing,
   }) {
     return error?.call(this);
   }
@@ -721,13 +726,11 @@ abstract class _$$_LoadingCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LoadingCopyWithImpl<$Res> extends _$PlayerStateCopyWithImpl<$Res>
+class __$$_LoadingCopyWithImpl<$Res>
+    extends _$PlayerStateCopyWithImpl<$Res, _$_Loading>
     implements _$$_LoadingCopyWith<$Res> {
   __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
-      : super(_value, (v) => _then(v as _$_Loading));
-
-  @override
-  _$_Loading get _value => super._value as _$_Loading;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -763,10 +766,10 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(Event event)? error,
-    TResult Function()? loading,
-    TResult Function(Event event, List<Track> tracks)? playing,
+    TResult? Function()? initial,
+    TResult? Function(Event event)? error,
+    TResult? Function()? loading,
+    TResult? Function(Event event, List<Track> tracks)? playing,
   }) {
     return loading?.call();
   }
@@ -800,10 +803,10 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Error value)? error,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Playing value)? playing,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Playing value)? playing,
   }) {
     return loading?.call(this);
   }
@@ -833,31 +836,31 @@ abstract class _$$_PlayingCopyWith<$Res> {
   factory _$$_PlayingCopyWith(
           _$_Playing value, $Res Function(_$_Playing) then) =
       __$$_PlayingCopyWithImpl<$Res>;
+  @useResult
   $Res call({Event event, List<Track> tracks});
 
   $EventCopyWith<$Res> get event;
 }
 
 /// @nodoc
-class __$$_PlayingCopyWithImpl<$Res> extends _$PlayerStateCopyWithImpl<$Res>
+class __$$_PlayingCopyWithImpl<$Res>
+    extends _$PlayerStateCopyWithImpl<$Res, _$_Playing>
     implements _$$_PlayingCopyWith<$Res> {
   __$$_PlayingCopyWithImpl(_$_Playing _value, $Res Function(_$_Playing) _then)
-      : super(_value, (v) => _then(v as _$_Playing));
+      : super(_value, _then);
 
-  @override
-  _$_Playing get _value => super._value as _$_Playing;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? event = freezed,
-    Object? tracks = freezed,
+    Object? event = null,
+    Object? tracks = null,
   }) {
     return _then(_$_Playing(
-      event: event == freezed
+      event: null == event
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
               as Event,
-      tracks: tracks == freezed
+      tracks: null == tracks
           ? _value._tracks
           : tracks // ignore: cast_nullable_to_non_nullable
               as List<Track>,
@@ -865,6 +868,7 @@ class __$$_PlayingCopyWithImpl<$Res> extends _$PlayerStateCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $EventCopyWith<$Res> get event {
     return $EventCopyWith<$Res>(_value.event, (value) {
       return _then(_value.copyWith(event: value));
@@ -897,18 +901,17 @@ class _$_Playing implements _Playing {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Playing &&
-            const DeepCollectionEquality().equals(other.event, event) &&
+            (identical(other.event, event) || other.event == event) &&
             const DeepCollectionEquality().equals(other._tracks, _tracks));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(event),
-      const DeepCollectionEquality().hash(_tracks));
+      runtimeType, event, const DeepCollectionEquality().hash(_tracks));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_PlayingCopyWith<_$_Playing> get copyWith =>
       __$$_PlayingCopyWithImpl<_$_Playing>(this, _$identity);
 
@@ -926,10 +929,10 @@ class _$_Playing implements _Playing {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(Event event)? error,
-    TResult Function()? loading,
-    TResult Function(Event event, List<Track> tracks)? playing,
+    TResult? Function()? initial,
+    TResult? Function(Event event)? error,
+    TResult? Function()? loading,
+    TResult? Function(Event event, List<Track> tracks)? playing,
   }) {
     return playing?.call(event, tracks);
   }
@@ -963,10 +966,10 @@ class _$_Playing implements _Playing {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Error value)? error,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Playing value)? playing,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Playing value)? playing,
   }) {
     return playing?.call(this);
   }

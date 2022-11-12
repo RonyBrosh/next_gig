@@ -40,7 +40,8 @@ mixin _$TicketMasterEvent {
 abstract class $TicketMasterEventCopyWith<$Res> {
   factory $TicketMasterEventCopyWith(
           TicketMasterEvent value, $Res Function(TicketMasterEvent) then) =
-      _$TicketMasterEventCopyWithImpl<$Res>;
+      _$TicketMasterEventCopyWithImpl<$Res, TicketMasterEvent>;
+  @useResult
   $Res call(
       {String id,
       String name,
@@ -51,49 +52,51 @@ abstract class $TicketMasterEventCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$TicketMasterEventCopyWithImpl<$Res>
+class _$TicketMasterEventCopyWithImpl<$Res, $Val extends TicketMasterEvent>
     implements $TicketMasterEventCopyWith<$Res> {
   _$TicketMasterEventCopyWithImpl(this._value, this._then);
 
-  final TicketMasterEvent _value;
   // ignore: unused_field
-  final $Res Function(TicketMasterEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? name = freezed,
-    Object? url = freezed,
-    Object? image = freezed,
-    Object? venue = freezed,
+    Object? id = null,
+    Object? name = null,
+    Object? url = null,
+    Object? image = null,
+    Object? venue = null,
     Object? date = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      url: url == freezed
+      url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
-      image: image == freezed
+      image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String,
-      venue: venue == freezed
+      venue: null == venue
           ? _value.venue
           : venue // ignore: cast_nullable_to_non_nullable
               as String,
-      date: date == freezed
+      date: freezed == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -104,6 +107,7 @@ abstract class _$$_TicketMasterEventCopyWith<$Res>
           $Res Function(_$_TicketMasterEvent) then) =
       __$$_TicketMasterEventCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String id,
       String name,
@@ -115,46 +119,44 @@ abstract class _$$_TicketMasterEventCopyWith<$Res>
 
 /// @nodoc
 class __$$_TicketMasterEventCopyWithImpl<$Res>
-    extends _$TicketMasterEventCopyWithImpl<$Res>
+    extends _$TicketMasterEventCopyWithImpl<$Res, _$_TicketMasterEvent>
     implements _$$_TicketMasterEventCopyWith<$Res> {
   __$$_TicketMasterEventCopyWithImpl(
       _$_TicketMasterEvent _value, $Res Function(_$_TicketMasterEvent) _then)
-      : super(_value, (v) => _then(v as _$_TicketMasterEvent));
+      : super(_value, _then);
 
-  @override
-  _$_TicketMasterEvent get _value => super._value as _$_TicketMasterEvent;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? name = freezed,
-    Object? url = freezed,
-    Object? image = freezed,
-    Object? venue = freezed,
+    Object? id = null,
+    Object? name = null,
+    Object? url = null,
+    Object? image = null,
+    Object? venue = null,
     Object? date = freezed,
   }) {
     return _then(_$_TicketMasterEvent(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      url: url == freezed
+      url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
-      image: image == freezed
+      image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String,
-      venue: venue == freezed
+      venue: null == venue
           ? _value.venue
           : venue // ignore: cast_nullable_to_non_nullable
               as String,
-      date: date == freezed
+      date: freezed == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -203,27 +205,22 @@ class _$_TicketMasterEvent extends _TicketMasterEvent {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TicketMasterEvent &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.url, url) &&
-            const DeepCollectionEquality().equals(other.image, image) &&
-            const DeepCollectionEquality().equals(other.venue, venue) &&
-            const DeepCollectionEquality().equals(other.date, date));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.url, url) || other.url == url) &&
+            (identical(other.image, image) || other.image == image) &&
+            (identical(other.venue, venue) || other.venue == venue) &&
+            (identical(other.date, date) || other.date == date));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(url),
-      const DeepCollectionEquality().hash(image),
-      const DeepCollectionEquality().hash(venue),
-      const DeepCollectionEquality().hash(date));
+  int get hashCode =>
+      Object.hash(runtimeType, id, name, url, image, venue, date);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TicketMasterEventCopyWith<_$_TicketMasterEvent> get copyWith =>
       __$$_TicketMasterEventCopyWithImpl<_$_TicketMasterEvent>(
           this, _$identity);
