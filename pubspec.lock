@@ -453,12 +453,10 @@ packages:
   mocked_backend:
     dependency: "direct dev"
     description:
-      path: "."
-      ref: HEAD
-      resolved-ref: b79f79315a7f8bf0140136d85f1d434f5268d8cc
-      url: "https://github.com/RonyBrosh/mocked_backend.git"
-    source: git
-    version: "0.0.1"
+      name: mocked_backend
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.6"
   mocktail:
     dependency: "direct dev"
     description:
